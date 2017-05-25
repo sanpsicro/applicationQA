@@ -428,7 +428,7 @@ doit2();
 
 
 
-<?
+<?php 
                   $explota_permisos=explode(",",$_SESSION["valid_permisos"]);
 		error_reporting(0);
 
@@ -450,16 +450,16 @@ doit2();
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     	<ul class="nav navbar-nav">
-    <?
+    <?php 
 include('menu2.php');
 	  ?>
       <li>
-      <?
+      <?php 
                 $checa_array1=array_search("cabina",$explota_modulos);
 
 if($checa_array1===FALSE){} else{ ?>
 					<div id="alertas" class="mobilehide">
-	<div id="external_page_content_displayer"></div> </div><? } ?>
+	<div id="external_page_content_displayer"></div> </div><?php   } ?>
       </li>
       	</ul>
         
@@ -468,7 +468,7 @@ if($checa_array1===FALSE){} else{ ?>
       
       <span class="fonter lineh hideextra"> 
             <script type="text/javascript"> function startTime(){ today=new Date(); h=today.getHours(); m=today.getMinutes(); s=today.getSeconds(); m=checkTime(m); s=checkTime(s); document.getElementById('reloj').innerHTML=h+":"+m+":"+s; t=setTimeout('startTime()',500);} function checkTime(i) {if (i<10) {i="0" + i;}return i;} window.onload=function(){startTime();} </script>
-            				  <? 
+            				  <?php 
 $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 echo $dias[date('w')];
 echo" ";
@@ -482,7 +482,7 @@ echo "$ml";
 print date("Y"); 
 ?></span> <span id="reloj" class="fonter lineh hideextra"></span><span class="separador hideextra"></span><span class="separador hideextra"></span><span class="separador hideextra"></span></li>
         <li>
-        <a href="kerberos.php?claes=logout" class="navbar-link menunw"><span class="profileshow"><span class="glyphicon glyphicon-user whiter"></span> &nbsp;&nbsp;&nbsp;<? echo $valid_nombre;?></span> &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off whiter"></span></a></li>
+        <a href="kerberos.php?claes=logout" class="navbar-link menunw"><span class="profileshow"><span class="glyphicon glyphicon-user whiter"></span> &nbsp;&nbsp;&nbsp;<?php  echo $valid_nombre;?></span> &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off whiter"></span></a></li>
         </ul>
     </div>
     
@@ -527,6 +527,6 @@ td { padding: 5px;
           
           
             <!-- comienza contenido -->
-<?
+<?php 
 if(empty($show)){$show=50;}
 ?>
