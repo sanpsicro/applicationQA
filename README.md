@@ -1,2 +1,0 @@
-# applicationQA
-aplicacion de pruebas
