@@ -30,7 +30,7 @@ $condicion="where tmpid = '$tmpid'";
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Vehiculo $condicion order by idVehiculo", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo' <tr>
     <td align="center" bgcolor="#bbbbbb"><strong>Marca</strong></td>
     <td align="center" bgcolor="#bbbbbb"><strong>Modelo</strong></td>
@@ -45,7 +45,7 @@ $bgcolor="#cccccc";
 
 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
 if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
 

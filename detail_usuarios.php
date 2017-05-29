@@ -92,7 +92,7 @@ die();} else{}
 
 <?
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db);
 
@@ -144,7 +144,7 @@ $activo=mysql_result($result,0,"activo");
 
 ###
 
-$db2 = mysqli_connect($host,$username,$pass);
+$db2 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db2);
 
@@ -158,7 +158,7 @@ $departamento=mysql_result($result2,0,"nombre");
 
 ###
 
-$db3 = mysqli_connect($host,$username,$pass);
+$db3 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db3);
 
@@ -172,7 +172,7 @@ $estado=mysql_result($result3,0,"nombreEstado");
 
 ###
 
-$db4 = mysqli_connect($host,$username,$pass);
+$db4 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db4);
 
@@ -184,7 +184,7 @@ $municipio=mysql_result($result4,0,"nombreMunicipio");
 
 ###
 
-$db5 = mysqli_connect($host,$username,$pass);
+$db5 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db5);
 

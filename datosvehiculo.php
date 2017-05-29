@@ -16,9 +16,9 @@ $modelo=strtoupper($modelo);
 $color=strtoupper($color); 
 $placas=strtoupper($placas); 
 #actualizar registro
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET auto_marca='$marca', auto_tipo='$tipo', auto_modelo='$modelo', auto_color='$color', auto_placas='$placas' where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 }
 

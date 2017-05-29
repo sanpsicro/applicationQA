@@ -105,7 +105,7 @@ die();} else{} ?>
 
 <? if($accela=="edit" && isset($capid)){
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db);
 

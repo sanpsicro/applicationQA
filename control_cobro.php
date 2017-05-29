@@ -23,7 +23,7 @@ die();} else{}
 //mysql_select_db($database, $link); 
 		$query="SELECT Pr.nombre,p.conceptor,p.expediente,p.monto,p.status,p.id, p.fecha FROM cobranza p,Provedor Pr WHERE p.id='$cobro'";
 		$result=mysqli_query($query, $link) or die(mysql_error());
-		if (mysql_num_rows($result)){ 
+		if (mysqli_num_rows($result)){ 
 		echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 		                    <tr> 
 				  	                     
@@ -34,7 +34,7 @@ die();} else{}
 							 </tr>';
 
 		$bgcolor="#cccccc";
-		$row = @mysql_fetch_array($result); 
+		$row = @mysqli_fetch_array($result); 
 		 $fpagado = strtotime($row["fecha"]);
 if ($row["fecha"]!="0000-00-00 00:00:00") {$fpago=date("d/m/Y", $fpagado);} else{$fpago="Sin pago";}
 		if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
@@ -157,10 +157,10 @@ if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagoa=date("Y", $fpagado);} else{$f
 		$result=mysqli_query($query)or die(mysql_error());
 		#echo print_r($_SESSION);
 		#echo $query;
-		if (mysql_num_rows($result)){ 
+		if (mysqli_num_rows($result)){ 
 
 		$bgcolor="#cccccc";
-		  while ($row = mysql_fetch_array($result)) { 
+		  while ($row = mysqli_fetch_array($result)) { 
 		if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
 		  echo'<tr>
 					  <td bgcolor="#cccccc"><table width=100% cellpadding=0 cellspacing=0 border=0><tr><td><strong>Fecha:</strong>'.$row['fecha'].'</td><td align=right><b>'.$row['usuario'].'</b></td></tr></table></td>

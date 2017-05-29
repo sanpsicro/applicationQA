@@ -67,9 +67,9 @@ $link = mysqli_connect($host, $username, $pass);
 
 $result = mysqli_query("SELECT * FROM modcap WHERE parent=0 $activos order by nombre", $link); 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 $checa_array1=array_search("dir".$row["cid"],$explota_permisos);
 $checa_array2=array_search("cap_a",$explota_permisos);
 if ($checa_array1===FALSE && $checa_array2===FALSE) { echo ''; } else{

@@ -50,7 +50,7 @@ if($display=="no validados"){$condicion="Where status='no validado'";}
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * from usuarios_contrato $condicion order by $sort", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<form action="process.php?module=validaciones&idPoliza='.$idPoliza.'&accela=validar" method="post" name="frm">
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
                  <tr>
@@ -65,7 +65,7 @@ echo'<form action="process.php?module=validaciones&idPoliza='.$idPoliza.'&accela
   </tr>';
 
 $bgcolor="#cccccc";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}
 
 $fecha1=$row["fecha_inicio"];

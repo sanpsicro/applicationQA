@@ -330,7 +330,7 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
 
 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 
 
@@ -351,7 +351,7 @@ $bgcolor="#cccccc";
 
 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}
 

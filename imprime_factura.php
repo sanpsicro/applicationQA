@@ -8,7 +8,7 @@ window.print();
 </script>
 <?
 include('conf.php');
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Cliente where idCliente = '$idCliente'",$db);
 $nombre=mysql_result($result,0,"nombre");
@@ -22,17 +22,17 @@ $municipio=mysql_result($result,0,"fisMunicipio");
 $estado=mysql_result($result,0,"fisEstado");
 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$db);
 $colonia=mysql_result($result,0,"nombreColonia");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db);
 $estado=mysql_result($result,0,"nombreEstado");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db);
 $municipio=mysql_result($result,0,"nombreMunicipio");

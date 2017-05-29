@@ -47,7 +47,7 @@ document.onpaste=new Function("return false");
   </tr>
 <tr><td>
 <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Provedor where id = '$id'",$db);
 $nombre=mysql_result($result,0,"nombre");
@@ -88,17 +88,17 @@ $observaciones=mysql_result($result,0,"observaciones");
 $lastuser=mysql_result($result,0,"lastuser");
 $lastdate=mysql_result($result,0,"lastdate");
 ###
-$db2 = mysqli_connect($host,$username,$pass);
+$db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
 $result2 = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db2);
 $municipio=mysql_result($result2,0,"NombreMunicipio");
 ###
-$db2 = mysqli_connect($host,$username,$pass);
+$db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
 $result2 = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db2);
 $estado=mysql_result($result2,0,"NombreEstado");
 ###
-$db6 = mysqli_connect($host,$username,$pass);
+$db6 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db6);
 $result6 = mysqli_query("SELECT * from TipoVenta where idVenta = '$tipoVenta'",$db6);
 $tipoVenta=mysql_result($result6,0,"nombre");
@@ -132,7 +132,7 @@ $tipoVenta=mysql_result($result6,0,"nombre");
 	$trabajos=explode(",",$trabajos);
 	foreach($trabajos as $chamba){
 	
-$db2 = mysqli_connect($host,$username,$pass);
+$db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
 $result2 = mysqli_query("SELECT * from servicios where id = '$chamba'",$db2);
 $servicio=mysql_result($result2,0,"servicio");
@@ -149,7 +149,7 @@ sort($areas_cobertura);
 foreach($areas_cobertura as $mikarea){
 if($mikarea!="" && $mikarea!=" "){
 $apart=explode("-",$mikarea);
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Estado where idEstado = '$apart[0]'",$db);
 $estado=mysql_result($result,0,"NombreEstado");

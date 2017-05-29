@@ -65,7 +65,7 @@ if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
 $result = mysqli_query("SELECT cobranza.id, cobranza.conceptor, cobranza.monto, cobranza.status, general.expediente, general.idCliente, Cliente.nombre FROM cobranza,general,Cliente WHERE cobranza.expediente=general.expediente AND general.idCliente=Cliente.idCliente $condicion", $link); 
-$total = mysql_num_rows($result);
+$total = mysqli_num_rows($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $query="SELECT cobranza.id, cobranza.conceptor, cobranza.monto, cobranza.status, general.expediente, general.idCliente, Cliente.nombre, cobranza.fecha FROM cobranza,general,Cliente WHERE cobranza.expediente=general.expediente AND general.idCliente=Cliente.idCliente $condicion order by $sort LIMIT $reg1, $tampag";
@@ -78,7 +78,7 @@ $_GET["show"]=$show;
 #
   echo paginacion($pag, $total, $tampag, "mainframe.php?module=control_cobranza&quest=$quest&sort=$sort&show=$show&pag=");
 #
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                     <tr> 
                      <td align=middle class="titles"><b>Cliente</b></td>				  	                     
@@ -89,7 +89,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                      <td align=middle class="titles"><b>Operaciones</b></td></tr>';
 
 $bgcolor="#cccccc";
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
  $fpagado = strtotime($row["fecha"]);
 if ($row["fecha"]!="0000-00-00 00:00:00") {$fpago=date("d/m/Y", $fpagado);} else{$fpago="Sin pago";}
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}  echo'                <tr> 

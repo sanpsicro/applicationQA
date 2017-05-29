@@ -70,7 +70,7 @@ $result = mysqli_query("SELECT p.expediente from pagos p
 							LEFT JOIN Provedor pr 
 								ON (p.proveedor=pr.id) $condicion 
 							GROUP BY expediente", $link); 
-$total = mysql_num_rows($result);
+$total = mysqli_num_rows($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $query="SELECT p.expediente, s.servicio, pr.nombre, SUM(p.monto) as monto, p.status, BIT_AND( p.status ) as todos_pagados , BIT_OR( p.status ) as alguno_pagado 
@@ -93,7 +93,7 @@ $_GET["show"]=$show;
 #
   echo paginacion($pag, $total, $tampag, "mainframe.php?module=control_pagos&quest=$quest&sort=$sort&show=$show&pag=");
 #
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" class="mainTable" cellspacing="3" cellpadding="3">
                     <tr> 
                      <td align=middle class="titles">Expediente</td>				  	                     
@@ -105,7 +105,7 @@ echo'<table width="100%" border="0" class="mainTable" cellspacing="3" cellpaddin
 					 </tr>';
 
 $bgcolor="#cccccc";
-  while ($row = mysql_fetch_array($result)) { 
+  while ($row = mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}
 if($row['todos_pagados']== '1')
 	$status = "Pagado";

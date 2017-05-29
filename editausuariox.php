@@ -1,8 +1,8 @@
 <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $usuario=mysql_result($result,0,"usuario");
 $num_cliente=mysql_result($result,0,"num_cliente");
 $num_siniestro=mysql_result($result,0,"num_siniestro");

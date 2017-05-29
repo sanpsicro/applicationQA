@@ -20,8 +20,8 @@ $link = mysqli_connect($host, $username, $pass);
 				
 				
 				
-				if (mysql_num_rows($result)){ 
-					  while ($row = @mysql_fetch_array($result)) { 
+				if (mysqli_num_rows($result)){ 
+					  while ($row = @mysqli_fetch_array($result)) { 
 					  
 
 				$cel=$row["tel_reporta"];

@@ -1,17 +1,17 @@
 <?
 include 'conf.php';
 if(isset($clave) && isset ($id_proveedor) && isset ($idcaso)){
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET asignacion_proveedor=now(), contacto='0000-00-00 00:00:00', arribo='0000-00-00 00:00:00', proveedor='$id_proveedor' where contrato='$clave' AND id='$idcaso'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE seguimiento_juridico SET proveedor='$id_proveedor' where general='$idcaso'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 
 ################################
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Provedor where id = '$id_proveedor'",$db);
 $nombre=mysql_result($result,0,"nombre");

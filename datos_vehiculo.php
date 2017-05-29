@@ -1,8 +1,8 @@
  <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $auto_marca=mysql_result($result,0,"auto_marca");
 $auto_tipo=mysql_result($result,0,"auto_tipo");
 $auto_modelo=mysql_result($result,0,"auto_modelo");

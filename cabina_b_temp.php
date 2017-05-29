@@ -40,7 +40,7 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,lo
 echo microtime_float();
 $inicio=microtime_float();
  echo "<!-- $inicio -->";
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT nombre,contrato,fecha_inicio,productos,status,marca,modelo,tipo,color,placas,serie,fecha_inicio,fecha_vencimiento from usuarios_contrato where clave='$clave'",$db);
 $nombre=mysql_result($result,0,"nombre");
@@ -63,7 +63,7 @@ $fecha_vencimiento="$diav/$mesv/$aniov";
 $fechafinal="$diav-$mesv-$aniov";
 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT idCliente from Poliza where numPoliza ='$contrato'",$db);
 $idcliente=mysql_result($result,0,"idCliente");
@@ -78,8 +78,8 @@ $idcliente=mysql_result($result,0,"idCliente");
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT idPoliza,fechaInicio,Poliza.status as polstat,Poliza.productos,Poliza.numPoliza,Cliente.nombre,numPoliza from Poliza left join Cliente on (Cliente.idCliente = Poliza.idCliente) where Poliza.numPoliza='$contrato'", $link); 
-if (mysql_num_rows($result)){ 
-while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+while ($row = @mysqli_fetch_array($result)) { 
 
 echo'<table width="100%" border="0" cellpadding=3 cellspacing=3>
   <tr>
@@ -217,7 +217,7 @@ echo'<table width="100%" border="0" cellpadding=0 cellspacing=0>
 <tr><td width=50% align="middle" bgcolor="#cccccc"><b>Alta de servicio</b></td><td width=50% align="middle" bgcolor="#cccccc"><b>Histórico de servicios</b></td></tr>
 <tr><td width=50% valign=top><table width="100%" border="0" cellpadding=3 cellspacing=3>';
 foreach($productos_poliza as $losprod){
-$dbp = mysqli_connect($host,$username,$pass);
+$dbp = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbp);
 $resultp = mysqli_query("SELECT producto,servicios,numeventos from productos where id = '$losprod'",$dbp);
 $producto=mysql_result($resultp,0,"producto");
@@ -229,7 +229,7 @@ $servicios_poliza=explode(",",$servicios);
 $incidencias_poliza=explode(",",$incidencias);
 $in=0;
 foreach($servicios_poliza as $losserv){
-$dbs = mysqli_connect($host,$username,$pass);
+$dbs = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbs);
 $results = mysqli_query("SELECT id,servicio from servicios where id = '$losserv'",$dbs);
 $servicio=mysql_result($results,0,"servicio");
@@ -237,7 +237,7 @@ $service=mysql_result($results,0,"id");
 
 ##startcomprobacion
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select COUNT(id) as cantidad from general where contrato = '$clave' AND servicio='$service' AND status!='cancelado al momento'");
+$result=mysqli_query("$database","select COUNT(id) as cantidad from general where contrato = '$clave' AND servicio='$service' AND status!='cancelado al momento'");
 $cuantosson=mysql_result($result,0,"cantidad");
 mysql_free_result($result);
 ##endcomprobacion
@@ -264,8 +264,8 @@ $link = mysqli_connect($host, $username, $pass);
 #$result = mysqli_query("SELECT  general.id, general.expediente, servicios.servicio from general left join servicios on (general.servicio = servicios.id) where contrato = '$clave' AND status!='cancelado al momento'"); 
 $result = mysqli_query("SELECT  g.id, g.expediente, s.servicio from general g,servicios s WHERE g.servicio = s.id AND contrato = '$clave' AND status!='cancelado al momento' ORDER BY id DESC LIMIT 5"); 
 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<tr> 
 <td bgcolor="#bbbbbb" align=middle>'.$row["expediente"].'</td>
 <td bgcolor="#bbbbbb" align=middle>'.$row["servicio"].'</td>

@@ -16,7 +16,7 @@ window.print();
 </script>
 </head><body onLoad="printpage()">
 <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Poliza where idPoliza = '$idPoliza'",$db);
 $idCliente=mysql_result($result,0,"idCliente");
@@ -33,17 +33,17 @@ $productos=mysql_result($result,0,"productos");
 $tipoventa=mysql_result($result,0,"tipoVenta");
 
 ###
-$db2 = mysqli_connect($host,$username,$pass);
+$db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
 $result2 = mysqli_query("SELECT * from Empleado where idEmpleado = '$idEmpleado'",$db2);
 $vendedor=mysql_result($result2,0,"nombre");
 ###
-$db2 = mysqli_connect($host,$username,$pass);
+$db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
 $result2 = mysqli_query("SELECT * from Cliente where idCliente = '$idCliente'",$db2);
 $cliente=mysql_result($result2,0,"nombre");
 ###
-$db7 = mysqli_connect($host,$username,$pass);
+$db7 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db7);
 $result7 = mysqli_query("SELECT * from productos where id = '$productos'",$db7);
 $elproducto=mysql_result($result7,0,"producto");
@@ -84,7 +84,7 @@ echo'</table>';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM usuarios_contrato where idPoliza='$idPoliza' order by inciso", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width=100% cellpadding=3 cellspacing=3><tr><td colspan=8 align=middle><b>Usuarios</b></td></tr>
 <tr>
     <td align="center" bgcolor="#bbbbbb"><strong>Contrato</strong></td>
@@ -95,7 +95,7 @@ echo'<table width=100% cellpadding=3 cellspacing=3><tr><td colspan=8 align=middl
     <td align="center" bgcolor="#bbbbbb"><strong>Fecha de vencimiento</strong></td>
   </tr>';
 $bgcolor="#cccccc";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 
 $fecha1=$row["fecha_inicio"];
 $fecha1=explode(" ",$fecha1);

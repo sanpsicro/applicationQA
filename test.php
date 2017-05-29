@@ -238,9 +238,9 @@ the returned xml has the following structure
 	$link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT idCliente, nombre FROM Cliente where nombre like '%$input%'", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 #$aResults[] = array( "id"=>($i+1) ,"idCliente"=>htmlspecialchars($row["idCliente"]), "nombre"=>htmlspecialchars($row["nombre"]) );
 echo "<rs id=\"".$i."\" info=\"\">".$row["nombre"]."</rs>";
 $i=$i+1;

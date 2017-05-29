@@ -2,7 +2,7 @@
 	include 'conf.php';
 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $resultz = mysqli_query("SELECT * from Empleado where idEmpleado = '$_GET[opcion]'",$db);
 $consecutivo=mysql_result($resultz,0,"indexPoliza");

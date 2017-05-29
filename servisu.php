@@ -8,9 +8,9 @@ $ubicacion=utf8_decode($ubicacion);
 $ciudad=utf8_decode($ciudad); 
 $observaciones=utf8_decode($observaciones); 
 #actualizar registro
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET ubicacion_requiere='$ubicacion', ubicacion_estado='$estado', ubicacion_municipio='$municipio', ubicacion_colonia='$colonia', ubicacion_ciudad='$ciudad', observaciones='$observaciones' where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 
 include('servisuservisu.php'); 

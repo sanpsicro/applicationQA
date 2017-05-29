@@ -1,6 +1,6 @@
 <?
- if(!isset($BUSRES)||(@mysql_num_rows($BUSRES) <= 1)){
-     if(isset($_GET["BtnBuscar"])&&(@mysql_num_rows($BUSRES) <= 0)){
+ if(!isset($BUSRES)||(@mysqli_num_rows($BUSRES) <= 1)){
+     if(isset($_GET["BtnBuscar"])&&(@mysqli_num_rows($BUSRES) <= 0)){
          echo "No existen registros con los datos Seleccionados";
      }
  }

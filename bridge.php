@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST[quest]) && isset($_GET[module])){header("Location: mainframe.php?module=$_GET[module]&quest=$_POST[quest]");}
+if(isset($_POST[quest]) && isset($_GET[module])){header("Location: mainframe.php?module=". $_GET['module']. "&quest=".$_POST['quest']);}
 
 if(isset($_POST[sort]) && isset($_POST[show]) && isset($_GET[module]) && isset($_POST[tipoCont]))
 {

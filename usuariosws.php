@@ -62,7 +62,7 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
 #
   echo paginar($pag, $total, $tampag, "mainframe.php?module=usuariosws&quest=$quest&sort=$sort&show=$show&pag=");
 #
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3" class="mainTable">
                     <tr> 
 	                  <td align=middle class="titles">Usuario</th>	
@@ -74,7 +74,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3" class="mainT
                       <td align=middle class="titles">Contrato 5</th>					  
                       <td align=middle class="titles">Operación</th></tr>';
 $bgcolor="#cccccc";
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}
   echo'                <tr> 
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$row["usuario"].'</td>

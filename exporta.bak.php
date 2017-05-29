@@ -52,7 +52,7 @@ $elegidos=implode(" or ",$serebro);
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT Empleado.idEmpleado, Empleado.usuario, Empleado.nombre, Empleado.cargo, Empleado.direccion, Empleado.telefonoCasa, Empleado.telefonoCelular, Empleado.nextel, Empleado.idnextel, Empleado.email, Empleado.activo, Departamento.nombre as depa, Colonia.NombreColonia, Municipio.NombreMunicipio, Estado.NombreEstado from Empleado left join Departamento on (Empleado.idDepartamento = Departamento.idDepartamento) left join Colonia on (Empleado.colonia = Colonia.idColonia) left join Municipio on (Empleado.municipio = Municipio.idMunicipio) left join Estado on (Empleado.estado = Estado.idEstado) Where $elegidos order by $ordena $updown", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
 $cuenta_columnas=0;
@@ -74,7 +74,7 @@ $checa_array1=array_search("mail",$campos); if($checa_array1===FALSE){} else{$wo
 $cuenta_columnas=0;
 $cuenta_filas=1;
 
-while ($row = @mysql_fetch_array($result)) {
+while ($row = @mysqli_fetch_array($result)) {
 if($row["activo"]=="1"){$row["activo"]="activo";}
 else{$row["activo"]="inactivo";}
 
@@ -120,7 +120,7 @@ $elegidos=implode(" or ",$serebro);
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT Empleado.idEmpleado, Empleado.usuario, Empleado.nombre, Empleado.cargo, Empleado.direccion, Empleado.telefonoCasa, Empleado.telefonoCelular, Empleado.nextel, Empleado.idnextel, Empleado.email, Empleado.activo, Departamento.nombre as depa, Colonia.NombreColonia, Municipio.NombreMunicipio, Estado.NombreEstado from Empleado left join Departamento on (Empleado.idDepartamento = Departamento.idDepartamento) left join Colonia on (Empleado.colonia = Colonia.idColonia) left join Municipio on (Empleado.municipio = Municipio.idMunicipio) left join Estado on (Empleado.estado = Estado.idEstado) Where $elegidos order by $ordena $updown", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
 
@@ -144,7 +144,7 @@ $checa_array1=array_search("mail",$campos); if($checa_array1===FALSE){} else{ech
 echo'</tr>';
 
 $bgcolor="#eeeeee";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#eeeeee"){$bgcolor="#dedede";} else{$bgcolor="#eeeeee";}
 
 if($row["activo"]=="1"){$row["activo"]="activo";}
@@ -198,7 +198,7 @@ $elegidos=implode(" or ",$serebro);
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT Cliente.idCliente, Cliente.usuario, Cliente.nombre, Cliente.rfc, Cliente.contacto, Cliente.fisCalle, Cliente.fisNumero, Cliente.fisCiudad,  Cliente.calle, Cliente.numero, Cliente.ciudad, Cliente.telefonoCasa, Cliente.telefonoOficina, Cliente.fax, Cliente.extension, Cliente.telefonoCelular, Cliente.nextel, Cliente.TelNextel, Cliente.email, Cliente.status, Cliente.tipocliente, Empleado.nombre as vendedor, Colonia.NombreColonia as colonia, Municipio.NombreMunicipio as municipio, Estado.NombreEstado as estado, TipoCliente.nombre as tipo, colfiscal.NombreColonia as fiscolonia, munifiscal.NombreMunicipio as fismunicipio, estadfiscal.NombreEstado as fisestado from Cliente left join Empleado on (Cliente.idEmpleado = Empleado.idEmpleado) left join Colonia on (Cliente.colonia = Colonia.idColonia) left join Municipio on (Cliente.municipio = Municipio.idMunicipio) left join Estado on (Cliente.estado = Estado.idEstado)  left join TipoCliente on (Cliente.tipocliente = TipoCliente.idTipoCliente) left join Colonia as colfiscal on (Cliente.fisColonia = colfiscal.idColonia)  left join Municipio as munifiscal on (Cliente.fisMunicipio = munifiscal.idMunicipio) left join Estado as estadfiscal on (Cliente.fisEstado = estadfiscal.idEstado) Where $elegidos order by $ordena $updown", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
 $cuenta_columnas=0;
@@ -233,7 +233,7 @@ $checa_array1=array_search("tipocliente",$campos); if($checa_array1===FALSE){} e
 $cuenta_columnas=0;
 $cuenta_filas=1;
 
-while ($row = @mysql_fetch_array($result)) {
+while ($row = @mysqli_fetch_array($result)) {
 
 
 
@@ -291,7 +291,7 @@ $elegidos=implode(" or ",$serebro);
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT Cliente.idCliente, Cliente.usuario, Cliente.nombre, Cliente.rfc, Cliente.contacto, Cliente.fisCalle, Cliente.fisNumero, Cliente.fisCiudad,  Cliente.calle, Cliente.numero, Cliente.ciudad, Cliente.telefonoCasa, Cliente.telefonoOficina, Cliente.fax, Cliente.extension, Cliente.telefonoCelular, Cliente.nextel, Cliente.TelNextel, Cliente.email, Cliente.status, Cliente.tipocliente, Empleado.nombre as vendedor, Colonia.NombreColonia as colonia, Municipio.NombreMunicipio as municipio, Estado.NombreEstado as estado, TipoCliente.nombre as tipo, colfiscal.NombreColonia as fiscolonia, munifiscal.NombreMunicipio as fismunicipio, estadfiscal.NombreEstado as fisestado from Cliente left join Empleado on (Cliente.idEmpleado = Empleado.idEmpleado) left join Colonia on (Cliente.colonia = Colonia.idColonia) left join Municipio on (Cliente.municipio = Municipio.idMunicipio) left join Estado on (Cliente.estado = Estado.idEstado)  left join TipoCliente on (Cliente.tipocliente = TipoCliente.idTipoCliente) left join Colonia as colfiscal on (Cliente.fisColonia = colfiscal.idColonia)  left join Municipio as munifiscal on (Cliente.fisMunicipio = munifiscal.idMunicipio) left join Estado as estadfiscal on (Cliente.fisEstado = estadfiscal.idEstado) Where $elegidos order by $ordena $updown", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
 
@@ -328,7 +328,7 @@ $checa_array1=array_search("tipocliente",$campos); if($checa_array1===FALSE){} e
 echo'</tr>';
 
 $bgcolor="#eeeeee";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#eeeeee"){$bgcolor="#dedede";} else{$bgcolor="#eeeeee";}
 
 
@@ -395,7 +395,7 @@ $link = mysqli_connect($host, $username, $pass);
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT general.id, general.contrato, general.fecha_recepcion, general.fecha_suceso, general.apertura_expediente, general.asignacion_proveedor, general.contacto, general.arribo, general.reporta, general.tel_reporta, general.num_contrato, general.convenio, general.expediente, general.num_cliente, general.num_siniestro, general.ajustador, general.aseguradora, general.aseg_poliza, general.aseg_inciso, general.aseg_vigencia_inicio, general.aseg_vigencia_termino, general.aseg_cobertura, general.aseg_monto, general.asegurado, general.asegurado_y_o, general.aseg_tel1, general.aseg_tel2, general.aseg_domicilio, general.aseg_cp, general.aseg_ciudad, general.aseg_conductor, general.aseg_conductor_tel1, general.aseg_conductor_tel2, general.usuario, general.reporte_cliente, general.tecnico_solicitado, general.motivo_servicio, general.auto_marca, general.auto_tipo, general.auto_modelo, general.auto_color, general.auto_placas, general.tipo_asistencia_vial, general.tipo_asistencia_medica, general.domicilio_cliente, general.domicilio_sustituto, general.ubicacion_requiere, general.ubicacion_ciudad, general.destino_servicio, general.destino_ciudad, general.formato_carta, general.instructivo, general.costo, general.observaciones, general.status, general.banderazo, general.blindaje, general.maniobras, general.espera, general.otro, Empleado.nombre as empleado, servicios.servicio, Cliente.nombre as cliente, Estado.NombreEstado as ubica_estado, Municipio.NombreMunicipio as ubica_municipio, Colonia.NombreColonia as ubica_colonia, estaddestino.NombreEstado as dest_estado, munidestino.NombreMunicipio as dest_municipio, coldestino.NombreColonia as dest_colonia, Provedor.nombre as proveedor, colaseg.NombreColonia as asegur_colonia, muniaseg.NombreMunicipio as asegur_municipio, estadaseg.NombreEstado as asegur_estado, seguimiento_juridico.situacion_juridica, seguimiento_juridico.detencion, seguimiento_juridico.liberacion, seguimiento_juridico.fianzas_conductor, seguimiento_juridico.situacion_vehiculo, seguimiento_juridico.detencion_vehiculo, seguimiento_juridico.liberacion_vehiculo, seguimiento_juridico.fianzas_vehiculo, seguimiento_juridico.conductor as conductor_juridico, seguimiento_juridico.telconductor, seguimiento_juridico.telconductor2, seguimiento_juridico.siniestro as siniestro_juridico, seguimiento_juridico.averiguacion, seguimiento_juridico.autoridad, seguimiento_juridico.fecha_accidente, seguimiento_juridico.numlesionados, seguimiento_juridico.numhomicidios, seguimiento_juridico.delitos, seguimiento_juridico.danos, seguimiento_juridico.lesiones, seguimiento_juridico.homicidios, seguimiento_juridico.ataques, seguimiento_juridico.robo, seguimiento_juridico.descripcion, seguimiento_juridico.lugar_hechos, seguimiento_juridico.referencias, seguimiento_juridico.ciudad, seguimiento_juridico.ajustador as ajustador_juridico, seguimiento_juridico.telajustador, seguimiento_juridico.telajustador2, seguimiento_juridico.monto_danos, seguimiento_juridico.monto_deducible, seguimiento_juridico.resp_ajustador, seguimiento_juridico.resp_abogado, seguimiento_juridico.resp_perito, seguimiento_juridico.resp_consignado, seguimiento_juridico.juzgado, seguimiento_juridico.causa_penal, seguimiento_juridico.procesado, seguimiento_juridico.final_forma_pago, seguimiento_juridico.final_comentario, seguimiento_juridico.final_monto, seguimiento_juridico.final_estado, coljur.NombreColonia as jurid_colonia, munijur.NombreMunicipio as jurid_municipio, estadjur.NombreEstado as jurid_estado, pagos.monto
  from general left join Empleado on (general.idEmpleado = Empleado.idEmpleado) left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join Estado on (general.ubicacion_estado = Estado.idEstado) left join Municipio on (general.ubicacion_municipio = Municipio.idMunicipio) left join Colonia on (general.ubicacion_colonia = Colonia.idColonia) left join Estado as estaddestino on (general.destino_estado = estaddestino.idEstado) left join Municipio as munidestino on (general.destino_municipio = munidestino.idMunicipio) left join Colonia as coldestino on (general.destino_colonia = coldestino.idColonia) left join Provedor on (general.proveedor = Provedor.id) left join Colonia as colaseg on (general.aseg_colonia = colaseg.idColonia)  left join Municipio as muniaseg on (general.aseg_municipio = muniaseg.idMunicipio) left join Estado as estadaseg on (general.aseg_estado = estadaseg.idEstado) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join Colonia as coljur on (seguimiento_juridico.colonia = coljur.idColonia)  left join Municipio as munijur on (seguimiento_juridico.municipio = munijur.idMunicipio) left join Estado as estadjur on (seguimiento_juridico.estado = estadjur.idEstado) left join pagos on (general.expediente = pagos.expediente) Where $elegidos order by $ordena $updown", $link); 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
 $cuenta_columnas=0;
@@ -567,7 +567,7 @@ $checa_array1=array_search("total",$campos); if($checa_array1===FALSE){} else{$w
 $cuenta_columnas=0;
 $cuenta_filas=1;
 
-while ($row = @mysql_fetch_array($result)) {
+while ($row = @mysqli_fetch_array($result)) {
 
 
 

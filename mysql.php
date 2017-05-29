@@ -23,11 +23,11 @@ class MySQL{
   }
   /*----------------------------------------------------------*/	
  function fetch_array($consulta){ 
-  return mysql_fetch_array($consulta);
+  return mysqli_fetch_array($consulta);
   }
  /*----------------------------------------------------------*/	
  function num_rows($consulta){ 
-  return mysql_num_rows($consulta);
+  return mysqli_num_rows($consulta);
   }
  /*----------------------------------------------------------*/	 
  function getTotalConsultas(){

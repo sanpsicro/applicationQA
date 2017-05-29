@@ -32,13 +32,13 @@ if($checa_arrayx===FALSE)
 
 <?
 include 'conf.php';
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Poliza where numPoliza = '$contrato'",$db);
 $idPoliza=mysql_result($result,0,"idPoliza");
 $producto=mysql_result($result,0,"productos");
 $resultX = mysqli_query("SELECT inciso from usuarios_contrato where idPoliza = '$idPoliza' order by inciso desc LIMIT 1",$db);
-if (mysql_num_rows($resultX)) { 
+if (mysqli_num_rows($resultX)) { 
 $ultimoinciso=mysql_result($resultX,0,"inciso");
 } else { $ultimoinciso="SIN INCISOS";  }
 

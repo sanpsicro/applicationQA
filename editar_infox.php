@@ -8,14 +8,14 @@ if($_GET['caso'] == "infox")
 
 ##startcomprobacion
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from general where id = '$_GET[id]'");
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from general where id = '$_GET[id]'");
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $servicio_solicitado=mysql_result($result,0,"servicio");
 $contrato=mysql_result($result,0,"contrato");
 $cliente=mysql_result($result,0,"idCliente");
@@ -42,25 +42,25 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
             <td width="200" bgcolor="#ffffff"><strong>Servicio solicitado:</strong></td>
             <td width="100" bgcolor="#ffffff"><select name="servicio_solicitado" id="servicio_solicitado">'; 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from usuarios_contrato where clave = '$contrato'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $producto=mysql_result($result,0,"productos");
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from productos where id = '$producto'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $servicios_enlatados=mysql_result($result,0,"servicios");
 }
 $servicios=explode(",",$servicios_enlatados);
 foreach($servicios as $servo){
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from servicios where id = '$servo'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $servicename=mysql_result($result,0,"servicio");
 }
 
@@ -251,14 +251,14 @@ if($_GET[caso]=="siniestro"){
 
 ##startcomprobacion
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from seguimiento_juridico where general = '$_GET[id]'");
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from seguimiento_juridico where general = '$_GET[id]'");
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $conductor=mysql_result($result,0,"conductor");
 $telconductor1=mysql_result($result,0,"telconductor");
 $telconductor2=mysql_result($result,0,"telconductor2");
@@ -454,8 +454,8 @@ echo'</select>';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idEstado"].'"';
      if($estado==$row["idEstado"]){echo"selected";}
 	 echo'>'.$row["NombreEstado"].'</option>';
@@ -473,8 +473,8 @@ echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$estado'order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idMunicipio"].'"';
      if($municipio==$row["idMunicipio"]){echo"selected";}
 	 echo'>'.$row["NombreMunicipio"].'</option>';
@@ -494,8 +494,8 @@ echo'  <select name="colonia" id="colonia">';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$municipio'order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idColonia"].'"';
      if($colonia==$row["idColonia"]){echo"selected";}
 	 echo'>'.$row["NombreColonia"].'</option>';

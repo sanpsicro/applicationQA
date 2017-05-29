@@ -13,26 +13,26 @@ $causa_penal=utf8_decode($causa_penal);
 
 
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from seguimiento_juridico where general = '$id'");
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from seguimiento_juridico where general = '$id'");
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
 #actualizar registro
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE seguimiento_juridico SET resp_ajustador='$crt_ajustador', resp_abogado='$crt_abogado', resp_perito='$crt_perito', resp_consignado='$crt_consignado', juzgado='$juzgado', causa_penal='$causa_penal', procesado='$procesado' where general='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 }
 else{
 #crear registro
-mysqli_connect($host,$username,$pass);
-mysql_db_query($database,"INSERT INTO `seguimiento_juridico` (`resp_ajustador`, `resp_abogado`, `resp_perito`, `resp_consignado`, `juzgado`, `causa_penal`, `procesado`) VALUES ('$crt_ajustador', '$crt_abogado', '$crt_perito', '$crt_consignado', '$juzgado', '$causa_penal', '$procesado')"); 
+mysqli_connect($host,$username,$pass,$database);
+mysqli_query($database,"INSERT INTO `seguimiento_juridico` (`resp_ajustador`, `resp_abogado`, `resp_perito`, `resp_consignado`, `juzgado`, `causa_penal`, `procesado`) VALUES ('$crt_ajustador', '$crt_abogado', '$crt_perito', '$crt_consignado', '$juzgado', '$causa_penal', '$procesado')"); 
 }
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $resp_ajustador=mysql_result($result,0,"resp_ajustador");
 $resp_abogado=mysql_result($result,0,"resp_abogado");
 $resp_perito=mysql_result($result,0,"resp_perito");

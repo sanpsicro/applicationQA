@@ -1,4 +1,4 @@
-<?
+<?php 
 $checa_arrayx=array_search("clientes",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -7,24 +7,24 @@ if(empty($sort)){$sort="nombre";}
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">clientes</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("3_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">clientes</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("3_a",$explota_permisos);
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_clientes&accela=new">Nuevo Cliente</a> ]'; } ?></td></tr></table></td></tr>
  <tr> 
      <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
-            <form name="form1" method="post" action="bridge.php?module=clientes<? if($quest!=""){echo"&quest=$quest";}?>">
+            <form name="form1" method="post" action="bridge.php?module=clientes" <?php  if($quest!=""){echo"&quest=". $quest ;} ?> >
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por página</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por página</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por página</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por página</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por página</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por página</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="nombre"  <? if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>
-<!--                 <option value="status" <? if($sort=="status"){echo"selected";}?>>Ordenar por status</option>				-->
+                <option value="nombre"  <?php  if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>
+<!--                 <option value="status" <?php  if($sort=="status"){echo"selected";}?>>Ordenar por status</option>				-->
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
@@ -37,7 +37,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_clientes&accela=n
       </td>
   </tr>
 <tr><td>
-<?php
+<?php 
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo Cliente Registrado</div></b><p>';}
 if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos del Cliente actualizados</div></b><p>';}
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Cliente eliminado</div></b><p>';}
@@ -48,7 +48,7 @@ else{$subcondicion1="";
 $subcondicion2="";}
 if(isset($quest) && $quest!=""){
 echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
-$condicion="where (nombre like '%$quest%' OR rfc like '%$quest%' OR estado like '%$quest%' OR municipio like '%$quest%' OR email like '%$quest%' OR usuario like '%$quest%') $subcondicion1";
+$condicion="where (nombre like '%".$quest."%' OR rfc like '%".$quest."%' OR estado like '%".$quest."%' OR municipio like '%".$quest."%' OR email like '%".$quest."%' OR usuario like '%".$quest."%') " . $subcondicion1;
 }
 else{$condicion=$subcondicion2;}
 $link = mysqli_connect($host, $username, $pass,$database); 

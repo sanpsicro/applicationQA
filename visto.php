@@ -3,7 +3,7 @@ session_start();
 $unixid = time(); 
 include('conf.php'); 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE clientacora SET visto=1 where id='$idmensaje'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 ?>

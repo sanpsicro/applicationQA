@@ -243,7 +243,7 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
 
 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 
 

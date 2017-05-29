@@ -34,7 +34,7 @@ include('conf.php');
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM quicktips where activo=1 order by visto ASC LIMIT 1", $link); 
- if (mysql_num_rows($result))
+ if (mysqli_num_rows($result))
     {
 $id=mysql_result($result,0,"id");		
 $titulo=mysql_result($result,0,"titulo");

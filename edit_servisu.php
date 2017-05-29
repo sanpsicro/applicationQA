@@ -1,9 +1,9 @@
 <script type="text/javascript" src="subcombo.js"></script>
 <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $servicio=mysql_result($result,0,"servicio");
 $motivo_servicio=mysql_result($result,0,"motivo_servicio");
 $tecnico_solicitado=mysql_result($result,0,"tecnico_solicitado");
@@ -25,7 +25,7 @@ $observaciones=mysql_result($result,0,"observaciones");
 }
 
 $result = mysqli_query("SELECT * from servicios where id = '$servicio'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $servicio=mysql_result($result,0,"servicio");
 $campos=mysql_result($result,0,"campos");
 $camposex=explode(",",$campos);
@@ -198,8 +198,8 @@ if($checa_array===FALSE){} else{
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idEstado"].'"';
      if($ubicacion_estado==$row["idEstado"]){echo"selected";}
 	 echo'>'.$row["NombreEstado"].'</option>';
@@ -222,8 +222,8 @@ echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$ubicacion_estado'order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   
       		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);								
@@ -257,8 +257,8 @@ echo'  <select name="colonia" id="colonia">';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$ubicacion_municipio'order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
       		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);								
 
@@ -316,8 +316,8 @@ if($checa_array===FALSE){} else{
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idEstado"].'"';
      if($destino_estado==$row["idEstado"]){echo"selected";}
 	 echo'>'.$row["NombreEstado"].'</option>';
@@ -341,8 +341,8 @@ echo'  <select name="municipio2" id="municipio2" onChange=\'cargaContenido(this.
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$destino_estado'order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   
       		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);								
@@ -376,8 +376,8 @@ echo'  <select name="colonia2" id="colonia2">';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$destino_municipio'order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
       		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);								
 

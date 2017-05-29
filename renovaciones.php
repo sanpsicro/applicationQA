@@ -40,7 +40,7 @@ $result = mysqli_query($query) or die(mysql_error() + "<br>Consulta: $query");
 	<th>Fecha de Vencimiento</th>
 </tr>
 <?
-while($row=mysql_fetch_array($result))
+while($row=mysqli_fetch_array($result))
 {
 	$class = ($i++%2==0) ? "even" : "odd";
 	echo 	"<tr class='$class'>".	

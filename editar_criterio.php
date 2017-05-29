@@ -5,10 +5,10 @@ include('conf.php');
 
 
 ##
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $resp_ajustador=mysql_result($result,0,"resp_ajustador");
 $resp_abogado=mysql_result($result,0,"resp_abogado");
 $resp_perito=mysql_result($result,0,"resp_perito");

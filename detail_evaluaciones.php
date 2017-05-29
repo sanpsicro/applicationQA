@@ -44,7 +44,7 @@ die();} else{}
 <tr><td>
 
 <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from evaluaciones where general = '$id'",$db);
 $result2 = mysqli_query("SELECT servicio,proveedor from general where id = '$id'",$db);

@@ -1,7 +1,7 @@
 <?
 session_start();
  include 'conf.php';
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from usuarios_contrato where id = '$id'",$db);
 $fecha_inicio=mysql_result($result,0,"fecha_inicio");
@@ -39,22 +39,22 @@ $cel=mysql_result($result,0,"cel");
 $nextel=mysql_result($result,0,"nextel");
 $mail=mysql_result($result,0,"mail");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from TipoVenta where idVenta = '$tipoventa'",$db);
 $tipoventa=mysql_result($result,0,"nombre");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db);
 $estado=mysql_result($result,0,"nombreEstado");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db);
 $municipio=mysql_result($result,0,"nombreMunicipio");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$db);
 $colonia=mysql_result($result,0,"nombreColonia");

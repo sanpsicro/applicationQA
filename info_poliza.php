@@ -1,8 +1,8 @@
  <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $aseguradora=mysql_result($result,0,"aseguradora");
 $ajustador=mysql_result($result,0,"ajustador");
 $telid=mysql_result($result,0,"telid");
@@ -27,22 +27,22 @@ $aseg_conductor_tel1=mysql_result($result,0,"aseg_conductor_tel1");
 $aseg_conductor_tel2=mysql_result($result,0,"aseg_conductor_tel2");
 }
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Estado where idEstado = '$aseg_estado'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $aseg_estado=mysql_result($result,0,"NombreEstado");
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Municipio where idMunicipio = '$aseg_municipio'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $aseg_municipio=mysql_result($result,0,"NombreMunicipio");
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Colonia where idColonia = '$aseg_colonia'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $aseg_colonia=mysql_result($result,0,"NombreColonia");
 }
 

@@ -53,18 +53,18 @@ $cp=strtoupper($cp);
 $cp=strtoupper($cp); 
 }
 if($_POST['caso'] == "editar"){
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE terceros SET tipo='$tipo', nombre='$nombre', dano_lesion='$dano_lesion', tel1='$telx1', tel2='$telx2', descripcion='$descripcion_dano', comentarios='$comentarios', marca_vehiculo='$marca_vehiculo',tipo_vehiculo='$tipo_vehiculo',modelo_vehiculo='$modelo_vehiculo',color_vehiculo='$color_vehiculo',placas_vehiculo='$placas_vehiculo',aseguradora='$aseguradora',poliza='$poliza',inciso='$inciso',siniestro='$siniestro',abogado='$abogado',empresa='$empresa',tel1_abogado='$tel1_abogado',tel2_abogado='$tel2_abogado', calle='$calle', colonia='$colonia', cp='$cp', ciudad='$ciudad', municipio='$municipio', estado='$estado' where id='$idtercero'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 if($_POST['caso'] == "nuevo"){
-mysqli_connect($host,$username,$pass);
-mysql_db_query($database,"INSERT INTO `terceros` (`general`, `tipo`, `nombre`, `dano_lesion`, `tel1`, `tel2`, `descripcion`, `comentarios`, `marca_vehiculo`, `tipo_vehiculo`, `modelo_vehiculo`, `color_vehiculo`, `placas_vehiculo`, `aseguradora`, `poliza`, `inciso`, `siniestro`, `abogado`, `empresa`, `tel1_abogado`, `tel2_abogado`, `calle`, `colonia`, `cp`, `ciudad`, `municipio`, `estado`) VALUES ('$id', '$tipo', '$nombre', '$dano_lesion', '$telx1', '$telx2', '$descripcion_dano', '$comentarios', '$marca_vehiculo', '$tipo_vehiculo', '$modelo_vehiculo', '$color_vehiculo', '$placas_vehiculo', '$aseguradora', '$poliza', '$inciso', '$siniestro', '$abogado', '$empresa', '$tel1_abogado', '$tel2_abogado', '$calle', '$colonia', '$cp', '$ciudad', '$municipio', '$estado')"); 
+mysqli_connect($host,$username,$pass,$database);
+mysqli_query($database,"INSERT INTO `terceros` (`general`, `tipo`, `nombre`, `dano_lesion`, `tel1`, `tel2`, `descripcion`, `comentarios`, `marca_vehiculo`, `tipo_vehiculo`, `modelo_vehiculo`, `color_vehiculo`, `placas_vehiculo`, `aseguradora`, `poliza`, `inciso`, `siniestro`, `abogado`, `empresa`, `tel1_abogado`, `tel2_abogado`, `calle`, `colonia`, `cp`, `ciudad`, `municipio`, `estado`) VALUES ('$id', '$tipo', '$nombre', '$dano_lesion', '$telx1', '$telx2', '$descripcion_dano', '$comentarios', '$marca_vehiculo', '$tipo_vehiculo', '$modelo_vehiculo', '$color_vehiculo', '$placas_vehiculo', '$aseguradora', '$poliza', '$inciso', '$siniestro', '$abogado', '$empresa', '$tel1_abogado', '$tel2_abogado', '$calle', '$colonia', '$cp', '$ciudad', '$municipio', '$estado')"); 
 }
 if($_GET['caso'] == "borrar"){
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="Delete From terceros Where id ='$idtercero' and general='$id'";
-mysql_db_query("$database",$sSQL);
+mysqli_query("$database",$sSQL);
 }
 ##############################################################################
 header("Location: mainframe.php?module=detail_seguimiento&id=$id");

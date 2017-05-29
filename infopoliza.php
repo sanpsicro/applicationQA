@@ -51,9 +51,9 @@ $aseg_conductor_tel2=strtoupper($aseg_conductor_tel2);
 
 
 #actualizar registro
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET ajustador='$ajustador', telid='$telid', aseguradora='$aseguradora', aseg_poliza='$aseg_poliza', aseg_inciso='$aseg_inciso', aseg_vigencia_inicio='$aseg_vigencia_inicio', aseg_vigencia_termino='$aseg_vigencia_termino', aseg_cobertura='$aseg_cobertura', aseg_monto='$aseg_monto', asegurado='$asegurado', asegurado_y_o='$aseg_y_o', aseg_tel1='$aseg_tel1', aseg_tel2='$aseg_tel2', aseg_domicilio='$aseg_domicilio', aseg_cp='$aseg_cp', aseg_estado='$aseg_estado', aseg_municipio='$aseg_municipio', aseg_colonia='$aseg_colonia', aseg_ciudad='$aseg_ciudad', aseg_conductor='$aseg_conductor', aseg_conductor_tel1='$aseg_conductor_tel1', aseg_conductor_tel2='$aseg_conductor_tel2' where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 /*
 

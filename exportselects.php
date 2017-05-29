@@ -170,7 +170,7 @@ function checkradiocomp($cadena,$coincidencia)
 	return "";
 }
 /*
-$link = mysqli_connect($host,$username,$pass);
+$link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$link);
 $result = mysqli_query($link,"SELECT * FROM $tabla",$link);
 $row = mysql_fetch_assoc($result);
@@ -292,8 +292,8 @@ echo'>Todos</option>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database); 
 $result = mysqli_query($link,"SELECT * FROM Departamento order by nombre"); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idDepartamento"].'"';
      if($departamento==$row["idDepartamento"]){echo"selected";}
 	 echo'>'.$row["nombre"].'</option>';
@@ -1491,7 +1491,7 @@ if($tablax=="notas_remision"){
 ?>    
 <?
 /*
-$link = mysqli_connect($host,$username,$pass);
+$link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$link);
 $result = mysqli_query($link,"SELECT * FROM $tabla",$link);
 $row = mysql_fetch_assoc($result);
@@ -1629,8 +1629,8 @@ echo'>Todos</option>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database); 
 $result = mysqli_query($link,"SELECT * FROM TipoCliente order by idTipoCliente"); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idTipoCliente"].'"';
      if($tipo_cliente==$row["idTipoCliente"]){echo"selected";}
 	 echo'>'.$row["nombre"].'</option>';
@@ -1846,8 +1846,8 @@ echo'>Todos</option>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database); 
 $result = mysqli_query($link,"SELECT * FROM Empleado where tipo='vendedor' order by nombre"); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idEmpleado"].'"';
      if($vendedor==$row["idEmpleado"]){echo"selected";}
 	 echo'>'.$row["nombre"].'</option>';
@@ -1859,8 +1859,8 @@ echo'>Todos</option>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database); 
 $result = mysqli_query($link,"SELECT * FROM TipoCliente order by idTipoCliente"); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idTipoCliente"].'"';
      if($tipo_cliente==$row["idTipoCliente"]){echo"selected";}
 	 echo'>'.$row["nombre"].'</option>';
@@ -2543,8 +2543,8 @@ echo'>Todos</option>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database); 
 $result = mysqli_query($link,"SELECT * FROM servicios order by servicio"); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["id"].'"';
      if($serviciof==$row["id"]){echo"selected";}
 	 echo'>'.$row["servicio"].'</option>';
@@ -2556,8 +2556,8 @@ echo'>Todos</option>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database); 
 $result = mysqli_query($link,"SELECT * FROM Empleado order by nombre"); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idEmpleado"].'"';
      if($empleadof==$row["idEmpleado"]){echo"selected";}
 	 echo'>'.$row["nombre"].'</option>';

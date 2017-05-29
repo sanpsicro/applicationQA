@@ -2,7 +2,7 @@
 function consulta_mysql($query)
 {
   include "conf.php";
-  mysqli_connect($host,$username,$pass);
+  mysqli_connect($host,$username,$pass,$database);
   //mysql_select_db($database);
   
   $result=mysqli_query($query) or die (mysql_error()."<br><b>Consulta:</b> $query");
@@ -24,7 +24,7 @@ function select($datos,$tabla,$condiciones="")
 function getDato($dato,$tabla,$condicion)
 {
 	$result=consulta_mysql("SELECT $dato FROM $tabla $condicion");
-	if(mysql_num_rows($result)!=0)
+	if(mysqli_num_rows($result)!=0)
 		return mysql_result($result,0,$dato);
 	else
 		return "";

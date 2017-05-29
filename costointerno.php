@@ -7,14 +7,14 @@ if(isset($_POST[id]) && $_POST[id]!=""){
 
 #-------------------->------------------------>
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from pagos where expediente = '$expediente'");
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from pagos where expediente = '$expediente'");
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
 #actualizar registro
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE pagos SET  proveedor='$proveedor', monto='$monto' where expediente='$expediente' LIMIT 1";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 else{
 #crear registro
@@ -42,8 +42,8 @@ switch($dia_semana)
 
 
 
-mysqli_connect($host,$username,$pass);
-mysql_db_query($database,"INSERT INTO `pagos` (`proveedor`, `conceptor`, `monto`, `status`, `expediente`,`fecha_corte`,`fecha_pago`) 
+mysqli_connect($host,$username,$pass,$database);
+mysqli_query($database,"INSERT INTO `pagos` (`proveedor`, `conceptor`, `monto`, `status`, `expediente`,`fecha_corte`,`fecha_pago`) 
 		VALUES ('$proveedor', 'Pago por servicio', '$monto', '0', '$expediente',NOW(),'$sig_viernes')"); 
 }
 #####################################################
@@ -51,26 +51,26 @@ mysql_db_query($database,"INSERT INTO `pagos` (`proveedor`, `conceptor`, `monto`
 
 $totalCobranza=$banderazo+$blindaje+$maniobras+$espera+$otro;
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from cobranza where expediente = '$expediente'")or die(mysql_error());
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from cobranza where expediente = '$expediente'")or die(mysql_error());
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
 #actualizar registro
 $sSQL="UPDATE cobranza SET  proveedor='$proveedor', monto='$totalCobranza' where expediente='$expediente'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 else{
 #crear registro
-mysql_db_query($database,"INSERT INTO `cobranza` (`proveedor`, `conceptor`, `monto`, `status`, `expediente`) VALUES ('$proveedor', '$expediente', '$totalCobranza', 'no pagado', '$expediente')"); 
+mysqli_query($database,"INSERT INTO `cobranza` (`proveedor`, `conceptor`, `monto`, `status`, `expediente`) VALUES ('$proveedor', '$expediente', '$totalCobranza', 'no pagado', '$expediente')"); 
 }
 
 ####################################################
 
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET banderazo='$banderazo', blindaje='$blindaje', maniobras='$maniobras', espera='$espera', otro='$otro', total='$total' where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 
 #-------------------->------------------------>

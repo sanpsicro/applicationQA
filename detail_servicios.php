@@ -87,7 +87,7 @@ die();} else{}
 <tr><td>
 
 <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from servicios where id = '$id'",$db);
 $servicio=mysql_result($result,0,"servicio");

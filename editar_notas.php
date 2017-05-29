@@ -10,10 +10,10 @@ if(empty($fecha[0])){$fecha[0]=date("Y");}
 if($_GET['caso'] == "editar")
 {
 ##
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from notas_legal where general='$_GET[id]' AND  id= '$_GET[idnota]'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $fecha=mysql_result($result,0,"fecha");
 $fecha=explode("-",$fecha);
 $etapa=mysql_result($result,0,"etapa");

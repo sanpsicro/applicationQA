@@ -100,7 +100,7 @@ echo'
   </tr>';
 
 $bgcolor="#cccccc";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 if($row["activo"]=="1"){$row["activo"]="activo";}
@@ -194,7 +194,7 @@ if($tablax=="validaciones"){
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 
@@ -283,7 +283,7 @@ where usuarios_contrato.clave like '%$numcon%' $intervalo  group by usuarios_con
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 
@@ -343,7 +343,7 @@ if($tablax=="pagos"){
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 
@@ -419,7 +419,7 @@ else{$subcondicionx7="";}
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 	echo "<tr style='background-color: $bgcolor;'>";
 	  
@@ -499,7 +499,7 @@ else{$subcondicionx7="";}
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 	echo "<tr style='background-color: $bgcolor;'>";
 	  
@@ -616,7 +616,7 @@ else{$condicion2p="";}
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 
@@ -726,7 +726,7 @@ else{$subcondicion2="";}
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 	echo "<tr style='background-color: $bgcolor;'>";
 	  
@@ -789,7 +789,7 @@ if($tablax=="comisiones"){
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 	echo "<tr style='background-color: $bgcolor;'>";
 	  
@@ -855,7 +855,7 @@ if($tablax=="facturas"){
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 	echo "<tr style='background-color: $bgcolor;'>";
 	  
@@ -920,7 +920,7 @@ if($tablax=="notas_remision"){
 	  </tr>';
 
 	$bgcolor="#cccccc";
-	while ($row = @mysql_fetch_array($result)) { 
+	while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 	echo "<tr style='background-color: $bgcolor;'>";
 	  
@@ -1049,7 +1049,7 @@ echo'
   </tr>';
 
 $bgcolor="#cccccc";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 if($row["activo"]=="1"){$row["activo"]="activo";}
@@ -1238,7 +1238,7 @@ echo'
   </tr>';
 
 $bgcolor="#cccccc";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 if($row["activo"]=="1"){$row["activo"]="activo";}
@@ -1500,7 +1500,7 @@ echo'
   </tr>';
 
 $bgcolor="#cccccc";
-while ($row = @mysql_fetch_array($result)) { 
+while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 
 
 if($row["activo"]=="1"){$row["activo"]="activo";}
@@ -1668,12 +1668,12 @@ $linkh = mysqli_connect($host, $username, $pass,$database);
 //mysql_select_db($database, $linkh); 
 $resulth = mysqli_query($link,"SELECT * FROM bitacora where general='$row[id]' order by fecha desc", $linkh); 
 if (mysqli_num_rows($resulth)){ 
-  while ($rowh = @mysql_fetch_array($resulth)) { 
+  while ($rowh = @mysqli_fetch_array($resulth)) { 
 $fexar=$rowh["fecha"];
 $fexaz=explode(" ",$fexar);
 $fexa=explode("-",$fexaz[0]);
 $userh=$rowh["usuario"];
-$dblx = mysqli_connect($host,$username,$pass);
+$dblx = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dblx);
 $resultlx = mysqli_query($link,"SELECT * from Empleado where idEmpleado='$userx'",$dblx);
 if (mysqli_num_rows($resultlx)){ 
@@ -1703,13 +1703,13 @@ $linkh = mysqli_connect($host, $username, $pass,$database);
 //mysql_select_db($database, $linkh); 
 $resulth = mysqli_query($link,"SELECT * FROM notas_legal where general='$row[id]' order by fecha desc", $linkh); 
 if (mysqli_num_rows($resulth)){ 
-  while ($rowh = @mysql_fetch_array($resulth)) { 
+  while ($rowh = @mysqli_fetch_array($resulth)) { 
 $fexar=$rowh["fecha"];
 $fexaz=explode(" ",$fexar);
 $fexa=explode("-",$fexaz[0]);
 
 #$userh=$rowh["usuario"];
-#$dblx = mysqli_connect($host,$username,$pass);
+#$dblx = mysqli_connect($host,$username,$pass,$database);
 #//mysql_select_db($database,$dblx);
 #$resultlx = mysqli_query($link,"SELECT * from Empleado where idEmpleado='$userx'",$dblx);
 #if (mysqli_num_rows($resultlx)){ 

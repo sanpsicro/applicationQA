@@ -12,9 +12,9 @@ $link = mysqli_connect($host, $username, $pass);
 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio", $link); 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
   		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);		
@@ -51,9 +51,9 @@ $link = mysqli_connect($host, $username, $pass);
 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia", $link); 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
     		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);					
@@ -82,9 +82,9 @@ $link = mysqli_connect($host, $username, $pass);
 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio", $link); 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
   		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);				
@@ -113,9 +113,9 @@ $link = mysqli_connect($host, $username, $pass);
 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia", $link); 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
     		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
 			  		$row["NombreColonia"]=substr($row[NombreColonia],0,25);					

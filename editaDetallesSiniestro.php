@@ -1,14 +1,14 @@
 <script type="text/javascript" src="subcombo.js"></script>
 <?
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from seguimiento_juridico where general = '$_POST[id]'");
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from seguimiento_juridico where general = '$_POST[id]'");
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $conductor=mysql_result($result,0,"conductor");
 $telconductor1=mysql_result($result,0,"telconductor");
 $telconductor2=mysql_result($result,0,"telconductor2");
@@ -195,8 +195,8 @@ echo'</select>';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idEstado"].'"';
      if($estado==$row["idEstado"]){echo"selected";}
 	 echo'>'.$row["NombreEstado"].'</option>';
@@ -213,8 +213,8 @@ echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$estado'order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
     		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);				
   echo'<option value="'.$row["idMunicipio"].'"';
@@ -235,8 +235,8 @@ echo'  <select name="colonia" id="colonia">';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$municipio'order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
     		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);							
   echo'<option value="'.$row["idColonia"].'"';

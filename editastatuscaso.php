@@ -3,10 +3,10 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $status=mysql_result($result,0,"status");
 }
 echo'<form method="post" onsubmit="FAjax(\'statuscaso.php?&flim-flam=new Date().getTime()\',\'statuscaso\',\'id='.$_GET['id'].'&caso='.$_GET['caso'].'&status=\'+document.getElementById(\'status\').value,\'POST\'); return false" action="#">';

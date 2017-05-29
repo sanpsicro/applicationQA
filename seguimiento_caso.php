@@ -97,17 +97,28 @@ document.location = delUrl;
 }
 
 </script>
-<?
-mysqli_connect($host,$username,$pass);
+<?php 
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
+$link = mysqli_connect($host,$username,$pass,$databse);
 //mysql_select_db($database);
-$result=mysqli_query("SELECT tipo FROM servicios,general where general.servicio=servicios.id AND general.id='$id'") or die(mysql_error());
-$tipoServicio=mysql_result($result,0,"tipo");
+$result=mysqli_query($link, "SELECT tipo FROM servicios,general where general.servicio=servicios.id AND general.id='".$id."'") or die(mysql_error());
+$tipoServicio=mysqli_result($result,0,"tipo");
 ?>
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Seguimiento</span></td>
-      <td width=100 class="blacklinks"><? if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=$id'>Detalle</a> | <a href='?module=conclusion_caso&id=$id'>Conclusión</a>";}?></td>
+      <td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=".$id."' >Detalle</a> | <a href='?module=conclusion_caso&id=".$id."'>Conclusión</a>";}?></td>
 
 
 
@@ -134,33 +145,33 @@ $tipoServicio=mysql_result($result,0,"tipo");
 
 	  <div id="criterio">	 
 
-<?
+<?php 
 
 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db);
 
-$result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from seguimiento_juridico where general = '".$id."'");
 
 #echo $id;
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-$resp_ajustador=mysql_result($result,0,"resp_ajustador");
+$resp_ajustador=mysqli_result($result,0,"resp_ajustador");
 
-$resp_abogado=mysql_result($result,0,"resp_abogado");
+$resp_abogado=mysqli_result($result,0,"resp_abogado");
 
-$resp_perito=mysql_result($result,0,"resp_perito");
+$resp_perito=mysqli_result($result,0,"resp_perito");
 
-$resp_consignado=mysql_result($result,0,"resp_consignado");
+$resp_consignado=mysqli_result($result,0,"resp_consignado");
 
-$juzgado=mysql_result($result,0,"juzgado");
+$juzgado=mysqli_result($result,0,"juzgado");
 
-$causa_penal=mysql_result($result,0,"causa_penal");
+$causa_penal=mysqli_result($result,0,"causa_penal");
 
-$procesado=mysql_result($result,0,"procesado");
+$procesado=mysqli_result($result,0,"procesado");
 
 }	  
 
@@ -170,37 +181,37 @@ $procesado=mysql_result($result,0,"procesado");
 
     <tr>
 
-      <td width="25%" bgcolor="#ffffff"><strong>Ajustador:</strong> <? echo $resp_ajustador; ?></td>
+      <td width="25%" bgcolor="#ffffff"><strong>Ajustador:</strong> <?php  echo $resp_ajustador; ?></td>
 
-      <td width="25%" bgcolor="#ffffff"><strong>Abogado:</strong> <? echo $resp_abogado; ?></td>
+      <td width="25%" bgcolor="#ffffff"><strong>Abogado:</strong> <?php  echo $resp_abogado; ?></td>
 
-      <td width="25%" bgcolor="#ffffff"><strong>Perito:</strong> <? echo $resp_perito; ?></td>
+      <td width="25%" bgcolor="#ffffff"><strong>Perito:</strong> <?php  echo $resp_perito; ?></td>
 
-      <td width="25%" bgcolor="#ffffff"><strong>Consignado:</strong> <? echo $resp_consignado; ?></td>
+      <td width="25%" bgcolor="#ffffff"><strong>Consignado:</strong> <?php  echo $resp_consignado; ?></td>
 
     </tr>
 
     <tr>
 
-      <td colspan="4" bgcolor="#ffffff"><strong>Juzgado:</strong> <? echo $juzgado; ?></td>
+      <td colspan="4" bgcolor="#ffffff"><strong>Juzgado:</strong> <?php  echo $juzgado; ?></td>
 
       </tr>
 
     <tr>
 
-      <td colspan="4" bgcolor="#ffffff"><strong>Causa penal: </strong> <? echo $causa_penal; ?></td>
+      <td colspan="4" bgcolor="#ffffff"><strong>Causa penal: </strong> <?php  echo $causa_penal; ?></td>
 
       </tr>
 
     <tr>
 
-      <td bgcolor="#ffffff"><strong>Procesado:</strong> <? echo $procesado; ?></td>
+      <td bgcolor="#ffffff"><strong>Procesado:</strong> <?php  echo $procesado; ?></td>
 
       <td bgcolor="#ffffff">&nbsp;</td>
 
       <td bgcolor="#ffffff">&nbsp;</td>
 
-      <td align="right" bgcolor="#ffffff"><strong>[ <a href="javascript:FAjax('editar_criterio.php?id=<? echo $id;?>&flim-flam=new Date().getTime()','criterio','','get');">Editar</a> ]</strong></td>
+      <td align="right" bgcolor="#ffffff"><strong>[ <a href="javascript:FAjax('editar_criterio.php?id=<?php  echo $id;?>&flim-flam=new Date().getTime()','criterio','','get');">Editar</a> ]</strong></td>
 
     </tr>
 
@@ -220,7 +231,7 @@ $procesado=mysql_result($result,0,"procesado");
 
           <td><strong>Notas</strong></td>
 
-          <td align="right"><b>[ <a href="javascript:FAjax('editar_notas.php?id=<? echo $id; ?>&amp;caso=nuevo&amp;flim-flam=new Date().getTime();','notas','','get');">Agregar Nota</a> ]</b></td>
+          <td align="right"><b>[ <a href="javascript:FAjax('editar_notas.php?id=<?php  echo $id; ?>&amp;caso=nuevo&amp;flim-flam=new Date().getTime();','notas','','get');">Agregar Nota</a> ]</b></td>
 
         </tr>
 
@@ -232,17 +243,17 @@ $procesado=mysql_result($result,0,"procesado");
 <td valign="top">
 	  <div id="notas">
 
-	  <?
+	  <?php 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 
 //mysql_select_db($database, $link); 
 
-$result = mysqli_query("SELECT * FROM notas_legal where general='$id' order by fecha desc", $link); 
+$result = mysqli_query($link,"SELECT * FROM notas_legal where general='".$id."' order by fecha desc"); 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
   
 
@@ -314,15 +325,15 @@ echo'		  </td></tr>
 <td width="49%" valign="top">
 
 <div id="notas2">
-		  <?
-				$link = mysqli_connect($host, $username, $pass); 
+		  <?php 
+				$link = mysqli_connect($host, $username, $pass,$database); 
 				//mysql_select_db($database, $link); 
-				$result = mysqli_query("SELECT * FROM notaslegalcliente where general='$id' order by fecha desc", $link); 
+				$result = mysqli_query($link,"SELECT * FROM notaslegalcliente where general='".$id."' order by fecha desc"); 
 				
 				
 				
-				if (mysql_num_rows($result)){ 
-					  while ($row = @mysql_fetch_array($result)) { 
+				if (mysqli_num_rows($result)){ 
+					  while ($row = @mysqli_fetch_array($result)) { 
 					  
 
 				$fexar=$row["fecha"];
@@ -335,11 +346,11 @@ echo'		  </td></tr>
 				
 				
 					
-								$dbl = mysqli_connect($host,$username,$pass);
+								$dbl = mysqli_connect($host,$username,$pass,$database);
 				//mysql_select_db($database,$dbl);
-				$resultl = mysqli_query("SELECT nombre from Cliente where idCliente='$userx'",$dbl);
-				if (mysql_num_rows($resultl)){ 
-				$eluserx=mysql_result($resultl,0,"nombre");
+				$resultl = mysqli_query($dbl,"SELECT nombre from Cliente where idCliente='".$userx."'");
+				if (mysqli_num_rows($resultl)){ 
+				$eluserx=mysqli_result($resultl,0,"nombre");
 				}	
 					
 				

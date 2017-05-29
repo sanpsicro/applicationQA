@@ -1,7 +1,7 @@
 <?
 include("conf.php");
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database);
 
 $id=$_POST['id'];

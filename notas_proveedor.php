@@ -3,8 +3,8 @@
 $linka = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $resultar = mysqli_query("SELECT * FROM Provedor where id='$_GET[id]' LIMIT 1", $link); 
-if (mysql_num_rows($resultar)){ 
-  while ($row = @mysql_fetch_array($resultar)) { 
+if (mysqli_num_rows($resultar)){ 
+  while ($row = @mysqli_fetch_array($resultar)) { 
   
 
 $nombrep=$row["nombre"];
@@ -130,8 +130,8 @@ document.location = delUrl;
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM notasprov where general='$id' order by fecha desc", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   
 
 $fexar=$row["fecha"];
@@ -139,10 +139,10 @@ $fexaz=explode(" ",$fexar);
 $fexa=explode("-",$fexaz[0]);
 $userx=$row["usuario"];
 
-$dbl = mysqli_connect($host,$username,$pass);
+$dbl = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbl);
 $resultl = mysqli_query("SELECT * from Empleado where idEmpleado='$userx'",$dbl);
-if (mysql_num_rows($resultl)){ 
+if (mysqli_num_rows($resultl)){ 
 $eluserx=mysql_result($resultl,0,"nombre");
 }
 

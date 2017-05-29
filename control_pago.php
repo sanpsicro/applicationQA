@@ -19,7 +19,7 @@ $result = mysqli_query("SELECT p.expediente from pagos p
 							LEFT JOIN Provedor pr 
 								ON (p.proveedor=pr.id)
 							WHERE p.expediente='$expediente'", $link); 
-$total = mysql_num_rows($result);
+$total = mysqli_num_rows($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $query="SELECT 	DATE_FORMAT(p.fecha_corte,'%e/%m/%y') as fecha_corte, 
@@ -44,7 +44,7 @@ $_GET["quest"]=$quest;
 $_GET["sort"]=$sort;
 $_GET["show"]=$show;
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" class="mainTable" cellspacing="3" cellpadding="3">
                     <tr> 
                      <th>Fecha de Corte</th>				  	                     
@@ -57,7 +57,7 @@ echo'<table width="100%" border="0" class="mainTable" cellspacing="3" cellpaddin
 
 $pago_cerrado = false;
 
-  while ($row = mysql_fetch_array($result)) { 
+  while ($row = mysqli_fetch_array($result)) { 
 if($i++%2==0){$class="even";} else{$class="odd";}
 	
 if($pago_cerrado === false){

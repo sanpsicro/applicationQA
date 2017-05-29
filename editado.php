@@ -47,30 +47,30 @@ $concepto_caucion_vehiculo=strtoupper($concepto_caucion_vehiculo);
 
 ##startcomprobacion
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from seguimiento_juridico where general = '$id'");
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from seguimiento_juridico where general = '$id'");
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
 #actualizar registro
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE seguimiento_juridico SET situacion_juridica='$situacion_conductor', detencion='$detencion_conductor_ano-$detencion_conductor_mes-$detencion_conductor_dia', liberacion='$liberacion_conductor_ano-$liberacion_conductor_mes-$liberacion_conductor_dia', fianzas_conductor='$fianzas_conductor', monto_fianzas_conductor='$monto_fianzas_conductor', folios_fianzas_conductor='$folios_fianzas_conductor', concepto_fianzas_conductor='$concepto_fianzas_conductor', caucion_conductor='$caucion_conductor', monto_caucion_conductor='$monto_caucion_conductor', concepto_caucion_conductor='$concepto_caucion_conductor', situacion_vehiculo='$situacion_vehiculo', detencion_vehiculo='$detencion_vehiculo_ano-$detencion_vehiculo_mes-$detencion_vehiculo_dia', liberacion_vehiculo='$liberacion_vehiculo_ano-$liberacion_vehiculo_mes-$liberacion_vehiculo_dia', fianzas_vehiculo='$fianzas_vehiculo', monto_fianzas_vehiculo='$monto_fianzas_vehiculo', folios_fianzas_vehiculo='$folios_fianzas_vehiculo', concepto_fianzas_vehiculo='$concepto_fianzas_vehiculo', caucion_vehiculo='$caucion_vehiculo', monto_caucion_vehiculo='$monto_caucion_vehiculo', concepto_caucion_vehiculo='$concepto_caucion_vehiculo' where general='$id'";
-mysql_db_query($database, "$sSQL") or die (mysql_error());
+mysqli_query($database, "$sSQL") or die (mysql_error());
 
 }
 else{
 #crear registro
-mysqli_connect($host,$username,$pass);
-mysql_db_query($database,"INSERT INTO `seguimiento_juridico` (`general`, `proveedor`, `situacion_juridica`, `detencion`, `liberacion`, `fianzas_conductor`, `monto_fianzas_conductor`, `folios_fianzas_conductor`, `concepto_fianzas_conductor`, `caucion_conductor`, `monto_caucion_conductor`, `concepto_caucion_conductor`, `situacion_vehiculo`, `detencion_vehiculo`, `liberacion_vehiculo`, `fianzas_vehiculo`, `monto_fianzas_vehiculo`, `folios_fianzas_vehiculo`, `concepto_fianzas_vehiculo`, `caucion_vehiculo`, `monto_caucion_vehiculo`, `concepto_caucion_vehiculo`) VALUES ('$id', '$valid_userid', '$situacion_conductor', '$detencion_conductor_ano-$detencion_conductor_mes-$detencion_conductor_dia', '$liberacion_conductor_ano-$liberacion_conductor_mes-$liberacion_conductor_dia', '$fianzas_conductor', '$monto_fianzas_conductor', '$folios_fianzas_conductor', '$concepto_fianzas_conductor', '$caucion_conductor', '$monto_caucion_conductor', '$concepto_caucion_conductor', '$situacion_vehiculo', '$detencion_vehiculo_ano-$detencion_vehiculo_mes-$detencion_vehiculo_dia', '$liberacion_vehiculo_ano-$liberacion_vehiculo_mes-$liberacion_vehiculo_dia', '$fianzas_vehiculo', '$monto_fianzas_vehiculo', '$folios_fianzas_vehiculo', '$concepto_fianzas_vehiculo', '$caucion_vehiculo', '$monto_caucion_vehiculo', '$concepto_caucion_vehiculo')"); 
+mysqli_connect($host,$username,$pass,$database);
+mysqli_query($database,"INSERT INTO `seguimiento_juridico` (`general`, `proveedor`, `situacion_juridica`, `detencion`, `liberacion`, `fianzas_conductor`, `monto_fianzas_conductor`, `folios_fianzas_conductor`, `concepto_fianzas_conductor`, `caucion_conductor`, `monto_caucion_conductor`, `concepto_caucion_conductor`, `situacion_vehiculo`, `detencion_vehiculo`, `liberacion_vehiculo`, `fianzas_vehiculo`, `monto_fianzas_vehiculo`, `folios_fianzas_vehiculo`, `concepto_fianzas_vehiculo`, `caucion_vehiculo`, `monto_caucion_vehiculo`, `concepto_caucion_vehiculo`) VALUES ('$id', '$valid_userid', '$situacion_conductor', '$detencion_conductor_ano-$detencion_conductor_mes-$detencion_conductor_dia', '$liberacion_conductor_ano-$liberacion_conductor_mes-$liberacion_conductor_dia', '$fianzas_conductor', '$monto_fianzas_conductor', '$folios_fianzas_conductor', '$concepto_fianzas_conductor', '$caucion_conductor', '$monto_caucion_conductor', '$concepto_caucion_conductor', '$situacion_vehiculo', '$detencion_vehiculo_ano-$detencion_vehiculo_mes-$detencion_vehiculo_dia', '$liberacion_vehiculo_ano-$liberacion_vehiculo_mes-$liberacion_vehiculo_dia', '$fianzas_vehiculo', '$monto_fianzas_vehiculo', '$folios_fianzas_vehiculo', '$concepto_fianzas_vehiculo', '$caucion_vehiculo', '$monto_caucion_vehiculo', '$concepto_caucion_vehiculo')"); 
 }
 ##endcomprobacion
 }
 
 if($_GET[caso]=="situacion" or $_POST[caso]=="situacion"){
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $situacion_conductor=mysql_result($result,0,"situacion_juridica");
 $detencion=mysql_result($result,0,"detencion");
 $detencion=explode("-",$detencion);
@@ -172,30 +172,30 @@ $monto_danos=utf8_decode($monto_danos);
 $monto_deducible=utf8_decode($monto_deducible); 
 ##startcomprobacion
 mysqli_connect("$host","$username","$pass");
-$result=mysql_db_query("$database","select * from seguimiento_juridico where general = '$id'");
-$cuantosson=mysql_num_rows($result);
+$result=mysqli_query("$database","select * from seguimiento_juridico where general = '$id'");
+$cuantosson=mysqli_num_rows($result);
 mysql_free_result($result);
 if ($cuantosson>0) {
 #actualizar registro
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE seguimiento_juridico SET conductor='$conductor', telconductor='$tel1', telconductor2='$tel2', siniestro='$siniestro', averiguacion='$averiguacion', autoridad='$autoridad', fecha_accidente='$accidente_ano-$accidente_mes-$accidente_dia', numlesionados='$numlesionados', numhomicidios='$numhomicidios', delitos='$delitos', danos='$danos', lesiones='$lesiones', homicidios='$homicidios', ataques='$ataques', robo='$robo', descripcion='$descripcion', lugar_hechos='$lugar_hechos', referencias='$referencias', colonia='$colonia', ciudad='$ciudad', municipio='$municipio', estado='$estado', ajustador='$ajustador', telajustador='$telajustador1', telajustador2='$telajustador2', monto_danos='$monto_danos', monto_deducible='$monto_deducible' where general='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 }
 else{
 #crear registro
-mysqli_connect($host,$username,$pass);
-mysql_db_query($database,"INSERT INTO `seguimiento_juridico` (`conductor`, `telconductor`, `telconductor2`, `siniestro`, `averiguacion`, `autoridad`, `fecha_accidente`, `numlesionados`, `numhomicidios`, `delitos`, `danos`, `lesiones`, `homicidios`, `ataques`, `robo`, `descripcion`, `lugar_hechos`, `referencias`, `colonia`, `ciudad`, `municipio`, `estado`, `ajustador`, `telajustador`, `telajustador2`, `monto_danos`, `monto_deducible`) VALUES ('$conductor', '$tel1', '$tel2', '$siniestro', '$averiguacion', '$autoridad', '$accidente_ano-$accidente_mes-$accidente_dia', '$numlesionados', '$numhomicidios', '$delitos', '$danos', '$lesiones', '$homicidios', '$ataques', '$robo', '$descripcion', '$lugar_hechos', '$referencias', '$colonia', '$ciudad', '$municipio', '$estado', '$ajustador', '$telajustador1', '$telajustador2', '$monto_danos', '$monto_deducible')"); 
+mysqli_connect($host,$username,$pass,$database);
+mysqli_query($database,"INSERT INTO `seguimiento_juridico` (`conductor`, `telconductor`, `telconductor2`, `siniestro`, `averiguacion`, `autoridad`, `fecha_accidente`, `numlesionados`, `numhomicidios`, `delitos`, `danos`, `lesiones`, `homicidios`, `ataques`, `robo`, `descripcion`, `lugar_hechos`, `referencias`, `colonia`, `ciudad`, `municipio`, `estado`, `ajustador`, `telajustador`, `telajustador2`, `monto_danos`, `monto_deducible`) VALUES ('$conductor', '$tel1', '$tel2', '$siniestro', '$averiguacion', '$autoridad', '$accidente_ano-$accidente_mes-$accidente_dia', '$numlesionados', '$numhomicidios', '$delitos', '$danos', '$lesiones', '$homicidios', '$ataques', '$robo', '$descripcion', '$lugar_hechos', '$referencias', '$colonia', '$ciudad', '$municipio', '$estado', '$ajustador', '$telajustador1', '$telajustador2', '$monto_danos', '$monto_deducible')"); 
 }
 ##endcomprobacion
 }
 
 if($_GET[caso]=="siniestro" or $_POST[caso]=="siniestro"){
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $conductor=mysql_result($result,0,"conductor");
 $tel1=mysql_result($result,0,"telconductor");
 $tel2=mysql_result($result,0,"telconductor2");
@@ -226,24 +226,24 @@ $monto_danos=mysql_result($result,0,"monto_danos");
 $monto_deducible=mysql_result($result,0,"monto_deducible");
 }
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $colonia=mysql_result($result,0,"NombreColonia");
 }
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $estado=mysql_result($result,0,"NombreEstado");
 }
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $municipio=mysql_result($result,0,"NombreMunicipio");
 }
 

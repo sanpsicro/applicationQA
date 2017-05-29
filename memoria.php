@@ -21,9 +21,9 @@ if(isset($actuar) && $actuar=="new" && $proximos=="recuerdame"){
 
 $privacidad = (isset($_POST['privacidad'])) ? 1 : 0;
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 
-mysql_db_query($database,"INSERT INTO `recordatorios` ( `empleado`, `recordatorio`, `general`, `hora`, `visto`, `privacidad`) 
+mysqli_query($database,"INSERT INTO `recordatorios` ( `empleado`, `recordatorio`, `general`, `hora`, `visto`, `privacidad`) 
 
 VALUES ('$userid', '$recordatorio', '$expediente', '$recordate', '$visto', '$privacidad')"); 
 
@@ -58,9 +58,9 @@ $newtime=date("Y-m-d H:i:s", mktime($hora,$minuto+$proximos,$segundo,$mes,$dia,$
 
 $privacidad = (isset($_POST['privacidad'])) ? 1 : 0;
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 
-mysql_db_query($database,"INSERT INTO `recordatorios` ( `empleado`, `recordatorio`, `general`, `hora`, `visto`, `privacidad`) 
+mysqli_query($database,"INSERT INTO `recordatorios` ( `empleado`, `recordatorio`, `general`, `hora`, `visto`, `privacidad`) 
 
 VALUES ('$userid', '$recordatorio', '$expediente', '$newtime', '$visto', '$privacidad')"); 
 
@@ -93,11 +93,11 @@ $ano=date("Y");
 $newtime=date("Y-m-d H:i:s", mktime($hora,$minuto+5,$segundo,$mes,$dia,$ano));
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 
 $sSQL="UPDATE recordatorios SET hora='$newtime' where id='$id'";
 
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 echo '
 <script>
@@ -133,11 +133,11 @@ $ano=date("Y");
 $newtime=date("Y-m-d H:i:s", mktime($hora,$minuto+10,$segundo,$mes,$dia,$ano));
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 
 $sSQL="UPDATE recordatorios SET hora='$newtime' where id='$id'";
 
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 echo '
 <script>
@@ -173,11 +173,11 @@ $ano=date("Y");
 $newtime=date("Y-m-d H:i:s", mktime($hora,$minuto+15,$segundo,$mes,$dia,$ano));
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 
 $sSQL="UPDATE recordatorios SET hora='$newtime' where id='$id'";
 
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 echo '
 <script>
@@ -211,11 +211,11 @@ $ano=date("Y");
 $newtime=date("Y-m-d H:i:s", mktime($hora,$minuto+5,$segundo,$mes,$dia,$ano));
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 
 $sSQL="UPDATE recordatorios SET hora='$newtime' where id='$id'";
 
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 echo '
 <script type="text/javascript">
@@ -239,11 +239,11 @@ if(isset($actuar) && $actuar=="olvidar"){
 
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 
 $sSQL="UPDATE recordatorios SET visto=1 where id='$id'";
 
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 echo '
 <script>
@@ -266,14 +266,14 @@ if(isset($actuar) && $actuar=="qtiper"){
 
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE Empleado SET qtip=now() where idEmpleado='$userid'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE quicktips SET visto = visto + 1 where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 
 
 echo '

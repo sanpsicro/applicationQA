@@ -185,7 +185,7 @@ $texto .= "</select></td><td width=5 background=img/barpaginador.gif>&nbsp;</td>
 
 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 echo'<table width="100%" border="0" cellspacing="0" cellpadding="0" background="img/back_main.gif">
 
@@ -220,7 +220,7 @@ echo'<table width="100%" border="0" cellspacing="0" cellpadding="0" background="
 
 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
   echo'                <tr> 
 

@@ -3,10 +3,10 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $marca=mysql_result($result,0,"auto_marca");
 $tipo=mysql_result($result,0,"auto_tipo");
 $modelo=mysql_result($result,0,"auto_modelo");

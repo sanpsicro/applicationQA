@@ -1,4 +1,5 @@
-<?
+<?php  
+include 'conf.php';
 $show=$_POST['show'];
 $sort=$_POST['sort'];
 $display=$_POST['display'];
@@ -13,6 +14,17 @@ if(empty($sort)){$sort="general.fecha_recepcion";}
 if(empty($display)){$display="abierto";}
 if(empty($moko)){$moko="all";}
 
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
@@ -23,41 +35,41 @@ if(empty($moko)){$moko="all";}
             <form name="form1" method="post" action="mainframe.php?module=seguimiento">
             <td width="700"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show =="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show =="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show =="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show =="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show =="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show =="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php   if($show =="10"){echo"selected";}?>>10 por página</option>
+                <option value="20"  <?php   if($show =="20"){echo"selected";}?>>20 por página</option>
+                <option value="30"  <?php   if($show =="30"){echo"selected";}?>>30 por página</option>
+                <option value="50"  <?php   if($show =="50"){echo"selected";}?>>50 por página</option>
+                <option value="100"  <?php   if($show =="100"){echo"selected";}?>>100 por página</option>
+                <option value="200"  <?php   if($show =="200"){echo"selected";}?>>200 por página</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="general.fecha_recepcion"  <? if($sort=="general.fecha_recepcion"){echo"selected";}?>>Ordenar por fecha</option>
-                <option value="general.expediente" <? if($sort=="general.expediente"){echo"selected";}?>>Ordenar por expediente</option>				
-                <option value="general.status" <? if($sort=="general.status"){echo"selected";}?>>Ordenar por status</option>				
-                <option value="Provedor.nombre" <? if($sort=="Provedor.nombre"){echo"selected";}?>>Ordenar por proveedor</option>				                
-                <option value="general.contrato" <? if($sort=="general.contrato"){echo"selected";}?>>Ordenar por contrato</option>				                
-                <option value="general.usuario" <? if($sort=="general.usuario"){echo"selected";}?>>Ordenar por Usuario</option>				                                
+                <option value="general.fecha_recepcion"  <?php   if($sort=="general.fecha_recepcion"){echo"selected";}?>>Ordenar por fecha</option>
+                <option value="general.expediente" <?php   if($sort=="general.expediente"){echo"selected";}?>>Ordenar por expediente</option>				
+                <option value="general.status" <?php   if($sort=="general.status"){echo"selected";}?>>Ordenar por status</option>				
+                <option value="Provedor.nombre" <?php   if($sort=="Provedor.nombre"){echo"selected";}?>>Ordenar por proveedor</option>				                
+                <option value="general.contrato" <?php   if($sort=="general.contrato"){echo"selected";}?>>Ordenar por contrato</option>				                
+                <option value="general.usuario" <?php   if($sort=="general.usuario"){echo"selected";}?>>Ordenar por Usuario</option>				                                
               </select>
               <select name="display" id="display">
-                <option value="all" <? if($display=="all"){echo' selected ';} ?>>Todos</option>
-                <option value="abierto" <? if($display=="abierto"){echo' selected ';} ?>>Abierto</option>
-                <option value="en tramite" <? if($display=="en tramite"){echo' selected ';} ?>>En tramite</option>                
-                <option value="abierto_tramite" <? if($display=="abierto_tramite"){echo' selected ';} ?>>Abierto o en tramite</option>                                
-<!--                <option value="finalizado" <? if($display=="finalizado"){echo' selected ';} ?>>Finalizado</option> -->
-                <option value="concluido" <? if($display=="concluido"){echo' selected ';} ?>>Concluído</option>                
-                <option value="cancelado" <? if($display=="cancelado"){echo' selected ';} ?>>Cancelados</option>
+                <option value="all" <?php   if($display=="all"){echo' selected ';} ?>>Todos</option>
+                <option value="abierto" <?php   if($display=="abierto"){echo' selected ';} ?>>Abierto</option>
+                <option value="en tramite" <?php   if($display=="en tramite"){echo' selected ';} ?>>En tramite</option>                
+                <option value="abierto_tramite" <?php   if($display=="abierto_tramite"){echo' selected ';} ?>>Abierto o en tramite</option>                                
+<!--                <option value="finalizado" <?php   if($display=="finalizado"){echo' selected ';} ?>>Finalizado</option> -->
+                <option value="concluido" <?php   if($display=="concluido"){echo' selected ';} ?>>Concluído</option>                
+                <option value="cancelado" <?php   if($display=="cancelado"){echo' selected ';} ?>>Cancelados</option>
               </select>
               
                             <select name="moko" id="moko">
-                <option value="all" <? if($moko=="all"){echo' selected ';} ?>>Todos</option>
-                <option value="conductor_detenido" <? if($moko=="conductor_detenido"){echo' selected ';} ?>>Conductor detenido</option>
-                <option value="vehiculo_detenido" <? if($moko=="vehiculo_detenido"){echo' selected ';} ?>>Vehiculo detenido</option>
-                <option value="fkrucm" <? if($moko=="fkrucm"){echo' selected ';} ?>>Servicios sin seguimiento en 1:30 horas</option>                
-                <option value="fkrucmsh" <? if($moko=="fkrucmsh"){echo' selected ';} ?>>Servicios con un tiempo mayor a 45 minutos de contacto</option>                                
+                <option value="all" <?php   if($moko=="all"){echo' selected ';} ?>>Todos</option>
+                <option value="conductor_detenido" <?php   if($moko=="conductor_detenido"){echo' selected ';} ?>>Conductor detenido</option>
+                <option value="vehiculo_detenido" <?php   if($moko=="vehiculo_detenido"){echo' selected ';} ?>>Vehiculo detenido</option>
+                <option value="fkrucm" <?php   if($moko=="fkrucm"){echo' selected ';} ?>>Servicios sin seguimiento en 1:30 horas</option>                
+                <option value="fkrucmsh" <?php   if($moko=="fkrucmsh"){echo' selected ';} ?>>Servicios con un tiempo mayor a 45 minutos de contacto</option>                                
               </select>
 
               
-                            <input type="submit" name="Submit2" value="Mostrar"> </td>
+          <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">Búsqueda: 
               <input name="quest" type="text" id="quest" size="15"  onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
@@ -67,12 +79,12 @@ if(empty($moko)){$moko="all";}
     </td>
   </tr>
 <tr><td>
-<?
+<?php  
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo suceso registrado en bitácora</div></b><p>';}
 if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de bitácora actualizados</div></b><p>';}
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Bitácora eliminada</div></b><p>';}
 
-if($display=="all"){$precondicion="Where general.id!='0'";}
+if($display=="all"){$precondicion="Where general.id != '0'";}
 if($display=="abierto"){$precondicion="Where general.status='abierto'";}
 if($display=="en tramite"){$precondicion="Where general.status='en tramite'";}
 if($display=="abierto_tramite"){$precondicion="Where (general.status='abierto' or general.status='en tramite')";}
@@ -83,17 +95,17 @@ if($display=="cancelado"){$precondicion="Where general.status like'%cancelado%'"
 if(isset($quest) && $quest!=""){
 $precondicion="";
 echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
-$condicion="Where general.contrato like '%$quest%' 
-			OR general.expediente like '%$quest%' 
-			OR Provedor.nombre like '%$quest%' 
-			OR Cliente.nombre like '%$quest%' 
-			OR general.auto_placas like '%$quest%' 
-			OR usuarios_contrato.nombre like '%$quest%'
-			OR general.reporte_cliente like '%$quest%'
-			OR general.fecha_recepcion like '%$quest%'
-			OR general.usuario like '%$quest%'
-			OR general.ubicacion_municipio like '%$quest%'
-			OR general.destino_municipio like '%$quest%'";
+$condicion="Where general.contrato like '%".$quest."%' 
+			OR general.expediente like '%".$quest."%' 
+			OR Provedor.nombre like '%".$quest."%' 
+			OR Cliente.nombre like '%".$quest."%' 
+			OR general.auto_placas like '%".$quest."%' 
+			OR usuarios_contrato.nombre like '%".$quest."%'
+			OR general.reporte_cliente like '%".$quest."%'
+			OR general.fecha_recepcion like '%".$quest."%'
+			OR general.usuario like '%".$quest."%'
+			OR general.ubicacion_municipio like '%".$quest."%'
+			OR general.destino_municipio like '%".$quest."%'";
 }
 else{$condicion="";}
 
@@ -102,14 +114,14 @@ if($moko=="conductor_detenido"){$postq="AND seguimiento_juridico.situacion_jurid
 if($moko=="vehiculo_detenido"){$postq="AND seguimiento_juridico.situacion_vehiculo='detenido'";}
 if($moko=="fkrucmsh"){$postq="AND general.contacto!='0000-00-00 00:00:00' AND general.apertura_expediente!='0000-00-00 00:00:00' AND (TimeDiff(general.contacto,general.apertura_expediente)) > '00:45:00'";}
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass, $database); 
 //mysql_select_db($database, $link); 
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
 
 if($moko!="fkrucm"){
-$prego1="SELECT COUNT(*) FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) $precondicion  $condicion $postq";}
+$prego1="SELECT COUNT(*) FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) " . $precondicion ." " . $condicion ." ". $postq;}
 
 
 
@@ -122,7 +134,7 @@ $dia=date("d");
 $ano=date("Y");
 $timelimit=date("Y-m-d H:i:s", mktime($hora-1,$minuto-30,$segundo,$mes,$dia,$ano));
 #$prego1="SELECT COUNT(*) FROM general left join bitacora on (general.id = bitacora.general) left join notas_legal on (general.id =  notas_legal.general)  where (general.status='abierto' or general.status='en tramite') AND (notas_legal.fecha<='$timelimit' or bitacora.fecha<='$timelimit')";}
-$prego1 = "SELECT COUNT(*) FROM general where general.status='abierto'  AND general.ultimoseguimiento<='$timelimit'";}
+$prego1 = "SELECT COUNT(*) FROM general where general.status='abierto'  AND general.ultimoseguimiento<='" . $timelimit ."'";}
 
 if($moko=="msgnew"){
 $prego1 = "SELECT COUNT(*) FROM clientacora where tipo=2 and visto=0";}
@@ -130,13 +142,13 @@ $prego1 = "SELECT COUNT(*) FROM clientacora where tipo=2 and visto=0";}
 if($moko=="chat"){
 $prego1 = "SELECT COUNT(*) FROM chatstat where atendido=0 and status=2";}
 
-$result = mysqli_query("$prego1", $link); 
+$result = mysqli_query($link ,$prego1); 
 
 list($total) = mysql_fetch_row($result);
 $tampag = $show ;
 $reg1 = ($pag-1) * $tampag;
 
-if($moko!="fkrucm"){$prego2="SELECT general.id, general.ubicacion_municipio , general.destino_municipio , TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.reporte_cliente, general.contrato, general.fecha_recepcion, general.expediente, general.usuario, general.status, servicios.servicio, servicios.tipo as tipoServicio, Cliente.nombre as cliente, usuarios_contrato.nombre as usuariox, Provedor.nombre as proveedor FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) $precondicion $condicion $postq order by $sort desc LIMIT $reg1, $tampag";}
+if($moko!="fkrucm"){$prego2="SELECT general.id, general.ubicacion_municipio , general.destino_municipio , TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.reporte_cliente, general.contrato, general.fecha_recepcion, general.expediente, general.usuario, general.status, servicios.servicio, servicios.tipo as tipoServicio, Cliente.nombre as cliente, usuarios_contrato.nombre as usuariox, Provedor.nombre as proveedor FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) " . $precondicion ." ".  $condicion ." ".  $postq ." order by " . $sort . " desc LIMIT " . $reg1 ." , " .$tampag;}
 
 if($moko=="fkrucm"){
 $hora=date("H");
@@ -146,19 +158,19 @@ $mes=date("m");
 $dia=date("d");
 $ano=date("Y");
 $timelimit=date("Y-m-d H:i:s", mktime($hora-1,$minuto-30,$segundo,$mes,$dia,$ano));
-$prego2="SELECT general.id, general.ubicacion_municipio , general.destino_municipio , TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.reporte_cliente, general.contrato, general.fecha_recepcion, general.expediente, general.usuario, general.status, servicios.servicio, servicios.tipo as tipoServicio, Cliente.nombre as cliente, usuarios_contrato.nombre as usuariox, Provedor.nombre as proveedor FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) where general.status='abierto' AND general.ultimoseguimiento<='$timelimit' order by $sort desc LIMIT $reg1, $tampag";
+$prego2="SELECT general.id, general.ubicacion_municipio , general.destino_municipio , TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.reporte_cliente, general.contrato, general.fecha_recepcion, general.expediente, general.usuario, general.status, servicios.servicio, servicios.tipo as tipoServicio, Cliente.nombre as cliente, usuarios_contrato.nombre as usuariox, Provedor.nombre as proveedor FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) where general.status='abierto' AND general.ultimoseguimiento<='".$timelimit."' order by ". $sort. " desc LIMIT " .$reg1. " , " . $tampag;
 }
 
 if($moko=="msgnew"){$prego2="SELECT DISTINCT general.id, general.ubicacion_municipio , general.destino_municipio , TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.reporte_cliente, general.contrato, general.fecha_recepcion, general.expediente, general.usuario, general.status, servicios.servicio, servicios.tipo as tipoServicio, Cliente.nombre as cliente, usuarios_contrato.nombre as usuariox, Provedor.nombre as proveedor FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join clientacora on (general.id = clientacora.general) where general.id=clientacora.general and clientacora.visto=0 and clientacora.tipo=2 order by general.ultimoseguimiento  
-  LIMIT $reg1, $tampag";}
+  LIMIT ". $reg1 ."," . $tampag;}
 //echo $prego2;
 
 if($moko=="chat"){$prego2="SELECT DISTINCT general.id, general.ubicacion_municipio , general.destino_municipio , TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.reporte_cliente, general.contrato, general.fecha_recepcion, general.expediente, general.usuario, general.status, servicios.servicio, servicios.tipo as tipoServicio, Cliente.nombre as cliente, usuarios_contrato.nombre as usuariox, Provedor.nombre as proveedor FROM general left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join usuarios_contrato on (general.contrato = usuarios_contrato.clave) left join Provedor on (general.proveedor = Provedor.id) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join chatstat on (general.id = chatstat.gr) where general.id=chatstat.gr and chatstat.atendido=0 and chatstat.status=2 order by general.ultimoseguimiento  
-  LIMIT $reg1, $tampag";}
+  LIMIT ". $reg1 . " , " . $tampag;}
 //echo $prego2;
 
 
-$result = mysqli_query("$prego2", $link) or die (mysql_error()); 
+$result = mysqli_query($link,$prego2) or die (mysql_error()); 
 
 
   
@@ -175,8 +187,8 @@ $_GET["show"]=$show ;
   $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
-if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
-    $texto .= "<option $thisis value=\"$enlace$isabel\">$isabel</option> ";}
+if($pag==$isabel){    $texto .= "<option selected value=\" ". $enlace . $isabel . " \">".$isabel."</option> ";} else {
+    $texto .= "<option"  .$thisis . " value=\" " .$enlace . $isabel . " \">".$isabel."</option> ";}
 } 	
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
@@ -184,9 +196,9 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
   return $texto;
 }
 #
-  echo paginar($pag, $total, $tampag, "mainframe.php?module=seguimiento&quest=$quest&sort=$sort&show=$show &display=$display&moko=$moko&pag=");
+  echo paginar($pag, $total, $tampag, "mainframe.php?module=seguimiento&quest=" .$quest ."&sort=".$sort ."&show=".$show."&display=".$display."&moko=".$moko."&pag=");
 #
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                     <tr> 
                       <td align=middle class="titles">Servicio</td>
@@ -201,21 +213,21 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td class="titles">Destino Municipio</td>					  					  
                       <td width="150" class="titles">Operación</td></tr>';
 $bgcolor="#0b7eb7";
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}
 
 $fexa=$row["fecha_recepcion"];
 $fexa=explode(" ",$fexa);
 $fexad=explode("-",$fexa[0]);
 
-$resultMunicipio = mysqli_query("SELECT NombreMunicipio from Municipio where idMunicipio = '$row[ubicacion_municipio]'", $link); 
-$ubicacionMunicipio=mysql_result($resultMunicipio,0,"NombreMunicipio");
+$resultMunicipio = mysqli_query( $link,"SELECT NombreMunicipio from Municipio where idMunicipio = '".$row[ubicacion_municipio]."'"); 
+$ubicacionMunicipio=mysqli_result($resultMunicipio,0,"NombreMunicipio");
 
-$resultMunicipio = mysqli_query("SELECT NombreMunicipio from Municipio where idMunicipio = '$row[destino_municipio]'", $link); 
-$destinoMunicipio=mysql_result($resultMunicipio,0,"NombreMunicipio");
+$resultMunicipio = mysqli_query($link,"SELECT NombreMunicipio from Municipio where idMunicipio = '".$row[destino_municipio]."'"); 
+$destinoMunicipio=mysqli_result($resultMunicipio,0,"NombreMunicipio");
 
 $generalid=$row["id"];
-$nuevosmensajes = mysqli_query("SELECT COUNT(*) FROM clientacora where visto=0 and tipo=2 and general=$generalid", $link);
+$nuevosmensajes = mysqli_query($link,"SELECT COUNT(*) FROM clientacora where visto=0 and tipo=2 and general=".$generalid);
 list($sumale) = mysql_fetch_row($nuevosmensajes);
 
   echo'                <tr> 
@@ -239,7 +251,7 @@ echo' <a href="?module=bitacora&id='.$row["id"].'">Bitácora</a>';
 // $querylegal="SELECT tipo FROM servicios WHERE id='$row[servicio]'";
 // #echo $querylegal;
 // $resultlegal=mysqli_query($querylegal,$link)or die (mysql_error());
-// $tipoServicio=mysql_result($resultlegal,0,"tipo");
+// $tipoServicio=mysqli_result($resultlegal,0,"tipo");
 if($row['tipoServicio']=="legal")
 {
 	 $checa_array1=array_search("23_d",$explota_permisos);
@@ -254,6 +266,6 @@ echo'</center></td></tr>
 echo'</table>';
   }
 else{echo'<center><b>No hay resultados</b></center>';}
-   echo paginar($pag, $total, $tampag, "mainframe.php?module=seguimiento&quest=$quest&sort=$sort&show=$show &display=$display&moko=$moko&pag=");
+   echo paginar($pag, $total, $tampag, "mainframe.php?module=seguimiento&quest=".$quest."&sort=".$sort."&show=".$show."&display=".$display."&moko=".$moko."&pag=");
 ?>
 </td></tr></table>

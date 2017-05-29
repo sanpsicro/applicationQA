@@ -6,8 +6,8 @@ echo' <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);				
   echo'<option value="'.$row["idMunicipio"].'"';
@@ -22,8 +22,8 @@ echo' <select name="colonia" id="colonia"><option value="0">SELECCIONE UNA OPCIO
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);							
   echo'<option value="'.$row["idColonia"].'"';
@@ -44,9 +44,9 @@ $link = mysqli_connect($host, $username, $pass);
 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio", $link); 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
   		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);						
@@ -68,8 +68,8 @@ echo' <select name="colonia2" id="colonia2"><option value="0">SELECCIONE UNA OPC
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);									
   echo'<option value="'.$row["idColonia"].'"';
@@ -85,8 +85,8 @@ echo' <select name="aseg_municipio" id="aseg_municipio"  onChange=\'cargaConteni
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);								
   echo'<option value="'.$row["idMunicipio"].'"';
@@ -100,8 +100,8 @@ echo' <select name="aseg_colonia" id="aseg_colonia"><option value="0">SELECCIONE
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);											
   echo'<option value="'.$row["idColonia"].'"';

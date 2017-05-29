@@ -8,23 +8,23 @@ if(isset($zauruz) && $zauruz=="irix")
 
 	##startcomprobacion
 	mysqli_connect("$host","$username","$pass");
-	$result=mysql_db_query("$database","select * from seguimiento_juridico where general = '$idcaso'");
-	$cuantosson=mysql_num_rows($result);
+	$result=mysqli_query("$database","select * from seguimiento_juridico where general = '$idcaso'");
+	$cuantosson=mysqli_num_rows($result);
 	mysql_free_result($result);
 	
 	if ($cuantosson>0)
 	{
 		#actualizar registro
-		mysqli_connect($host,$username,$pass);
+		mysqli_connect($host,$username,$pass,$database);
 		$sSQL="UPDATE seguimiento_juridico SET situacion_juridica='$situacion_conductor', detencion='$detencion_conductor_ano-$detencion_conductor_mes-$detencion_conductor_dia', liberacion='$liberacion_conductor_ano-$liberacion_conductor_mes-$liberacion_conductor_dia', fianzas='$fianzas_conductor', situacion_vehiculo='$situacion_vehiculo', detencion_vehiculo='$detencion_vehiculo_ano-$detencion_vehiculo_mes-$detencion_vehiculo_dia', liberacion_vehiculo='$liberacion_vehiculo_ano-$liberacion_vehiculo_mes-$liberacion_vehiculo_dia', fianzas_vehiculo='$fianzas_vehiculo', conductor='$conductor', telconductor='$tel1', telconductor2='$tel2', siniestro='$siniestrox', averiguacion='$averiguacion', autoridad='$autoridad', fecha_accidente='$accidente_ano-$accidente_mes-$accidente_dia', numlesionados='$numlesionados', numhomicidios='$numhomicidios', delitos='$delitos', danos='$danos', lesiones='$lesiones', homicidios='$homicidios', ataques='$ataques', robo='$robo', descripcion='$descripcion', lugar_hechos='$lugar_hechos', referencias='$referencias', colonia='$colonia', ciudad='$ciudad', municipio='$municipio', estado='$estado', ajustador='$ajustador', telid='$telid', telajustador='$telajustador1', telajustador2='$telajustador2', monto_danos='$monto_danos', monto_deducible='$monto_deducible'where general='$idcaso'";
-		mysql_db_query($database, "$sSQL") or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
+		mysqli_query($database, "$sSQL") or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
 	}
 	else
 	{
 		#crear registro
-		mysqli_connect($host,$username,$pass);
+		mysqli_connect($host,$username,$pass,$database);
 		$sql="INSERT INTO `seguimiento_juridico` (`general`, `situacion_juridica`, `detencion`, `liberacion`, `fianzas`, `situacion_vehiculo`, `detencion_vehiculo`, `liberacion_vehiculo`, `fianzas_vehiculo`, `conductor`, `telconductor`, `telconductor2`, `siniestro`, `averiguacion`, `autoridad`, `fecha_accidente`, `numlesionados`, `numhomicidios`, `delitos`, `danos`, `lesiones`, `homicidios`, `ataques`, `robo`, `descripcion`, `lugar_hechos`, `referencias`, `colonia`, `ciudad`, `municipio`, `estado`, `ajustador`, `telajustador`, `telajustador2`, `monto_danos`, `monto_deducible`) VALUES ('$idcaso', '$situacion_conductor', '$detencion_conductor_ano-$detencion_conductor_mes-$detencion_conductor_dia', '$liberacion_conductor_ano-$liberacion_conductor_mes-$liberacion_conductor_dia', '$fianzas_conductor', '$situacion_vehiculo', '$detencion_vehiculo_ano-$detencion_vehiculo_mes-$detencion_vehiculo_dia', '$liberacion_vehiculo_ano-$liberacion_vehiculo_mes-$liberacion_vehiculo_dia', '$fianzas_vehiculo', '$conductor', '$tel1', '$tel2', '$siniestrox', '$averiguacion', '$autoridad', '$accidente_ano-$accidente_mes-$accidente_dia', '$numlesionados', '$numhomicidios', '$delitos', '$danos', '$lesiones', '$homicidios', '$ataques', '$robo', '$descripcion', '$lugar_hechos', '$referencias', '$colonia', '$ciudad', '$municipio', '$estado', '$ajustador', '$telajustador1', '$telajustador2', '$monto_danos', '$monto_deducible')";
-		mysql_db_query($database, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());	
+		mysqli_query($database, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());	
 	}
 	##endcomprobacion
 	
@@ -41,11 +41,11 @@ else
 	$apertura_expediente="$anox-$mex-$diax $hora1";
 
 	/*
-	mysqli_connect($host,$username,$pass);
-	mysql_db_query($database,"INSERT INTO `general` (`servicio`, `contrato`, `idEmpleado`, `idCliente`, `fecha_recepcion`, `fecha_suceso`, `apertura_expediente`, `reporta`, `tel_reporta`, `num_contrato`, `convenio`, `expediente`, `num_cliente`, `num_siniestro`, `inciso`, `ajustador`, `usuario`, `tecnico_solicitado`, `motivo_servicio`, `auto_marca`, `auto_tipo`, `auto_modelo`, `auto_color`, `auto_placas`, `tipo_asistencia_vial`, `tipo_asistencia_medica`, `domicilio_cliente`, `domicilio_sustituto`, `ubicacion_requiere`, `ubicacion_referencias`, `ubicacion_estado`, `ubicacion_municipio`, `ubicacion_colonia`,  `ubicacion_ciudad`, `destino_servicio`, `destino_estado`, `destino_municipio`, `destino_colonia`, `destino_ciudad`, `formato_carta`, `instructivo`, `status`) VALUES ('$servicio', '$clave', '$valid_userid', '$idcliente', '$fecha_recepcion[2]-$fecha_recepcion[1]-$fecha_recepcion[0] $hora1', '$fecha_suceso[2]-$fecha_suceso[1]-$fecha_suceso[0]', '$fecha_recepcion[2]-$fecha_recepcion[1]-$fecha_recepcion[0] $hora1', '$reporta', '$tel_reporta', '$num_contrato', '$convenio', '$expediente', '$cliente', '$siniestro', '$inciso', '$ajustador', '$usuario', '$tecnico', '$motivo', '$marca', '$tipo', '$modelo', '$color', '$placas', '$tipo_vial', '$tipo_medica', '$domicilio', '$domicilio_sustituto', '$ubicacion', '$referencias', '$estado', '$municipio', '$colonia', '$ciudad', '$destino', '$estado2', '$municipio2', '$colonia2', '$ciudad2', '$formato_carta', '$ventana', 'en proceso')");
+	mysqli_connect($host,$username,$pass,$database);
+	mysqli_query($database,"INSERT INTO `general` (`servicio`, `contrato`, `idEmpleado`, `idCliente`, `fecha_recepcion`, `fecha_suceso`, `apertura_expediente`, `reporta`, `tel_reporta`, `num_contrato`, `convenio`, `expediente`, `num_cliente`, `num_siniestro`, `inciso`, `ajustador`, `usuario`, `tecnico_solicitado`, `motivo_servicio`, `auto_marca`, `auto_tipo`, `auto_modelo`, `auto_color`, `auto_placas`, `tipo_asistencia_vial`, `tipo_asistencia_medica`, `domicilio_cliente`, `domicilio_sustituto`, `ubicacion_requiere`, `ubicacion_referencias`, `ubicacion_estado`, `ubicacion_municipio`, `ubicacion_colonia`,  `ubicacion_ciudad`, `destino_servicio`, `destino_estado`, `destino_municipio`, `destino_colonia`, `destino_ciudad`, `formato_carta`, `instructivo`, `status`) VALUES ('$servicio', '$clave', '$valid_userid', '$idcliente', '$fecha_recepcion[2]-$fecha_recepcion[1]-$fecha_recepcion[0] $hora1', '$fecha_suceso[2]-$fecha_suceso[1]-$fecha_suceso[0]', '$fecha_recepcion[2]-$fecha_recepcion[1]-$fecha_recepcion[0] $hora1', '$reporta', '$tel_reporta', '$num_contrato', '$convenio', '$expediente', '$cliente', '$siniestro', '$inciso', '$ajustador', '$usuario', '$tecnico', '$motivo', '$marca', '$tipo', '$modelo', '$color', '$placas', '$tipo_vial', '$tipo_medica', '$domicilio', '$domicilio_sustituto', '$ubicacion', '$referencias', '$estado', '$municipio', '$colonia', '$ciudad', '$destino', '$estado2', '$municipio2', '$colonia2', '$ciudad2', '$formato_carta', '$ventana', 'en proceso')");
 	*/
 	
-	mysqli_connect($host,$username,$pass);
+	mysqli_connect($host,$username,$pass,$database);
 	$sSQL="UPDATE general SET
 	       idEmpleado='$valid_userid',
 		   tipo_expediente='$tipo_expediente',
@@ -104,7 +104,7 @@ else
 		   email_v='$email_v',
 		   ultimoseguimiento=now()
 		   where id='$expediente' AND contrato='$clave'";
-	mysql_db_query($database, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
+	mysqli_query($database, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
 	//echo "Query:<br><br>$sSQL<br>";
 
 	/*
@@ -112,8 +112,8 @@ else
 	##########
 	$iva=$costo*0.15;
 	$total=$iva+$costo;
-	mysqli_connect($host,$username,$pass);
-	mysql_db_query($database,"INSERT INTO `pagos` ( `proveedor`, `conceptor`, `monto`, `status`) 
+	mysqli_connect($host,$username,$pass,$database);
+	mysqli_query($database,"INSERT INTO `pagos` ( `proveedor`, `conceptor`, `monto`, `status`) 
 	VALUES ('$proveedor', '$conceptor', '$monto', '$status')");
 	header("Location: mainframe.php?module=$module&code=1");
 	}
@@ -135,7 +135,7 @@ else
 		$aseg_vigencia_termino_dia='00';
 	if($monto == '')
 		$monto='0';	
-	mysqli_connect($host,$username,$pass);
+	mysqli_connect($host,$username,$pass,$database);
 	$sSQL="UPDATE general SET
 	       ajustador='$ajustador',
 		   telid='$telid',
@@ -161,7 +161,7 @@ else
 		   aseg_conductor_tel2='$aseg_conductor_tel2'
 		   where id='$expediente'
 		   AND contrato='$clave'";
-	mysql_db_query($database, "$sSQL")  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
+	mysqli_query($database, "$sSQL")  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
 
 	#$idcaso=mysql_insert_id();  
 	$idcaso=$expediente;
@@ -625,8 +625,8 @@ echo'</select>';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idEstado"].'"';
      if($estado==$row["idEstado"]){echo"selected";}
 	 echo'>'.$row["NombreEstado"].'</option>';
@@ -644,8 +644,8 @@ echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$estado'order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idMunicipio"].'"';
      if($municipio==$row["idMunicipio"]){echo"selected";}
 	 echo'>'.$row["NombreMunicipio"].'</option>';
@@ -665,8 +665,8 @@ echo'  <select name="colonia" id="colonia">';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$municipio'order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idColonia"].'"';
      if($colonia==$row["idColonia"]){echo"selected";}
 	 echo'>'.$row["NombreColonia"].'</option>';

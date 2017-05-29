@@ -248,13 +248,13 @@ $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
 /*
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db);
 $nombre_estado=mysql_result($result,0,"NombreEstado");
 
 if($display==!"all"){
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db);
 $nombre_municipio=mysql_result($result,0,"NombreMunicipio");

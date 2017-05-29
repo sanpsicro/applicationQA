@@ -23,7 +23,7 @@ window.print();
 </script>
   <?
 include('conf.php');
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
 $expediente=mysql_result($result,0,"expediente");
@@ -45,17 +45,17 @@ $idEmpleado=mysql_result($result,0,"idEmpleado");
 $cliente=mysql_result($result,0,"idCliente");
 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT nombre from Provedor where id = '$proveedor'",$db);
 $proveedor=mysql_result($result,0,"nombre");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT nombre from Empleado where idEmpleado = '$idEmpleado'",$db);
 $empleado=mysql_result($result,0,"nombre");
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Cliente where idCliente = '$cliente'",$db);
 $cliente=mysql_result($result,0,"nombre");

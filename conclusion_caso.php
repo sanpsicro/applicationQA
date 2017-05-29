@@ -98,13 +98,13 @@ function mysqli_result($res,$row=0,$col=0){
 
 $link = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database);
-$result=mysqli_query($link,"SELECT tipo FROM servicios,general where general.servicio=servicios.id AND general.id='$id'");
+$result=mysqli_query($link,"SELECT tipo FROM servicios,general where general.servicio=servicios.id AND general.id='".$id."'");
 $tipoServicio=mysqli_result($result,0,"tipo");
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Conclusión</span></td>
-      <td width=100 class="blacklinks"><? if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=$id'>Detalle</a> | <a href='?module=seguimiento_caso&id=$id'>Seguimiento</a>";}?></td>
+      <td width=100 class="blacklinks"><? if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=$id'>Detalle</a> | <a href='?module=seguimiento_caso&id=".$id."'>Seguimiento</a>";}?></td>
 
 
       </tr></table></td></tr>

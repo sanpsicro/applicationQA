@@ -4,25 +4,25 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT expediente, proveedor from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $exxxp=mysql_result($result,0,"expediente");
 $provx=mysql_result($result,0,"proveedor");
 }
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT monto from pagos where expediente = '$exxxp' LIMIT 1",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $monto=mysql_result($result,0,"monto");
 }
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT banderazo, blindaje, maniobras, espera, otro, total from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $banderazo=mysql_result($result,0,"banderazo");
 $blindaje=mysql_result($result,0,"blindaje");
 $maniobras=mysql_result($result,0,"maniobras");

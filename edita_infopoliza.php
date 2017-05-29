@@ -4,10 +4,10 @@ header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $ajustador=mysql_result($result,0,"ajustador");
 $telid=mysql_result($result,0,"telid");
 $aseguradora=mysql_result($result,0,"aseguradora");
@@ -161,8 +161,8 @@ echo'</select>';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'
               <option value="'.$row["idEstado"].'"';
      if($estado==$row["idEstado"]){echo'selected';}
@@ -184,8 +184,8 @@ echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$estado'order by NombreMunicipio", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idMunicipio"].'"';
      if($municipio==$row["idMunicipio"]){echo"selected";}
 	 echo'>'.$row["NombreMunicipio"].'</option>';
@@ -202,8 +202,8 @@ echo'  <select name="colonia" id="colonia">';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$municipio'order by NombreColonia", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idColonia"].'"';
      if($colonia==$row["idColonia"]){echo"selected";}
 	 echo'>'.$row["NombreColonia"].'</option>';

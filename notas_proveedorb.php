@@ -5,8 +5,8 @@ include("conf.php");
 $linka = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $linka); 
 $resultar = mysqli_query("SELECT * FROM Provedor where id='$id' LIMIT 1", $linka); 
-if (mysql_num_rows($resultar)){ 
-  while ($row = @mysql_fetch_array($resultar)) { 
+if (mysqli_num_rows($resultar)){ 
+  while ($row = @mysqli_fetch_array($resultar)) { 
   
 
 $nombrep=$row["nombre"];
@@ -46,8 +46,8 @@ $nombrep=$row["nombre"];
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM notasprov where general='$id' order by fecha desc", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   
 $fexar=$row["fecha"];
 $fexaz=explode(" ",$fexar);
@@ -55,10 +55,10 @@ $fexa=explode("-",$fexaz[0]);
 
 $userx=$row["usuario"];
 
-$dbl = mysqli_connect($host,$username,$pass);
+$dbl = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbl);
 $resultl = mysqli_query("SELECT * from Empleado where idEmpleado='$userx'",$dbl);
-if (mysql_num_rows($resultl)){ 
+if (mysqli_num_rows($resultl)){ 
 $eluserx=mysql_result($resultl,0,"nombre");
 }
 

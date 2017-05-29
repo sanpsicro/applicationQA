@@ -51,7 +51,7 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
 #
   echo paginar($pag, $total, $tampag, "mainframe.php?module=recordatorioslista&quest=$quest&sort=$sort&show=$show&pag=");
 #
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                     <tr> 
 	                  <td class="titles">Recordatorio</td>	
@@ -60,7 +60,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 					   <td class="titles">Usuario</td>
 					   <td class="titles">Atendido</td></tr>';
 $bgcolor="#cccccc";
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
   $usuario=$row["empleado"];
   $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 

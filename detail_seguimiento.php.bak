@@ -97,20 +97,20 @@ FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-f
 if($set_date=="arribo"){
 mysql_connect($host,$username,$pass);
 $sSQL="UPDATE general SET arribo=now() where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 
 if($set_date=="contacto"){
 mysql_connect($host,$username,$pass);
 $sSQL="UPDATE general SET contacto=now() where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 
 
 if($set_status=="concluido"){
 mysql_connect($host,$username,$pass);
 $sSQL="UPDATE general SET status='concluido', ultimostatus=now() where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 
 
@@ -379,7 +379,7 @@ if($checa_array===FALSE){} else{
 	  $db = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$db);
 $result = mysql_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $situacion_conductor=mysql_result($result,0,"situacion_juridica");
 $detencion=mysql_result($result,0,"detencion");
 $detencion=explode("-",$detencion);
@@ -427,7 +427,7 @@ $fianzas_vehiculo=mysql_result($result,0,"fianzas_vehiculo");
 $db = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$db);
 $result = mysql_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $conductor=mysql_result($result,0,"conductor");
 $tel1=mysql_result($result,0,"telconductor");
 $tel2=mysql_result($result,0,"telconductor2");
@@ -461,21 +461,21 @@ $monto_deducible=mysql_result($result,0,"monto_deducible");
 $db = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$db);
 $result = mysql_query("SELECT * from Colonia where idColonia = '$colonia'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $colonia=mysql_result($result,0,"NombreColonia");
 }
 
 $db = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$db);
 $result = mysql_query("SELECT * from Estado where idEstado = '$estado'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $estado=mysql_result($result,0,"NombreEstado");
 }
 
 $db = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$db);
 $result = mysql_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $municipio=mysql_result($result,0,"NombreMunicipio");
 }
 ?>
@@ -559,8 +559,8 @@ $municipio=mysql_result($result,0,"NombreMunicipio");
 $link = mysql_connect($host, $username, $pass); 
 mysql_select_db($database, $link); 
 $result = mysql_query("SELECT * FROM terceros where general='$id' order by tipo desc, nombre", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
 
 $colonia=$row["colonia"];
 $municipio=$row["municipio"];
@@ -569,21 +569,21 @@ $estado=$row["estado"];
 $dbw = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$dbw);
 $resultw = mysql_query("SELECT * from Colonia where idColonia = '$colonia'",$dbw);
-if (mysql_num_rows($resultw)){ 
+if (mysqli_num_rows($resultw)){ 
 $colonia=mysql_result($resultw,0,"NombreColonia");
 }
 
 $dbw = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$dbw);
 $resultw = mysql_query("SELECT * from Estado where idEstado = '$estado'",$dbw);
-if (mysql_num_rows($resultw)){ 
+if (mysqli_num_rows($resultw)){ 
 $estado=mysql_result($resultw,0,"NombreEstado");
 }
 
 $dbw = mysql_connect($host,$username,$pass);
 mysql_select_db($database,$dbw);
 $resultw = mysql_query("SELECT * from Municipio where idMunicipio = '$municipio'",$dbw);
-if (mysql_num_rows($resultw)){ 
+if (mysqli_num_rows($resultw)){ 
 $municipio=mysql_result($resultw,0,"NombreMunicipio");
 }
 

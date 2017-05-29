@@ -16,58 +16,70 @@ document.location = generalurl;
 }
 }
 </script>
-<?
+<?php 
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 $explota_permisos=explode(",",$_SESSION["valid_permisos"]);
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from general where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+$result = mysqli_query($db,"SELECT * from general where id = '".$id."'");
+if (mysqli_num_rows($result)){ 
 
-$banderazo=mysql_result($result,0,"banderazo");
-$blindaje=mysql_result($result,0,"blindaje");
-$maniobras=mysql_result($result,0,"maniobras");
-$espera=mysql_result($result,0,"espera");
-$otro=mysql_result($result,0,"otro");
-$total=mysql_result($result,0,"total");
+$banderazo=mysqli_result($result,0,"banderazo");
+$blindaje=mysqli_result($result,0,"blindaje");
+$maniobras=mysqli_result($result,0,"maniobras");
+$espera=mysqli_result($result,0,"espera");
+$otro=mysqli_result($result,0,"otro");
+$total=mysqli_result($result,0,"total");
 
 
-$statuscaso=mysql_result($result,0,"status");
-$proveedorasignado=mysql_result($result,0,"proveedor");
-$expp=mysql_result($result,0,"expediente");
+$statuscaso=mysqli_result($result,0,"status");
+$proveedorasignado=mysqli_result($result,0,"proveedor");
+$expp=mysqli_result($result,0,"expediente");
 
-$fexa1=mysql_result($result,0,"fecha_recepcion");
+$fexa1=mysqli_result($result,0,"fecha_recepcion");
 $fexa1=explode(" ",$fexa1);
 $fexa1d=explode("-",$fexa1[0]);
-$fexa1gh=mysql_result($result,0,"fecha_recepcion");
+$fexa1gh=mysqli_result($result,0,"fecha_recepcion");
 
-$fzor=mysql_result($result,0,"ultimostatus");
+$fzor=mysqli_result($result,0,"ultimostatus");
 $fzor1=explode(" ",$fzor);
 $fzor1d=explode("-",$fzor1[0]);
 
 
 ##
-$kosmos2=mysql_result($result,0,"apertura_expediente");
-$fexax=mysql_result($result,0,"apertura_expediente");
+$kosmos2=mysqli_result($result,0,"apertura_expediente");
+$fexax=mysqli_result($result,0,"apertura_expediente");
 $fexax=explode(" ",$fexax);
 $fexaxd=explode("-",$fexax[0]);
 ##
-$telos2=mysql_result($result,0,"asignacion_proveedor");
-$fexa2=mysql_result($result,0,"asignacion_proveedor");
+$telos2=mysqli_result($result,0,"asignacion_proveedor");
+$fexa2=mysqli_result($result,0,"asignacion_proveedor");
 $fexa2=explode(" ",$fexa2);
 $fexa2d=explode("-",$fexa2[0]);
 ##
-$telos1=mysql_result($result,0,"arribo");
-$fexa3=mysql_result($result,0,"arribo");
+$telos1=mysqli_result($result,0,"arribo");
+$fexa3=mysqli_result($result,0,"arribo");
 if($fexa3=="0000-00-00 00:00:00"  && empty($NO_EDITAR)){$whitr='<input type="button" name="Button" value="El Proveedor ha arribado" onClick="javascript:confirmGeneral(\'?module=detail_seguimiento&id='.$id.'&set_date=arribo\')"/>';}
 else{
 $fexa3=explode(" ",$fexa3);
 $fexa3d=explode("-",$fexa3[0]);
-$whitr="".$fexa3d[2]."/".$fexa3d[1]."/".$fexa3d[0]." ".$fexa3[1]."";
+$whitr= "".$fexa3d[2]."/".$fexa3d[1]."/".$fexa3d[0]." ".$fexa3[1]."";
 }
 ##
-$kosmos1=mysql_result($result,0,"contacto");
-$fexa4=mysql_result($result,0,"contacto");
+$kosmos1=mysqli_result($result,0,"contacto");
+$fexa4=mysqli_result($result,0,"contacto");
 if($fexa4=="0000-00-00 00:00:00" && empty($NO_EDITAR)){$tyurru='<input type="button" name="Button" value="El Proveedor ha contactado" onClick="javascript:confirmGeneral(\'?module=detail_seguimiento&id='.$id.'&set_date=contacto\')"/>';}
 else{
 $fexa4=explode(" ",$fexa4);
@@ -78,10 +90,10 @@ $tyurru="".$fexa4d[2]."/".$fexa4d[1]."/".$fexa4d[0]." ".$fexa4[1]."";
 ##
 $minus1=strtotime('-1 years');
 $minus2=strtotime('-2 years');
-$telos1a=mysql_result($result,0,"contactoext");
-$fexa3a=mysql_result($result,0,"contactoext");
+$telos1a=mysqli_result($result,0,"contactoext");
+$fexa3a=mysqli_result($result,0,"contactoext");
 if($fexa3a=="0000-00-00 00:00:00"  && empty($NO_EDITAR)){$whitrext='
-<form action="?module=detail_seguimiento&id='.$id.'&set_date=contactoext" method="post"/>
+<form action="?module=detail_seguimiento&id=' .$id. '&set_date=contactoext" method="post"/>
 <select name="dcontext">
 <option value="'.date("d").'" selected>'.date("d").'</option>
 <option value="01">1</option>
@@ -236,8 +248,8 @@ $fexa3da=explode("-",$fexa3a[0]);
 $whitrext="".$fexa3da[2]."/".$fexa3da[1]."/".$fexa3da[0]." ".$fexa3a[1]."";
 }
 ##
-$kosmos1a=mysql_result($result,0,"terminoext");
-$fexa4a=mysql_result($result,0,"terminoext");
+$kosmos1a=mysqli_result($result,0,"terminoext");
+$fexa4a=mysqli_result($result,0,"terminoext");
 if($fexa4a=="0000-00-00 00:00:00" && empty($NO_EDITAR)){$tyurruext='
 <form action="?module=detail_seguimiento&id='.$id.'&set_date=terminoext" method="post"/>
 <select name="dterminoext">
@@ -397,19 +409,19 @@ $tyurruext="".$fexa4da[2]."/".$fexa4da[1]."/".$fexa4da[0]." ".$fexa4a[1]."";
 ##
 
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Provedor where id = '$proveedorasignado'",$db);
-if (mysql_num_rows($result)){ 
-$proveedorasignado=mysql_result($result,0,"nombre");
-$proveedornotas=mysql_result($result,0,"id");
+if (mysqli_num_rows($result)){ 
+$proveedorasignado=mysqli_result($result,0,"nombre");
+$proveedornotas=mysqli_result($result,0,"id");
 }
 ####
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT monto from pagos where expediente = '$expp' LIMIT 1",$db);
-if (mysql_num_rows($result)){ 
-$costoint=mysql_result($result,0,"monto");
+if (mysqli_num_rows($result)){ 
+$costoint=mysqli_result($result,0,"monto");
 }
 
 
@@ -458,18 +470,18 @@ $segundos=date('h')*60*60+(date('i')*60)+date('s');
 ?>
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
   <tr>
-    <td bgcolor="#ffffff"><strong>Status:</strong> <? echo $statuscaso;?></td>
-    <td bgcolor="#ffffff"><strong>Asignado a proveedor:</strong> <? echo $proveedorasignado;?></td>
-    <td bgcolor="#ffffff"><strong>Hora de recepción:</strong> <? echo''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
+    <td bgcolor="#ffffff"><strong>Status:</strong> <?php  echo $statuscaso;?></td>
+    <td bgcolor="#ffffff"><strong>Asignado a proveedor:</strong> <?php  echo $proveedorasignado;?></td>
+    <td bgcolor="#ffffff"><strong>Hora de recepción:</strong> <?php  echo''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
   </tr>
   <tr>
-    <td bgcolor="#ffffff"><strong>Hora de registro:</strong> <? echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';?></td>
-    <td bgcolor="#ffffff"><strong>Hora de asignaci&oacute;n:</strong> <? echo''.$fexa2d[2].'/'.$fexa2d[1].'/'.$fexa2d[0].' '.$fexa2[1].'';?></td>
-    <td bgcolor="#ffffff"><strong>Hora de arribo:</strong> <? echo $whitr;	?></td>
+    <td bgcolor="#ffffff"><strong>Hora de registro:</strong> <?php  echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';?></td>
+    <td bgcolor="#ffffff"><strong>Hora de asignaci&oacute;n:</strong> <?php  echo''.$fexa2d[2].'/'.$fexa2d[1].'/'.$fexa2d[0].' '.$fexa2[1].'';?></td>
+    <td bgcolor="#ffffff"><strong>Hora de arribo:</strong> <?php  echo $whitr;	?></td>
   </tr>
   <tr>
-    <td bgcolor="#ffffff"><strong>Hora de contacto:</strong> <? echo $tyurru;	?></td>
-    <td bgcolor="#FFFFFF"><strong>Tiempo de arribo:</strong> <?
+    <td bgcolor="#ffffff"><strong>Hora de contacto:</strong> <?php  echo $tyurru;	?></td>
+    <td bgcolor="#FFFFFF"><strong>Tiempo de arribo:</strong> <?php 
     if($telos2!="0000-00-00 00:00:00" && $telos1!="0000-00-00 00:00:00"){
 $cortax1=explode(" ",$telos1);
 $cortax1d=explode("-",$cortax1[0]);
@@ -489,7 +501,7 @@ echo segundos_tiempo($dif1);
 	}
 	?></td>
     <td bgcolor="#FFFFFF"><strong>Tiempo de contacto:</strong>
-    <?
+    <?php 
 if($kosmos2!="0000-00-00 00:00:00" && $kosmos1!="0000-00-00 00:00:00"){
 $cortax1=explode(" ",$kosmos1);
 $cortax1d=explode("-",$cortax1[0]);
@@ -510,13 +522,13 @@ echo segundos_tiempo($dif2);
     </td>
   </tr>
     <tr>
-    <td bgcolor="#ffffff"><strong>Concluir caso:</strong> <? 
+    <td bgcolor="#ffffff"><strong>Concluir caso:</strong> <?php  
 	
 	if($statuscaso=="concluido"){echo'Caso Conclu&iacute;do';} else{ if(empty($NO_EDITAR)){ echo'<input type="button" name="Button" value="Conclu&iacute;r caso" onClick="javascript:confirmGeneral(\'?module=detail_seguimiento&id='.$id.'&set_status=concluido\')"/>';}} ?></td>
-    <td bgcolor="#FFFFFF"><strong>Costo interno:</strong> $<? echo number_format($costoint,2); ?></td>
+    <td bgcolor="#FFFFFF"><strong>Costo interno:</strong> $<?php  echo number_format($costoint,2); ?></td>
 
 <td bgcolor="#FFFFFF"><b>Hora de ultimo status:</b> 
-<?
+<?php 
 if($fzor!="0000-00-00 00:00:00"){echo''.$fzor1d[2].'/'.$fzor1d[1].'/'.$fzor1d[0].' '.$fzor1[1].'';}
 else{echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';}
 ?>
@@ -524,8 +536,8 @@ else{echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';}
 
 </td></tr>
 <tr>
-<td bgcolor="#ffffff"><strong>Hora de Contacto (externo):</strong> <? echo $whitrext;	?></td>
-<td bgcolor="#ffffff"><strong>Hora de Termino (externo):</strong> <? echo $tyurruext;	?></td>
+<td bgcolor="#ffffff"><strong>Hora de Contacto (externo):</strong> <?php  echo $whitrext;	?></td>
+<td bgcolor="#ffffff"><strong>Hora de Termino (externo):</strong> <?php  echo $tyurruext;	?></td>
 <td bgcolor="#ffffff"></td>
 </tr>
 <tr>
@@ -533,21 +545,21 @@ else{echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';}
       <tr>
         <td>
         
-        <?
+        <?php 
         if(($banderazo!="0.00" or $blindaje!="0.00" or $maniobras!="0.00" or $espera!="0.00" or $otro!="0.00" or $total!="0.00" or $costoint!="0.00") && empty($NO_EDITAR)){echo'
 		<form><input type=button value="Imprimir Carta de Costos" onClick="javascript:popup(\'imprime_carta.php?id='.$id.'\')"></form>';}
 		?>
         
         </td>
-		<? if(empty($NO_EDITAR)):?>
+		<?php  if(empty($NO_EDITAR)):?>
   
  
         
-			<td align="right"><strong>[ <a href="javascript:FAjax('editacosto.php?id=<? echo $id;?>&amp;flim-flam=new Date().getTime()','statuscaso','','get');">Editar costo</a> | <a href="javascript:FAjax('editastatuscaso.php?id=<? echo $id;?>&amp;flim-flam=new Date().getTime()','statuscaso','','get');">Editar status</a> | <a href="javascript:FAjax('reasignarproveedor.php?id=<? echo $id;?>&amp;flim-flam=new Date().getTime()','statuscaso','','get');">Reasignar Proveedor</a> 
+			<td align="right"><strong>[ <a href="javascript:FAjax('editacosto.php?id=<?php  echo $id;?>&amp;flim-flam=new Date().getTime()','statuscaso','','get');">Editar costo</a> | <a href="javascript:FAjax('editastatuscaso.php?id=<?php  echo $id;?>&amp;flim-flam=new Date().getTime()','statuscaso','','get');">Editar status</a> | <a href="javascript:FAjax('reasignarproveedor.php?id=<?php  echo $id;?>&amp;flim-flam=new Date().getTime()','statuscaso','','get');">Reasignar Proveedor</a> 
   
      
             
-                           <?
+                           <?php 
         if(($proveedorasignado!="")){echo'
 		      | <a href="notas_proveedorb.php?id='.$proveedornotas.'" target="_blank">Reportar Proveedor</a> ';}
 		?>    
@@ -556,7 +568,7 @@ else{echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';}
         
         
         
-		<? endif; ?>
+		<?php  endif; ?>
       </tr>
     </table>      </td>
   </tr>

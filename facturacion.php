@@ -117,7 +117,7 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
 #
   echo paginar($pag, $total, $tampag, "mainframe.php?module=facturacion&quest=$quest&sort=$sort&show=$show&pag=");
 #
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                     <tr> 
                       <td align=middle class="titles"><b>Factura</b></td>
@@ -127,7 +127,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Status</b></td>					  
                       <td align=middle class="titles"><b>Operación</b></td></tr>';
 $bgcolor="#cccccc";
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
   
 $numfac=$row["factura"];
 if(strlen($numfac)==1){$numfac="000000".$numfac."";} 

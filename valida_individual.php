@@ -24,10 +24,10 @@ die();} else{}
 <p>
   <?
 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from usuarios_contrato where id = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $contrato=mysql_result($result,0,"contrato");
 $inciso=mysql_result($result,0,"inciso");
 $clave=mysql_result($result,0,"clave");
@@ -35,10 +35,10 @@ $nombre=mysql_result($result,0,"nombre");
 }
 if($accela!="new"){$accela="edit";}
 if($accela=="edit"){
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from validaciones  where clave_usuario  = '$clave'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $idval=mysql_result($result,0,"id");
 $tipo_pago=mysql_result($result,0,"tipo_pago");
 $fecha_pago=mysql_result($result,0,"fecha_pago");

@@ -91,7 +91,7 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
   echo paginar($pag, $total, $tampag, "mainframe.php?module=evaluaciones&quest=$quest&sort=$sort&show=$show&filter=$filter&pag=");
 #
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                     <tr> 
                       <td align=middle class="titles"><b>Expediente</b></td>
@@ -103,14 +103,14 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Status</b></td>				  
                       <td align=middle class="titles"><b>Operación</b></td></tr>';
 $bgcolor="#cccccc";
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}
 
 
 $fecharece=explode(" ",$row["fecha_recepcion"]);
 $fecharecex=explode("-",$fecharece[0]);
 $idempleado=$row["idEmpleado"];
-$dbx = mysqli_connect($host,$username,$pass);
+$dbx = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbx);
 $resultx = mysqli_query("SELECT * from Empleado where idEmpleado = '$idempleado'",$dbx);
 $empleado=mysql_result($resultx,0,"nombre");

@@ -113,22 +113,22 @@ FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-f
 <body>
 <? 
 if($set_date=="arribo"){
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET arribo=now() where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 if($set_date=="contacto"){
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET contacto=now() where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 if($set_status=="concluido"){
-mysqli_connect($host,$username,$pass);
+mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET status='concluido', ultimostatus=now() where id='$id'";
-mysql_db_query($database, "$sSQL");
+mysqli_query($database, "$sSQL");
 }
 if(empty($_SESSION["valid_user"])){die();} 
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
 $servicio=mysql_result($result,0,"servicio");
@@ -376,10 +376,10 @@ if($checa_array===FALSE){} else{
       </tr></table>
 	  <div id="situacion" style="display:block">
 	  <?
-	  $db = mysqli_connect($host,$username,$pass);
+	  $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $situacion_conductor=mysql_result($result,0,"situacion_juridica");
 $detencion=mysql_result($result,0,"detencion");
 $detencion=explode("-",$detencion);
@@ -460,10 +460,10 @@ $concepto_caucion_vehiculo=mysql_result($result,0,"concepto_caucion_vehiculo");
       </tr></table>
 <div id="siniestro">
 <?
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $conductor=mysql_result($result,0,"conductor");
 $tel1=mysql_result($result,0,"telconductor");
 $tel2=mysql_result($result,0,"telconductor2");
@@ -493,22 +493,22 @@ $telajustador2=mysql_result($result,0,"telajustador2");
 $monto_danos=mysql_result($result,0,"monto_danos");
 $monto_deducible=mysql_result($result,0,"monto_deducible");
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $colonia=mysql_result($result,0,"NombreColonia");
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $estado=mysql_result($result,0,"NombreEstado");
 }
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db);
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 $municipio=mysql_result($result,0,"NombreMunicipio");
 }
 ?>
@@ -589,27 +589,27 @@ $municipio=mysql_result($result,0,"NombreMunicipio");
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM terceros where general='$id' order by tipo desc, nombre", $link); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
 $colonia=$row["colonia"];
 $municipio=$row["municipio"];
 $estado=$row["estado"];
-$dbw = mysqli_connect($host,$username,$pass);
+$dbw = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbw);
 $resultw = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$dbw);
-if (mysql_num_rows($resultw)){ 
+if (mysqli_num_rows($resultw)){ 
 $colonia=mysql_result($resultw,0,"NombreColonia");
 }
-$dbw = mysqli_connect($host,$username,$pass);
+$dbw = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbw);
 $resultw = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$dbw);
-if (mysql_num_rows($resultw)){ 
+if (mysqli_num_rows($resultw)){ 
 $estado=mysql_result($resultw,0,"NombreEstado");
 }
-$dbw = mysqli_connect($host,$username,$pass);
+$dbw = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbw);
 $resultw = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$dbw);
-if (mysql_num_rows($resultw)){ 
+if (mysqli_num_rows($resultw)){ 
 $municipio=mysql_result($resultw,0,"NombreMunicipio");
 }
 echo' <table width="100%" border="0" cellspacing="3" cellpadding="3">
@@ -697,8 +697,8 @@ $result = consulta_mysql("SELECT b.*,e.nombre as nombreEmp
 							ON (b.usuario=e.idEmpleado) 
 						WHERE general='$id' 
 						ORDER BY fecha desc"); 
-if (mysql_num_rows($result)){ 
-  while ($row = @mysql_fetch_array($result)) { 
+if (mysqli_num_rows($result)){ 
+  while ($row = @mysqli_fetch_array($result)) { 
   
 
 $fexar=$row["fecha"];

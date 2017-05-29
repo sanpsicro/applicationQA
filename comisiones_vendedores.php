@@ -105,7 +105,7 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
 
 
 
-if (mysql_num_rows($result)){ 
+if (mysqli_num_rows($result)){ 
 
 
 
@@ -129,42 +129,42 @@ $bgcolor="#cccccc";
 
 
 
-  while ($row = @mysql_fetch_array($result)) { 
+  while ($row = @mysqli_fetch_array($result)) { 
 
 if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
 $contrato=$row["numPoliza"];
 
-$dbv = mysqli_connect($host,$username,$pass);
+$dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
 $resultv = mysqli_query("SELECT * from usuarios_contrato where contrato = '$contrato'",$dbv);
-if (mysql_num_rows($resultv)){ 
+if (mysqli_num_rows($resultv)){ 
 $monto=0;
 $ingreso=0;
 $comision=0;
-while ($rowv = @mysql_fetch_array($resultv)) { 
+while ($rowv = @mysqli_fetch_array($resultv)) { 
 $comision=$comision+$rowv["comision"];
 }
 }
 
-$dbv = mysqli_connect($host,$username,$pass);
+$dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
 $resultv = mysqli_query("SELECT idEmpleado from Poliza where numPoliza = '$contrato'",$dbv);
-if (mysql_num_rows($resultv)){ 
+if (mysqli_num_rows($resultv)){ 
 $vendedor=mysql_result($resultv,0,"idEmpleado");
 
 }
 
-$dbv = mysqli_connect($host,$username,$pass);
+$dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
 $resultv = mysqli_query("SELECT nombre from Empleado where idEmpleado = '$vendedor'",$dbv);
-if (mysql_num_rows($resultv)){ 
+if (mysqli_num_rows($resultv)){ 
 $vendedor=mysql_result($resultv,0,"nombre");
 }
 
-$dbv = mysqli_connect($host,$username,$pass);
+$dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
 $resultv = mysqli_query("SELECT status from comisiones_contratos where contrato = '$contrato'",$dbv);
-if (mysql_num_rows($resultv)){ 
+if (mysqli_num_rows($resultv)){ 
 $status=mysql_result($resultv,0,"status");
 }
 

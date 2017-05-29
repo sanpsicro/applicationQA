@@ -32,7 +32,7 @@ die();} else{} ?>
 	  
 	  <? 
 	  
-$db = mysqli_connect($host,$username,$pass);
+$db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from modcap where cid = '$capid'",$db);
 $nombre=mysql_result($result,0,"nombre");
