@@ -79,13 +79,14 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmborra(idex,tercero) { 
-if (confirm("¿Está seguro de querer eliminar al tercero?\n")) { 
+if (confirm("ï¿½Estï¿½ seguro de querer eliminar al tercero?\n")) { 
 FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-flam='+new Date().getTime(),'terceros','','get');
 }
 }
 </script>
 <script type="text/javascript" src="subcombo.js"></script>
 <?php 
+
 if(isset($_GET['id'])){
 $id  = $_GET['id'];
 }else{
@@ -236,7 +237,7 @@ $extension=mysqli_result($resultl,0,"extension");
       <td width=50% align="right"><span class="maintitle">Prov: <?php  echo $probestar;?></span></td>
       </tr>
 <tr>
-	<td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=seguimiento_caso&id=".$id."'>Seguimiento</a> | <a href='?module=conclusion_caso&id=".$id."'>Conclusión</a>";}?></td>
+	<td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=seguimiento_caso&id=".$id."'>Seguimiento</a> | <a href='?module=conclusion_caso&id=".$id."'>Conclusiï¿½n</a>";}?></td>
 </tr>
 	  </table></td></tr>
 <tr>
@@ -275,7 +276,7 @@ else{
       <td width="33%" bgcolor="#ffffff"><strong>Cliente:</strong> <?php  echo $cliente;?></td>
     </tr>
     <tr>
-      <td bgcolor="#ffffff"><strong>Fecha de recepci&oacute;n:</strong> <?php  echo $fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1] ;?></td>
+      <td bgcolor="#ffffff"><strong>Fecha de recepci&oacute;n:</strong> <?php  echo ''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'' ;?></td>
        <?php  $ivx++; 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}?>
       
 <?php 
@@ -315,7 +316,7 @@ if($checa_arrayx===FALSE){} else{
 $checa_arrayx=array_search("fecha_suceso",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-      <td bgcolor="#ffffff"><strong>Fecha del suceso:</strong> <?php  echo $fexa2d[2].'/'.$fexa2d[1].'/'.$fexa2d[0].' '.$fexa2[1];?></td>
+      <td bgcolor="#ffffff"><strong>Fecha del suceso:</strong> <?php  echo ''.$fexa2d[2].'/'.$fexa2d[1].'/'.$fexa2d[0].' '.$fexa2[1].'' ;?></td>
       <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
@@ -992,22 +993,22 @@ $municipio=mysqli_result($result,0,"NombreMunicipio");
             <td colspan="3" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="3" cellpadding="3">
                 <tr>
                   <td><strong>Delitos:</strong> 
-				   <?php  /* if($delitos=="si"){echo'Sí';} else{echo'No';} */ ?>
+				   <?php  /* if($delitos=="si"){echo'Sï¿½';} else{echo'No';} */ ?>
 				  </td>
                   <td><strong>Da&ntilde;os:</strong>
-				  <?php  if($danos=="si"){echo'Sí';} else{echo'No';} ?>				  
+				  <?php  if($danos=="si"){echo'Sï¿½';} else{echo'No';} ?>				  
 				  </td>
                   <td><strong>Lesiones:</strong>
-				  				 <?php  if($lesiones=="si"){echo'Sí';} else{echo'No';} ?>
+				  				 <?php  if($lesiones=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Homicidios:</strong>
-				  				  <?php  if($homicidios=="si"){echo'Sí';} else{echo'No';} ?>
+				  				  <?php  if($homicidios=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Ataques:</strong>
-				<?php   if($ataques=="si"){echo'Sí';} else{echo'No';} ?>
+				<?php   if($ataques=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Robo:</strong>
-				<?php    if($robo=="si"){echo'Sí';} else{echo'No';}	?>
+				<?php    if($robo=="si"){echo'Sï¿½';} else{echo'No';}	?>
 				  </td>
                 </tr>
             </table></td>
@@ -1496,7 +1497,7 @@ $link = mysqli_connect($host, $username, $pass);
 $cuentacel=strlen($celsms);
 if ($cuentacel == 10) { ?>
 
-<strong>SE ENVIARÁ UN SMS A: +52<?php $celsms?></strong>
+<strong>SE ENVIARï¿½ UN SMS A: +52<?php $celsms?></strong>
 <br />
 <form id="form1" name="form1" method="post" action="process.php?module=enviasms1">
 <input type="hidden" name="to" value="+52<?php $celsms?>">
@@ -1537,7 +1538,7 @@ $resultl = mysqli_query($db,"SELECT lat,longi from chatstat where gr='".$id."'",
 		
 		 }
 	
-	else { echo "<strong>Usuario no ha ingresado su ubicación</strong>";}
+	else { echo "<strong>Usuario no ha ingresado su ubicaciï¿½n</strong>";}
 	
 	?>
     </div>
@@ -1567,7 +1568,7 @@ $cuentacel=strlen($celsms);
 
 if ($cuentacel == 10) { ?>
 
-<strong>SE ENVIARÁ UN SMS A: +52<?php $celsms?></strong>
+<strong>SE ENVIARï¿½ UN SMS A: +52<?php $celsms?></strong>
 <br />
 <form id="form1" name="form1" method="post" action="process.php?module=enviasms2">
 <input type="hidden" name="to" value="+52<?php $celsms?>">

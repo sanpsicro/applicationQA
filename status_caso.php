@@ -11,24 +11,12 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,lo
 
 <script type="text/javascript" language="JavaScript">
 function confirmGeneral(generalurl) { 
-if (confirm("¿Está seguro?")) { 
+if (confirm("ï¿½Estï¿½ seguro?")) { 
 document.location = generalurl; 
 }
 }
 </script>
 <?php 
-
-function mysqli_result($res,$row=0,$col=0){
-	$numrows = mysqli_num_rows($res);
-	if ($numrows && $row <= ($numrows-1) && $row >=0){
-		mysqli_data_seek($res,$row);
-		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
-		if (isset($resrow[$col])){
-			return $resrow[$col];
-		}
-	}
-	return false;
-}
 $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 $explota_permisos=explode(",",$_SESSION["valid_permisos"]);
 $db = mysqli_connect($host,$username,$pass,$database);
@@ -472,7 +460,7 @@ $segundos=date('h')*60*60+(date('i')*60)+date('s');
   <tr>
     <td bgcolor="#ffffff"><strong>Status:</strong> <?php  echo $statuscaso;?></td>
     <td bgcolor="#ffffff"><strong>Asignado a proveedor:</strong> <?php  echo $proveedorasignado;?></td>
-    <td bgcolor="#ffffff"><strong>Hora de recepción:</strong> <?php  echo''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
+    <td bgcolor="#ffffff"><strong>Hora de recepciï¿½n:</strong> <?php  echo''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
   </tr>
   <tr>
     <td bgcolor="#ffffff"><strong>Hora de registro:</strong> <?php  echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';?></td>
