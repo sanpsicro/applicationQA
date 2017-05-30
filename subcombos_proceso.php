@@ -55,7 +55,7 @@ if (mysqli_num_rows($result)){
   while ($row = @mysqli_fetch_array($result)) { 
 
     		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
-  		$row["NombreColonia"]=substr($row[NombreColonia],0,25);					
+  		$row["NombreColonia"]=substr($row["NombreColonia"],0,25);					
 
   echo'<option value="'.$row["idColonia"].'"';
 

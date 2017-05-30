@@ -199,7 +199,7 @@ $servicio=mysqli_result($result,0,"servicio");
 $tipoServicio=mysqli_result($result,0,"tipo");
 $campos=mysqli_result($result,0,"campos");
 
-/*$row=mysql_fetch_assoc($result);
+/*$row=mysqli_fetch_assoc($result);
 extract($row);*/
 $camposex=explode(",",$campos);
 $result = mysqli_query($db,"SELECT * from Cliente where idCliente = '".$cliente."'");

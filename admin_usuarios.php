@@ -1,4 +1,4 @@
-<?php
+<?php 
 isset($_GET['accela']) ? $accela = $_GET['accela']: $accela = null; 
 
 isset($_GET['idEmpleado']) ? $idEmpleado = $_GET['idEmpleado']: $idEmpleado = null;
@@ -137,7 +137,7 @@ function validar(formulario) {
 
 
 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Usuarios</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("1_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Usuarios</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("1_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=new">Nuevo Usuario</a> ]';} ?></td></tr></table></td></tr>
 
@@ -161,7 +161,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=n
 
             <td width="400" 			class="questtitle"> 
 
-<?php
+<?php 
 if($accela=="new"){echo'Dar de alta Usuario';}else{echo'Editar Usuario';}
 ?>
 
@@ -231,7 +231,7 @@ if($accela=="new"){echo'Dar de alta Usuario';}else{echo'Editar Usuario';}
 
 
 
-<?php
+<?php 
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 
     if ($numrows && $row <= ($numrows-1) && $row >=0){
@@ -317,7 +317,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuarios&accela='
 
         <td align="right" bgcolor="#cccccc"><strong>Usuario:</strong></td>
 
-        <td bgcolor="#cccccc"><input name="usuario" type="text" id="usuario" size="50" value="<? echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="usuario" type="text" id="usuario" size="50" value="<?php  echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
 
       </tr>
 
@@ -325,7 +325,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuarios&accela='
 
         <td align="right" bgcolor="#cccccc"><strong>Contrase&ntilde;a:</strong></td>
 
-        <td bgcolor="#cccccc"><input name="contrasena" type="password" id="contrasena" size="50" value="<? echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="contrasena" type="password" id="contrasena" size="50" value="<?php  echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
 
       </tr>
 
@@ -333,7 +333,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuarios&accela='
 
         <td width="100" align="right" bgcolor="#cccccc"><strong>Nombre:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<? echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<?php  echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
 
       </tr>
 
@@ -341,7 +341,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuarios&accela='
 
         <td align="right" bgcolor="#cccccc"><strong>Cargo:</strong></td>
 
-        <td bgcolor="#cccccc"><input name="cargo" type="text" id="cargo" size="50" value="<? echo"$cargo";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="cargo" type="text" id="cargo" size="50" value="<?php  echo"$cargo";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
 
       </tr>
 
@@ -351,7 +351,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuarios&accela='
 
         <td bgcolor="#cccccc"><select name="departamento" id="departamento">
 
-            <?php
+            <?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -383,7 +383,7 @@ if (mysqli_num_rows($result)){
 
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Direcci&oacute;n:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="direccion" type="text" id="direccion" size="50" value="<? echo"$direccion";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="direccion" type="text" id="direccion" size="50" value="<?php  echo"$direccion";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
 
       </tr>
 
@@ -395,7 +395,7 @@ if (mysqli_num_rows($result)){
 
             <option value='0'>Seleccione un Estado</option>
 
-            <?
+            <?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -427,7 +427,7 @@ if (mysqli_num_rows($result)){
 
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Municipio:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><?
+        <td width="200" bgcolor="#cccccc"><?php 
 
 						  if($accela=="edit"){
 
@@ -473,7 +473,7 @@ echo'</select>';
 
         <td align="right" valign="top" bgcolor="#cccccc"><strong>Colonia:</strong></td>
 
-        <td bgcolor="#cccccc"><?
+        <td bgcolor="#cccccc"><?php 
 
 						  if($accela=="edit"){
 
@@ -519,7 +519,7 @@ echo'</select>';
 
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Extension (CTC):</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="extension" type="text" id="email" size="50" value="<? echo"$extension";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="extension" type="text" id="email" size="50" value="<?php  echo"$extension";?>"/></td>
 
       </tr>
 
@@ -527,7 +527,7 @@ echo'</select>';
 
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Tel&eacute;fono de Casa:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="telefonocasa" type="text" id="telefonocasa" size="50" value="<? echo"$telefonocasa";?>" onKeyPress="return numbersonly(this, event)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="telefonocasa" type="text" id="telefonocasa" size="50" value="<?php  echo"$telefonocasa";?>" onKeyPress="return numbersonly(this, event)"/></td>
 
       </tr>
 
@@ -535,7 +535,7 @@ echo'</select>';
 
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Tel&eacute;fono Celular:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="telefonocelular" type="text" id="telefonocelular" size="50" value="<? echo"$telefonocelular";?>" onKeyPress="return numbersonly(this, event)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="telefonocelular" type="text" id="telefonocelular" size="50" value="<?php  echo"$telefonocelular";?>" onKeyPress="return numbersonly(this, event)"/></td>
 
       </tr>
 
@@ -543,7 +543,7 @@ echo'</select>';
 
         <td align="right" valign="top" bgcolor="#cccccc"><strong>Radio Teléfono:</strong> </td>
 
-        <td bgcolor="#cccccc"><input name="idnextel" type="text" id="idnextel" size="50" value="<? echo"$idnextel";?>" onKeyPress="return numbersonly(this, event)"/></td>
+        <td bgcolor="#cccccc"><input name="idnextel" type="text" id="idnextel" size="50" value="<?php  echo"$idnextel";?>" onKeyPress="return numbersonly(this, event)"/></td>
 
       </tr>
 
@@ -551,7 +551,7 @@ echo'</select>';
 
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Tel&eacute;fono Nextel:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="nextel" type="text" id="nextel" size="50" value="<? echo"$nextel";?>" onKeyPress="return numbersonly(this, event)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="nextel" type="text" id="nextel" size="50" value="<?php  echo"$nextel";?>" onKeyPress="return numbersonly(this, event)"/></td>
 
       </tr>
 
@@ -559,7 +559,7 @@ echo'</select>';
 
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Email:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="email" type="text" id="email" size="50" value="<? echo"$email";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="email" type="text" id="email" size="50" value="<?php  echo"$email";?>"/></td>
 
       </tr>
 
@@ -571,9 +571,9 @@ echo'</select>';
 
         <td bgcolor="#cccccc"><select name="activo" id="activo">
 
-          <option value="1" <? if($activo=="1"){echo' selected';} ?>>Si</option>
+          <option value="1" <?php  if($activo=="1"){echo' selected';} ?>>Si</option>
 
-          <option value="0" <? if($activo=="0"){echo' selected';} ?>>No</option>
+          <option value="0" <?php  if($activo=="0"){echo' selected';} ?>>No</option>
 
         </select>        </td>
 
@@ -585,11 +585,11 @@ echo'</select>';
 
         <td bgcolor="#cccccc"><select name="tipo" id="tipo">
 
-            <option value="administrador"  <? if($tipo=="administrador"){echo' selected';} ?>>Administrador</option>
+            <option value="administrador"  <?php  if($tipo=="administrador"){echo' selected';} ?>>Administrador</option>
 
-            <option value="vendedor" <? if($tipo=="vendedor"){echo' selected';} ?>>Vendedor</option>
+            <option value="vendedor" <?php  if($tipo=="vendedor"){echo' selected';} ?>>Vendedor</option>
 
-            <option value="cabina" <? if($tipo=="cabina"){echo' selected';} ?>>Cabina</option>
+            <option value="cabina" <?php  if($tipo=="cabina"){echo' selected';} ?>>Cabina</option>
 
           </select>        </td>
 
@@ -599,7 +599,7 @@ echo'</select>';
       <td bgcolor="#cccccc">
 
           
-       <input type="checkbox" name="modules_auth[]" value="capacitacion" <?php $checa_array1=array_search("capacitacion",$modules_exploited);
+       <input type="checkbox" name="modules_auth[]" value="capacitacion" <?php  $checa_array1=array_search("capacitacion",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
@@ -607,7 +607,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> />
           
           <br /><br />
           
-                       <input name="permi[]" type="checkbox" id="permi[]" value="cap_a" <? $checa_array1=array_search("cap_a",$permisos_exploited);
+                       <input name="permi[]" type="checkbox" id="permi[]" value="cap_a" <?php  $checa_array1=array_search("cap_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Administrar</span>
@@ -617,7 +617,7 @@ Administrar</span>
           el m&oacute;dulo<br /><br />
           
           
-  <?
+  <?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -682,25 +682,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} echo ' />';
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="usuarios" <? $checa_array1=array_search("usuarios",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="usuarios" <?php  $checa_array1=array_search("usuarios",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Usuarios</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_a" <? $checa_array1=array_search("1_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_a" <?php  $checa_array1=array_search("1_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_b" <? $checa_array1=array_search("1_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_b" <?php  $checa_array1=array_search("1_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_c" <? $checa_array1=array_search("1_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_c" <?php  $checa_array1=array_search("1_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_d" <? $checa_array1=array_search("1_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="1_d" <?php  $checa_array1=array_search("1_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
@@ -713,29 +713,29 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="clientes" <? $checa_array1=array_search("clientes",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="clientes" <?php  $checa_array1=array_search("clientes",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Clientes</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_a" <? $checa_array1=array_search("3_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_a" <?php  $checa_array1=array_search("3_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_b" <? $checa_array1=array_search("3_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_b" <?php  $checa_array1=array_search("3_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_c" <? $checa_array1=array_search("3_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_c" <?php  $checa_array1=array_search("3_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_d" <? $checa_array1=array_search("3_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_d" <?php  $checa_array1=array_search("3_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_v" <? $checa_array1=array_search("3_v",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="3_v" <?php  $checa_array1=array_search("3_v",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -748,32 +748,32 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="contratos" <? $checa_array1=array_search("contratos",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="contratos" <?php  $checa_array1=array_search("contratos",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Contratos</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_a" <? $checa_array1=array_search("4_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_a" <?php  $checa_array1=array_search("4_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_b" <? $checa_array1=array_search("4_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_b" <?php  $checa_array1=array_search("4_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_c" <? $checa_array1=array_search("4_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_c" <?php  $checa_array1=array_search("4_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_d" <? $checa_array1=array_search("4_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_d" <?php  $checa_array1=array_search("4_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_v" <? $checa_array1=array_search("4_v",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_v" <?php  $checa_array1=array_search("4_v",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_i" <? $checa_array1=array_search("4_i",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="4_i" <?php  $checa_array1=array_search("4_i",$permisos_exploited);
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
       </tr>
@@ -782,23 +782,23 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-        <!--  <input type="checkbox" name="modules_auth[]" value="vehiculos" <? $checa_array1=array_search("vehiculos",$modules_exploited);
+        <!--  <input type="checkbox" name="modules_auth[]" value="vehiculos" <?php  $checa_array1=array_search("vehiculos",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>-->  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Usuarios contrato </span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_a" <? $checa_array1=array_search("5_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_a" <?php  $checa_array1=array_search("5_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_b" <? $checa_array1=array_search("5_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_b" <?php  $checa_array1=array_search("5_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_c" <? $checa_array1=array_search("5_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_c" <?php  $checa_array1=array_search("5_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_d" <? $checa_array1=array_search("5_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_d" <?php  $checa_array1=array_search("5_d",$permisos_exploited);
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -810,25 +810,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="beneficiarios" <? $checa_array1=array_search("beneficiarios",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="beneficiarios" <?php  $checa_array1=array_search("beneficiarios",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Beneficiarios</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_a" <? $checa_array1=array_search("6_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_a" <?php  $checa_array1=array_search("6_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_b" <? $checa_array1=array_search("6_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_b" <?php  $checa_array1=array_search("6_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_c" <? $checa_array1=array_search("6_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_c" <?php  $checa_array1=array_search("6_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_d" <? $checa_array1=array_search("6_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="6_d" <?php  $checa_array1=array_search("6_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
@@ -840,25 +840,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="ventas" <? $checa_array1=array_search("ventas",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="ventas" <?php  $checa_array1=array_search("ventas",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Ventas</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_a" <? $checa_array1=array_search("14_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_a" <?php  $checa_array1=array_search("14_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_b" <? $checa_array1=array_search("14_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_b" <?php  $checa_array1=array_search("14_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_c" <? $checa_array1=array_search("14_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_c" <?php  $checa_array1=array_search("14_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_d" <? $checa_array1=array_search("14_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="14_d" <?php  $checa_array1=array_search("14_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
@@ -871,25 +871,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="pagos" <? $checa_array1=array_search("pagos",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="pagos" <?php  $checa_array1=array_search("pagos",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Pagos</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_a" <? $checa_array1=array_search("16_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_a" <?php  $checa_array1=array_search("16_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_b" <? $checa_array1=array_search("16_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_b" <?php  $checa_array1=array_search("16_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_c" <? $checa_array1=array_search("16_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_c" <?php  $checa_array1=array_search("16_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_d" <? $checa_array1=array_search("16_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="16_d" <?php  $checa_array1=array_search("16_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -902,7 +902,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="cabina" <? $checa_array1=array_search("cabina",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="cabina" <?php  $checa_array1=array_search("cabina",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
@@ -923,14 +923,14 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?>>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="seguimiento" <? $checa_array1=array_search("seguimiento",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="seguimiento" <?php  $checa_array1=array_search("seguimiento",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Seguimiento</span></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="sg_e" <? $checa_array1=array_search("sg_e",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="sg_e" <?php  $checa_array1=array_search("sg_e",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -941,21 +941,21 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="webservice" <? $checa_array1=array_search("webservice",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="webservice" <?php  $checa_array1=array_search("webservice",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Usuarios Web Service</span></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_a" <? $checa_array1=array_search("ws_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_a" <?php  $checa_array1=array_search("ws_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_b" <? $checa_array1=array_search("ws_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_b" <?php  $checa_array1=array_search("ws_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_c" <? $checa_array1=array_search("ws_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_c" <?php  $checa_array1=array_search("ws_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_d" <? $checa_array1=array_search("ws_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="ws_d" <?php  $checa_array1=array_search("ws_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -965,21 +965,21 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="accesocl" <? $checa_array1=array_search("accesocl",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="accesocl" <?php  $checa_array1=array_search("accesocl",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?>>
 
           Usuarios Acceso a Clientes</span></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_a" <? $checa_array1=array_search("cl_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_a" <?php  $checa_array1=array_search("cl_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_b" <? $checa_array1=array_search("cl_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_b" <?php  $checa_array1=array_search("cl_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_c" <? $checa_array1=array_search("cl_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_c" <?php  $checa_array1=array_search("cl_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_d" <? $checa_array1=array_search("cl_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="cl_d" <?php  $checa_array1=array_search("cl_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -990,25 +990,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-<input type="checkbox" name="modules_auth[]" value="servicios" <? $checa_array1=array_search("servicios",$modules_exploited);
+<input type="checkbox" name="modules_auth[]" value="servicios" <?php  $checa_array1=array_search("servicios",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />          
 
 Servicios</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_a" <? $checa_array1=array_search("2_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_a" <?php  $checa_array1=array_search("2_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_b" <? $checa_array1=array_search("2_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_b" <?php  $checa_array1=array_search("2_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_c" <? $checa_array1=array_search("2_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_c" <?php  $checa_array1=array_search("2_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_d" <? $checa_array1=array_search("2_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="2_d" <?php  $checa_array1=array_search("2_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1021,25 +1021,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="estado" <? $checa_array1=array_search("estado",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="estado" <?php  $checa_array1=array_search("estado",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Estado</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_a" <? $checa_array1=array_search("7_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_a" <?php  $checa_array1=array_search("7_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_b" <? $checa_array1=array_search("7_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_b" <?php  $checa_array1=array_search("7_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_c" <? $checa_array1=array_search("7_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_c" <?php  $checa_array1=array_search("7_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_d" <? $checa_array1=array_search("7_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="7_d" <?php  $checa_array1=array_search("7_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1052,25 +1052,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="municipio" <? $checa_array1=array_search("municipio",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="municipio" <?php  $checa_array1=array_search("municipio",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Municipio</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_a" <? $checa_array1=array_search("8_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_a" <?php  $checa_array1=array_search("8_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_b" <? $checa_array1=array_search("8_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_b" <?php  $checa_array1=array_search("8_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_c" <? $checa_array1=array_search("8_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_c" <?php  $checa_array1=array_search("8_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_d" <? $checa_array1=array_search("8_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="8_d" <?php  $checa_array1=array_search("8_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1083,25 +1083,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="colonia" <? $checa_array1=array_search("colonia",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="colonia" <?php  $checa_array1=array_search("colonia",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Colonia</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_a" <? $checa_array1=array_search("9_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_a" <?php  $checa_array1=array_search("9_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_b" <? $checa_array1=array_search("9_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_b" <?php  $checa_array1=array_search("9_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_c" <? $checa_array1=array_search("9_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_c" <?php  $checa_array1=array_search("9_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_d" <? $checa_array1=array_search("9_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="9_d" <?php  $checa_array1=array_search("9_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1116,25 +1116,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="tipo_cliente" <? $checa_array1=array_search("tipo_cliente",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="tipo_cliente" <?php  $checa_array1=array_search("tipo_cliente",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Tipo Cliente </span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_a" <? $checa_array1=array_search("10_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_a" <?php  $checa_array1=array_search("10_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_b" <? $checa_array1=array_search("10_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_b" <?php  $checa_array1=array_search("10_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_c" <? $checa_array1=array_search("10_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_c" <?php  $checa_array1=array_search("10_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_d" <? $checa_array1=array_search("10_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="10_d" <?php  $checa_array1=array_search("10_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1147,25 +1147,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="tipo_pago" <? $checa_array1=array_search("tipo_pago",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="tipo_pago" <?php  $checa_array1=array_search("tipo_pago",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Tipo Pago </span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_a" <? $checa_array1=array_search("11_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_a" <?php  $checa_array1=array_search("11_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_b" <? $checa_array1=array_search("11_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_b" <?php  $checa_array1=array_search("11_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_c" <? $checa_array1=array_search("11_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_c" <?php  $checa_array1=array_search("11_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_d" <? $checa_array1=array_search("11_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="11_d" <?php  $checa_array1=array_search("11_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1178,25 +1178,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="tipo_proveedor" <? $checa_array1=array_search("tipo_proveedor",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="tipo_proveedor" <?php  $checa_array1=array_search("tipo_proveedor",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Tipo Proveedor </span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_a" <? $checa_array1=array_search("12_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_a" <?php  $checa_array1=array_search("12_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_b" <? $checa_array1=array_search("12_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_b" <?php  $checa_array1=array_search("12_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_c" <? $checa_array1=array_search("12_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_c" <?php  $checa_array1=array_search("12_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_d" <? $checa_array1=array_search("12_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="12_d" <?php  $checa_array1=array_search("12_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1209,25 +1209,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="tipo_venta" <? $checa_array1=array_search("tipo_venta",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="tipo_venta" <?php  $checa_array1=array_search("tipo_venta",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Tipo Venta </span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_a" <? $checa_array1=array_search("13_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_a" <?php  $checa_array1=array_search("13_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_b" <? $checa_array1=array_search("13_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_b" <?php  $checa_array1=array_search("13_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_c" <? $checa_array1=array_search("13_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_c" <?php  $checa_array1=array_search("13_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_d" <? $checa_array1=array_search("13_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="13_d" <?php  $checa_array1=array_search("13_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1240,25 +1240,25 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="proveedores" <? $checa_array1=array_search("proveedores",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="proveedores" <?php  $checa_array1=array_search("proveedores",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
           Proveedores</span></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_a" <? $checa_array1=array_search("15_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_a" <?php  $checa_array1=array_search("15_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_b" <? $checa_array1=array_search("15_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_b" <?php  $checa_array1=array_search("15_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_c" <? $checa_array1=array_search("15_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_c" <?php  $checa_array1=array_search("15_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_d" <? $checa_array1=array_search("15_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="15_d" <?php  $checa_array1=array_search("15_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1269,20 +1269,20 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="evaluaciones" <? $checa_array1=array_search("evaluaciones",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="evaluaciones" <?php  $checa_array1=array_search("evaluaciones",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Evaluaciones</span></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_a" <? $checa_array1=array_search("19_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_a" <?php  $checa_array1=array_search("19_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_b" <? $checa_array1=array_search("19_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_b" <?php  $checa_array1=array_search("19_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_c" <? $checa_array1=array_search("19_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_c" <?php  $checa_array1=array_search("19_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_d" <? $checa_array1=array_search("19_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="19_d" <?php  $checa_array1=array_search("19_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -1291,20 +1291,20 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
       </tr>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="pago_proveedores" <? $checa_array1=array_search("pago_proveedores",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="pago_proveedores" <?php  $checa_array1=array_search("pago_proveedores",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
           Pago a proveedores </span></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_a" <? $checa_array1=array_search("20_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_a" <?php  $checa_array1=array_search("20_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_b" <? $checa_array1=array_search("20_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_b" <?php  $checa_array1=array_search("20_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_c" <? $checa_array1=array_search("20_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_c" <?php  $checa_array1=array_search("20_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_d" <? $checa_array1=array_search("20_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="20_d" <?php  $checa_array1=array_search("20_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -1313,20 +1313,20 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
       </tr>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="comisiones_vendedores" <? $checa_array1=array_search("comisiones_vendedores",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="comisiones_vendedores" <?php  $checa_array1=array_search("comisiones_vendedores",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
           Comisiones vendedores </span></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_a" <? $checa_array1=array_search("21_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_a" <?php  $checa_array1=array_search("21_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_b" <? $checa_array1=array_search("21_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_b" <?php  $checa_array1=array_search("21_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_c" <? $checa_array1=array_search("21_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_c" <?php  $checa_array1=array_search("21_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_d" <? $checa_array1=array_search("21_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="21_d" <?php  $checa_array1=array_search("21_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -1335,20 +1335,20 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
       </tr>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="facturacion" <? $checa_array1=array_search("facturacion",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="facturacion" <?php  $checa_array1=array_search("facturacion",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
           Facturación </span></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_a" <? $checa_array1=array_search("22_a",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_a" <?php  $checa_array1=array_search("22_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_b" <? $checa_array1=array_search("22_b",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_b" <?php  $checa_array1=array_search("22_b",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_c" <? $checa_array1=array_search("22_c",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_c" <?php  $checa_array1=array_search("22_c",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_d" <? $checa_array1=array_search("22_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_d" <?php  $checa_array1=array_search("22_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -1359,7 +1359,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
         <td bgcolor="#bbbbbb"><span class="style1">
 
-          <input type="checkbox" name="modules_auth[]" value="seguimiento_caso" <? $checa_array1=array_search("seguimiento_caso",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="seguimiento_caso" <?php  $checa_array1=array_search("seguimiento_caso",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
@@ -1368,7 +1368,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> />
         <td align="center" valign="middle" bgcolor="#cccccc"></td>
         <td align="center" valign="middle" bgcolor="#cccccc"></td>
         <td align="center" valign="middle" bgcolor="#cccccc"></td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="23_d" <? $checa_array1=array_search("23_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="23_d" <?php  $checa_array1=array_search("23_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
 
@@ -1378,7 +1378,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
       </tr>
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="uploadc" <? $checa_array1=array_search("uploadc",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="uploadc" <?php  $checa_array1=array_search("uploadc",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Importador Contratos </span></td>
@@ -1392,7 +1392,7 @@ Importador Contratos </span></td>
       </tr>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="exportacion" <? $checa_array1=array_search("exportacion",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="exportacion" <?php  $checa_array1=array_search("exportacion",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportaci&oacute;n (menú) </span></td>
@@ -1406,7 +1406,7 @@ Exportaci&oacute;n (menú) </span></td>
       </tr>
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expusuarios" <? $checa_array1=array_search("expusuarios",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expusuarios" <?php  $checa_array1=array_search("expusuarios",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Usuarios </span></td>
@@ -1420,7 +1420,7 @@ Exportar Usuarios </span></td>
       </tr>	  
       <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expclientes" <? $checa_array1=array_search("expclientes",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expclientes" <?php  $checa_array1=array_search("expclientes",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Clientes </span></td>
@@ -1434,7 +1434,7 @@ Exportar Clientes </span></td>
       </tr>	    
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expcontratos" <? $checa_array1=array_search("expcontratos",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expcontratos" <?php  $checa_array1=array_search("expcontratos",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Contratos </span></td>
@@ -1448,7 +1448,7 @@ Exportar Contratos </span></td>
       </tr>	  
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expvalidaciones" <? $checa_array1=array_search("expvalidaciones",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expvalidaciones" <?php  $checa_array1=array_search("expvalidaciones",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Validaciones </span></td>
@@ -1462,7 +1462,7 @@ Exportar Validaciones </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expproveedores" <? $checa_array1=array_search("expproveedores",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expproveedores" <?php  $checa_array1=array_search("expproveedores",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Proveedores </span></td>
@@ -1476,7 +1476,7 @@ Exportar Proveedores </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expventas" <? $checa_array1=array_search("expventas",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expventas" <?php  $checa_array1=array_search("expventas",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Ventas </span></td>
@@ -1490,7 +1490,7 @@ Exportar Ventas </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expseguimiento" <? $checa_array1=array_search("expseguimiento",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expseguimiento" <?php  $checa_array1=array_search("expseguimiento",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Seguimiento </span></td>
@@ -1504,7 +1504,7 @@ Exportar Seguimiento </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expcpagos" <? $checa_array1=array_search("expcpagos",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expcpagos" <?php  $checa_array1=array_search("expcpagos",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Control de Pagos </span></td>
@@ -1518,7 +1518,7 @@ Exportar Control de Pagos </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expccobranza" <? $checa_array1=array_search("expccobranza",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expccobranza" <?php  $checa_array1=array_search("expccobranza",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Control de Cobranza </span></td>
@@ -1532,7 +1532,7 @@ Exportar Control de Cobranza </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expcpc" <? $checa_array1=array_search("expcpc",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expcpc" <?php  $checa_array1=array_search("expcpc",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Control de Pago/Cobranza </span></td>
@@ -1546,7 +1546,7 @@ Exportar Control de Pago/Cobranza </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expevaluaciones" <? $checa_array1=array_search("expevaluaciones",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expevaluaciones" <?php  $checa_array1=array_search("expevaluaciones",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Evaluaciones </span></td>
@@ -1560,7 +1560,7 @@ Exportar Evaluaciones </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expcomvend" <? $checa_array1=array_search("expcomvend",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expcomvend" <?php  $checa_array1=array_search("expcomvend",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Comisiones de Vendedores </span></td>
@@ -1574,7 +1574,7 @@ Exportar Comisiones de Vendedores </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expfacturas" <? $checa_array1=array_search("expfacturas",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expfacturas" <?php  $checa_array1=array_search("expfacturas",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Facturas </span></td>
@@ -1588,7 +1588,7 @@ Exportar Facturas </span></td>
       </tr>	
             <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="expnotrem" <? $checa_array1=array_search("expnotrem",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="expnotrem" <?php  $checa_array1=array_search("expnotrem",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Exportar Notas de Remisión </span></td>
@@ -1602,14 +1602,14 @@ Exportar Notas de Remisión </span></td>
       </tr>	
 	  <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="vencimientos" <? $checa_array1=array_search("vencimientos",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="vencimientos" <?php  $checa_array1=array_search("vencimientos",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Vencimientos </span></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
-        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="25_d" <? $checa_array1=array_search("25_d",$permisos_exploited);
+        <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="25_d" <?php  $checa_array1=array_search("25_d",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -1618,7 +1618,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
       </tr>
 <tr>
         <td bgcolor="#bbbbbb"><span class="style1">
-          <input type="checkbox" name="modules_auth[]" value="quicktips" <? $checa_array1=array_search("quicktips",$modules_exploited);
+          <input type="checkbox" name="modules_auth[]" value="quicktips" <?php  $checa_array1=array_search("quicktips",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 Quicktips </span></td>

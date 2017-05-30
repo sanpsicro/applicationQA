@@ -1,19 +1,19 @@
-<?
+<?php 
     $SQLCABINA["Buscar"] = "select Poliza.idPoliza,numPoliza,Cliente.nombre,idUsuarioFinal
                             from Poliza join Cliente on (Cliente.idCliente = Poliza.idCliente)
                             left join UsuarioFinal on (UsuarioFinal.idPoliza = Poliza.idPoliza)
-                            where (numPoliza like '%$_GET[sNumPoliza]%' and '$_GET[sNumPoliza]' <> '' and '$_GET[sId]' = '')
-                            or (nombre like '%$_GET[sNombre]%' and '$_GET[sNombre]' <> '')
-                            or (idUsuarioFinal like '$_GET[sId]' and '$_GET[sId]' <> '' and '$_GET[sNumPoliza]' = '')";
+                            where (numPoliza like '%".$_GET['sNumPoliza']."%' and '".$_GET['sNumPoliza']."' <> '' and '".$_GET['sId']."' = '')
+                            or (nombre like '%".$_GET['sNombre']."%' and '".$_GET['sNombre']."' <> '')
+                            or (idUsuarioFinal like '".$_GET['sId']."' and '".$_GET['sId']."' <> '' and '".$_GET['sNumPoliza']."' = '')";
                             
     $SQLCABINA["BuscarID"] = "select idPoliza,id from Polizas
-                            where id like '$SEL[idPoliza]'";
+                            where id like '".$SEL[idPoliza]."'";
     $SQLCABINA["ObtenerProductos"] = "select Producto.idProducto,Nombre,NumIncidente from Producto
                                      join ProductosPoliza on (Producto.idProducto = ProductosPoliza.idProducto)
-                                   where idPoliza = '$SEL[idPoliza]'";
+                                   where idPoliza = '".$SEL[idPoliza]."'";
     $SQLCABINA["ObtenerIncidentes"] = "select idProducto,Producto.Nombre,count(idPoliza),NumIncidente, count(idPoliza)<NumIncidente AS MENOR
                                       from Expediente,ProductosPoliza
-                                      where idProducto = '$_GET[idProducto]'
+                                      where idProducto = '".$_GET[idProducto]."'
                                       group by idProducto,idPoliza ";
                                       
     $SQLCABINA["EnGracia"] = "select idPoliza,
@@ -24,7 +24,7 @@
                               )
                               AND fechaVence > NOW()
                               AND validada AS VALUE
-                             from Poliza  where idPoliza = '$SEL[idPoliza]'";
+                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'";
     $SQLCABINA["SinDerecho"] = "select idPoliza,
 
                                 (pagada AND fechaVence <= NOW())
@@ -32,23 +32,23 @@
                                 OR NOW() < fechaInicio
                                 OR cancelada
                                 OR NOT validada AS VALUE
-                             from Poliza  where idPoliza = '$SEL[idPoliza]'";
+                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'";
     $SQLCABINA["Libre"] = "select idPoliza,
                              (pagada AND fechaVence > NOW())
                              AND fechaInicio <= NOW()
                              AND validada
                              AND NOT cancelada AS VALUE
-                             from Poliza  where idPoliza = '$SEL[idPoliza]'";
+                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'";
     $SQLCABINA["AltaExpediente"] = "select numPoliza,Cliente.nombre AS NombreCliente,now() as Ahora,
                            Cliente.idCliente,PlantillasBool.*
                            from Poliza join Cliente on (Cliente.idCliente = Poliza.idCliente)
                            join ProductosPoliza on (ProductosPoliza.idPoliza = Poliza.idPoliza)
                            join Producto on (Producto.idProducto = ProductosPoliza.idProducto)
                            join PlantillasBool on (PlantillasBool.idProducto = Producto.idProducto)
-                           where Producto.idProducto = $_GET[idProducto]  and Poliza.idPoliza = $_GET[idPoliza]";
+                           where Producto.idProducto =". $_GET[idProducto]."  and Poliza.idPoliza =". $_GET[idPoliza];
     $SQLCABINA["DatosExpediente"] = "select numPoliza,idExpediente
                            from Expediente join Poliza on (Poliza.idPoliza = Expediente.idPoliza)
-                           where idExpediente = $_GET[idExpediente]";
+                           where idExpediente =". $_GET[idExpediente];
                            
     $SQLCABINA["Seguimiento"] = "select Poliza.numPoliza,Expediente.idExpediente,Expediente.nmCliente,
                                  Expediente.idUsuarioFinal,seguimiento.Bitacora,seguimiento.Estado,
@@ -62,6 +62,6 @@
                                   ";
 
     $SQLCABINA["AgregarSeguimiento"] = "insert into seguimiento (idExpediente,Bitacora,Estado,idEmpleado)
-                                       values ($_POST[idExpediente],'$_POST[bitacora]','$_POST[estado]',$SESSION_USERID) ";
+                                       values (".$_POST[idExpediente].",'".$_POST[bitacora]."','".$_POST[estado]."',".$SESSION_USERID.") ";
                                        
 ?>

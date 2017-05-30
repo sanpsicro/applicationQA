@@ -173,7 +173,7 @@ function checkradiocomp($cadena,$coincidencia)
 $link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$link);
 $result = mysqli_query($link,"SELECT * FROM $tabla",$link);
-$row = mysql_fetch_assoc($result);
+$row = mysqli_fetch_assoc($result);
 echo "<table border=1><tr>";
 if($row) {
 	foreach($row as $key => $value) {
@@ -1494,7 +1494,7 @@ if($tablax=="notas_remision"){
 $link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$link);
 $result = mysqli_query($link,"SELECT * FROM $tabla",$link);
-$row = mysql_fetch_assoc($result);
+$row = mysqli_fetch_assoc($result);
 echo "<table border=1><tr>";
 if($row) {
 	foreach($row as $key => $value) {

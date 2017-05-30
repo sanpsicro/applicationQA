@@ -23,12 +23,30 @@ header("Location: index.php?errorcode=3");
     return false;
 }
 
-
+ 
  isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
  isset($_GET['id']) ? $id = $_GET['id'] : $id = null;
  isset($_GET['module']) ? $module = $_GET['module'] : $module = null;
  isset($_POST['modules_auth']) ? $modules_auth = $_POST['modules_auth'] : $modules_auth = null;
  isset($_POST['permi']) ? $permi = $_POST['permi'] : $permi = null;
+ isset($_POST['usuario']) ? $usuario = $_POST['usuario'] : $usuario = null;
+ 
+ isset($_POST['contrasena']) ? $contrasena = $_POST['contrasena'] : $contrasena= null;
+ isset($_POST['nombre']) ? $nombre = $_POST['nombre'] : $nombre = null;
+ isset($_POST['cargo']) ? $cargo = $_POST['cargo'] : $cargo = null;
+ isset($_POST['departamento']) ? $departamento = $_POST['departamento'] : $departamento = null;
+ isset($_POST['direccion']) ? $direccion = $_POST['direccion'] : $direccion = null;
+ isset($_POST['estado']) ? $estado = $_POST['estado'] : $estado = null;
+ isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio = null;
+ isset($_POST['colonia']) ? $colonia = $_POST['colonia'] : $colonia = null;
+ isset($_POST['extension']) ? $extension = $_POST['extension'] : $extension = null;
+ isset($_POST['telefonocasa']) ? $telefonocasa = $_POST['telefonocasa'] : $telefonocasa = null;
+ isset($_POST['telefonocelular']) ? $telefonocelular = $_POST['telefonocelular'] : $telefonocelular = null;
+ isset($_POST['idnextel']) ? $idnextel= $_POST['idnextel'] : $idnextel= null;
+ isset($_POST['nextel']) ? $nextel= $_POST['nextel'] : $nextel = null;
+ isset($_POST['email']) ? $email= $_POST['email'] : $email = null;
+ isset($_POST['activo']) ? $activo = $_POST['activo'] : $activo = null;
+ isset($_POST['tipo']) ? $tipo = $_POST['tipo'] : $tipo = null;
 #----------------
 if($module=="usuarios"){ 
 if(count($modules_auth)!="0" && $modules_auth!=" " && $modules_auth!=""){$modulos_enlatados=implode(",",$modules_auth);}
@@ -56,7 +74,7 @@ if(isset($accela) && $accela=="new"){
 
 $link = mysqli_connect($host,$username,$pass,$database);
 
-$result=mysqli_query($link,"select * from Empleado where usuario = '$usuario'");
+$result=mysqli_query($link,"select * from Empleado where usuario = '".$usuario."'");
 
 $cuantosson=mysqli_num_rows($result);
 
@@ -64,7 +82,7 @@ mysqli_free_result($result);
 
 if ($cuantosson>0) {
 
-header("Location: mainframe.php?module=$module&code=4");
+header("Location: mainframe.php?module=".$module."&code=4");
 
 die();
 
@@ -80,7 +98,7 @@ mysqli_query($link,"INSERT INTO `Empleado` ( `usuario`, `contrasena`, `nombre`, 
 
 VALUES ('$usuario', '$contrasena', '$nombre', '$cargo', '$departamento', '$direccion', '$estado', '$municipio', '$colonia', '$extension', '$telefonocasa', '$telefonocelular', '$nextel', '$idnextel', '$email', '$tipo', '$modulos_enlatados', '$permisos_enlatados', '$activo')"); 
 
-header("Location: mainframe.php?module=$module&code=1");
+header("Location: mainframe.php?module=".$module."&code=1");
 
 }
 

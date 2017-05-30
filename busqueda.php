@@ -2,7 +2,7 @@
    include_once("../conf.php");
    include("ConsultasCabina.php");
    conectar();
-   if($BUSRES = mysqli_query($SQLCABINA["Buscar"])){
+   if($BUSRES = mysqli_query($link,$SQLCABINA["Buscar"])){
        $BUSQUEDA = mysqli_fetch_assoc($BUSRES);
        if(mysqli_num_rows($BUSRES) == 1){
            $SEL = $BUSQUEDA;
@@ -37,7 +37,7 @@
 
 </tr>
 <tr>
-<td bgcolor="#cccccc" colspan="7"><b><font size="4"><?php echo $SEL["nombre"]; ?> &nbsp; <?php echo $SEL["numPoliza"]; ?> &nbsp;<? echo $SEL["idUsuarioFinal"]; ?></font></b></td>
+<td bgcolor="#cccccc" colspan="7"><b><font size="4"><?php echo $SEL["nombre"]; ?> &nbsp; <?php echo $SEL["numPoliza"]; ?> &nbsp;<?php echo $SEL["idUsuarioFinal"]; ?></font></b></td>
 </tr>
 </table>
 </form>

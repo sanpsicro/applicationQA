@@ -78,7 +78,7 @@
 
 		die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
 
-	$row=mysql_fetch_assoc($result);
+	$row=mysqli_fetch_assoc($result);
 
 	//print_r($row);
 
@@ -92,7 +92,7 @@
 
 		die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
 
-	$row=mysql_fetch_assoc($result);		
+	$row=mysqli_fetch_assoc($result);		
 
 	$camposex=explode(",",$row['campos']);	
 

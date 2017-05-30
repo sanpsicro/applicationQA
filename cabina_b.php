@@ -1,4 +1,4 @@
-<?php
+<?php 
 $checa_arrayx=array_search("cabina",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -31,7 +31,7 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,lo
 </script>
 
 
- <?php
+ <?php 
  
  function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 
@@ -55,7 +55,7 @@ $inicio=microtime_float();
  echo "<!-- $inicio -->";
 $db = $link = mysqli_connect($host,$username,$pass,$database);
 //////mysql_select_db($database,$db);
-$result = mysqli_query($db,"SELECT nombre,contrato,fecha_inicio,productos,status,marca,modelo,tipo,color,placas,serie,fecha_inicio,fecha_vencimiento from usuarios_contrato where clave='$clave'");
+$result = mysqli_query($db,"SELECT nombre,contrato,fecha_inicio,productos,status,marca,modelo,tipo,color,placas,serie,fecha_inicio,fecha_vencimiento from usuarios_contrato where clave='".$clave."'");
 $nombre=mysqli_result($result,0,"nombre");
 $contrato=mysqli_result($result,0,"contrato");
 $fechainicio=mysqli_result($result,0,"fecha_inicio");
@@ -78,7 +78,7 @@ $fechafinal="$diav-$mesv-$aniov";
 
 $db = $link = mysqli_connect($host,$username,$pass,$database);
 //////mysql_select_db($database,$db);
-$result = mysqli_query($db,"SELECT idCliente from Poliza where numPoliza ='$contrato'");
+$result = mysqli_query($db,"SELECT idCliente from Poliza where numPoliza ='".$contrato."'");
 $idcliente=mysqli_result($result,0,"idCliente");
 #echo "- $idcliente - $contrato -";
 
@@ -203,7 +203,7 @@ function expandir_formulario(){
       <td height="44" align="left"><span class="maintitle">Cabina</span></td></tr>
 	   <tr> <td  align="right">&nbsp;</td></tr>
  </table>
- <?
+ <?php 
  
 echo"<form action='process.php?module=cabina&clave=".$clave."&accela=new' method='post' name='form2'>
 <table width='100%' border='0' cellpadding=3 cellspacing=3>

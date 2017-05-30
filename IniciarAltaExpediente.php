@@ -9,7 +9,7 @@
      echo "<select size=4 name=\"idProducto\">";
      $PRORES = mysqli_query($SQLCABINA["ObtenerProductos"]);
      echo "<!-- $SQLCABINA[ObtenerProductos] -->";
-     while($DATA = mysql_fetch_assoc($PRORES)){
+     while($DATA = mysqli_fetch_assoc($PRORES)){
          echo "<option value=\"$DATA[idProducto]\">$DATA[Nombre]</option>";
      }
      echo "</select>";

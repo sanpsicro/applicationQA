@@ -1,4 +1,4 @@
-<?
+<?php 
 $checa_arrayx=array_search("contratos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -20,10 +20,10 @@ die();} else{}
       </td>
   </tr>
 <tr><td>
-<?
+<?php 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Poliza where idPoliza = '$idPoliza'",$db);
+$result = mysqli_query($db,"SELECT * from Poliza where idPoliza = '$idPoliza'");
 $idCliente=mysql_result($result,0,"idCliente");
 $idEmpleado=mysql_result($result,0,"idEmpleado");
 $fechaCaptura=mysql_result($result,0,"fechaCaptura");
@@ -45,12 +45,12 @@ $productos=mysql_result($result,0,"productos");
 ###
 $db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
-$result2 = mysqli_query("SELECT * from Empleado where idEmpleado = '$idEmpleado'",$db2);
+$result2 = mysqli_query($db2,"SELECT * from Empleado where idEmpleado = '".$idEmpleado."'");
 $vendedor=mysql_result($result2,0,"nombre");
 ###
 $db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
-$result2 = mysqli_query("SELECT * from Cliente where idCliente = '$idCliente'",$db2);
+$result2 = mysqli_query($db2,"SELECT * from Cliente where idCliente = '".$idCliente."'");
 $cliente=mysql_result($result2,0,"nombre");
 ###
 /*
@@ -61,7 +61,7 @@ $tipoVenta=mysql_result($result6,0,"nombre");
 */
 $db7 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db7);
-$result7 = mysqli_query("SELECT * from productos where id = '$productos'",$db7);
+$result7 = mysqli_query($db7,"SELECT * from productos where id = '".$productos."'");
 $elproducto=mysql_result($result7,0,"producto");
 $terminos=mysql_result($result7,0,"terminos");
 ###
@@ -72,22 +72,22 @@ $terminos=mysql_result($result7,0,"terminos");
 
   <tr>
 
-    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del Contrato <? echo ''.$numPoliza.'';?></b></td>
+    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del Contrato <?php echo ''.$numPoliza.'';?></b></td>
     </tr>
 
   <tr>
 
-    <td width="50%" bgcolor="#CCCCCC"><strong>Cliente:</strong> <? echo $cliente?></td>
+    <td width="50%" bgcolor="#CCCCCC"><strong>Cliente:</strong> <?php echo $cliente?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Vendedor:</strong> <? echo $vendedor?></td>
+    <td bgcolor="#CCCCCC"><strong>Vendedor:</strong> <?php echo $vendedor?></td>
     </tr>
 
   <tr>
 
 
-    <td bgcolor="#CCCCCC" colspan=2><strong>Producto:</strong> <? echo $elproducto; ?></td>
+    <td bgcolor="#CCCCCC" colspan=2><strong>Producto:</strong> <?php echo $elproducto; ?></td>
     </tr>
-<?
+<?php 
 	if($factura=="1"){
 echo'<tr><td align=right><b>Factura</b></td><td>&nbsp;</td></tr>
 <tr><td bgcolor="#CCCCCC" align=right><strong>Monto:</strong></td><td bgcolor="#CCCCCC">$'.number_format($monto,2).'</td></tr>
@@ -98,9 +98,9 @@ echo'<tr><td align=right><b>Factura</b></td><td>&nbsp;</td></tr>
 echo'</table>';
 
 ##################
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query("SELECT * FROM usuarios_contrato where idPoliza='$idPoliza' order by inciso", $link); 
+$result = mysqli_query($link,"SELECT * FROM usuarios_contrato where idPoliza='$idPoliza' order by inciso"); 
 if (mysqli_num_rows($result)){ 
 echo'<table width=100% cellpadding=3 cellspacing=3><tr><td colspan=8 align=middle><b>Usuarios</b></td></tr>
 <tr>
