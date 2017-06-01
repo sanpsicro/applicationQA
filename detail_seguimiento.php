@@ -86,7 +86,6 @@ FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-f
 </script>
 <script type="text/javascript" src="subcombo.js"></script>
 <?php 
-
 if(isset($_GET['id'])){
 $id  = $_GET['id'];
 }else{

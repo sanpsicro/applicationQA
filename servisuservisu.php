@@ -1,4 +1,4 @@
- <?
+ <?php 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from general where id = '$id'",$db);
@@ -72,165 +72,165 @@ $ivx=0;
 	  ?><table width="100%" border="0" cellspacing="3" cellpadding="3">
  <tr>
       
-      <?
+      <?php 
 $checa_array=array_search("motivo_servicio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 
-      <td bgcolor="#ffffff"><strong>Motivo del servicio:</strong> <? echo nl2br($motivo_servicio);?></td>
+      <td bgcolor="#ffffff"><strong>Motivo del servicio:</strong> <?php echo nl2br($motivo_servicio);?></td>
       
-       <? $ivx++; 
+       <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
 
 
-<?
+<?php 
 $checa_array=array_search("tecnico_solicitado",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-   <td bgcolor="#ffffff"><strong>T&eacute;cnico solicitado:</strong> <? echo $tecnico_solicitado;?></td>
+   <td bgcolor="#ffffff"><strong>T&eacute;cnico solicitado:</strong> <?php echo $tecnico_solicitado;?></td>
    
-    <? $ivx++; 
+    <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-            <?
+            <?php 
 $checa_array=array_search("tipo_asistencia_vial",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-   <td bgcolor="#ffffff"><strong>Tipo de asistencia vial:</strong>  <? echo $tipo_asistencia_vial;?></td>
-    <? $ivx++; 
+   <td bgcolor="#ffffff"><strong>Tipo de asistencia vial:</strong>  <?php echo $tipo_asistencia_vial;?></td>
+    <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-              <?
+              <?php 
 $checa_array=array_search("tipo_asistencia_medica",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-   <td bgcolor="#ffffff"><strong>Tipo de asistencia m&eacute;dica:</strong> <? echo $tipo_asistencia_medica;?></td>
+   <td bgcolor="#ffffff"><strong>Tipo de asistencia m&eacute;dica:</strong> <?php echo $tipo_asistencia_medica;?></td>
 
- <? $ivx++; 
+ <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-             <?
+             <?php 
 $checa_array=array_search("domicilio_cliente",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Domicilio del cliente:</strong> <? echo $domicilio_cliente;?></td>
-      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Domicilio del cliente:</strong> <?php echo $domicilio_cliente;?></td>
+      <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-        <?
+        <?php 
 $checa_array=array_search("domicilio_sustituto",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Domicilio donde recoger&aacute; auto sustituto:</strong> <? echo $domicilio_sustituto;?></td>
+      <td bgcolor="#ffffff"><strong>Domicilio donde recoger&aacute; auto sustituto:</strong> <?php echo $domicilio_sustituto;?></td>
       
-      <? $ivx++; 
+      <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-               <?
+               <?php 
 $checa_array=array_search("ubicacion_requiere",$camposex);
 if($checa_array===FALSE){} else{
 ?>
       
-      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n donde se requiere el servicio: </strong><? echo $ubicacion_requiere;?></td>
-       <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n donde se requiere el servicio: </strong><?php echo $ubicacion_requiere;?></td>
+       <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-               <?
+               <?php 
 $checa_array=array_search("ubicacion_estado",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 
-      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Estado:</strong> <? echo $ubicacion_estado;?></td>
-      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Estado:</strong> <?php echo $ubicacion_estado;?></td>
+      <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-            <?
+            <?php 
 $checa_array=array_search("ubicacion_municipio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Municipio:</strong> <? echo $ubicacion_municipio;?></td>
-      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Municipio:</strong> <?php echo $ubicacion_municipio;?></td>
+      <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-              <?
+              <?php 
 $checa_array=array_search("ubicacion_colonia",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Colonia:</strong> <? echo $ubicacion_colonia;?></td>
+      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Colonia:</strong> <?php echo $ubicacion_colonia;?></td>
 
-<? $ivx++; 
+<?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-             <?
+             <?php 
 $checa_array=array_search("ubicacion_ciudad",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Ciudad:</strong>  <? echo $ubicacion_ciudad;?></td>
+      <td bgcolor="#ffffff"><strong>Ubicaci&oacute;n Ciudad:</strong>  <?php echo $ubicacion_ciudad;?></td>
       
-<? $ivx++; 
+<?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-             <?
+             <?php 
 $checa_array=array_search("destino_servicio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Destino del servicio:</strong> <? echo $destino_servicio;?></td>     
-      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Destino del servicio:</strong> <?php echo $destino_servicio;?></td>     
+      <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?> 
-               <?
+               <?php 
 $checa_array=array_search("destino_estado",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Destino Estado:</strong> <? echo $destino_estado;?></td>            
+      <td bgcolor="#ffffff"><strong>Destino Estado:</strong> <?php echo $destino_estado;?></td>            
 
- <? $ivx++; 
+ <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?> 
-                <?
+                <?php 
 $checa_array=array_search("destino_municipio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Destino Municipio:</strong>  <? echo $destino_municipio;?></td>
-      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Destino Municipio:</strong>  <?php echo $destino_municipio;?></td>
+      <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?> 
-                          <?
+                          <?php 
 $checa_array=array_search("destino_colonia",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Destino Colonia:</strong> <? echo $destino_colonia;?></td> 
-       <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Destino Colonia:</strong> <?php echo $destino_colonia;?></td> 
+       <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
-               <?
+               <?php 
 $checa_array=array_search("destino_ciudad",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Destino Ciudad:</strong> <? echo $destino_ciudad;?></td>            
-      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Destino Ciudad:</strong> <?php echo $destino_ciudad;?></td>            
+      <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?> 
- <?
+ <?php 
 $checa_array=array_search("observaciones",$camposex);
 if($checa_array===FALSE){} else{
 ?>
-      <td bgcolor="#ffffff"><strong>Observaciones:</strong> <? echo nl2br($observaciones);?></td>
+      <td bgcolor="#ffffff"><strong>Observaciones:</strong> <?php echo nl2br($observaciones);?></td>
 
-<? $ivx++; 
+<?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?> 
-	<? if(empty($NO_EDITAR)):?>
+	<?php if(empty($NO_EDITAR)):?>
     
     
     
-      <td align="right" bgcolor="#ffffff"><strong><!--<a href="javascript:FAjax('editar_servisu.php?id=<? echo $id;?>&flim-flam=new Date().getTime()','servisuservisu','','get');">Editar</a>-->
+      <td align="right" bgcolor="#ffffff"><strong><!--<a href="javascript:FAjax('editar_servisu.php?id=<?php echo $id;?>&flim-flam=new Date().getTime()','servisuservisu','','get');">Editar</a>-->
       
         [ 
-      <a href="?module=edit_servisu&id=<? echo $id;?>">Editar</a> ]</strong></td>
+      <a href="?module=edit_servisu&id=<?php echo $id;?>">Editar</a> ]</strong></td>
       
       
       
-	<? endif; ?>
+	<?php endif; ?>
     </tr></table>

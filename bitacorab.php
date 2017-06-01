@@ -1,6 +1,6 @@
 <?php
 include("conf.php");
-
+$id = $_GET['id'];
 $expedientex=$id;
 if(strlen($expedientex)==1){$expedientex="000000".$expedientex."";} 
 if(strlen($expedientex)==2){$expedientex="00000".$expedientex."";} 
@@ -8,11 +8,23 @@ if(strlen($expedientex)==3){$expedientex="0000".$expedientex."";}
 if(strlen($expedientex)==4){$expedientex="000".$expedientex."";} 
 if(strlen($expedientex)==5){$expedientex="00".$expedientex."";} 
 if(strlen($expedientex)==6){$expedientex="0".$expedientex."";} 
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 ?>
 <link href="style_1.css" rel="stylesheet" type="text/css" />
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Seguimiento / Expediente <? echo $expedientex;?> </span></td>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Seguimiento / Expediente <?php echo $expedientex;?> </span></td>
       <td width=200 align="right" class="blacklinks">&nbsp;</td>
 
       </tr></table></td></tr>
@@ -27,15 +39,15 @@ if(strlen($expedientex)==6){$expedientex="0".$expedientex."";}
       <td colspan="3" bgcolor="#CCCCCC"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td><strong>Notas</strong></td>
-          <td align="right"><b>[ <a href="editar_notasb.php?id=<? echo $id; ?>&caso=nuevo">Agregar Nota</a> ]</b></td>
+          <td align="right"><b>[ <a href="editar_notasb.php?id=<?php echo $id; ?>&caso=nuevo">Agregar Nota</a> ]</b></td>
         </tr>
       </table></td>
       </tr></table>
 	  <div id="notas">
-	  <?
+	  <?php 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link,"SELECT * FROM bitacora where general='$id' order by fecha desc"); 
+$result = mysqli_query($link,"SELECT * FROM bitacora where general='".$id."' order by fecha desc"); 
 if (mysqli_num_rows($result)){ 
   while ($row = @mysqli_fetch_array($result)) { 
   
@@ -47,7 +59,7 @@ $userx=$row["usuario"];
 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbl);
-$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$userx'");
+$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='".$userx."'");
 if (mysqli_num_rows($resultl)){ 
 $eluserx=mysqli_result($resultl,0,"nombre");
 }

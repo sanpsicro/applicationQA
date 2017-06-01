@@ -103,7 +103,7 @@ document.location = delUrl;
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Seguimiento / Expediente <? echo $expedientex;?> </span></td>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Seguimiento / Expediente <?php echo $expedientex;?> </span></td>
       <td width=200 align="right" class="blacklinks">&nbsp;</td>
 
       </tr></table></td></tr>
@@ -118,7 +118,7 @@ document.location = delUrl;
       <td colspan="3" bgcolor="#CCCCCC"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td><strong>Notas</strong></td>
-          <td align="right"><b>[ <a href="javascript:FAjax('editar_notasb.php?id=<? echo $id; ?>&amp;popup=0&amp;caso=nuevo&amp;flim-flam=new Date().getTime();','notas','','get');">Agregar Nota</a> ]</b></td>
+          <td align="right"><b>[ <a href="javascript:FAjax('editar_notasb.php?id=<?php echo $id; ?>&amp;popup=0&amp;caso=nuevo&amp;flim-flam=new Date().getTime();','notas','','get');">Agregar Nota</a> ]</b></td>
         </tr>
       </table></td>
       </tr></table>
@@ -142,7 +142,7 @@ function mysqli_result($res,$row=0,$col=0){
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link ,"SELECT * FROM bitacora where general='$id' order by fecha desc"); 
+$result = mysqli_query($link ,"SELECT * FROM bitacora where general='".$id."' order by fecha desc"); 
 if (mysqli_num_rows($result)){ 
   while ($row = @mysqli_fetch_array($result)) { 
   
@@ -154,7 +154,7 @@ $userx=$row["usuario"];
 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbl);
-$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$userx'");
+$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='".$userx."'");
 if (mysqli_num_rows($resultl)){ 
 $eluserx=mysqli_result($resultl,0,"nombre");
 }

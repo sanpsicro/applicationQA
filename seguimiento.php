@@ -5,6 +5,7 @@ $sort=$_POST['sort'];
 $display=$_POST['display'];
 $moko=$_POST['moko'];
 $code=$_POST['code'];
+isset($_GET['quest']) ? $quest=$_GET['quest'] : $quest="" ;
 
 if(empty($display)){$display = $_GET['display'];}
 if(empty($moko)){$moko = $_GET['moko'];}
