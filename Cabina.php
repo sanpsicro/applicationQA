@@ -1,6 +1,6 @@
-<?php  
-   include_once("conf.php");
-   include("ConsultasCabina.php");
+<?php
+   include_once("conf.php");   if(isset($_GET['sNumPoliza']) || isset($_GET['sNombre']) || isset($_GET['sId']) ){
+   include("ConsultasCabina.php");   }
 ?>
 <div align="center">
 <table width=100% border=1 bgcolor="#FFFFFF" cellspacing=2>

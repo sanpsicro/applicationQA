@@ -3,6 +3,7 @@ session_start();
 
 include 'conf.php';
 
+
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 
     if ($numrows && $row <= ($numrows-1) && $row >=0){
@@ -77,7 +78,7 @@ document.getElementById(subobj).style.display="none"
 </script>
 <script type="text/javascript" src="subcombo_corto2.js"></script>
 <h1>Buscador de Proveedores</h1>
-<?
+<?php 
 $accela == "edit";
 ?>
  <form method="post" action="mainframe.php?module=buscador_proveedor">
@@ -90,7 +91,7 @@ $accela == "edit";
  
 <select name="servicio" id="servicio">
                                   <option value=''>Todos los servicios</option>
-                                  <?
+                                  <?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
@@ -113,7 +114,7 @@ if (mysqli_num_rows($result)){
  
 <select name="estado" id="estado" onchange='cargaContenido(this.id)'>
                                   <option value=''>Todos los estados</option>
-                                  <?
+                                  <?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
@@ -132,14 +133,14 @@ if (mysqli_num_rows($result)){
  </tr>
  <tr>
  <td>
- <?
+ <?php 
 						  if($accela=="edit"){
 						 echo'  <select name="municipio" id="municipio">';
 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link,"SELECT * FROM Municipio where idEstado='$estado' order by NombreMunicipio"); 
+$result = mysqli_query($link,"SELECT * FROM Municipio where idEstado='".$estado."' order by NombreMunicipio"); 
 if (mysqli_num_rows($result)){ 
   while ($row = @mysqli_fetch_array($result)) { 
   echo'<option value="'.$row["idMunicipio"].'"';
@@ -173,8 +174,8 @@ echo'</select>';
     <td colspan="5" bgcolor="#bbbbbb">
     </td>
     </tr>
-   <?
-if(!empty($estado) and !empty($servicio) and !empty($municipio) and $buscas=="si"){$condicion="where (cobertura like '$estado-$municipio-_' or cobertura like '$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_') and (trabajos like '%,$servicio,%' or trabajos='$servicio' or trabajos like '$servicio,%' or trabajos like '%,$servicio') AND";
+   <?php 
+if(!empty($estado) and !empty($servicio) and !empty($municipio) and $buscas=="si"){$condicion="where (cobertura like '".$estado-$municipio-_."' or cobertura like '$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_') and (trabajos like '%,$servicio,%' or trabajos='$servicio' or trabajos like '$servicio,%' or trabajos like '%,$servicio') AND";
 $arreglo="
 CASE 
 WHEN cobertura LIKE '%$estado-$municipio-A%' THEN 1

@@ -1,4 +1,4 @@
-<?
+<?php
 	
 	// Array que vincula los IDs de los selects declarados en el HTML con el nombre de la tabla donde se encuentra su contenido
 $listadoSelects=array(
@@ -28,13 +28,13 @@ if(validaSelect($selectDestino) && validaOpcion($opcionSeleccionada))
 	$tabla=$listadoSelects[$selectDestino];
 	include 'conexion.php';
 	conectar();
-	$consulta=mysqli_query("SELECT * FROM $tabla WHERE idEstado='$opcionSeleccionada'") or die(mysql_error());
+	$consulta=mysqli_query("SELECT * FROM ".$tabla." WHERE idEstado='".$opcionSeleccionada."'") or die(mysql_error());
 	desconectar();
 	
 	// Comienzo a imprimir el select
 	echo "<select name='".$selectDestino."' id='".$selectDestino."' onChange='cargaContenido(this.id)'>";
 	echo "<option value='0'>Elige...</option>";
-	while($registro=mysql_fetch_row($consulta))
+	while($registro=mysqli_fetch_row($consulta))
 	{
 		// Convierto los caracteres conflictivos a sus entidades HTML correspondientes para su correcta visualizacion
 		$registro[1]=htmlentities($registro[1]);

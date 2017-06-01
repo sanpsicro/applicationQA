@@ -1,4 +1,4 @@
-<?
+<?php
 
 	include 'conf.php';
 
@@ -6,11 +6,11 @@ if($_GET["select"]=="municipio"){
 
 echo' <select name="municipio" id="municipio" onChange="cargaContenido(this.id)"><option value="">Todos los municipios</option>';
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 
 //mysql_select_db($database, $link); 
 
-$result = mysqli_query("SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio", $link); 
+$result = mysqli_query($link,"SELECT * FROM Municipio where idEstado='".$_GET['opcion']."' order by NombreMunicipio"); 
 
 if (mysqli_num_rows($result)){ 
 
@@ -45,11 +45,11 @@ if($_GET["select"]=="colonia"){
 
 echo' <select name="colonia" id="colonia"><option value="0">SELECCIONE UNA OPCION</option>';
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 
 //mysql_select_db($database, $link); 
 
-$result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia", $link); 
+$result = mysqli_query($link,"SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia"); 
 
 if (mysqli_num_rows($result)){ 
 
@@ -76,11 +76,11 @@ if($_GET["select"]=="municipio2"){
 
 echo' <select name="municipio2" id="municipio2" onChange="cargaContenido(this.id)"><option value="">Todos los municipios</option>';
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 
 //mysql_select_db($database, $link); 
 
-$result = mysqli_query("SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio", $link); 
+$result = mysqli_query($link,"SELECT * FROM Municipio where idEstado='$_GET[opcion]' order by NombreMunicipio"); 
 
 if (mysqli_num_rows($result)){ 
 
@@ -107,11 +107,11 @@ if($_GET["select"]=="colonia2"){
 
 echo' <select name="colonia2" id="colonia2"><option value="0">SELECCIONE UNA OPCION</option>';
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 
 //mysql_select_db($database, $link); 
 
-$result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia", $link); 
+$result = mysqli_query($link,"SELECT * FROM Colonia where idMunicipio='$_GET[opcion]' order by NombreColonia"); 
 
 if (mysqli_num_rows($result)){ 
 

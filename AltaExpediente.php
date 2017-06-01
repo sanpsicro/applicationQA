@@ -298,7 +298,7 @@ $vautColor
 )";
 
 if(isset($_POST)){
-     if($resultado = mysqli_query($consulta)){
+     if($resultado = mysqli_query($link,$consulta)){
       header("Location: ?module=Cabina");
       die();
      }
@@ -313,8 +313,8 @@ if(isset($_POST)){
 <body onload="fillDateForms()">
 
 <form action="" method="POST">
-<?
-if(!$resultado = mysqli_query($SQLCABINA["AltaExpediente"])) echo $SQLCABINA["AltaExpediente"];
+<?php 
+if(!$resultado = mysqli_query($link,$SQLCABINA["AltaExpediente"])) echo $SQLCABINA["AltaExpediente"];
 else
 while ($fila = mysqli_fetch_assoc($resultado)){
 ?>
@@ -377,7 +377,7 @@ Fecha en que se suscitó el hecho:
 </td>
 </tr>
 </table>
-<? }?>
+<?php }?>
 
 
 </td>
@@ -396,7 +396,7 @@ Hora de asignación del proveedor:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 
 </td>
 <td>
@@ -413,7 +413,7 @@ Hora de contacto:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 
 </td>
 </tr>
@@ -434,7 +434,7 @@ Hora de arribo:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 
 </td>
 <td>
@@ -451,7 +451,7 @@ Nombre de quien reporta:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['telReporta']) { ?>
 <table>
@@ -466,7 +466,7 @@ Tel. de quien reporta:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['nConvenio']) { ?>
 <table>
@@ -481,7 +481,7 @@ No. de convenio:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['nSiniestro']) { ?>
 <table>
@@ -496,7 +496,7 @@ Número de siniestro:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -515,7 +515,7 @@ Inciso:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['nmAjustador']) { ?>
 <table>
@@ -530,7 +530,7 @@ Nombre del ajustador:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['nmUsuario']) { ?>
 <table>
@@ -545,7 +545,7 @@ Nombre del usuario:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['tcSolicitado']) { ?>
 <table>
@@ -560,7 +560,7 @@ Que técnico solicita:
 </td>
 </tr>
 </table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['motivoServicio']) { ?><table>
 <tr>
@@ -570,7 +570,7 @@ Que técnico solicita:
 <input type="text" name="motivoServicio" id="motivoServicio" size="35"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -584,7 +584,7 @@ Que técnico solicita:
 <input type="text" name="autMarca" id="autMarca" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['autTipo']) { ?><table>
 <tr>
@@ -594,7 +594,7 @@ Que técnico solicita:
 <input type="text" name="autTipo" id="autTipo" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['autModelo']) { ?><table>
 <tr>
@@ -604,7 +604,7 @@ Que técnico solicita:
 <input type="text" name="autModelo" id="autModelo" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['autColor']) { ?><table>
 <tr>
@@ -614,7 +614,7 @@ Que técnico solicita:
 <input type="text" name="autColor" id="autColor" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['autPlacas']) { ?><table>
 <tr>
@@ -624,7 +624,7 @@ Que técnico solicita:
 <input type="text" name="autPlacas" id="autPlacas" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -649,7 +649,7 @@ Que técnico solicita:
                   </select>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td>
 <?php if($fila['cmbTipoAMedica']) { ?>
@@ -667,7 +667,7 @@ Que técnico solicita:
                   </select>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['DomCiente']) { ?><table>
 <tr>
@@ -677,7 +677,7 @@ Que técnico solicita:
 <input type="text" name="DomCiente" id="DomCiente" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -691,7 +691,7 @@ Que técnico solicita:
 <input type="text" name="" id="" size="40"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['UbicacionRequiere']) { ?><table>
 <tr>
@@ -701,7 +701,7 @@ Que técnico solicita:
 <input type="text" name="UbicacionRequiere" id="UbicacionRequiere" size="30"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['UbicacionReferencias']) { ?><table>
 <tr>
@@ -711,7 +711,7 @@ Que técnico solicita:
 <input type="text" name="UbicacionReferencias" id="UbicacionReferencias" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -725,7 +725,7 @@ Que técnico solicita:
 <input type="text" name="UbicacionEstado" id="UbicacionEstado" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['UbicacionMunicipio']) { ?><table>
 <tr>
@@ -735,7 +735,7 @@ Que técnico solicita:
 <input type="text" name="UbicacionMunicipio" id="UbicacionMunicipio" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['UbicacionCiudad']) { ?><table>
 <tr>
@@ -745,7 +745,7 @@ Que técnico solicita:
 <input type="text" name="UbicacionCiudad" id="UbicacionCiudad" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -759,7 +759,7 @@ Que técnico solicita:
 <input type="text" name="DestinoServicio" id="DestinoServicio" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['DestEstado']) { ?><table>
 <tr>
@@ -769,7 +769,7 @@ Que técnico solicita:
 <input type="text" name="DestEstado" id="DestEstado" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['DestMunicipio']) { ?><table>
 <tr>
@@ -779,7 +779,7 @@ Que técnico solicita:
 <input type="text" name="DestMunicipio" id="DestMunicipio" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['DestCuidad']) { ?><table>
 <tr>
@@ -789,7 +789,7 @@ Que técnico solicita:
 <input type="text" name="DestCuidad" id="DestCuidad" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['FormatoCarta']) { ?><table>
 <tr>
@@ -799,7 +799,7 @@ Que técnico solicita:
 <input type="text" name="FormatoCarta" id="FormatoCarta" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -814,7 +814,7 @@ Que técnico solicita:
 <input type="text" name="Proveedor" id="Proveedor" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 
 </td>
 <td><?php if($fila['ProvEstado']) { ?><table>
@@ -825,7 +825,7 @@ Que técnico solicita:
 <input type="text" name="ProvEstado" id="ProvEstado" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td>
 <?php if($fila['ProvLocalidad']) { ?><table>
@@ -836,7 +836,7 @@ Que técnico solicita:
 <input type="text" name="ProvLocalidad" id="ProvLocalidad" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td>
 <?php if($fila['Costo']) { ?><table>
@@ -847,7 +847,7 @@ Que técnico solicita:
 <input type="text" name="Costo" id="Costo" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -861,7 +861,7 @@ Que técnico solicita:
 <textarea name="Observaciones" id="Observaciones" size="20"></textarea>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 </td>
 <td><?php if($fila['Seguimiento']) { ?><table>
 <tr>
@@ -871,7 +871,7 @@ Que técnico solicita:
 <input type="text" name="Seguimiento" id="Seguimiento" size="20"/>
 </td>
 </tr></table>
-<? } ?></td>
+<?php } ?></td>
 <td>
 <?php if($fila['SeguimientoLegal']) { ?><table>
 <tr>
@@ -881,12 +881,12 @@ Que técnico solicita:
 <input type="text" name="SeguimientoLegal" id="SeguimientoLegal" size="20"/>
 </td>
 </tr></table>
-<? } ?>
+<?php } ?>
 
 </td>
 </tr>
 </table>
-<?
+<?php 
 }
 ?>
 <input type="submit" value="Agregar">

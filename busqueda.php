@@ -1,15 +1,19 @@
 <?php
-   include_once("../conf.php");
-   include("ConsultasCabina.php");
-   conectar();
-   if($BUSRES = mysqli_query($link,$SQLCABINA["Buscar"])){
+   include_once("conf.php");
+   
+   	include("ConsultasCabina.php");
+   
+   $link = mysqli_connect($host,$username,$pass,$database);
+   
+   if( $BUSRES = mysqli_query($link ,$SQLCABINA["Buscar"])){
        $BUSQUEDA = mysqli_fetch_assoc($BUSRES);
+       
        if(mysqli_num_rows($BUSRES) == 1){
            $SEL = $BUSQUEDA;
        }
   //     echo "<!-- $SQLCABINA[Buscar] -->";
    }else{
-         echo $SQLCABINA["Buscar"];
+         //echo $SQLCABINA["Buscar"];
    }
 ?>
 <form action="" method="GET">
