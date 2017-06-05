@@ -9,6 +9,8 @@ if(strlen($expedientex)==4){$expedientex="000".$expedientex."";}
 if(strlen($expedientex)==5){$expedientex="00".$expedientex."";} 
 if(strlen($expedientex)==6){$expedientex="0".$expedientex."";} 
 
+
+
 function mysqli_result($res,$row=0,$col=0){
 	$numrows = mysqli_num_rows($res);
 	if ($numrows && $row <= ($numrows-1) && $row >=0){

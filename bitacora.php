@@ -1,4 +1,5 @@
 <?php
+isset($_GET['id']) ? $id = $_GET['id'] : $id = null;
 $expedientex=$id;
 if(strlen($expedientex)==1){$expedientex="000000".$expedientex."";} 
 if(strlen($expedientex)==2){$expedientex="00000".$expedientex."";} 
@@ -95,7 +96,7 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmDelete(delUrl,name_cat) { 
-if (confirm("¿Está seguro de querer eliminar \n" + name_cat + "?")) { 
+if (confirm("ï¿½Estï¿½ seguro de querer eliminar \n" + name_cat + "?")) { 
 document.location = delUrl; 
 }
 }

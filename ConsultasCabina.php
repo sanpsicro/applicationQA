@@ -11,12 +11,16 @@ $SQLCABINA = ["Buscar" => "select Poliza.idPoliza,numPoliza,Cliente.nombre,idUsu
                             or (nombre like '%".$_GET['sNombre']."%' and '".$_GET['sNombre']."' <> '')
                             or (idUsuarioFinal like '".$_GET['sId']."' and '".$_GET['sId']."' <> '' and '".$_GET['sNumPoliza']."' = '')"
 		     ,"BuscarID" => "select idPoliza,id from Polizas
-                            where id like '".$SEL[idPoliza]."'", "ObtenerProductos" => "select Producto.idProducto,Nombre,NumIncidente from Producto
+                            where id like '".$SEL[idPoliza]."'"
+		
+		 ,"ObtenerProductos" => "select Producto.idProducto,Nombre,NumIncidente from Producto
                                      join ProductosPoliza on (Producto.idProducto = ProductosPoliza.idProducto)
-                                   where idPoliza = '".$SEL[idPoliza]."'" , "ObtenerIncidentes" => "select idProducto,Producto.Nombre,count(idPoliza),NumIncidente, count(idPoliza)<NumIncidente AS MENOR
+                                   where idPoliza = '".$SEL[idPoliza]."'" 
+		 , "ObtenerIncidentes" => "select idProducto,Producto.Nombre,count(idPoliza),NumIncidente, count(idPoliza)<NumIncidente AS MENOR
                                       from Expediente,ProductosPoliza
                                       where idProducto = '".$_GET[idProducto]."'
-                                      group by idProducto,idPoliza " , "EnGracia" => "select idPoliza,
+                                      group by idProducto,idPoliza " 
+		 , "EnGracia" => "select idPoliza,
                               (
                                 not pagada
                                 AND
@@ -24,27 +28,32 @@ $SQLCABINA = ["Buscar" => "select Poliza.idPoliza,numPoliza,Cliente.nombre,idUsu
                               )
                               AND fechaVence > NOW()
                               AND validada AS VALUE
-                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'", "SinDerecho" => "select idPoliza,
+                             from Poliza  where idPoliza = '".$SEL["idPoliza"]."'"
+		    , "SinDerecho" => "select idPoliza,
 
                                 (pagada AND fechaVence <= NOW())
                                 OR (NOT pagada AND DATE_ADD(fechaInicio, INTERVAL 1 MONTH) < NOW())
                                 OR NOW() < fechaInicio
                                 OR cancelada
                                 OR NOT validada AS VALUE
-                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'", "Libre" => "select idPoliza,
+                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'"
+		  , "Libre" => "select idPoliza,
                              (pagada AND fechaVence > NOW())
                              AND fechaInicio <= NOW()
                              AND validada
                              AND NOT cancelada AS VALUE
-                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'", "AltaExpediente" =>   "select numPoliza,Cliente.nombre AS NombreCliente,now() as Ahora,
+                             from Poliza  where idPoliza = '".$SEL[idPoliza]."'"
+		  , "AltaExpediente" =>   "select numPoliza,Cliente.nombre AS NombreCliente,now() as Ahora,
                            Cliente.idCliente,PlantillasBool.*
                            from Poliza join Cliente on (Cliente.idCliente = Poliza.idCliente)
                            join ProductosPoliza on (ProductosPoliza.idPoliza = Poliza.idPoliza)
                            join Producto on (Producto.idProducto = ProductosPoliza.idProducto)
                            join PlantillasBool on (PlantillasBool.idProducto = Producto.idProducto)
-                           where Producto.idProducto =". $_GET[idProducto]."  and Poliza.idPoliza =". $_GET[idPoliza], "DatosExpediente" => "select numPoliza,idExpediente
+                           where Producto.idProducto =". $_GET["idProducto"]."  and Poliza.idPoliza =". $_GET["idPoliza"]
+		 , "DatosExpediente" => "select numPoliza,idExpediente
                            from Expediente join Poliza on (Poliza.idPoliza = Expediente.idPoliza)
-                           where idExpediente =". $_GET[idExpediente], "Seguimiento" => "select Poliza.numPoliza,Expediente.idExpediente,Expediente.nmCliente,
+                           where idExpediente =". $_GET[idExpediente]
+		 , "Seguimiento" => "select Poliza.numPoliza,Expediente.idExpediente,Expediente.nmCliente,
                                  Expediente.idUsuarioFinal,seguimiento.Bitacora,seguimiento.Estado,
                                  Expediente.idExpediente,Empleado.nombre AS NombreEmpleado
                                  from Expediente join seguimiento

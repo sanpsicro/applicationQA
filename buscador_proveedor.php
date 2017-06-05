@@ -1,8 +1,11 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 
 include 'conf.php';
 
+isset($_POST['buscas']) ? $buscas = $_POST['buscas'] : $buscas = null;
+isset($_POST['accela']) ? $accela= $_POST['accela'] : $accela= null;
 
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 
@@ -16,7 +19,7 @@ function mysqli_result($res,$row=0,$col=0){
     return false;
 }
 
-isset($_GET['municipio']) ? $municipio = $_GET['municipio'] : $municipio =null; 
+
 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbl);
@@ -236,7 +239,7 @@ $arreglo="nombre";
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link,"SELECT * FROM Provedor $condicion status='activo' order by $arreglo"); 
+$result = mysqli_query($link,"SELECT * FROM Provedor ".$condicion." status='activo' order by ". $arreglo); 
 if (mysqli_num_rows($result)){ 
 echo' <tr>
     <td align="center" bgcolor="#bbbbbb"><strong>Proveedor</strong></td>
@@ -284,7 +287,7 @@ $services=explode(",",$row["trabajos"]);
 </tr>
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto:</b> '.$row["contacto"].'<br>
-<b>Teléfono:</b>
+<b>Telï¿½fono:</b>
 <form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel"].'';
  $telctc1 = $row["tel"];
@@ -314,7 +317,7 @@ echo'
 
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto2:</b> '.$row["contacto2"].'<br>
-<b>Teléfono:</b>
+<b>Telï¿½fono:</b>
 <form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel2"].'';
  $telctc1 = $row["tel2"];

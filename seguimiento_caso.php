@@ -88,7 +88,7 @@ if (metodo.toUpperCase()=='GET'){
 
 function confirmDelete(delUrl,name_cat) { 
 
-if (confirm("¿Está seguro de querer eliminar \n" + name_cat + "?")) { 
+if (confirm("ï¿½Estï¿½ seguro de querer eliminar \n" + name_cat + "?")) { 
 
 document.location = delUrl; 
 
@@ -97,7 +97,10 @@ document.location = delUrl;
 }
 
 </script>
-<?php 
+<?php
+isset($_GET['id']) ? $id = $_GET['id'] : $id = null ; 
+
+include 'conf.php';
 function mysqli_result($res,$row=0,$col=0){
 	$numrows = mysqli_num_rows($res);
 	if ($numrows && $row <= ($numrows-1) && $row >=0){
@@ -109,7 +112,7 @@ function mysqli_result($res,$row=0,$col=0){
 	}
 	return false;
 }
-$link = mysqli_connect($host,$username,$pass,$databse);
+$link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database);
 $result=mysqli_query($link, "SELECT tipo FROM servicios,general where general.servicio=servicios.id AND general.id='".$id."'") or die(mysql_error());
 $tipoServicio=mysqli_result($result,0,"tipo");
@@ -118,7 +121,7 @@ $tipoServicio=mysqli_result($result,0,"tipo");
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Seguimiento</span></td>
-      <td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=".$id."' >Detalle</a> | <a href='?module=conclusion_caso&id=".$id."'>Conclusión</a>";}?></td>
+      <td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=".$id."' >Detalle</a> | <a href='?module=conclusion_caso&id=".$id."'>Conclusiï¿½n</a>";}?></td>
 
 
 

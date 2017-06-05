@@ -1,7 +1,18 @@
-<?
+<?php 
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 
 if(empty($fecha[2])){$fecha[2]=date("d");}
 if(empty($fecha[1])){$fecha[1]=date("m");}
@@ -12,17 +23,17 @@ if($_GET['caso'] == "editar")
 ##
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notas_legal where general='$_GET[id]' AND  id= '$_GET[idnota]'",$db);
+$result = mysqli_query($db,"SELECT * from notas_legal where general='$_GET[id]' AND  id= '$_GET[idnota]'");
 if (mysqli_num_rows($result)){ 
-$fecha=mysql_result($result,0,"fecha");
+$fecha=mysqli_result($result,0,"fecha");
 $fecha=explode("-",$fecha);
-$etapa=mysql_result($result,0,"etapa");
-$tipo=mysql_result($result,0,"tipo");
-$comentario=mysql_result($result,0,"comentario");
-$adjunto1=mysql_result($result,0,"adjunto1");
-$adjunto2=mysql_result($result,0,"adjunto2");
-$adjunto3=mysql_result($result,0,"adjunto3");
-$adjunto4=mysql_result($result,0,"adjunto4");
+$etapa=mysqli_result($result,0,"etapa");
+$tipo=mysqli_result($result,0,"tipo");
+$comentario=mysqli_result($result,0,"comentario");
+$adjunto1=mysqli_result($result,0,"adjunto1");
+$adjunto2=mysqli_result($result,0,"adjunto2");
+$adjunto3=mysqli_result($result,0,"adjunto3");
+$adjunto4=mysqli_result($result,0,"adjunto4");
 }
 ##
 }

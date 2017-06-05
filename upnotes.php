@@ -1,18 +1,30 @@
-<?
+<?php 
 session_start();
 $unixid = time(); 
-include('conf.php'); 
 
+
+include('conf.php'); 
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 
 if($caso=="editar"){
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from notas_legal where id='$idnota' and general = '$id'");
 if (mysqli_num_rows($result)){ 
-$archivo1=mysql_result($result,0,"adjunto1");
-$archivo2=mysql_result($result,0,"adjunto2");
-$archivo3=mysql_result($result,0,"adjunto3");
-$archivo4=mysql_result($result,0,"adjunto4");
+$archivo1=mysqli_result($result,0,"adjunto1");
+$archivo2=mysqli_result($result,0,"adjunto2");
+$archivo3=mysqli_result($result,0,"adjunto3");
+$archivo4=mysqli_result($result,0,"adjunto4");
 }
 }
 
@@ -22,7 +34,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
 if (mysqli_num_rows($result)){ 
-$exfile1=mysql_result($result,0,"adjunto1");
+$exfile1=mysqli_result($result,0,"adjunto1");
 if($exfile1!="" && $exfile1!=" "){
 $predel="proveedores/adjuntos/".$exfile1."";
 unlink($predel);
@@ -39,18 +51,18 @@ $file_1_name_b=strtr($file_1_name_b,"'","");
 $file_1_name_b=strtr($file_1_name_b,"'","_");
 $file_1_name_b=strtr($file_1_name_b," ","_");
 $file_1_name_b=strtr($file_1_name_b,",","_");
-$file_1_name_b = str_replace('á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('é', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('É', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ñ', 'n', $file_1_name_b);
-$file_1_name_b = str_replace('ñ', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
 $file_1_name_b = strtolower($file_1_name_b);
 $nuevonombre="".$valid_userid."_".$unixid."_".$file_1_name_b."";
 if(copy($file1,"proveedores/adjuntos/$nuevonombre")){$archivo1=$nuevonombre; $unixid=$unixid+1;
@@ -63,7 +75,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
 if (mysqli_num_rows($result)){ 
-$exfile2=mysql_result($result,0,"adjunto2");
+$exfile2=mysqli_result($result,0,"adjunto2");
 if($exfile2!="" && $exfile2!=" "){
 $predel="proveedores/adjuntos/".$exfile2."";
 unlink($predel);
@@ -79,18 +91,18 @@ $file_1_name_b=strtr($file_1_name_b,"'","");
 $file_1_name_b=strtr($file_1_name_b,"'","_");
 $file_1_name_b=strtr($file_1_name_b," ","_");
 $file_1_name_b=strtr($file_1_name_b,",","_");
-$file_1_name_b = str_replace('á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('é', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('É', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ñ', 'n', $file_1_name_b);
-$file_1_name_b = str_replace('ñ', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
 $file_1_name_b = strtolower($file_1_name_b);
 $nuevonombre="".$valid_userid."_".$unixid."_".$file_1_name_b."";
 if(copy($file2,"proveedores/adjuntos/$nuevonombre")){$archivo2=$nuevonombre; $unixid=$unixid+1;
@@ -103,7 +115,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
 if (mysqli_num_rows($result)){ 
-$exfile3=mysql_result($result,0,"adjunto3");
+$exfile3=mysqli_result($result,0,"adjunto3");
 if($exfile3!="" && $exfile3!=" "){
 $predel="proveedores/adjuntos/".$exfile3."";
 unlink($predel);
@@ -119,18 +131,18 @@ $file_1_name_b=strtr($file_1_name_b,"'","");
 $file_1_name_b=strtr($file_1_name_b,"'","_");
 $file_1_name_b=strtr($file_1_name_b," ","_");
 $file_1_name_b=strtr($file_1_name_b,",","_");
-$file_1_name_b = str_replace('á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('é', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('É', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ñ', 'n', $file_1_name_b);
-$file_1_name_b = str_replace('ñ', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
 $file_1_name_b = strtolower($file_1_name_b);
 $nuevonombre="".$valid_userid."_".$unixid."_".$file_1_name_b."";
 if(copy($file3,"proveedores/adjuntos/$nuevonombre")){$archivo3=$nuevonombre; $unixid=$unixid+1;
@@ -143,7 +155,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
 if (mysqli_num_rows($result)){ 
-$exfile4=mysql_result($result,0,"adjunto4");
+$exfile4=mysqli_result($result,0,"adjunto4");
 if($exfile4!="" && $exfile4!=" "){
 $predel="proveedores/adjuntos/".$exfile4."";
 unlink($predel);
@@ -159,18 +171,18 @@ $file_1_name_b=strtr($file_1_name_b,"'","");
 $file_1_name_b=strtr($file_1_name_b,"'","_");
 $file_1_name_b=strtr($file_1_name_b," ","_");
 $file_1_name_b=strtr($file_1_name_b,",","_");
-$file_1_name_b = str_replace('á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('é', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('É', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ñ', 'n', $file_1_name_b);
-$file_1_name_b = str_replace('ñ', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
 $file_1_name_b = strtolower($file_1_name_b);
 $nuevonombre="".$valid_userid."_".$unixid."_".$file_1_name_b."";
 if(copy($file4,"proveedores/adjuntos/$nuevonombre")){$archivo4=$nuevonombre; $unixid=$unixid+1;
@@ -196,10 +208,10 @@ $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
 if (mysqli_num_rows($result)){ 
-$exfile1=mysql_result($result,0,"adjunto1");
-$exfile2=mysql_result($result,0,"adjunto2");
-$exfile3=mysql_result($result,0,"adjunto3");
-$exfile4=mysql_result($result,0,"adjunto4");
+$exfile1=mysqli_result($result,0,"adjunto1");
+$exfile2=mysqli_result($result,0,"adjunto2");
+$exfile3=mysqli_result($result,0,"adjunto3");
+$exfile4=mysqli_result($result,0,"adjunto4");
 if($exfile1!="" && $exfile1!=" "){
 $predel="proveedores/adjuntos/".$exfile1."";
 unlink($predel);

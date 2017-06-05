@@ -1,4 +1,5 @@
 <?php
+
    include_once("conf.php");   if(isset($_GET['sNumPoliza']) || isset($_GET['sNombre']) || isset($_GET['sId']) ){
    include("ConsultasCabina.php");   }
    

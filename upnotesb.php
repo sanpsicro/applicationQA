@@ -1,6 +1,14 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 $unixid = time(); 
+isset($_GET['id']) ? $id = $_GET['id'] : $id = null;
+
+isset($_GET['caso']) ? $caso = $_GET['caso'] : $caso = null;
+isset($_GET['idnota']) ? $idnota = $_GET['idnota'] : $idnota = null;
+isset($_GET['popup']) ? $popup = $_GET['popup'] : $popup = null;
+isset($_POST['comentario']) ? $comentario = $_GET['comentario'] : $comentario = null;
+
 include('conf.php'); 
 
 $link = mysqli_connect($host,$username,$pass,$database);
@@ -19,7 +27,7 @@ else{
 }
 }
 if($caso == "nuevo"){
-$link= $mysqli_connect($host,$username,$pass,$database);
+$link= mysqli_connect($host,$username,$pass,$database);
 $comentario=strtoupper($comentario);
 mysqli_query($link,"INSERT INTO `bitacora` (`general`, `usuario`, `fecha`, `comentario`) VALUES ('$id', '$valid_userid', now(), '$comentario')"); 
 if($popup=="0"){
