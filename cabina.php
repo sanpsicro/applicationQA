@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 include 'conf.php';
 $checa_arrayx=array_search("cabina",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
@@ -7,7 +6,7 @@ die();} else{}
 if(empty($show)){$show=10;}
 if(empty($sort)){$sort="servicio";}
 
- $clave_usuario = $_GET["clave_usuario"] ;
+$clave_usuario = $_GET["clave_usuario"] ;
 $nombre= $_GET["nombre"]  ;
 $placas= $_GET["placas"]  ;
 $serie= $_GET["serie"]  ;
@@ -37,7 +36,7 @@ function expandir_formulario(){
            <input name="nombre" type="text" id="nombre" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
          <td align="center" bgcolor="#CCCCCC"><strong>Clave de usuario</strong> 
            <input name="clave_usuario" type="text" id="clave_usuario" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
-         <td align="center" bgcolor="#CCCCCC"><strong>C�digo Identificador</strong> 
+         <td align="center" bgcolor="#CCCCCC"><strong>C&oacutedigo Identificador</strong> 
            <input name="placas" type="text" id="placas" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
 		 <td align="center" bgcolor="#CCCCCC"><strong>Serie</strong> 
            <input name="serie" type="text" id="serie" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td> 
@@ -53,7 +52,7 @@ function expandir_formulario(){
  if(isset($nombre) && $nombre!=""){
  
   echo'<tr><td>';
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>
 Usuarios:<p>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $link); 
@@ -112,7 +111,7 @@ if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
  ##################################################
   elseif(isset($clave_usuario) && $clave_usuario!=""){
     echo'<tr><td>';
-	echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+	echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
   $scanclave=explode("_",$clave_usuario);
   $num_segmentos=count($scanclave);
   if($num_segmentos=="2"){
@@ -154,8 +153,8 @@ if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
 
  #################################################
 elseif(isset($placas) && $placas!=""){
- echo'<tr><td>';
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<tr><td>';
+echo'<br><b><div class="xplik">Resultados de la buacutessqueda:</div></b><p>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query($link,"SELECT * from usuarios_contrato where placas like '%$placas%' order by placas"); 
@@ -186,7 +185,7 @@ if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
 
 elseif(isset($serie) && $serie!=""){
  echo'<tr><td>';
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query( $link,"SELECT * from usuarios_contrato where serie like '%".$serie."%' order by serie"); 

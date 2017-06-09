@@ -1,4 +1,5 @@
 <?php
+ob_start();
 if(isset($_POST['quest']) && isset($_GET['module'])){header("Location: mainframe.php?module=". $_GET['module']. "&quest=".$_POST['quest']);}
 
 if(isset($_POST['sort']) && isset($_POST['show']) && isset($_GET['module']) && isset($_POST['tipoCont']))
@@ -18,6 +19,4 @@ exit;}
 if(isset($_POST[busca_cliente]) && isset($_GET['module'])){header("Location: mainframe.php?module=".$_GET['module']."&busca_cliente=".$_POST['busca_cliente']);}
 
 if(isset($_POST[display]) && isset($_POST['sort'])){header("Location: mainframe.php?module=".$_GET['module']."&display=".$_POST[display]."&sort=".$_POST['sort']);}
-
-
 ?>

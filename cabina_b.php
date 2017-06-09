@@ -162,7 +162,7 @@ $restform="si";
 
 
 if($errorvigencia=="si"){
-$alertas=''.$alertas.' <script language="Javascript">alert ("USUARIO SIN VIGENCIA")</script>';
+$alertas=''.$alertas.'<script language="Javascript">alert ("USUARIO SIN VIGENCIA")</script>';
 
 $despliega='<tr>
     <td align=middle bgcolor="#ff0000"><b><font color="#ffffff">Póliza Vencida</font></b></td>
