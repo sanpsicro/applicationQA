@@ -1,10 +1,13 @@
 <?php
+
    include_once("conf.php");
    include("ConsultasCabina.php");
-conectar();
-
+//conectar();
+   $link  = mysqli_connect($host,$username,$pass,$database);
 
 //FORM 300
+
+
 
         if (isset($_POST['dtRecepcion']))
         $vdtRecepcion="'".mysqli_real_escape_string($_POST['dtRecepcion'])."'";
@@ -314,6 +317,7 @@ if(isset($_POST)){
 
 <form action="" method="POST">
 <?php 
+
 if(!$resultado = mysqli_query($link,$SQLCABINA["AltaExpediente"])) echo $SQLCABINA["AltaExpediente"];
 else
 while ($fila = mysqli_fetch_assoc($resultado)){
@@ -321,12 +325,12 @@ while ($fila = mysqli_fetch_assoc($resultado)){
 <table width=100%>
 <tr><td>
 <b>Numero Poliza:</b> <?php echo $fila["numPoliza"]; ?>
-<input type="hidden" name="idPoliza" value="<?php echo $fila["idPoliza"]; ?>"; ?>
+<input type="hidden" name="idPoliza" value="<?php echo $fila["idPoliza"]; ?>" >
 </td><td>
 <b>Numero de Expediente:</b> <?php echo $fila["idExpediente"]; ?>
 </td><td>
 <b>Fecha y Hora de Recepci&oacute;n:</b> <?php echo $fila["Ahora"]; ?>
-<input type="hidden" name="dtRecepcion" value="<?php echo $fila["Ahora"]; ?>"; ?>
+<input type="hidden" name="dtRecepcion" value="<?php echo $fila["Ahora"]; ?>" >
 </td>
 
 <td>
@@ -353,7 +357,7 @@ while ($fila = mysqli_fetch_assoc($resultado)){
 <table width=250>
 <tr>
 <td>
-Fecha en que se suscitó el hecho:
+Fecha en que se suscitï¿½ el hecho:
 </td>
 </tr>
 <tr>
@@ -387,7 +391,7 @@ Fecha en que se suscitó el hecho:
 <table>
 <tr>
 <td>
-Hora de asignación del proveedor:
+Hora de asignaciï¿½n del proveedor:
 </td>
 </tr>
 <tr>
@@ -487,7 +491,7 @@ No. de convenio:
 <table>
 <tr>
 <td>
-Número de siniestro:
+Nï¿½mero de siniestro:
 </td>
 </tr>
 <tr>
@@ -551,7 +555,7 @@ Nombre del usuario:
 <table>
 <tr>
 <td>
-Que técnico solicita:
+Que tï¿½cnico solicita:
 </td>
 </tr>
 <tr>
@@ -564,7 +568,7 @@ Que técnico solicita:
 </td>
 <td><?php if($fila['motivoServicio']) { ?><table>
 <tr>
-<td>Que fue lo que sucedió (motivo que origina servicio):
+<td>Que fue lo que sucediï¿½ (motivo que origina servicio):
 </td></tr><tr>
 <td>
 <input type="text" name="motivoServicio" id="motivoServicio" size="35"/>
@@ -639,12 +643,12 @@ Que técnico solicita:
 <tr>
 <td>
 <select NAME="cmbTipoAVial" id="cmbTipoAVial">
-               <option VALUE='Traslado para evitar alcoholímetro'>Traslado para evitar alcoholímetro</option>
+               <option VALUE='Traslado para evitar alcoholï¿½metro'>Traslado para evitar alcoholï¿½metro</option>
                <option VALUE='Siniestro'>Siniestro</option>
                            <option VALUE='Asistencia'>Asistencia</option>
                            <option VALUE='Cambio de llanta'>Cambio de llanta</option>
-                           <option VALUE='Llaves en el interior del vehículo'>Llaves en el interior del vehículo</option>
-                           <option VALUE='Envío de gasolina'>Envío de gasolina</option>
+                           <option VALUE='Llaves en el interior del vehï¿½culo'>Llaves en el interior del vehï¿½culo</option>
+                           <option VALUE='Envï¿½o de gasolina'>Envï¿½o de gasolina</option>
                            <option VALUE='Problemas administrativos'>Problemas administrativos</option>
                   </select>
 </td>
@@ -661,7 +665,7 @@ Que técnico solicita:
 <tr>
 <td>
 <select NAME="cmbTipoAMedica" id="cmbTipoAMedica">
-               <option VALUE='Consulta Telefónica'>Consulta Telefónica</option>
+               <option VALUE='Consulta Telefï¿½nica'>Consulta Telefï¿½nica</option>
                <option VALUE='Consulta A domicilio'>Consulta A domicilio</option>
                            <option VALUE='Ambulancia'>Ambulancia</option>
                   </select>
@@ -685,7 +689,7 @@ Que técnico solicita:
 <tr>
 <td><?php if($fila['cmbTipoAVial']) { ?><table>
 <tr>
-<td>Domicilio donde recogerá su auto sustituto:
+<td>Domicilio donde recogerï¿½ su auto sustituto:
 </td></tr><tr>
 <td>
 <input type="text" name="" id="" size="40"/>
@@ -695,7 +699,7 @@ Que técnico solicita:
 </td>
 <td><?php if($fila['UbicacionRequiere']) { ?><table>
 <tr>
-<td>Ubicación donde requiere el servicio:
+<td>Ubicaciï¿½n donde requiere el servicio:
 </td></tr><tr>
 <td>
 <input type="text" name="UbicacionRequiere" id="UbicacionRequiere" size="30"/>
@@ -875,7 +879,7 @@ Que técnico solicita:
 <td>
 <?php if($fila['SeguimientoLegal']) { ?><table>
 <tr>
-<td>SEGUIMIENTO LEGAL AUTOMOVILÍSTICO:
+<td>SEGUIMIENTO LEGAL AUTOMOVILï¿½STICO:
 </td></tr><tr>
 <td>
 <input type="text" name="SeguimientoLegal" id="SeguimientoLegal" size="20"/>

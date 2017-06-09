@@ -41,14 +41,7 @@ if(empty($show)){$show=50;}
 if(isset($_GET["module"])) {
 $module = basename($_GET["module"]);
 $module = $module . ".php";
-if (file_exists($module)) {
-	$module = $module;
-}elseif(file_exists(ucfirst($module))) {
-	$module = ucfirst($module);
-}
-	
-if (is_file("./$module")) {
-	
+if (file_exists($module)) {	
 include($module);
 } else {
 include('main.php');

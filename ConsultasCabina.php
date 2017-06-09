@@ -63,7 +63,7 @@ $SQLCABINA = ["Buscar" => "select Poliza.idPoliza,numPoliza,Cliente.nombre,idUsu
                                   where NOT concluido AND seguimiento.idSeguimiento in
                                   (select max(idSeguimiento) from seguimiento group by idExpediente)
                                   ", "AgregarSeguimiento" => "insert into seguimiento (idExpediente,Bitacora,Estado,idEmpleado)
-                                       values (".$_POST[idExpediente].",'".$_POST[bitacora]."','".$_POST[estado]."',".$SESSION_USERID.") " ];
+                                       values (".$_POST[idExpediente].",'".$_POST[bitacora]."','".$_POST[estado]."',".$_SESSION["valid_userid"].") " ];
 
 
 
