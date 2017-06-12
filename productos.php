@@ -1,5 +1,4 @@
-<?
-
+<?php 
 $checa_arrayx=array_search("servicios",$explota_modulos);
 
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
@@ -10,6 +9,12 @@ die();} else{}
 $show = $_GET['show'];
 $sort = $_GET['sort'];
 $quest = $_GET['quest'];
+isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
+isset($_GET['id']) ? $id = $_GET['id'] : $id = null;
+
+
+
+$_GET["show"]=$show;
 if(empty($show)){$show=10;}
 
 if(empty($sort)){$sort="producto";}
@@ -56,27 +61,27 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
+                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
 
 
 
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
+                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
 
 
 
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
+                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
 
 
 
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
+                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
 
 
 
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
+                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
 
 
 
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
 
 
 
@@ -108,7 +113,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">B&uacutesqueda: 
 
 
 
@@ -170,7 +175,7 @@ if(isset($quest) && $quest!=""){
 
 
 
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 
 
 
@@ -186,7 +191,7 @@ else{$condicion="";}
 
 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 
 //mysql_select_db($database, $link); 
 
@@ -196,11 +201,11 @@ $pag = ($_GET['pag']);
 
 if (!isset($pag)) $pag = 1;
 
-$result = mysqli_query("SELECT COUNT(*) FROM productos $condicion", $link); 
+$result = mysqli_query($link,"SELECT COUNT(*) FROM productos " . $condicion); 
 
 
 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 
 
 
@@ -212,21 +217,11 @@ $reg1 = ($pag-1) * $tampag;
 
 
 
-$result = mysqli_query("SELECT * FROM productos $condicion order by $sort  
+$result = mysqli_query($link,"SELECT * FROM productos $condicion order by $sort  
 
 
 
-  LIMIT $reg1, $tampag", $link); 
-
-
-
-$_GET["accela"]=$accela;
-
-$_GET["quest"]=$quest;
-
-$_GET["sort"]=$sort;
-
-$_GET["show"]=$show;
+  LIMIT $reg1, $tampag"); 
 
 
 
@@ -252,7 +247,7 @@ $_GET["show"]=$show;
 
 
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacutegina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -344,7 +339,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 
                       <td align=middle class="titles"><b>Producto</b></td>
 
-                      <td align=middle class="titles"><b>Operación</b></td></tr>';
+                      <td align=middle class="titles"><b>Operaci&oacuten</b></td></tr>';
 
 $bgcolor="#cccccc";
 

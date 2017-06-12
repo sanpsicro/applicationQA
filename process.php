@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if ( isset( $_SESSION["valid_user"] ) && isset($_SESSION["valid_modulos"] ) && isset($_SESSION["valid_permisos"] ))
 {}
@@ -60,7 +59,7 @@ $usuario=htmlspecialchars($usuario);
 
 $usuario=stripslashes($usuario);
 
-$usuario=strtr($usuario,"'","´");
+$usuario=strtr($usuario,"'","ï¿½");
 
 }
 
@@ -96,7 +95,7 @@ $link= mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `Empleado` ( `usuario`, `contrasena`, `nombre`, `cargo`, `idDepartamento`, `direccion`, `estado`, `municipio`, `colonia`, `extension`, `telefonoCasa`, `telefonoCelular`, `nextel`, `idnextel`, `email`, `tipo`, `modules`, `permisos`, `activo`) 
 
-VALUES ('$usuario', '$contrasena', '$nombre', '$cargo', '$departamento', '$direccion', '$estado', '$municipio', '$colonia', '$extension', '$telefonocasa', '$telefonocelular', '$nextel', '$idnextel', '$email', '$tipo', '$modulos_enlatados', '$permisos_enlatados', '$activo')"); 
+VALUES ('".$usuario."', '$contrasena', '$nombre', '$cargo', '$departamento', '$direccion', '$estado', '$municipio', '$colonia', '$extension', '$telefonocasa', '$telefonocelular', '$nextel', '$idnextel', '$email', '$tipo', '$modulos_enlatados', '$permisos_enlatados', '$activo')"); 
 
 header("Location: mainframe.php?module=".$module."&code=1");
 
@@ -176,7 +175,7 @@ $usuario=htmlspecialchars($usuario);
 
 $usuario=stripslashes($usuario);
 
-$usuario=strtr($usuario,"'","´");
+$usuario=strtr($usuario,"'","ï¿½");
 
 }
 
@@ -618,7 +617,7 @@ $usuario=htmlspecialchars($usuario);
 
 $usuario=stripslashes($usuario);
 
-$usuario=strtr($usuario,"'","´");
+$usuario=strtr($usuario,"'","ï¿½");
 
 }
 
@@ -732,7 +731,7 @@ $usuario=htmlspecialchars($usuario);
 
 $usuario=stripslashes($usuario);
 
-$usuario=strtr($usuario,"'","´");
+$usuario=strtr($usuario,"'","ï¿½");
 
 }
 

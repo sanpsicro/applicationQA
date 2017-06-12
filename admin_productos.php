@@ -22,7 +22,7 @@ i=0+hx;
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Productos</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("2_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Productos</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("2_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=new">Nuevo Producto</a> ]';} ?></td></tr></table></td></tr>
 
@@ -46,12 +46,12 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
             <td width="400" 			class="questtitle"> 
 
-			<?
-
+			<?php 
+            isset($_GET['accela']) ? $accela  = $_GET['accela'] : $accela = null ;
 			
 
 			if($accela=="new"){echo'Dar de alta Producto';}
-
+  
 			else{echo'Editar Producto';
 
 
@@ -74,7 +74,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">B&uacutesqueda: 
 
 
 
@@ -126,7 +126,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-<?php
+<?php 
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 
     if ($numrows && $row <= ($numrows-1) && $row >=0){
@@ -167,18 +167,18 @@ echo'<form name="frm" method="post" action="process.php?module=productos&accela=
 
         <td align="right" bgcolor="#cccccc"><strong>Producto:</strong></td>
 
-        <td bgcolor="#cccccc"><input name="producto" type="text" id="producto" size="30"value="<? echo"$producto";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="producto" type="text" id="producto" size="30"value="<?php  echo"$producto";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
       </tr>
       <tr>
         <td align="right" bgcolor="#cccccc"><strong>T&eacute;rminos:</strong></td>
-        <td bgcolor="#cccccc"><textarea name="terminos" cols="100" rows="10" id="terminos" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><? echo"$terminos";?></textarea></td>
+        <td bgcolor="#cccccc"><textarea name="terminos" cols="100" rows="10" id="terminos" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><?php  echo"$terminos";?></textarea></td>
       </tr>
 
       <tr>
 
         <td align="right" valign="top" bgcolor="#cccccc"><strong>Servicios:</strong></td>
 
-        <td bgcolor="#cccccc"><?
+        <td bgcolor="#cccccc"><?php 
 		
 $cuentainputs=0;
 $cuentallenos=0;
@@ -195,7 +195,7 @@ echo'<td bgcolor="#eeeeee" width=50%><table width=100% cellpadding=0 cellspacing
 $checa_array=array_search($row["id"],$serviciosx);
 if($checa_array===FALSE){} else{echo ' checked'; 
 $llenaxv="si";}
-echo' onClick="Enab('.$cuentainputs.')"><b>'.$row["servicio"].'</b></td><td width=50%>Núm. de eventos <input name="numeventos[]" id="numeventos" type="text" size="10"';
+echo' onClick="Enab('.$cuentainputs.')"><b>'.$row["servicio"].'</b></td><td width=50%>Nï¿½m. de eventos <input name="numeventos[]" id="numeventos" type="text" size="10"';
 if($llenaxv=="si"){echo 'value="'.$numeventosx["$cuentallenos"].'"';  $ponesto=""; $cuentallenos=$cuentallenos+1;}else{echo'value="Ingrese numero"'; $ponesto="disabled";}
 
 echo''.$ponesto.' onKeyPress="return numbersonly(this, event)"></></td></tr></table>
