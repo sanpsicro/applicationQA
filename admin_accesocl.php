@@ -224,7 +224,7 @@ function validar(formulario) {
 
 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr>
-            <td><span class="maintitle">Usuarios Acceso a Clientes</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("cl_a",$explota_permisos);
+            <td><span class="maintitle">Usuarios Acceso a Clientes</span></td><td width=150 class="blacklinks"><?php  $checa_array1=array_search("cl_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=new">Nuevo Usuario</a> ]';} ?></td></tr></table></td></tr>
 
@@ -248,7 +248,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=n
 
             <td width="400" 			class="questtitle"> 
 
-			<? 
+			<?php 
 
 			if($accela=="new"){echo'Dar de alta Usuario';}
 
@@ -390,7 +390,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td align="right" bgcolor="#cccccc"><strong>Usuario:</strong></td>
         
-        <td bgcolor="#cccccc"><input name="usuario" type="text" id="usuario" size="50" value="<? echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="usuario" type="text" id="usuario" size="50" value="<?php echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
         
         </tr>
       
@@ -398,7 +398,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td align="right" bgcolor="#cccccc"><strong>Contrase&ntilde;a:</strong></td>
         
-        <td bgcolor="#cccccc"><input name="contrasena" type="password" id="contrasena" size="50" value="<? echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="contrasena" type="password" id="contrasena" size="50" value="<?php echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
         
         </tr>
       
@@ -406,7 +406,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td width="100" align="right" bgcolor="#cccccc"><strong>Nombre:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<? echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<?php echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
         
         </tr>
       
@@ -414,7 +414,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Email:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="email" type="text" id="email" size="50" value="<? echo"$email";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="email" type="text" id="email" size="50" value="<?php echo"$email";?>"/></td>
         
         </tr>
       
@@ -422,7 +422,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 1:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato1" type="text" id="email" size="50" value="<? echo"$contrato1";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato1" type="text" id="email" size="50" value="<?php echo"$contrato1";?>"/></td>
         
         </tr>
       
@@ -430,7 +430,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 2:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato2" type="text" id="email" size="50" value="<? echo"$contrato2";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato2" type="text" id="email" size="50" value="<?php echo"$contrato2";?>"/></td>
         
         </tr>
       
@@ -438,7 +438,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 3:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato3" type="text" id="email" size="50" value="<? echo"$contrato3";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato3" type="text" id="email" size="50" value="<?php echo"$contrato3";?>"/></td>
         
         </tr>
       
@@ -446,7 +446,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 4:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato4" type="text" id="email" size="50" value="<? echo"$contrato4";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato4" type="text" id="email" size="50" value="<?php echo"$contrato4";?>"/></td>
         
         </tr>
       
@@ -454,7 +454,7 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 5:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato5" type="text" id="email" size="50" value="<? echo"$contrato5";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato5" type="text" id="email" size="50" value="<?php echo"$contrato5";?>"/></td>
         
         </tr>
       
@@ -464,9 +464,9 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
         
         <td bgcolor="#cccccc"><select name="activo" id="activo">
           
-          <option value="1" <? if($activo=="1"){echo' selected';} ?>>Si</option>
+          <option value="1" <?php if($activo=="1"){echo' selected';} ?>>Si</option>
           
-          <option value="0" <? if($activo=="0"){echo' selected';} ?>>No</option>
+          <option value="0" <?php if($activo=="0"){echo' selected';} ?>>No</option>
           
           </select>        </td>
         
@@ -477,15 +477,15 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
 		<!-- 
 		<table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_caso" <? $checa_arrayxa2=array_search("informacion_caso",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  <strong>Informaci&oacute;n del caso</strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="detalles_servicio" <? $checa_arrayxa2=array_search("detalles_servicio",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  <strong>Detalles del servicio</strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_vehiculo" <? $checa_arrayxa2=array_search("informacion_vehiculo",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_caso" <?php $checa_arrayxa2=array_search("informacion_caso",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  <strong>Informaci&oacute;n del caso</strong></td>
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="detalles_servicio" <?php $checa_arrayxa2=array_search("detalles_servicio",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  <strong>Detalles del servicio</strong></td>
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_vehiculo" <?php $checa_arrayxa2=array_search("informacion_vehiculo",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  
               <strong>Informaci&oacute;n del veh&iacute;culo</strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_poliza" <? $checa_arrayxa2=array_search("informacion_poliza",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_poliza" <?php $checa_arrayxa2=array_search("informacion_poliza",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  
               <strong>Informaci&oacute;n de la p&oacute;liza</strong></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_legal" <? $checa_arrayxa2=array_search("informacion_legal",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  <strong>Informaci&oacute;n legal del caso</strong></td>
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_legal" <?php $checa_arrayxa2=array_search("informacion_legal",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>  <strong>Informaci&oacute;n legal del caso</strong></td>
             <td bgcolor="#eeeeee">&nbsp;</td>
             <td bgcolor="#eeeeee">&nbsp;</td>
             <td bgcolor="#eeeeee">&nbsp;</td>
@@ -502,58 +502,58 @@ echo'<form name="frm" method="post" action="process.php?module=accesocl&accela='
               </table></td>
             </tr>
 			<tr>
-				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="status" <? $checa_arrayxa2=array_search("status",$explota_permicl);
+				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="status" <?php $checa_arrayxa2=array_search("status",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Status</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="asignadoprov" <? $checa_arrayxa2=array_search("asignadoprov",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="asignadoprov" <?php $checa_arrayxa2=array_search("asignadoprov",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Asignado a Proveedor</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horasignado" <? $checa_arrayxa2=array_search("horasignado",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horasignado" <?php $checa_arrayxa2=array_search("horasignado",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Hora de Asignaci&oacute;n</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horarribo" <? $checa_arrayxa2=array_search("horarribo",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horarribo" <?php $checa_arrayxa2=array_search("horarribo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Hora de Arribo</strong></td>
 			</tr>
 			<tr>
-				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horacontacto" <? $checa_arrayxa2=array_search("horacontacto",$explota_permicl);
+				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horacontacto" <?php $checa_arrayxa2=array_search("horacontacto",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                   <strong>Hora de Contacto (r)</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tiempoarribo" <? $checa_arrayxa2=array_search("tiempoarribo",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tiempoarribo" <?php $checa_arrayxa2=array_search("tiempoarribo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Tiempo de Arribo</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tiempocontacto" <? $checa_arrayxa2=array_search("tiempocontacto",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tiempocontacto" <?php $checa_arrayxa2=array_search("tiempocontacto",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Tiempo de Contacto</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="costointerno" <? $checa_arrayxa2=array_search("costointerno",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="costointerno" <?php $checa_arrayxa2=array_search("costointerno",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Costo Interno</strong></td>
 			</tr>
 			<tr>
-				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ultimostatus" <? $checa_arrayxa2=array_search("ultimostatus",$explota_permicl);
+				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ultimostatus" <?php $checa_arrayxa2=array_search("ultimostatus",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                   <strong>Hora de &uacute;ltimo status</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horacontactoext" <? $checa_arrayxa2=array_search("horacontactoext",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="horacontactoext" <?php $checa_arrayxa2=array_search("horacontactoext",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Hora de Contacto (ext)</strong></td>
 			  <td bgcolor="#eeeeee"><strong>
-			    <input name="permicl[]" type="checkbox" id="permicl[]" value="horaterminoext" <? $checa_arrayxa2=array_search("horaterminoext",$explota_permicl);
+			    <input name="permicl[]" type="checkbox" id="permicl[]" value="horaterminoext" <?php $checa_arrayxa2=array_search("horaterminoext",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/> 
 			    Hora de T&eacute;rmino (ext)
 </strong> </td>
 			  <td bgcolor="#eeeeee"><strong>
-			    <input name="permicl[]" type="checkbox" id="permicl[]" value="horarecepcion" <? $checa_arrayxa2=array_search("horarecepcion",$explota_permicl);
+			    <input name="permicl[]" type="checkbox" id="permicl[]" value="horarecepcion" <?php $checa_arrayxa2=array_search("horarecepcion",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/> 
 			    Hora de Recepción
@@ -573,80 +573,80 @@ if($checa_arrayxa2===FALSE){} else{echo ' checked';}
             </table>              </td>
             </tr>
           <tr>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_recepcion" <? $checa_arrayxa2=array_search("fecha_recepcion",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_recepcion" <?php $checa_arrayxa2=array_search("fecha_recepcion",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Fecha de recepci&oacute;n </strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="hora_apertura" <? $checa_arrayxa2=array_search("hora_apertura",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="hora_apertura" <?php $checa_arrayxa2=array_search("hora_apertura",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Hora de apertura de expediente</strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="num_contrato" <? $checa_arrayxa2=array_search("num_contrato",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="num_contrato" <?php $checa_arrayxa2=array_search("num_contrato",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>N&uacute;mero de contrato</strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="reporta" <? $checa_arrayxa2=array_search("reporta",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="reporta" <?php $checa_arrayxa2=array_search("reporta",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Nombre de quien Reporta</strong></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tel_reporta" <? $checa_arrayxa2=array_search("tel_reporta",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tel_reporta" <?php $checa_arrayxa2=array_search("tel_reporta",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Tel. de Contacto</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_suceso" <? $checa_arrayxa2=array_search("fecha_suceso",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_suceso" <?php $checa_arrayxa2=array_search("fecha_suceso",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Fecha del suceso </strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="convenio" <? $checa_arrayxa2=array_search("convenio",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="convenio" <?php $checa_arrayxa2=array_search("convenio",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong> N&uacute;mero de convenio</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="expediente" <? $checa_arrayxa2=array_search("expediente",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="expediente" <?php $checa_arrayxa2=array_search("expediente",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>N&uacute;mero de Expediente</strong></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="num_cliente" <? $checa_arrayxa2=array_search("num_cliente",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="num_cliente" <?php $checa_arrayxa2=array_search("num_cliente",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Nombre del cliente</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="num_siniestro" <? $checa_arrayxa2=array_search("num_siniestro",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="num_siniestro" <?php $checa_arrayxa2=array_search("num_siniestro",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>N&uacute;mero de siniestro</strong> </td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="inciso" <? $checa_arrayxa2=array_search("inciso",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="inciso" <?php $checa_arrayxa2=array_search("inciso",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Inciso</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="usuario" <? $checa_arrayxa2=array_search("usuario",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="usuario" <?php $checa_arrayxa2=array_search("usuario",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Nombre del Usuario</strong></td>
           </tr>
           <tr>
             <td bgcolor="#eeeeee"><strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="reporte_cliente" <? $checa_arrayxa2=array_search("reporte_cliente",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="reporte_cliente" <?php $checa_arrayxa2=array_search("reporte_cliente",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
 No. de Control</strong></td>
             <td bgcolor="#eeeeee"><strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="ejecutivo" <? $checa_arrayxa2=array_search("ejecutivo",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="ejecutivo" <?php $checa_arrayxa2=array_search("ejecutivo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
 Ejecutivo</strong></td>
             <td bgcolor="#eeeeee">
 				<strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="fax" <? $checa_arrayxa2=array_search("fax",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="fax" <?php $checa_arrayxa2=array_search("fax",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
 Fax</strong>
 			</td>
             <td bgcolor="#eeeeee">
 				<strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="email" <? $checa_arrayxa2=array_search("email",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="email" <?php $checa_arrayxa2=array_search("email",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
 E-Mail</strong>
@@ -655,25 +655,25 @@ E-Mail</strong>
 		  <tr>
 		  	<td bgcolor="#eeeeee">
 				<strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="cobertura" <? $checa_arrayxa2=array_search("cobertura",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="cobertura" <?php $checa_arrayxa2=array_search("cobertura",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
 Cobertura</strong>
 			</td>
 			<td bgcolor="#eeeeee"><strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="cliente" <? $checa_arrayxa2=array_search("cliente",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="cliente" <?php $checa_arrayxa2=array_search("cliente",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/> 
               Cliente
 </strong></td>
 			<td bgcolor="#eeeeee"><strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="contrato" <? $checa_arrayxa2=array_search("contrato",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="contrato" <?php $checa_arrayxa2=array_search("contrato",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/> 
               Contrato
 </strong></td>
 			<td bgcolor="#eeeeee"><strong>
-              <input name="permicl[]" type="checkbox" id="permicl[]" value="serviciosolicitado" <? $checa_arrayxa2=array_search("serviciosolicitado",$explota_permicl);
+              <input name="permicl[]" type="checkbox" id="permicl[]" value="serviciosolicitado" <?php $checa_arrayxa2=array_search("serviciosolicitado",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/> 
               Servicio solicitado
@@ -695,87 +695,87 @@ if($checa_arrayxa2===FALSE){} else{echo ' checked';}
               </td>
           </tr>
           <tr>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tecnico_solicitado" <? $checa_arrayxa2=array_search("tecnico_solicitado",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tecnico_solicitado" <?php $checa_arrayxa2=array_search("tecnico_solicitado",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>T&eacute;cnico Solicitado</strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="motivo_servicio" <? $checa_arrayxa2=array_search("motivo_servicio",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="motivo_servicio" <?php $checa_arrayxa2=array_search("motivo_servicio",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Motivo del servicio</strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_requiere" <? $checa_arrayxa2=array_search("ubicacion_requiere",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_requiere" <?php $checa_arrayxa2=array_search("ubicacion_requiere",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Ubicaci&oacute;n y referencias donde se requiere el servicio </strong></td>
-            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tipo_asistencia_vial" <? $checa_arrayxa2=array_search("tipo_asistencia_vial",$explota_permicl);
+            <td width="25%" bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tipo_asistencia_vial" <?php $checa_arrayxa2=array_search("tipo_asistencia_vial",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Tipo de asistencia vial</strong></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tipo_asistencia_medica" <? $checa_arrayxa2=array_search("tipo_asistencia_medica",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="tipo_asistencia_medica" <?php $checa_arrayxa2=array_search("tipo_asistencia_medica",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Tipo de asistencia m&eacute;dica</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="domicilio_cliente" <? $checa_arrayxa2=array_search("domicilio_cliente",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="domicilio_cliente" <?php $checa_arrayxa2=array_search("domicilio_cliente",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Domicilio del cliente</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="domicilio_sustituto" <? $checa_arrayxa2=array_search("domicilio_sustituto",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="domicilio_sustituto" <?php $checa_arrayxa2=array_search("domicilio_sustituto",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Domicilio donde recoger&aacute; auto sustituto</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_estado" <? $checa_arrayxa2=array_search("ubicacion_estado",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_estado" <?php $checa_arrayxa2=array_search("ubicacion_estado",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Ubicaci&oacute;n estado</strong></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_municipio" <? $checa_arrayxa2=array_search("ubicacion_municipio",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_municipio" <?php $checa_arrayxa2=array_search("ubicacion_municipio",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Ubicaci&oacute;n municipio</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_colonia" <? $checa_arrayxa2=array_search("ubicacion_colonia",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_colonia" <?php $checa_arrayxa2=array_search("ubicacion_colonia",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Ubicaci&oacute;n colonia</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_ciudad" <? $checa_arrayxa2=array_search("ubicacion_ciudad",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="ubicacion_ciudad" <?php $checa_arrayxa2=array_search("ubicacion_ciudad",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Ubicaci&oacute;n ciudad</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_servicio" <? $checa_arrayxa2=array_search("destino_servicio",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_servicio" <?php $checa_arrayxa2=array_search("destino_servicio",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Destino servicio</strong></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_estado" <? $checa_arrayxa2=array_search("destino_estado",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_estado" <?php $checa_arrayxa2=array_search("destino_estado",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Destino estado</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_municipio" <? $checa_arrayxa2=array_search("destino_municipio",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_municipio" <?php $checa_arrayxa2=array_search("destino_municipio",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Destino municipio</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_colonia" <? $checa_arrayxa2=array_search("destino_colonia",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_colonia" <?php $checa_arrayxa2=array_search("destino_colonia",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Destino Colonia</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_ciudad" <? $checa_arrayxa2=array_search("destino_ciudad",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_ciudad" <?php $checa_arrayxa2=array_search("destino_ciudad",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Destino Ciudad</strong></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="formato_carta" <? $checa_arrayxa2=array_search("formato_carta",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="formato_carta" <?php $checa_arrayxa2=array_search("formato_carta",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Formato de carta de auto sustituto </strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="instructivo" <? $checa_arrayxa2=array_search("instructivo",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="instructivo" <?php $checa_arrayxa2=array_search("instructivo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Ventana con Instructivo para usuario auto sustituto </strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="observaciones" <? $checa_arrayxa2=array_search("observaciones",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="observaciones" <?php $checa_arrayxa2=array_search("observaciones",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Observaciones</strong></td>
@@ -793,24 +793,24 @@ if($checa_arrayxa2===FALSE){} else{echo ' checked';}
               </table></td>
             </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_marca" <? $checa_arrayxa2=array_search("auto_marca",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_marca" <?php $checa_arrayxa2=array_search("auto_marca",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Marca del auto</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_tipo" <? $checa_arrayxa2=array_search("auto_tipo",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_tipo" <?php $checa_arrayxa2=array_search("auto_tipo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Tipo de auto</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_modelo" <? $checa_arrayxa2=array_search("auto_modelo",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_modelo" <?php $checa_arrayxa2=array_search("auto_modelo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Modelo del auto</strong></td>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_color" <? $checa_arrayxa2=array_search("auto_color",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_color" <?php $checa_arrayxa2=array_search("auto_color",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/> <strong>Color del auto</strong> </td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_placas" <? $checa_arrayxa2=array_search("auto_placas",$explota_permicl);
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="auto_placas" <?php $checa_arrayxa2=array_search("auto_placas",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Placas del auto</strong></td>
@@ -830,57 +830,57 @@ if($checa_arrayxa2===FALSE){} else{echo ' checked';}
               </table></td>
             </tr>
 			<tr>
-				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="pasajero" <? $checa_arrayxa2=array_search("pasajero",$explota_permicl);
+				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="pasajero" <?php $checa_arrayxa2=array_search("pasajero",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Pasajero</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_compra" <? $checa_arrayxa2=array_search("fecha_compra",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_compra" <?php $checa_arrayxa2=array_search("fecha_compra",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>Fecha de Compra</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="codigo_reserva" <? $checa_arrayxa2=array_search("codigo_reserva",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="codigo_reserva" <?php $checa_arrayxa2=array_search("codigo_reserva",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
               <strong>C&oacute;digo de Reserva</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="vuelo" <? $checa_arrayxa2=array_search("vuelo",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="vuelo" <?php $checa_arrayxa2=array_search("vuelo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Vuelo</strong></td>
 			</tr>
 			<tr>
-				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_vuelo" <? $checa_arrayxa2=array_search("fecha_vuelo",$explota_permicl);
+				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_vuelo" <?php $checa_arrayxa2=array_search("fecha_vuelo",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                   <strong>Fecha de Vuelo</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="origen_ciudad" <? $checa_arrayxa2=array_search("origen_ciudad",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="origen_ciudad" <?php $checa_arrayxa2=array_search("origen_ciudad",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Or&iacute;gen Ciudad</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_ciudad_v" <? $checa_arrayxa2=array_search("destino_ciudad_v",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="destino_ciudad_v" <?php $checa_arrayxa2=array_search("destino_ciudad_v",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Ciudad de Destino</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_respuesta" <? $checa_arrayxa2=array_search("fecha_respuesta",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="fecha_respuesta" <?php $checa_arrayxa2=array_search("fecha_respuesta",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Fecha de Respuesta</strong></td>
 			</tr>
 			<tr>
-				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="motivo_servicio_v" <? $checa_arrayxa2=array_search("motivo_servicio_v",$explota_permicl);
+				<td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="motivo_servicio_v" <?php $checa_arrayxa2=array_search("motivo_servicio_v",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                   <strong>Motivo del Servicio</strong></td>
-			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="telefono_v" <? $checa_arrayxa2=array_search("telefono_v",$explota_permicl);
+			  <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="telefono_v" <?php $checa_arrayxa2=array_search("telefono_v",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
                 <strong>Tel. de Contacto</strong></td>
 			  <td bgcolor="#eeeeee"><strong>
-			    <input name="permicl[]" type="checkbox" id="permicl[]" value="fax_v" <? $checa_arrayxa2=array_search("fax_v",$explota_permicl);
+			    <input name="permicl[]" type="checkbox" id="permicl[]" value="fax_v" <?php $checa_arrayxa2=array_search("fax_v",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
 Fax</strong> </td>
 			  <td bgcolor="#eeeeee"><strong>
-			    <input name="permicl[]" type="checkbox" id="permicl[]" value="email_v" <? $checa_arrayxa2=array_search("email_v",$explota_permicl);
+			    <input name="permicl[]" type="checkbox" id="permicl[]" value="email_v" <?php $checa_arrayxa2=array_search("email_v",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/>
 E-Mail</strong> </td>
@@ -893,7 +893,7 @@ E-Mail</strong> </td>
           </tr>
 
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_poliza" <? $checa_arrayxa2=array_search("informacion_poliza",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_poliza" <?php $checa_arrayxa2=array_search("informacion_poliza",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
               <strong>Informaci&oacute;n de la p&oacute;liza</strong></td>
             </tr>
         </table>
@@ -903,7 +903,7 @@ E-Mail</strong> </td>
             <td bgcolor="#666666"><span class="style1">Informaci&oacute;n legal del caso</span></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_legal" <? $checa_arrayxa2=array_search("informacion_legal",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="informacion_legal" <?php $checa_arrayxa2=array_search("informacion_legal",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
               <strong>Informaci&oacute;n legal del caso</strong></td>
           </tr>
         </table>
@@ -913,7 +913,7 @@ E-Mail</strong> </td>
             <td bgcolor="#666666"><span class="style1">Exportar</span></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="exportacion" <? $checa_arrayxa2=array_search("exportacion",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="exportacion" <?php $checa_arrayxa2=array_search("exportacion",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
               <strong>Exportación</strong></td>
           </tr>
         </table>
@@ -923,7 +923,7 @@ E-Mail</strong> </td>
             <td bgcolor="#666666"><span class="style1">Usuario Administrativo</span></td>
           </tr>
           <tr>
-            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="administrativo" <? $checa_arrayxa2=array_search("administrativo",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
+            <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="administrativo" <?php $checa_arrayxa2=array_search("administrativo",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
               <strong>Exportar campos administrativos</strong></td>
           </tr>
         </table>

@@ -104,7 +104,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 
 //////mysql_select_db($database,$db);
 
-$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '$idCliente'");
+$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '".$idCliente."'");
 
 $idempleado=mysqli_result($result,0,"idEmpleado");
 
@@ -168,7 +168,7 @@ $db2 = mysqli_connect($host,$username,$pass,$database);
 
 //////mysql_select_db($database,$db2);
 
-$result2 = mysqli_query($db2,"SELECT * from Empleado where idEmpleado = '$idempleado'");
+$result2 = mysqli_query($db2,"SELECT * from Empleado where idEmpleado = '".$idempleado."'");
 
 $vendedor=mysqli_result($result2,0,"nombre");
 
@@ -180,7 +180,7 @@ $db3 = mysqli_connect($host,$username,$pass,$database);
 
 //////mysql_select_db($database,$db3);
 
-$result3 = mysqli_query($db3,"SELECT * from Estado where idEstado = '$estado'");
+$result3 = mysqli_query($db3,"SELECT * from Estado where idEstado = '".$estado."'");
 
 $estado=mysqli_result($result3,0,"nombreEstado");
 
@@ -190,7 +190,7 @@ $db3b = mysqli_connect($host,$username,$pass,$database);
 
 //////mysql_select_db($database,$db3b);
 
-$result3b = mysqli_query($db3b,"SELECT * from Estado where idEstado = '$estado2'");
+$result3b = mysqli_query($db3b,"SELECT * from Estado where idEstado = '".$estado2."'");
 
 $estado2=mysqli_result($result3b,0,"nombreEstado");
 

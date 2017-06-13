@@ -1,5 +1,7 @@
 <?php
 session_start();
+ob_start();
+
 if ( isset( $_SESSION["valid_user"] ) && isset($_SESSION["valid_modulos"] ) && isset($_SESSION["valid_permisos"] ))
 {}
 else {
@@ -26,6 +28,7 @@ header("Location: index.php?errorcode=3");
  isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
  isset($_GET['id']) ? $id = $_GET['id'] : $id = null;
  isset($_GET['module']) ? $module = $_GET['module'] : $module = null;
+ 
  isset($_POST['modules_auth']) ? $modules_auth = $_POST['modules_auth'] : $modules_auth = null;
  isset($_POST['permi']) ? $permi = $_POST['permi'] : $permi = null;
  isset($_POST['usuario']) ? $usuario = $_POST['usuario'] : $usuario = null;
@@ -46,6 +49,7 @@ header("Location: index.php?errorcode=3");
  isset($_POST['email']) ? $email= $_POST['email'] : $email = null;
  isset($_POST['activo']) ? $activo = $_POST['activo'] : $activo = null;
  isset($_POST['tipo']) ? $tipo = $_POST['tipo'] : $tipo = null;
+ isset($_POST['vendedor']) ? $vendedor = $_POST['vendedor'] : $vendedor = null;
 #----------------
 if($module=="usuarios"){ 
 if(count($modules_auth)!="0" && $modules_auth!=" " && $modules_auth!=""){$modulos_enlatados=implode(",",$modules_auth);}

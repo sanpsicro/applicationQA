@@ -31,7 +31,7 @@ if(empty($sort)){$sort="producto";}
 
 
 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Productos</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("2_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Productos</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("2_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=new">Nuevo Producto</a> ]';} ?></td></tr></table></td></tr>
 
@@ -49,7 +49,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=productos<? if($quest!=""){echo"&quest=$quest";}?>">
+            <form name="form1" method="post" action="bridge.php?module=productos<?php  if($quest!=""){echo"&quest=$quest";}?>">
 
 
 
@@ -61,27 +61,27 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
 
 
 
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
 
 
 
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
 
 
 
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
 
 
 
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
 
 
 
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
 
 
 
@@ -93,7 +93,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-                <option value="producto"  <? if($sort=="producto"){echo"selected";}?>>Ordenar por producto</option>
+                <option value="producto"  <?php  if($sort=="producto"){echo"selected";}?>>Ordenar por producto</option>
 
 
 
@@ -149,7 +149,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-<?
+<?php 
 
 
 

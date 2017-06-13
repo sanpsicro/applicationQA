@@ -7,7 +7,7 @@ if(empty($sort)){$sort="contrato1";}
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Usuarios Acceso a Clientes</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("cl_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Usuarios Acceso a Clientes</span></td><td width=150 class="blacklinks"><?php  $checa_array1=array_search("cl_a",$explota_permisos);
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_accesocl&accela=new">Nuevo Usuario</a> ]';} ?></td></tr></table></td></tr>
  <tr> 
      
@@ -16,7 +16,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_accesocl&accela=n
       </td>
   </tr>
 <tr><td>
-<?
+<?php 
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo Usuario Registrado</div></b><p>';}
 if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos del Usuario actualizados</div></b><p>';}
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Usuario eliminado</div></b><p>';}

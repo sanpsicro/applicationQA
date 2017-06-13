@@ -1,4 +1,4 @@
-<?
+<?php 
 error_reporting(E_ALL);
 $checa_arrayx=array_search("servicios",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
@@ -22,7 +22,7 @@ $id = $_GET['id'];
       </td>
   </tr>
 <tr><td>
-<?
+<?php 
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT * from productos where id = '".$id."'");
@@ -38,12 +38,12 @@ $terminos=$row['terminos'];
 ?>
 <table width="100%%" border="0" cellspacing="3" cellpadding="3">
   <tr>
-    <td align="center" bgcolor="#bbbbbb"><b>Detalles del Producto: <? echo ''.$producto.'';?></b></td>
+    <td align="center" bgcolor="#bbbbbb"><b>Detalles del Producto: <?php  echo ''.$producto.'';?></b></td>
     </tr>
   <tr>
     <td width="50%" bgcolor="#eeeeee"><strong>Servicios:</strong><p>
 <table width=100% cellpadding=3 cellspacing=3>	
-	<?
+	<?php 
 	$cuenta=0;
 $absolute=0;	
 foreach($servicios as $miservicio){
@@ -70,7 +70,7 @@ $absolute=$absolute+1;
 	
 	<tr><td bgcolor="#CCCCCC"><b>Términos:</b>
 	  <p>
-	<?
+	<?php 
 	echo nl2br($terminos);
 	?>
 	</td>

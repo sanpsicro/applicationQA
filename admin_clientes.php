@@ -1,30 +1,4 @@
 <?php
-error_reporting(E_ALL);
-
-isset( $_GET['accela']) ? $accela = $_GET['accela'] : $accela=null;
-isset( $_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente=null;
-isset($_POST['tipocliente']) ? $tipocliente = $_POST['tipocliente']  : $tipocliente =null ;
-isset($_POST['vendedor']) ? $vendedor = $_POST['vendedor']  : $vendedor =null ;
-isset($_POST['nombre']) ? $nombre = $_POST['nombre']  : $nombre =null ;
-isset($_POST['rfc']) ? $rfc= $_POST['rfc']  : $rfc =null ;
-isset($_POST['contacto']) ? $contacto = $_POST['contacto']  : $contacto =null ;
-isset($_POST['calle']) ? $calle = $_POST['calle']  : $calle =null ;
-isset($_POST['numero']) ? $numero= $_POST['numero']  : $numero =null ;
-isset($_POST['ciudad']) ? $ciudad = $_POST['ciudad']  : $ciudad =null ;
-isset($_POST['telefonocasa']) ? $telefonocasa = $_POST['telefonocasa']  : $telefonocasa =null ;
-isset($_POST['telefonooficina']) ? $telefonooficina = $_POST['telefonooficina']  : $telefonooficina =null ;
-isset($_POST['telefonocelular']) ? $telefonocelular = $_POST['telefonocelular']  : $telefonocelular =null ;
-isset($_POST['estado']) ? $estado = $_POST['estado']  : $estado =null ;
-
-isset($_POST['fax']) ? $fax = $_POST['fax']  : $fax =null ;
-isset($_POST['nextel']) ? $nextel = $_POST['nextel']  : $nextel =null ;
-isset($_POST['telnextel ']) ? $telnextel  = $_POST['telnextel ']  : $telnextel =null ;
-isset($_POST['email']) ? $email = $_POST['email']  : $email =null ;
-isset($_POST['usuario']) ? $usuario = $_POST['usuario']  : $usuario =null ;
-isset($_POST['contrasena']) ? $contrasena = $_POST['contrasena']  : $contrasena =null ;
-
-
-
 
 
 session_start();
@@ -205,7 +179,29 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_clientes&accela=n
 
             <td width="400" 			class="questtitle"> 
 
-			<?php 
+<?php 
+
+isset( $_GET['accela']) ? $accela = $_GET['accela'] : $accela=null;
+isset( $_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente=null;
+isset($_POST['tipocliente']) ? $tipocliente = $_POST['tipocliente']  : $tipocliente =null ;
+isset($_POST['vendedor']) ? $vendedor = $_POST['vendedor']  : $vendedor =null ;
+isset($_POST['nombre']) ? $nombre = $_POST['nombre']  : $nombre =null ;
+isset($_POST['rfc']) ? $rfc= $_POST['rfc']  : $rfc =null ;
+isset($_POST['contacto']) ? $contacto = $_POST['contacto']  : $contacto =null ;
+isset($_POST['calle']) ? $calle = $_POST['calle']  : $calle =null ;
+isset($_POST['numero']) ? $numero= $_POST['numero']  : $numero =null ;
+isset($_POST['ciudad']) ? $ciudad = $_POST['ciudad']  : $ciudad =null ;
+isset($_POST['telefonocasa']) ? $telefonocasa = $_POST['telefonocasa']  : $telefonocasa =null ;
+isset($_POST['telefonooficina']) ? $telefonooficina = $_POST['telefonooficina']  : $telefonooficina =null ;
+isset($_POST['telefonocelular']) ? $telefonocelular = $_POST['telefonocelular']  : $telefonocelular =null ;
+isset($_POST['estado']) ? $estado = $_POST['estado']  : $estado =null ;
+
+isset($_POST['fax']) ? $fax = $_POST['fax']  : $fax =null ;
+isset($_POST['nextel']) ? $nextel = $_POST['nextel']  : $nextel =null ;
+isset($_POST['telnextel ']) ? $telnextel  = $_POST['telnextel ']  : $telnextel =null ;
+isset($_POST['email']) ? $email = $_POST['email']  : $email =null ;
+isset($_POST['usuario']) ? $usuario = $_POST['usuario']  : $usuario =null ;
+isset($_POST['contrasena']) ? $contrasena = $_POST['contrasena']  : $contrasena =null ;
 
 			if($accela=="new"){echo'Dar de alta Cliente';}
 
@@ -404,7 +400,7 @@ echo'<select name="vendedor" id="vendedor">';
       <tr>
         <td align="right" bgcolor="#cccccc"><strong>Tipo de Cliente:</strong> </td>
 
-        <td bgcolor="#cccccc"><?
+        <td bgcolor="#cccccc"><?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -442,7 +438,7 @@ echo'<select name="tipocliente" id="tipocliente">';
 
         <td align="right" bgcolor="#cccccc"><strong>Nombre:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<?php echo"$nombre";?>"  onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<?php echo $nombre;?>"  onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
 
       </tr>
 
@@ -492,7 +488,7 @@ echo'<select name="tipocliente" id="tipocliente">';
 
             <option value='0'>Seleccione un Estado</option>
 
-            <?
+            <?php
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -524,7 +520,7 @@ if (mysqli_num_rows($result)){
 
         <td align="right" valign="top" bgcolor="#cccccc"><strong>Municipio:</strong></td>
 
-        <td width="200" bgcolor="#cccccc"><?
+        <td width="200" bgcolor="#cccccc"><?php
 
 						  if($accela=="edit"){
 
@@ -570,7 +566,7 @@ echo'</select>';
 
         <td align="right" valign="top" bgcolor="#cccccc"><strong>Colonia:</strong></td>
 
-        <td bgcolor="#cccccc"><?
+        <td bgcolor="#cccccc"><?php 
 
 						  if($accela=="edit"){
 
@@ -762,7 +758,7 @@ echo'</select>';
 
               <option value='0'>Seleccione un Estado</option>
 
-              <?
+              <?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -794,7 +790,7 @@ if (mysqli_num_rows($result)){
 
           <td align="right" valign="top" bgcolor="#9A9A9A"><strong>Municipio:</strong></td>
 
-          <td width="200" bgcolor="#9A9A9A"><?
+          <td width="200" bgcolor="#9A9A9A"><?php 
 
 						  if($accela=="edit"){
 
@@ -840,7 +836,7 @@ echo'</select>';
 
           <td align="right" valign="top" bgcolor="#9A9A9A"><strong>Colonia:</strong></td>
 
-          <td bgcolor="#9A9A9A"><?
+          <td bgcolor="#9A9A9A"><?php 
 
 						  if($accela=="edit"){
 
