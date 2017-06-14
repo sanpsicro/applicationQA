@@ -48,7 +48,7 @@ $subcondicion2="Where idEmpleado='$valid_userid'";}
 else{$subcondicion1=""; 
 $subcondicion2="";}
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 $condicion="where (nombre like '%".$quest."%' OR rfc like '%".$quest."%' OR estado like '%".$quest."%' OR municipio like '%".$quest."%' OR email like '%".$quest."%' OR usuario like '%".$quest."%') " . $subcondicion1;
 }
 else{$condicion=$subcondicion2;}

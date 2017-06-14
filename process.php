@@ -26,12 +26,30 @@ header("Location: index.php?errorcode=3");
 
  
  isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
- isset($_GET['id']) ? $id = $_GET['id'] : $id = null;
+ isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = null;
  isset($_GET['module']) ? $module = $_GET['module'] : $module = null;
  
  isset($_POST['modules_auth']) ? $modules_auth = $_POST['modules_auth'] : $modules_auth = null;
  isset($_POST['permi']) ? $permi = $_POST['permi'] : $permi = null;
  isset($_POST['usuario']) ? $usuario = $_POST['usuario'] : $usuario = null;
+ isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = null;
+ isset($_POST['contacto']) ? $contacto = $_POST['contacto'] : $contacto = null;
+ isset($_POST['calle']) ? $calle = $_POST['calle'] : $calle = null;
+ isset($_POST['calle2']) ? $calle2 = $_POST['cale2'] : $calle2 = null;
+ isset($_POST['numero']) ? $numero = $_POST['numero'] : $numero = null;
+ isset($_POST['numero2']) ? $numero2 = $_POST['numero2'] : $numero2 = null;
+ isset($_POST['ciudad']) ? $ciudad = $_POST['ciudad'] : $ciudad = null;
+ isset($_POST['ciudad2']) ? $ciudad2 = $_POST['ciudad2'] : $ciudad2 = null;
+ isset($_POST['telefonoOficina']) ? $telefonooficina= $_POST['telefonooficina'] : $telefonooficina= null;
+ isset($_POST['fax']) ? $fax = $_POST['fax'] : $fax = null;
+ isset($_POST['telnextel']) ? $telnextel = $_POST['telnextel'] : $telnextel = null;
+ 
+ isset($_POST['email']) ? $email = $_POST['email'] : $email = null;
+ isset($_POST['usuario']) ? $usuario = $_POST['usuario'] : $usuario = null;
+ 
+ 
+ 
+ 
  
  isset($_POST['contrasena']) ? $contrasena = $_POST['contrasena'] : $contrasena= null;
  isset($_POST['nombre']) ? $nombre = $_POST['nombre'] : $nombre = null;
@@ -39,6 +57,7 @@ header("Location: index.php?errorcode=3");
  isset($_POST['departamento']) ? $departamento = $_POST['departamento'] : $departamento = null;
  isset($_POST['direccion']) ? $direccion = $_POST['direccion'] : $direccion = null;
  isset($_POST['estado']) ? $estado = $_POST['estado'] : $estado = null;
+ isset($_POST['estado2']) ? $estado2 = $_POST['estado2'] : $estado2 = null;
  isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio = null;
  isset($_POST['colonia']) ? $colonia = $_POST['colonia'] : $colonia = null;
  isset($_POST['extension']) ? $extension = $_POST['extension'] : $extension = null;
@@ -48,7 +67,7 @@ header("Location: index.php?errorcode=3");
  isset($_POST['nextel']) ? $nextel= $_POST['nextel'] : $nextel = null;
  isset($_POST['email']) ? $email= $_POST['email'] : $email = null;
  isset($_POST['activo']) ? $activo = $_POST['activo'] : $activo = null;
- isset($_POST['tipo']) ? $tipo = $_POST['tipo'] : $tipo = null;
+ isset($_POST['tipocliente']) ? $tipocliente = $_POST['tipocliente'] : $tipocliente = null;
  isset($_POST['vendedor']) ? $vendedor = $_POST['vendedor'] : $vendedor = null;
 #----------------
 if($module=="usuarios"){ 
@@ -63,7 +82,7 @@ $usuario=htmlspecialchars($usuario);
 
 $usuario=stripslashes($usuario);
 
-$usuario=strtr($usuario,"'","�");
+$usuario=strtr($usuario,"'","´");
 
 }
 
@@ -117,7 +136,7 @@ if(isset($accela) && $accela=="edit"){
 
 $link = mysqli_connect($host,$username,$pass,$database);
 
-$result=mysqli_query($link,"select * from Empleado where usuario = '$usuario' AND idEmpleado!='$idEmpleado'");
+$result=mysqli_query($link,"select * from Empleado where usuario = '".$usuario."' AND idEmpleado!='".$idEmpleado."'");
 
 $cuantosson=mysqli_num_rows($result);
 
@@ -735,7 +754,7 @@ $usuario=htmlspecialchars($usuario);
 
 $usuario=stripslashes($usuario);
 
-$usuario=strtr($usuario,"'","�");
+$usuario=strtr($usuario,"'","´");
 
 }
 
@@ -836,7 +855,7 @@ $link= mysqli_connect($host,$username,$pass,$database);
 
 $sSQL="UPDATE Cliente SET idEmpleado='$vendedor', usuario='$usuario', contrasena='$contrasena', nombre='$nombre', rfc='$rfc', contacto='$contacto', fisCalle='$calle2', fisNumero='$numero2', fisColonia='$colonia2', fisCiudad='$ciudad2', fisMunicipio='$municipio2', fisEstado='$estado2', calle='$calle', numero='$numero', colonia='$colonia', ciudad='$ciudad', municipio='$municipio', estado='$estado', telefonoCasa='$telefonocasa', telefonoOficina='$telefonooficina', fax='$fax', extension='$extension', telefonoCelular='$telefonocelular', nextel='$nextel', TelNextel='$telnextel', email='$email', tipocliente='$tipocliente' where idCliente='$idCliente'";
 
-mysqli_query($link, $sSQL);
+ mysqli_query($link,$sSQL);
 
 header("Location: mainframe.php?module=$module&code=2");
 

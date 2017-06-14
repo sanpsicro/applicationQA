@@ -102,7 +102,7 @@ function validar(formulario) {
   }
   
    if (formulario.numero.value.length < 1) {
-    alert("Escriba un número");
+    alert("Escriba un nï¿½mero");
     formulario.numero.focus();
     return (false);
   }
@@ -132,14 +132,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un teléfono");
+    alert("Escriba un telï¿½fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   
 /*  
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una dirección de correo válida"); 
+    alert("Escriba una direcciï¿½n de correo vï¿½lida"); 
 	    formulario.email.focus();
     return (false); 
 	
@@ -227,7 +227,7 @@ isset($_POST['contrasena']) ? $contrasena = $_POST['contrasena']  : $contrasena 
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">B&uacutesqueda: 
 
 
 
@@ -298,7 +298,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 
 ////mysql_select_db($database);
 
-$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '$idCliente'");
+$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '".$idCliente."'");
 
 $vendedor=mysqli_result($result,0,"idEmpleado");
 
