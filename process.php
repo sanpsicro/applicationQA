@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 session_start();
 ob_start();
 
@@ -812,7 +811,7 @@ VALUES ('$vendedor', '$usuario', '$contrasena', '$nombre', '$rfc', '$contacto', 
 
 
 
-$idCliente=mysqli_insert_id();  
+$idCliente=mysqli_insert_id($link);  
 
 
 

@@ -85,27 +85,27 @@ function validar(formulario) {
  
  <script type="text/javascript" language="JavaScript">
 function confirmGeneral(generalurl) { 
-if (confirm("¿Está seguro?")) { 
+if (confirm("ï¿½Estï¿½ seguro?")) { 
 document.location = generalurl; 
 }
 }
 </script>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Contratos</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("4_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Contratos</span></td><td width=150 class="blacklinks"><?php  $checa_array1=array_search("4_a",$explota_permisos);
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=new">Nuevo Contrato</a> ]';} ?></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
             <td width="400" 			class="questtitle"> 
-			<? 
+			<?php 
 			if($accela=="new"){echo'Dar de alta Contrato';}
 			else{echo'Editar Contrato';
 			}
 			?>
 </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -163,14 +163,7 @@ $status=mysqli_result($result,0,"status");
 
 }
 
-function mysqli_result($result, $row, $field = 0) {
-    // Adjust the result pointer to that specific row
-    $result->data_seek($row);
-    // Fetch result array
-    $data = $result->fetch_array();
- 
-    return $data[$field];
-}
+
 
 echo'<form name="frm" method="post" action="process.php?module=contratos&accela='.$accela.'&idPoliza='.$idPoliza.'" onSubmit="return validar(this); submitonce(this)"><input name="tmpid" type="hidden" value="'.$unixid.'_'.$valid_userid.'" />';    
 ?>
@@ -181,7 +174,7 @@ echo'<form name="frm" method="post" action="process.php?module=contratos&accela=
       <table width="100%" border="0" cellspacing="3" cellpadding="3">
         <tr>
           <td width="30%" align="right" bgcolor="#cccccc"><strong>Cliente:</strong></td>
-          <td width="70%" bgcolor="#cccccc"><?
+          <td width="70%" bgcolor="#cccccc"><?php 
 			if(isset($idCliente) && $idCliente!=""){
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
@@ -196,7 +189,7 @@ $rfc=mysqli_result($resultz,0,"rfc");
         </tr>
         <tr>
           <td align="right" bgcolor="#cccccc"><strong>Vendedor:</strong></td>
-          <td bgcolor="#cccccc"><?		
+          <td bgcolor="#cccccc"><?php 	
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
 $resultz = mysqli_query($db,"SELECT * from Empleado where idEmpleado = '$idvendedor'");
@@ -206,7 +199,7 @@ echo'<input name="vendedor" type="hidden" value="'.$idvendedor.'"/>'.$vendedorno
         </tr>
         <tr>
           <td align="right" bgcolor="#cccccc"><strong>Num. Contrato:</strong> </td>
-          <td bgcolor="#cccccc"><? 
+          <td bgcolor="#cccccc"><?php 
 
 if($accela=="edit"){echo"$numpoliza";
 echo'<input name="numcontrato" type="hidden" value="'.$numpoliza.'"/>';
@@ -240,7 +233,7 @@ mysqli_query($link,$sSQL);
 
         <td align="right" bgcolor="#cccccc"><strong>Tipo de Cliente:</strong></td>
 
-        <td bgcolor="#cccccc"><?
+        <td bgcolor="#cccccc"><?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -274,7 +267,7 @@ echo'<select name="tipocliente" id="tipocliente">';
 
         <td align="right" bgcolor="#cccccc"><strong>Tipo de Venta :</strong></td>
 
-        <td bgcolor="#cccccc"><?
+        <td bgcolor="#cccccc"><?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -307,7 +300,7 @@ echo'<select name="tipoventa" id="tipoventa" onChange=\'cargaContenido(this.id)\
 
         <td align="right" bgcolor="#cccccc"><strong>Fecha de inicio:</strong> </td>
 
-        <td bgcolor="#cccccc"><input name="fecha_inicio" type="text" id="fecha_inicio" size="15" value="<?
+        <td bgcolor="#cccccc"><input name="fecha_inicio" type="text" id="fecha_inicio" size="15" value="<?php 
 
 		if($accela=="edit"){echo''.$fecha1ex[2].'-'.$fecha1ex[1].'-'.$fecha1ex[0].' '.$fecha1hr[0].':'.$fecha1hr[1].':'.$fecha1hr[2].'';} else{echo date("j-n-Y H:i:s");                 } ?>" readonly="readonly"/>		</td>
 
@@ -317,7 +310,7 @@ echo'<select name="tipoventa" id="tipoventa" onChange=\'cargaContenido(this.id)\
 
         <td align="right" bgcolor="#cccccc"><strong>Fecha de vencimiento:</strong> </td>
 
-        <td bgcolor="#cccccc"><input name="fecha_vencimiento" type="text" id="fecha_vencimiento" size="15" value="<? if($accela=="edit"){echo''.$fecha2ex[2].'-'.$fecha2ex[1].'-'.$fecha2ex[0].' '.$fecha2hr[0].':'.$fecha2hr[1].':'.$fecha2hr[2].'';}?>" readonly="readonly"/></td>
+        <td bgcolor="#cccccc"><input name="fecha_vencimiento" type="text" id="fecha_vencimiento" size="15" value="<?php if($accela=="edit"){echo''.$fecha2ex[2].'-'.$fecha2ex[1].'-'.$fecha2ex[0].' '.$fecha2hr[0].':'.$fecha2hr[1].':'.$fecha2hr[2].'';}?>" readonly="readonly"/></td>
 
       </tr>
 
@@ -326,7 +319,7 @@ echo'<select name="tipoventa" id="tipoventa" onChange=\'cargaContenido(this.id)\
 
         <td align="right" bgcolor="#cccccc"><strong>Factura:</strong></td>
 
-        <td bgcolor="#cccccc"><input name="factura" type="checkbox" id="factura" value="1" <? if($factura=="1"){echo'checked';} else{} ?>></td>
+        <td bgcolor="#cccccc"><input name="factura" type="checkbox" id="factura" value="1" <?php if($factura=="1"){echo'checked';} else{} ?>></td>
 
       </tr>
 
@@ -334,7 +327,7 @@ echo'<select name="tipoventa" id="tipoventa" onChange=\'cargaContenido(this.id)\
 
         <td align="right" bgcolor="#cccccc"><strong>Monto $</strong></td>
 
-        <td bgcolor="#cccccc"><input name="monto" type="text" id="monto" size="30"value="<? echo"$monto";?>" onchange="calula();"    onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
+        <td bgcolor="#cccccc"><input name="monto" type="text" id="monto" size="30"value="<?php echo"$monto";?>" onchange="calula();"    onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
 
       </tr>
 
@@ -342,7 +335,7 @@ echo'<select name="tipoventa" id="tipoventa" onChange=\'cargaContenido(this.id)\
 
         <td align="right" bgcolor="#cccccc"><strong>Comisi&oacute;n $</strong></td>
 
-        <td bgcolor="#cccccc"><input name="comision" type="text" id="comision" size="30" value="<? echo"$comision";?>" onchange="calula();" onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
+        <td bgcolor="#cccccc"><input name="comision" type="text" id="comision" size="30" value="<?php echo"$comision";?>" onchange="calula();" onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
 
       </tr>
 
@@ -350,13 +343,13 @@ echo'<select name="tipoventa" id="tipoventa" onChange=\'cargaContenido(this.id)\
 
         <td align="right" bgcolor="#cccccc"><strong>Ingreso $</strong></td>
 
-        <td bgcolor="#cccccc"><input name="ingreso" type="text" id="ingreso" size="30" value="<? echo"$ingreso";?>" disabled="disabled"/></td>
+        <td bgcolor="#cccccc"><input name="ingreso" type="text" id="ingreso" size="30" value="<?php echo"$ingreso";?>" disabled="disabled"/></td>
 
       </tr>
 	  -->
         <tr>
           <td align="right" bgcolor="#cccccc"><strong>Producto:</strong></td>
-          <td bgcolor="#cccccc"><? 
+          <td bgcolor="#cccccc"><?php 
 
 		  $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -405,12 +398,12 @@ $tipo_cliente=$row["nombre"];
 
   <tr>
 
-    <td valign="top"><iframe src ="usuarios_contrato.php?accela=<? echo $accela;?>&tmpid=<? echo "".$unixid."_".$valid_userid."";?>&idPoliza=<? echo $idPoliza;?>&tipocliente=<? echo $tipocliente;?><? if($accela=="new"){echo '&numcontrato='.$numcontrato.'';} if($accela=="edit"){echo '&numcontrato='.$numpoliza.'';}?>&idCliente=<? echo $idCliente; ?>" width="100%" height=550 border=0 frameborder=0 MARGINWIDTH=50 MARGINHEIGHT=50 ALIGN=30 name="window1"></iframe></td>
+    <td valign="top"><iframe src ="usuarios_contrato.php?accela=<?php echo $accela;?>&tmpid=<?php echo "".$unixid."_".$valid_userid."";?>&idPoliza=<?php echo $idPoliza;?>&tipocliente=<?php echo $tipocliente;?><?php if($accela=="new"){echo '&numcontrato='.$numcontrato.'';} if($accela=="edit"){echo '&numcontrato='.$numpoliza.'';}?>&idCliente=<?php echo $idCliente; ?>" width="100%" height=550 border=0 frameborder=0 MARGINWIDTH=50 MARGINHEIGHT=50 ALIGN=30 name="window1"></iframe></td>
   </tr>
 <!--
  <tr>
 
-    <td colspan="2" valign="top"><iframe src ="beneficiarios.php?accela=<? echo $accela;?>&tmpid=<? echo "".$unixid."_".$valid_userid."";?>&idPoliza=<? echo $idPoliza;?>" width="100%" height=200 border=0 frameborder=0 MARGINWIDTH=50 MARGINHEIGHT=50 ALIGN=30 name="window2"></iframe></td>
+    <td colspan="2" valign="top"><iframe src ="beneficiarios.php?accela=<?php echo $accela;?>&tmpid=<?php echo "".$unixid."_".$valid_userid."";?>&idPoliza=<?php echo $idPoliza;?>" width="100%" height=200 border=0 frameborder=0 MARGINWIDTH=50 MARGINHEIGHT=50 ALIGN=30 name="window2"></iframe></td>
 
     </tr>
 -->
@@ -453,7 +446,7 @@ $tipo_cliente=$row["nombre"];
               </tr>
   <tr>
 
-    <td colspan="2" align="center" valign="top"><?
+    <td colspan="2" align="center" valign="top"><?php 
     if($accela=="edit"){echo'<input type="submit" name="Submit" value="A c t u a l i z a r  C o n t r a t o" /> &nbsp;  <input type="button" name="Submit2" value="C a n c e l a r C o n t r a t o" class="butn" onClick="javascript:confirmGeneral(\'process.php?module=contratos&accela=cancela&idPoliza='.$idPoliza.'\')">';}
 	else{echo'<input type="submit" name="Submit" value="D a r   d e   A l t a  C o n t r a t o" />';}
 	?> </form>

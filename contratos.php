@@ -1,4 +1,4 @@
-<?
+<?php 
 $checa_arrayx=array_search("contratos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -12,7 +12,7 @@ if(empty($status)){$status="activo";}
 ?>
  <script type="text/javascript" language="JavaScript">
 function confirmGeneral(generalurl) { 
-if (confirm("¿Está seguro?")) { 
+if (confirm("ï¿½Estï¿½ seguro?")) { 
 document.location = generalurl; 
 }
 }
@@ -22,35 +22,35 @@ document.location = generalurl;
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Contratos</span></td><td width=150 class="blacklinks"><?
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Contratos</span></td><td width=150 class="blacklinks"><?php 
 $checa_array1=array_search("4_a",$explota_permisos);
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=new">Nuevo Contrato</a> ]';} ?></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
-            <form name="form1" method="post" action="bridge.php?module=contratos<? if($quest!=""){echo"&quest=$quest";}?>">
+            <form name="form1" method="post" action="bridge.php?module=contratos<?php if($quest!=""){echo"&quest=$quest";}?>">
             <td width="500"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
+                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
+                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
+                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
+                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
+                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="numPoliza" <? if($sort=="numPoliza"){echo"selected";}?>>Ordenar por número de contrato</option>
-                <option value="fechaCaptura" <? if($sort=="fechaCaptura"){echo"selected";}?>>Ordenar por fecha de captura</option>                
-<!--                 <option value="Poliza.status" <? if($sort=="Poliza.status"){echo"selected";}?>>Ordenar por status</option>				-->
+                <option value="numPoliza" <?php if($sort=="numPoliza"){echo"selected";}?>>Ordenar por nï¿½mero de contrato</option>
+                <option value="fechaCaptura" <?php if($sort=="fechaCaptura"){echo"selected";}?>>Ordenar por fecha de captura</option>                
+<!--                 <option value="Poliza.status" <?php if($sort=="Poliza.status"){echo"selected";}?>>Ordenar por status</option>				-->
               </select>
               <select name="status" id="status">
-                <option value="activo" <? if($status=="activo"){echo'selected';}?>>activo</option>
-                <option value="cancelado" <? if($status=="cancelado"){echo'selected';}?>>cancelado</option>
+                <option value="activo" <?php if($status=="activo"){echo'selected';}?>>activo</option>
+                <option value="cancelado" <?php if($status=="cancelado"){echo'selected';}?>>cancelado</option>
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -58,7 +58,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
       </td>
   </tr>
 <tr><td>
-<?
+<?php 
 
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo Contrato Registrado</div></b><p>';}
 if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos del Contrato actualizados</div></b><p>';}
@@ -85,7 +85,7 @@ if(isset($quest) && $quest!=""){
 
 
 
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 
 $condistatus="";
 $subcondicion2="";
@@ -165,7 +165,7 @@ $_GET["show"]=$show;
 
 
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -262,7 +262,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                      <td align=middle class="titles"><b>Fecha de captura</b></td>				  					  
                      <td align=middle class="titles"><b>Producto</b></td>				  					 
 
-                     <td align=middle class="titles"><b>Operación</b></td></tr>';
+                     <td align=middle class="titles"><b>Operaciï¿½n</b></td></tr>';
 
 $bgcolor="#cccccc";
 

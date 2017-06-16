@@ -1,3 +1,4 @@
+<?php $idCliente = $_GET['idCliente'];?>
 <script type="text/javascript" src="subcombo.js"></script>
 <script> 
 function CheckAll()
@@ -43,7 +44,7 @@ count = document.frm.elements.length;
 
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="mainframe.php?module=clientes"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="mainframe.php?module=clientes"><td align="right" class="questtitle">Bï¿½squeda: 
 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
 
@@ -67,7 +68,7 @@ count = document.frm.elements.length;
         <tr> 
           <td><table width="100%" height=100% border="1" cellpadding="6" cellspacing="0" bordercolor="#000000" bgcolor="#FFFFFF" class="contentarea1">
               <tr> 
-                <td valign="top" align="center"><p>&nbsp;</p><?  if(isset($idCliente) && $idCliente!=""){ echo'                  <p><strong>Se ha registrado al Cliente en la base de datos </strong></p>
+                <td valign="top" align="center"><p>&nbsp;</p><?php  if(isset($idCliente) && $idCliente!=""){ echo'                  <p><strong>Se ha registrado al Cliente en la base de datos </strong></p>
                   <form id="form2" name="form2" method="post" action="mainframe.php?module=admin_contratos_b&accela=new">
 				  <input name="idCliente" type="hidden" value="'.$idCliente.'" />
                     <p>
