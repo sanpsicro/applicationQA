@@ -1,7 +1,5 @@
 <?php
-
-
-session_start();
+if(!session_start()){session_start();}
 if ( isset($_SESSION["valid_user"] ) && isset($_SESSION["valid_modulos"] ) && isset($_SESSION["valid_permisos"]))
 {
 
@@ -202,6 +200,7 @@ isset($_POST['telnextel ']) ? $telnextel  = $_POST['telnextel ']  : $telnextel =
 isset($_POST['email']) ? $email = $_POST['email']  : $email =null ;
 isset($_POST['usuario']) ? $usuario = $_POST['usuario']  : $usuario =null ;
 isset($_POST['contrasena']) ? $contrasena = $_POST['contrasena']  : $contrasena =null ;
+isset($_POST['valid_tipo']) ? $valid_tipo = $_POST['valid_tipo']  : $valid_tipo =null ;
 
 			if($accela=="new"){echo'Dar de alta Cliente';}
 
@@ -298,7 +297,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 
 ////mysql_select_db($database);
 
-$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '".$idCliente."'");
+$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '".$idCliente."'") or die(mysqli_error($db));
 
 $vendedor=mysqli_result($result,0,"idEmpleado");
 
@@ -325,17 +324,17 @@ $ciudad2=mysqli_result($result,0,"fisCiudad");
 
 $estado2=mysqli_result($result,0,"fisEstado");
 
-$calle=mysqli_result($result,0,"Calle");
+$calle=mysqli_result($result,0,"calle");
 
-$numero=mysqli_result($result,0,"Numero");
+$numero=mysqli_result($result,0,"numero");
 
-$colonia=mysqli_result($result,0,"Colonia");
+$colonia=mysqli_result($result,0,"colonia");
 
 $municipio=mysqli_result($result,0,"Municipio");
 
-$ciudad=mysqli_result($result,0,"Ciudad");
+$ciudad=mysqli_result($result,0,"ciudad");
 
-$estado=mysqli_result($result,0,"Estado");
+$estado=mysqli_result($result,0,"estado");
 
 $telefonocasa=mysqli_result($result,0,"telefonoCasa");
 
@@ -522,9 +521,9 @@ if (mysqli_num_rows($result)){
 
         <td width="200" bgcolor="#cccccc"><?php
 
-						  if($accela=="edit"){
+if($accela=="edit"){
 
-						 echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>';
+echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>';
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -576,7 +575,7 @@ $link = mysqli_connect($host, $username, $pass,$database);
 
 ////mysql_select_db($database); 
 
-$result = mysqli_query($link,"SELECT * FROM Colonia where idMunicipio='$municipio'order by NombreColonia"); 
+$result = mysqli_query($link,"SELECT * FROM Colonia where idMunicipio='$municipio'order by NombreColonia") or die(mysql_error($link)); 
 
 if (mysqli_num_rows($result)){ 
 

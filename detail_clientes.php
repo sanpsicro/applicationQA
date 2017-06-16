@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 $idCliente = $_GET['idCliente'];
 $checa_arrayx=array_search("clientes",$explota_modulos);
 
@@ -52,7 +53,7 @@ die();} else{}
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">Bï¿½squeda: 
 
 
 
@@ -182,8 +183,8 @@ $db3 = mysqli_connect($host,$username,$pass,$database);
 
 $result3 = mysqli_query($db3,"SELECT * from Estado where idEstado = '".$estado."'");
 
-$estado=mysqli_result($result3,0,"nombreEstado");
-
+$estado=mysqli_result($result3,0,"NombreEstado");
+var_dump($estado);
 
 
 $db3b = mysqli_connect($host,$username,$pass,$database);
@@ -192,7 +193,7 @@ $db3b = mysqli_connect($host,$username,$pass,$database);
 
 $result3b = mysqli_query($db3b,"SELECT * from Estado where idEstado = '".$estado2."'");
 
-$estado2=mysqli_result($result3b,0,"nombreEstado");
+$estado2=mysqli_result($result3b,0,"NombreEstado");
 
 
 
@@ -206,7 +207,7 @@ $db4 =  mysqli_connect($host,$username,$pass,$database);
 
 $result4 = mysqli_query($db4,"SELECT * from Municipio where idMunicipio = '$municipio'");
 
-$municipio=mysqli_result($result4,0,"nombreMunicipio");
+$municipio=mysqli_result($result4,0,"NombreMunicipio");
 
 
 
@@ -218,7 +219,7 @@ $db4b =  mysqli_connect($host,$username,$pass,$database);
 
 $result4b = mysqli_query($db4b,"SELECT * from Municipio where idMunicipio = '$municipio2'");
 
-$municipio2=mysqli_result($result4b,0,"nombreMunicipio");
+$municipio2=mysqli_result($result4b,0,"NombreMunicipio");
 
 
 
@@ -232,7 +233,7 @@ $db5 =  mysqli_connect($host,$username,$pass,$database);
 
 $result5 = mysqli_query($db5,"SELECT * from Colonia where idColonia = '$colonia'");
 
-$colonia=mysqli_result($result5,0,"nombreColonia");
+$colonia=mysqli_result($result5,0,"NombreColonia");
 
 
 
@@ -242,7 +243,7 @@ $db5b =  mysqli_connect($host,$username,$pass,$database);
 
 $result5b = mysqli_query($db5b,"SELECT * from Colonia where idColonia = '$colonia2'");
 
-$colonia2=mysqli_result($result5b,0,"nombreColonia");
+$colonia2=mysqli_result($result5b,0,"NombreColonia");
 
 
 
@@ -262,101 +263,101 @@ $tipocliente=mysqli_result($result6,0,"nombre");
 
   <tr>
 
-    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del Cliente <? echo ''.$nombre.' ('.$tipocliente.')';?></b></td>
+    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del Cliente <?php echo ''.$nombre.' ('.$tipocliente.')';?></b></td>
 
     </tr>
 
   <tr>
 
-    <td width="50%" bgcolor="#CCCCCC"><strong>Nombre:</strong> <? echo $nombre?></td>
+    <td width="50%" bgcolor="#CCCCCC"><strong>Nombre:</strong> <?php echo $nombre?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Vendedor:</strong> <? echo $vendedor?></td>
-
-    </tr>
-
-  <tr>
-
-    <td><strong>Clave del usuario:</strong> <? echo $usuario?></td>
-
-    <td><strong>Status:</strong> <? echo $status?></td>
+    <td bgcolor="#CCCCCC"><strong>Vendedor:</strong> <?php echo $vendedor?></td>
 
     </tr>
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>RFC:</strong> <? echo $rfc?></td>
+    <td><strong>Clave del usuario:</strong> <?php echo $usuario?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Contacto:</strong> <? echo $contacto?></td>
-
-    </tr>
-
-  <tr>
-
-    <td><strong>Dirección:</strong> <? echo "$calle $numero"; ?></td>
-
-    <td><strong>Colonia:</strong> <? echo $colonia?></td>
+    <td><strong>Status:</strong> <?php echo $status?></td>
 
     </tr>
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Ciudad:</strong> <? echo $ciudad?></td>
+    <td bgcolor="#CCCCCC"><strong>RFC:</strong> <?php echo $rfc?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Municipio:</strong> <? echo $municipio?></td>
-
-    </tr>
-
-  <tr>
-
-    <td><strong>Estado:</strong> <? echo $estado?></td>
-
-    <td><strong>Email:</strong> <? echo '<a href="mailto:'.$email.'">'.$email.'</a>';?></td>
+    <td bgcolor="#CCCCCC"><strong>Contacto:</strong> <?php echo $contacto?></td>
 
     </tr>
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Tel&eacute;fono Casa:</strong> <? echo $telefonocasa?></td>
+    <td><strong>Direcciï¿½n:</strong> <?php echo "$calle $numero"; ?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Tel&eacute;fono Celular:</strong> <? echo $telefonocelular?></td>
+    <td><strong>Colonia:</strong> <?php echo $colonia?></td>
+
+    </tr>
+
+  <tr>
+
+    <td bgcolor="#CCCCCC"><strong>Ciudad:</strong> <?php echo $ciudad?></td>
+
+    <td bgcolor="#CCCCCC"><strong>Municipio:</strong> <?php echo $municipio?></td>
+
+    </tr>
+
+  <tr>
+
+    <td><strong>Estado:</strong> <?php echo $estado?></td>
+
+    <td><strong>Email:</strong> <?php echo '<a href="mailto:'.$email.'">'.$email.'</a>';?></td>
+
+    </tr>
+
+  <tr>
+
+    <td bgcolor="#CCCCCC"><strong>Tel&eacute;fono Casa:</strong> <?php echo $telefonocasa?></td>
+
+    <td bgcolor="#CCCCCC"><strong>Tel&eacute;fono Celular:</strong> <?php echo $telefonocelular?></td>
 
   </tr>
 
   <tr>
 
-    <td><strong>Tel&eacute;fono Oficina:</strong> <? echo $telefonooficina?> &nbsp; <strong>Extensi&oacute;n:</strong> <? echo $extension?></td>
+    <td><strong>Tel&eacute;fono Oficina:</strong> <?php echo $telefonooficina?> &nbsp; <strong>Extensi&oacute;n:</strong> <?php echo $extension?></td>
 
-    <td><strong>Fax:</strong> <? echo $fax?></td>
-
-  </tr>
-
-  <tr>
-
-    <td bgcolor="#CCCCCC"><strong>ID Nextel:</strong> <? echo $nextel?></td>
-
-    <td bgcolor="#CCCCCC"><strong>Tel&eacute;fono Nextel:</strong> <? echo $telnextel?></td>
+    <td><strong>Fax:</strong> <?php echo $fax?></td>
 
   </tr>
 
   <tr>
 
-    <td><strong>Domicilio Fiscal:</strong> <? echo "$calle2 $numero2"; ?></td>
+    <td bgcolor="#CCCCCC"><strong>ID Nextel:</strong> <?php echo $nextel?></td>
 
-    <td><strong>Colonia:</strong> <? echo $colonia2?></td>
-
-  </tr>
-
-  <tr>
-
-    <td bgcolor="#CCCCCC"><strong>Ciudad:</strong> <? echo $ciudad2?></td>
-
-    <td bgcolor="#CCCCCC"><strong>Municipio:</strong> <? echo $municipio2?></td>
+    <td bgcolor="#CCCCCC"><strong>Tel&eacute;fono Nextel:</strong> <?php echo $telnextel?></td>
 
   </tr>
 
   <tr>
 
-    <td><strong>Estado:</strong> <? echo $estado2?></td>
+    <td><strong>Domicilio Fiscal:</strong> <?php echo "$calle2 $numero2"; ?></td>
+
+    <td><strong>Colonia:</strong> <?php echo $colonia2?></td>
+
+  </tr>
+
+  <tr>
+
+    <td bgcolor="#CCCCCC"><strong>Ciudad:</strong> <?php echo $ciudad2?></td>
+
+    <td bgcolor="#CCCCCC"><strong>Municipio:</strong> <?php echo $municipio2?></td>
+
+  </tr>
+
+  <tr>
+
+    <td><strong>Estado:</strong> <?php echo $estado2?></td>
 
     <td>&nbsp;</td>
 

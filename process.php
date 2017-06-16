@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 ob_start();
 
@@ -807,7 +808,7 @@ $link= mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `Cliente` ( `idEmpleado`, `usuario`, `contrasena`, `nombre`, `rfc`, `contacto`, `fisCalle`, `fisNumero`, `fisColonia`, `fisCiudad`, `fisMunicipio`, `fisEstado`, `calle`, `numero`, `colonia`, `ciudad`, `municipio`, `estado`, `telefonoCasa`, `telefonoOficina`, `fax`, `extension`, `telefonoCelular`, `nextel`, `TelNextel`, `email`, `status`, `tipocliente`) 
 
-VALUES ('$vendedor', '$usuario', '$contrasena', '$nombre', '$rfc', '$contacto', '$calle2', '$numero2', '$colonia2', '$ciudad2', '$municipio2', '$estado2', '$calle', '$numero', '$colonia', '$ciudad', '$municipio', '$estado', '$telefonocasa', '$telefonooficina', '$fax', '$extension', '$telefonocelular', '$nextel', '$telnextel', '$email', 'no validado', '$tipocliente')");
+VALUES ('$vendedor', '$usuario', '$contrasena', '$nombre', '$rfc', '$contacto', '$calle2', '$numero2', '$colonia2', '$ciudad2', '$municipio2', '$estado2', '$calle', '$numero', '$colonia', '$ciudad', '$municipio', '$estado', '$telefonocasa', '$telefonooficina', '$fax', '$extension', '$telefonocelular', '$nextel', '$telnextel', '$email', 'no validado', '$tipocliente')" );
 
 
 
