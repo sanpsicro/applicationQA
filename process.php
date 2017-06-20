@@ -32,34 +32,36 @@ header("Location: index.php?errorcode=3");
  isset($_POST['modules_auth']) ? $modules_auth = $_POST['modules_auth'] : $modules_auth = null;
  isset($_POST['permi']) ? $permi = $_POST['permi'] : $permi = null;
  isset($_POST['usuario']) ? $usuario = $_POST['usuario'] : $usuario = null;
- isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = null;
+ isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = 0;
  isset($_POST['contacto']) ? $contacto = $_POST['contacto'] : $contacto = null;
- isset($_POST['calle']) ? $calle = $_POST['calle'] : $calle = null;
- isset($_POST['calle2']) ? $calle2 = $_POST['cale2'] : $calle2 = null;
+ isset($_POST['calle']) ? $calle = $_POST['calle'] : $calle = 0;
+ isset($_POST['calle2']) ? $calle2 = $_POST['calle2'] : $calle2 = 0;
  isset($_POST['numero']) ? $numero = $_POST['numero'] : $numero = null;
  isset($_POST['numero2']) ? $numero2 = $_POST['numero2'] : $numero2 = null;
  isset($_POST['ciudad']) ? $ciudad = $_POST['ciudad'] : $ciudad = null;
  isset($_POST['ciudad2']) ? $ciudad2 = $_POST['ciudad2'] : $ciudad2 = null;
- isset($_POST['telefonoOficina']) ? $telefonooficina= $_POST['telefonooficina'] : $telefonooficina= null;
+ isset($_POST['telefonooficina']) ? $telefonooficina= $_POST['telefonooficina'] : $telefonooficina= 0;
  isset($_POST['fax']) ? $fax = $_POST['fax'] : $fax = null;
- isset($_POST['telnextel']) ? $telnextel = $_POST['telnextel'] : $telnextel = null;
+ isset($_POST['telnextel']) ? $telnextel = $_POST['telnextel'] : $telnextel = 0;
  
  isset($_POST['email']) ? $email = $_POST['email'] : $email = null;
  isset($_POST['usuario']) ? $usuario = $_POST['usuario'] : $usuario = null;
  
  
  
- 
- 
+ //cuidar los valores numericos, no poner null sino 0
+ isset($_POST['idem']) ? $idem= $_POST['idem'] : $idem = null;
  isset($_POST['contrasena']) ? $contrasena = $_POST['contrasena'] : $contrasena= null;
  isset($_POST['nombre']) ? $nombre = $_POST['nombre'] : $nombre = null;
  isset($_POST['cargo']) ? $cargo = $_POST['cargo'] : $cargo = null;
  isset($_POST['departamento']) ? $departamento = $_POST['departamento'] : $departamento = null;
  isset($_POST['direccion']) ? $direccion = $_POST['direccion'] : $direccion = null;
- isset($_POST['estado']) ? $estado = $_POST['estado'] : $estado = null;
- isset($_POST['estado2']) ? $estado2 = $_POST['estado2'] : $estado2 = null;
- isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio = null;
- isset($_POST['colonia']) ? $colonia = $_POST['colonia'] : $colonia = null;
+ isset($_POST['estado']) ? $estado = $_POST['estado'] : $estado = 0;
+ isset($_POST['estado2']) ? $estado2 = $_POST['estado2'] : $estado2 = 0;
+ isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio = 0;
+ isset($_POST['municipio2']) ? $municipio2= $_POST['municipio2'] : $municipio2 = 0;
+ isset($_POST['colonia']) ? $colonia = $_POST['colonia'] : $colonia = 0;
+ isset($_POST['colonia2']) ? $colonia2 = $_POST['colonia2'] : $colonia2 = 0;
  isset($_POST['extension']) ? $extension = $_POST['extension'] : $extension = null;
  isset($_POST['telefonocasa']) ? $telefonocasa = $_POST['telefonocasa'] : $telefonocasa = null;
  isset($_POST['telefonocelular']) ? $telefonocelular = $_POST['telefonocelular'] : $telefonocelular = null;
@@ -807,11 +809,11 @@ $link= mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `Cliente` ( `idEmpleado`, `usuario`, `contrasena`, `nombre`, `rfc`, `contacto`, `fisCalle`, `fisNumero`, `fisColonia`, `fisCiudad`, `fisMunicipio`, `fisEstado`, `calle`, `numero`, `colonia`, `ciudad`, `municipio`, `estado`, `telefonoCasa`, `telefonoOficina`, `fax`, `extension`, `telefonoCelular`, `nextel`, `TelNextel`, `email`, `status`, `tipocliente`) 
 
-VALUES ('$vendedor', '$usuario', '$contrasena', '$nombre', '$rfc', '$contacto', '$calle2', '$numero2', '$colonia2', '$ciudad2', '$municipio2', '$estado2', '$calle', '$numero', '$colonia', '$ciudad', '$municipio', '$estado', '$telefonocasa', '$telefonooficina', '$fax', '$extension', '$telefonocelular', '$nextel', '$telnextel', '$email', 'no validado', '$tipocliente')" );
+		VALUES ('$vendedor', '$usuario', '$contrasena', '$nombre', '$rfc', '$contacto', '$calle2', '$numero2', '$colonia2', '$ciudad2', '$municipio2', '$estado2', '$calle', '$numero', '$colonia', '$ciudad', '$municipio', '$estado', '$telefonocasa', '$telefonooficina', '$fax', '$extension', '$telefonocelular', '$nextel', '$telnextel', '$email', 'no validado', '$tipocliente')" ) or die(mysqli_error($link));
 
 
 
-$idCliente=mysqli_insert_id($link);  
+$idCliente=mysqli_insert_id($link) or die(mysqli_error($link));  
 
 
 

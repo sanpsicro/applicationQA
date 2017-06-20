@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 $idCliente = $_GET['idCliente'];
 $checa_arrayx=array_search("clientes",$explota_modulos);
 
@@ -184,7 +183,7 @@ $db3 = mysqli_connect($host,$username,$pass,$database);
 $result3 = mysqli_query($db3,"SELECT * from Estado where idEstado = '".$estado."'");
 
 $estado=mysqli_result($result3,0,"NombreEstado");
-var_dump($estado);
+
 
 
 $db3b = mysqli_connect($host,$username,$pass,$database);

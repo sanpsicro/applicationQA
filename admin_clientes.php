@@ -184,11 +184,11 @@ isset( $_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente=null;
 isset($_POST['tipocliente']) ? $tipocliente = $_POST['tipocliente']  : $tipocliente =null ;
 isset($_POST['vendedor']) ? $vendedor = $_POST['vendedor']  : $vendedor =null ;
 isset($_POST['nombre']) ? $nombre = $_POST['nombre']  : $nombre =null ;
-isset($_POST['rfc']) ? $rfc= $_POST['rfc']  : $rfc =null ;
+isset($_POST['rfc']) ? $rfc= $_POST['rfc']  : $rfc =0 ;
 isset($_POST['contacto']) ? $contacto = $_POST['contacto']  : $contacto =null ;
-isset($_POST['calle']) ? $calle = $_POST['calle']  : $calle =null ;
-isset($_POST['numero']) ? $numero= $_POST['numero']  : $numero =null ;
-isset($_POST['ciudad']) ? $ciudad = $_POST['ciudad']  : $ciudad =null ;
+isset($_POST['calle']) ? $calle = $_POST['calle']  : $calle =0 ;
+isset($_POST['numero']) ? $numero= $_POST['numero']  : $numero =0 ;
+isset($_POST['ciudad']) ? $ciudad = $_POST['ciudad']  : $ciudad =0 ;
 isset($_POST['telefonocasa']) ? $telefonocasa = $_POST['telefonocasa']  : $telefonocasa =null ;
 isset($_POST['telefonooficina']) ? $telefonooficina = $_POST['telefonooficina']  : $telefonooficina =null ;
 isset($_POST['telefonocelular']) ? $telefonocelular = $_POST['telefonocelular']  : $telefonocelular =null ;
@@ -330,7 +330,7 @@ $numero=mysqli_result($result,0,"numero");
 
 $colonia=mysqli_result($result,0,"colonia");
 
-$municipio=mysqli_result($result,0,"Municipio");
+$municipio=mysqli_result($result,0,"municipio");
 
 $ciudad=mysqli_result($result,0,"ciudad");
 

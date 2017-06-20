@@ -1,10 +1,11 @@
-<?php
+<?php 
 session_start();
  include 'conf.php';
   $accela = $_GET['accela'];
   $same= $_GET['same'];
   $idPoliza = $_GET['idPoliza'];
   $tmpid = $_GET['tmpid'];
+  $fecha = $_GET['fecha'];
   
   $tipocliente = $_GET['tipocliente'];
   $numcontrato = $_GET['numcontrato'];
@@ -265,14 +266,14 @@ function validar(formulario) {
   
   
      if (formulario.tel.value.length < 4) {
-    alert("Escriba un teléfono");
+    alert("Escriba un telï¿½fono");
     formulario.tel.focus();
     return (false);
   }
   
   /*
   if ((formulario.mail.value.indexOf ('@', 0) == -1)||(formulario.mail.value.length < 5)) { 
-    alert("Escriba una dirección de correo válida"); 
+    alert("Escriba una direcciï¿½n de correo vï¿½lida"); 
 	    formulario.mail.focus();
     return (false); 
   }
@@ -284,7 +285,7 @@ function validar(formulario) {
 
 </head><body>
  <table width="100%%" border="0" cellspacing="3" cellpadding="3">
- <?
+ <?php 
 echo'<form name="frm" method="post" action="process.php?module=usuarios_contrato&accela='.$accela.'&idPoliza='.$idPoliza.'&tmpid='.$tmpid.'&id='.$id.'&tipocliente='.$tipocliente.'&numcontrato='.$numcontrato.'&idCliente='.$idCliente.'" onSubmit="return validar(this)">';
 ?>    
 
@@ -297,7 +298,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuarios_contrato
         <td><strong>Usuarios</strong></td>
 
 
-        <td width="300" align="center" class="blacklinks">[ <a href="admin_usuarios_contrato.php?accela=new&tmpid=<? echo $tmpid;?>&idPoliza=<? echo $idPoliza;?>&tipocliente=<? echo $tipocliente;?>&numcontrato=<? echo $numcontrato;?>&same=yes&idCliente=<? echo $idCliente;?>">Mismos datos que cliente</a> | <a href="usuarios_contrato.php?tmpid=<? echo $tmpid; ?>&idPoliza=<? echo $idPoliza; ?>&tipocliente=<? echo $tipocliente; ?>&numcontrato=<? echo $numcontrato; ?>&idCliente=<? echo $idCliente;?>">Lista de Usuarios</a> ]</td>
+        <td width="300" align="center" class="blacklinks">[ <a href="admin_usuarios_contrato.php?accela=new&tmpid=<?php  echo $tmpid;?>&idPoliza=<?php  echo $idPoliza;?>&tipocliente=<?php  echo $tipocliente;?>&numcontrato=<?php  echo $numcontrato;?>&same=yes&idCliente=<?php  echo $idCliente;?>">Mismos datos que cliente</a> | <a href="usuarios_contrato.php?tmpid=<?php  echo $tmpid; ?>&idPoliza=<?php  echo $idPoliza; ?>&tipocliente=<?php  echo $tipocliente; ?>&numcontrato=<?php  echo $numcontrato; ?>&idCliente=<?php  echo $idCliente;?>">Lista de Usuarios</a> ]</td>
       </tr>
 
     </table>      </td>
@@ -310,17 +311,17 @@ echo'<form name="frm" method="post" action="process.php?module=usuarios_contrato
    </tr>
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Fecha de inicio:</strong> </td>
-     <td bgcolor="#bbbbbb"><table width=100% cellpadding=0 cellspacing=0><tr><td width="20"><input name="fecha_inicio" type="text" id="fecha_inicio" size="15" value="<?
+     <td bgcolor="#bbbbbb"><table width=100% cellpadding=0 cellspacing=0><tr><td width="20"><input name="fecha_inicio" type="text" id="fecha_inicio" size="15" value="<?php 
 
 		if($accela=="edit"){echo''.$finix[2].'-'.$finix[1].'-'.$finix[0].'';} else{echo date("j-n-Y"); } ?>" /></td>
        <td><a href="javascript:cal1.popup();"><img src="img/cal.gif" width="16" height="16" border="0" alt="Seleccionar fecha"></a></td>
        <td>&nbsp; <!-- strong>Hora:</strong>
-        <input name="hora_inicio" type="text" id="hora_inicio" size="6" value="<?
+        <input name="hora_inicio" type="text" id="hora_inicio" size="6" value="<?php 
 
 		#if($accela=="edit"){echo''.$finicio[1].'';} else{echo date("H:i:s");                 } ?>" --></td></tr></table>
      </td>
      <td align="right" bgcolor="#bbbbbb"><strong>Tipo de venta:</strong> </td>
-     <td bgcolor="#bbbbbb"><?
+     <td bgcolor="#bbbbbb"><?php 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 
@@ -330,11 +331,11 @@ $result = mysqli_query($link,"SELECT * FROM TipoVenta");
 
 if (mysqli_num_rows($result)){ 
 /*
-echo'<select name="tipoventa" id="tipoventa" onChange="FAjax(\'fechacombo.php?&flim-flam=new Date().getTime()\',\'vencimiento\',\'opcion=\'+document.getElementById(\'tipoventa\').value+\'&actual=\'+document.getElementById(\'fecha_inicio\').value,\'POST\')" ><option value="">Seleccione una opción</option>';
+echo'<select name="tipoventa" id="tipoventa" onChange="FAjax(\'fechacombo.php?&flim-flam=new Date().getTime()\',\'vencimiento\',\'opcion=\'+document.getElementById(\'tipoventa\').value+\'&actual=\'+document.getElementById(\'fecha_inicio\').value,\'POST\')" ><option value="">Seleccione una opciï¿½n</option>';
 
 */
 
-echo'<select name="tipoventa" id="tipoventa"><option value="">Seleccione una opción</option>';
+echo'<select name="tipoventa" id="tipoventa"><option value="">Seleccione una opciï¿½n</option>';
 
 
   while ($row = @mysqli_fetch_array($result)) { 
@@ -356,35 +357,35 @@ echo'<select name="tipoventa" id="tipoventa"><option value="">Seleccione una opc
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Fecha de vencimiento:</strong></td>
      <td bgcolor="#bbbbbb"><table width=100% cellpadding=0 cellspacing=0><tr><td width="20">
-     <div id="vencimiento"><input name="fecha_vencimiento" type="text" id="fecha_vencimiento" size="15" value="<? if($accela=="edit"){echo''.$fvenx[2].'-'.$fvenx[1].'-'.$fvenx[0].'';}?>" /></div>
+     <div id="vencimiento"><input name="fecha_vencimiento" type="text" id="fecha_vencimiento" size="15" value="<?php  if($accela=="edit"){echo''.$fvenx[2].'-'.$fvenx[1].'-'.$fvenx[0].'';}?>" /></div>
      
      </td>
            <td><a href="javascript:cal2.popup();"><img src="img/cal.gif" width="16" height="16" border="0" alt="Seleccionar fecha"></a></td>
           <td>&nbsp;
      <!-- strong>Hora:</strong> 
-      <input name="hora_vencimiento" type="text" id="hora_vencimiento" size="6" value="<?
+      <input name="hora_vencimiento" type="text" id="hora_vencimiento" size="6" value="<?php 
 
 		#if($accela=="edit"){echo''.$fvence[1].'';} else{echo date("H:i:s");                 } ?>" -->     </td></tr></table>
         
         
      </td>
      <td align="right" bgcolor="#bbbbbb"><strong>Monto $:</strong></td>
-     <td bgcolor="#bbbbbb"><input name="monto" type="text" id="monto" size="30"value="<? echo"$monto";?>" onChange="calula();"    onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
+     <td bgcolor="#bbbbbb"><input name="monto" type="text" id="monto" size="30"value="<?php  echo"$monto";?>" onChange="calula();"    onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
    </tr>
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Comisi&oacute;n $:</strong></td>
-     <td bgcolor="#bbbbbb"><input name="comision" type="text" id="comision" size="30" value="<? echo"$comision";?>" onChange="calula();" onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
+     <td bgcolor="#bbbbbb"><input name="comision" type="text" id="comision" size="30" value="<?php  echo"$comision";?>" onChange="calula();" onBlur="calula();" onClick="calula();" onKeyPress="return numbersonly(this, event)"/></td>
      <td align="right" bgcolor="#bbbbbb"><strong>Ingreso $:</strong></td>
-     <td bgcolor="#bbbbbb"><input name="ingreso" type="text" id="ingreso" size="30" value="<? echo"$ingreso";?>" disabled="disabled"/></td>
+     <td bgcolor="#bbbbbb"><input name="ingreso" type="text" id="ingreso" size="30" value="<?php  echo"$ingreso";?>" disabled="disabled"/></td>
    </tr>
    <tr>
      <td colspan="4" align="center" bgcolor="#eeeeee"><strong>Datos personales</strong> </td>
    </tr>
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Nombre :</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><input name="nombre" type="text" id="nombre" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="<? echo $nombre; ?>"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="nombre" type="text" id="nombre" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="<?php  echo $nombre; ?>"></td>
      <td align="right" bgcolor="#bbbbbb"><strong>Fecha de nacimiento:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><?
+     <td align="left" bgcolor="#bbbbbb"><?php 
 		echo'  <select name="fecha_d" id="fecha_d">';			
 for($contador=1;$contador<=31;$contador++){
 if(strlen($contador)==1){$cuenta="0".$contador."";} 
@@ -424,16 +425,16 @@ echo'>'.$cuenta.'</option>';
    </tr>
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Domicilio:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><input name="domicilio" type="text" id="domicilio" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="<? echo $domicilio; ?>"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="domicilio" type="text" id="domicilio" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="<?php  echo $domicilio; ?>"></td>
 	      <td align="right" bgcolor="#bbbbbb"><strong>Ciudad:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><input name="ciudad" type="text" id="ciudad" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="<? echo $ciudad; ?>"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="ciudad" type="text" id="ciudad" size="30" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="<?php  echo $ciudad; ?>"></td>
    </tr>
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Estado:</strong></td>
      <td align="left" bgcolor="#bbbbbb"><select name="estado" id="estado" onChange='cargaContenido(this.id)'>
             <option value='0'>Seleccione un Estado</option>
            
-<?php
+<?php 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
 $result = mysqli_query($link,"SELECT * FROM Estado order by NombreEstado"); 
@@ -447,7 +448,7 @@ if (mysqli_num_rows($result)){
  </select></td>
  
       <td align="right" bgcolor="#bbbbbb"><strong>Municipio:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><?
+     <td align="left" bgcolor="#bbbbbb"><?php 
 						  if($accela=="edit" or ($same=="yes" AND $accela=="new")){
 						 echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>';
 $link = mysqli_connect($host, $username, $pass,$database); 
@@ -468,7 +469,7 @@ echo'</select>';
    </tr>
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Colonia:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><?
+     <td align="left" bgcolor="#bbbbbb"><?php 
 						  if($accela=="edit"  or ($same=="yes" AND $accela=="new")){
 						 echo'  <select name="colonia" id="colonia">';
 $link = mysqli_connect($host, $username, $pass,$database); 
@@ -487,18 +488,18 @@ echo'</select>';
 					</select>';}
 						  ?></td>
 						       <td align="right" bgcolor="#bbbbbb"><strong>Tel&eacute;fono:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><input name="tel" type="text" id="tel" size="30" onKeyPress="return numbersonly(this, event)" value="<? echo $tel; ?>"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="tel" type="text" id="tel" size="30" onKeyPress="return numbersonly(this, event)" value="<?php  echo $tel; ?>"></td>
    </tr>
    <tr>
      <td align="right" bgcolor="#bbbbbb"><strong>Celular:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><input name="cel" type="text" id="cel" size="30" onKeyPress="return numbersonly(this, event)" value="<? echo $cel; ?>"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="cel" type="text" id="cel" size="30" onKeyPress="return numbersonly(this, event)" value="<?php  echo $cel; ?>"></td>
      <td align="right" bgcolor="#bbbbbb"><strong>Nextel:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><input name="nextel" type="text" id="nextel" size="30" onKeyPress="return numbersonly(this, event)" value="<? echo $nextel; ?>"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="nextel" type="text" id="nextel" size="30" onKeyPress="return numbersonly(this, event)" value="<?php  echo $nextel; ?>"></td>
    </tr>
    <tr>
 
      <td align="right" bgcolor="#bbbbbb"><strong>Email:</strong></td>
-     <td align="left" bgcolor="#bbbbbb"><input name="mail" type="text" id="mail" size="30" value="<? echo $mail; ?>"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="mail" type="text" id="mail" size="30" value="<?php  echo $mail; ?>"></td>
 	      <td align="right" bgcolor="#bbbbbb">&nbsp;</td>
      <td align="left" bgcolor="#bbbbbb">&nbsp;</td>
    </tr>
@@ -509,33 +510,33 @@ echo'</select>';
 
     <td width="25%" align="right" bgcolor="#bbbbbb"><strong>Marca</strong><strong>:</strong><strong></strong></td>
 
-    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="marca" type="text" id="marca" size="30" value="<? echo $marca; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="marca" type="text" id="marca" size="30" value="<?php  echo $marca; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
     <td width="25%" align="right" bgcolor="#bbbbbb"><strong>Modelo:</strong></td>
 
-    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="modelo" type="text" id="modelo" size="30" value="<? echo $modelo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="modelo" type="text" id="modelo" size="30" value="<?php  echo $modelo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
    </tr>
 
    <tr>
 
      <td align="right" bgcolor="#bbbbbb"><strong>Tipo:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="tipo" type="text" id="tipo" size="30" value="<? echo $tipo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="tipo" type="text" id="tipo" size="30" value="<?php  echo $tipo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
      <td align="right" bgcolor="#bbbbbb"><strong>Color:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="color" type="text" id="color" size="30" value="<? echo $color; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="color" type="text" id="color" size="30" value="<?php  echo $color; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
    </tr>
 
    <tr>
 
      <td align="right" bgcolor="#bbbbbb"><strong>Placas:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="placas" type="text" id="placas" size="30" value="<? echo $placas; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="placas" type="text" id="placas" size="30" value="<?php  echo $placas; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
      <td align="right" bgcolor="#bbbbbb"><strong>Serie:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="serie" type="text" id="serie" size="30" value="<? echo $serie; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="serie" type="text" id="serie" size="30" value="<?php  echo $serie; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
    </tr>
 
    <tr>
@@ -544,9 +545,9 @@ echo'</select>';
 
      <td align="left" bgcolor="#bbbbbb"><select name="servicio" id="servicio">
 
-       <option value="PARTICULAR" <? if($servicio=="PARTICULAR"){echo' selected';}  ?>>Particular</option>
+       <option value="PARTICULAR" <?php  if($servicio=="PARTICULAR"){echo' selected';}  ?>>Particular</option>
 
-       <option value="PUBLICO" <? if($servicio=="PUBLICO"){echo' selected';}  ?>>P&uacute;blico</option>
+       <option value="PUBLICO" <?php  if($servicio=="PUBLICO"){echo' selected';}  ?>>P&uacute;blico</option>
 
      </select>     </td>
 
@@ -555,13 +556,13 @@ echo'</select>';
      <td align="left" bgcolor="#bbbbbb">&nbsp;</td>
    </tr>
    <tr>
-     <td colspan="4" align="center" bgcolor="#eeeeee"><?
+     <td colspan="4" align="center" bgcolor="#eeeeee"><?php 
      if($accela=="edit"){echo'<input type="submit" name="Submit" value="Actualizar Usuario"> ';}
 	 else{echo'<input type="submit" name="Submit" value="Agregar Usuario"> ';}
 	 ?>
        &nbsp; 
      <input type="reset" name="Submit2" value="Reestablecer">  &nbsp; 
-     <?
+     <?php 
      if($accela=="edit"){echo'<input type="button" name="cancel" value="Cancelar Contrato" onClick="location.href=\'process.php?module=usuarios_contrato&accela=cancel&idPoliza='.$idPoliza.'&id='.$id.'&tipocliente='.$tipocliente.'&numcontrato='.$numcontrato.'&idCliente='.$idCliente.'\'">';}
 	 ?>
      
