@@ -14,6 +14,7 @@ $idPoliza = null;
 $tipocliente = null;
 $numcontrato = null;
 $idCliente = null;
+$code = null;
 }
 
 ?>

@@ -2,23 +2,54 @@
 session_start();
  include 'conf.php';
   $accela = $_GET['accela'];
-  $same= $_GET['same'];
+  isset($_POST['same']) ? $same= $_POST['same'] : $same= null;
   $idPoliza = $_GET['idPoliza'];
   $tmpid = $_GET['tmpid'];
-  $fecha = $_GET['fecha'];
+  isset($_POST['fecha']) ? $fecha= $_POST['fecha'] : $fecha= null;
+  isset($_POST['comision']) ? $comision= $_POST['comision'] : $comision= null;
+  isset($_POST['id']) ? $id= $_POST['id'] : $id= null;
   
   $tipocliente = $_GET['tipocliente'];
   $numcontrato = $_GET['numcontrato'];
   $idCliente = $_GET['idCliente'];
   
-  function mysqli_result($result, $row, $field = 0) {
-    // Adjust the result pointer to that specific row
-    $result->data_seek($row);
-    // Fetch result array
-    $data = $result->fetch_array();
+  //indefinidas
+  isset($_POST['nombre']) ? $nombre= $_POST['nombre'] : $nombre= null;
+  isset($_POST['domicilio']) ? $domicilio= $_POST['domicilio'] : $domicilio= null;
+  isset($_POST['estado']) ? $estado= $_POST['estado'] : $estado= null;
+  isset($_POST['cel']) ? $cel= $_POST['cel'] : $cel= null;
+  isset($_POST['mail']) ? $mail= $_POST['mail'] : $mail= null;
+  isset($_POST['marca']) ? $marca= $_POST['marca'] : $marca= null;
+  isset($_POST['tipo']) ? $tipo= $_POST['tipo'] : $tipo= null;
+  isset($_POST['placas']) ? $placas= $_POST['placas'] : $placas= null;
+  isset($_POST['servicio']) ? $servicio= $_POST['servicio'] : $servicio= null;
+  
+  isset($_POST['tipoventa']) ? $tipoventa= $_POST['tipoventa'] : $tipoventa= null;
+  isset($_POST['monto']) ? $monto= $_POST['monto'] : $monto= null;
+  isset($_POST['ciudad']) ? $ciudad= $_POST['ciudad'] : $ciudad = null;
+  isset($_POST['tel']) ? $tel = $_POST['tel'] : $tel= null;
+  isset($_POST['nextel']) ? $nextel= $_POST['nextel'] : $nextel= null;
+  
+  isset($_POST['modelo']) ? $modelo= $_POST['modelo'] : $modelo= null;
+  isset($_POST['color']) ? $color= $_POST['color'] : $color= null;
+  isset($_POST['serie']) ? $serie= $_POST['serie'] : $serie= null;
+  isset($_POST['ingreso']) ? $ingreso= $_POST['ingreso'] : $ingreso= null;
+  
+  
+  
  
-    return $data[$field];
-}
+  function mysqli_result($res,$row=0,$col=0){
+  	$numrows = mysqli_num_rows($res);
+  	if ($numrows && $row <= ($numrows-1) && $row >=0){
+  		mysqli_data_seek($res,$row);
+  		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+  		if (isset($resrow[$col])){
+  			return $resrow[$col];
+  		}
+  	}
+  	return false;
+  }
+  
  if($accela=="edit" && isset($id)){
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
