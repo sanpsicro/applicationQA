@@ -1,6 +1,6 @@
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Contratos</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("4_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Contratos</span></td><td width=150 class="blacklinks"><?php  $checa_array1=array_search("4_a",$explota_permisos);
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=new">Nuevo Contrato</a> ]';} ?></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
@@ -8,7 +8,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
             <td width="400" class="questtitle">&nbsp; 
 </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -44,7 +44,11 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
 
 								
 
-							<?
+							<?php
+							error_reporting(E_ALL);
+isset($_GET['cliente']) ? $cliente = $_GET['cliente'] : $cliente = "" ;
+isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = "" ;
+$valid_userid = $_SESSION['valid_userid'];
 							
 if($_SESSION["valid_tipo"]!="administrador"){$subcondicion="AND idEmpleado='$valid_userid'";}
 else{$subcondicion="";}						
@@ -52,11 +56,10 @@ else{$subcondicion="";}
 $checa_array1=array_search("4_a",$explota_permisos);
 if($checa_array1===FALSE){} else{
 							if(isset($cliente) && $cliente!=""){
-							echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+							echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link,"SELECT * FROM Cliente where nombre like '%$cliente%' $subcondicion order by nombre"); 
-
+$result = mysqli_query($link,"SELECT * FROM Cliente where nombre like '%".$cliente."%' $subcondicion order by nombre"); 
 
 
 if (mysqli_num_rows($result)){ 

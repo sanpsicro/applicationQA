@@ -20,6 +20,7 @@ if (mysqli_num_rows($result)){
   		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);		
 
   echo'<option value="'.$row["idMunicipio"].'"';
+  $municipio = $row["idMunicipio"];
 
      if($municipio==$row["idMunicipio"]){echo" selected ";}
 

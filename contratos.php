@@ -24,7 +24,7 @@ function mysqli_result($res,$row=0,$col=0){
 ?>
  <script type="text/javascript" language="JavaScript">
 function confirmGeneral(generalurl) { 
-if (confirm("�Est� seguro?")) { 
+if (confirm("Est&aacute seguro?")) { 
 document.location = generalurl; 
 }
 }
@@ -43,15 +43,15 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
             <form name="form1" method="post" action="bridge.php?module=contratos<?php if($quest!=""){echo"&quest=$quest";}?>">
             <td width="500"> 
               <select name="show" id="mostrar">
-                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por p�gina</option>
-                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por p�gina</option>
-                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por p�gina</option>
-                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por p�gina</option>
-                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por p�gina</option>
-                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
+                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
+                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
+                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
+                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
+                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="numPoliza" <?php if($sort=="numPoliza"){echo"selected";}?>>Ordenar por n�mero de contrato</option>
+                <option value="numPoliza" <?php if($sort=="numPoliza"){echo"selected";}?>>Ordenar por n&uacutemero de contrato</option>
                 <option value="fechaCaptura" <?php if($sort=="fechaCaptura"){echo"selected";}?>>Ordenar por fecha de captura</option>                
 <!--                 <option value="Poliza.status" <?php if($sort=="Poliza.status"){echo"selected";}?>>Ordenar por status</option>				-->
               </select>
@@ -62,7 +62,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -97,7 +97,7 @@ if(isset($quest) && $quest!=""){
 
 
 
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 
 $condistatus="";
 $subcondicion2="";
@@ -177,7 +177,7 @@ $_GET["show"]=$show;
 
 
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacutegina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -274,7 +274,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                      <td align=middle class="titles"><b>Fecha de captura</b></td>				  					  
                      <td align=middle class="titles"><b>Producto</b></td>				  					 
 
-                     <td align=middle class="titles"><b>Operaci�n</b></td></tr>';
+                     <td align=middle class="titles"><b>Operaci&oacuten</b></td></tr>';
 
 $bgcolor="#cccccc";
 

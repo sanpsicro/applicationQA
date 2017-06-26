@@ -366,7 +366,7 @@ echo'<select name="tipoventa" id="tipoventa" onChange="FAjax(\'fechacombo.php?&f
 
 */
 
-echo'<select name="tipoventa" id="tipoventa"><option value="">Seleccione una opci�n</option>';
+echo'<select name="tipoventa" id="tipoventa"><option value="">Seleccione una opci&oacuten</option>';
 
 
   while ($row = @mysqli_fetch_array($result)) { 

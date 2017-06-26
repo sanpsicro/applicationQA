@@ -1,9 +1,9 @@
 <?php
 session_start();
  $explota_permisos=explode(",",$_SESSION["valid_permisos"]);
-if(isset($_POST['tmpid']) || isset($_POST['idPoliza']) || isset($_POST['tipocliente']) || isset($_POST['numcontrato']) || isset($_POST['idCliente']) ){ 
+ if(isset($_POST['tmpid'])  || isset($_POST['tipocliente']) || isset($_POST['numcontrato']) || isset($_POST['idCliente']) ){ 
 $tmpid = $_POST['tmpid'];
-$idPoliza = $_POST['idPoliza'];
+
 $tipocliente = $_POST['tipocliente'];
 $numcontrato = $_POST['numcontrato'];
 $idCliente = $_POST['idCliente'];
@@ -16,6 +16,10 @@ $numcontrato = null;
 $idCliente = null;
 $code = null;
 }
+
+isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
+isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = null;
+
 
 ?>
  <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
@@ -71,12 +75,14 @@ $finicio=$row["fecha_inicio"];
 $finicio=explode(" ",$finicio);
 $finiciox=explode("-",$finicio[0]);
 
+
+
 if($row["fecha_vencimiento"]!="0000-00-00 00:00:00"){
 $finix=$row["fecha_vencimiento"];
 $finix=explode(" ",$finix);
 $finixx=explode("-",$finix[0]);
-
-$finalix="".$finixx[2]."/".$finixx[1]."/".$finixx[0]." ".$finix[1]."";
+//se cambio finix por finix al final
+$finalix="".$finixx[2]."/".$finixx[1]."/".$finixx[0]." ".$finixx[1]."";
 
 }
 else{$finalix="N/A";}
@@ -91,8 +97,10 @@ if($row["tipo_venta"]=="1"){echo'Anual';}
 elseif($row["tipo_venta"]=="2"){echo 'Semestral';}
 elseif($row["tipo_venta"]=="3"){echo'Mensual';}
 else{echo'Evento';}
+//se cambio finicio por finiciox
+
 echo'</td>
-<td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$finiciox[2].'/'.$finiciox[1].'/'.$finiciox[0].' '.$finicio[1].'</td>
+<td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$finiciox[2].'/'.$finiciox[1].'/'.$finiciox[0].' '.$finiciox[1].'</td> 
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$finalix.'</td>
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$row["clave"].'</td>
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$row["status"].'</td>

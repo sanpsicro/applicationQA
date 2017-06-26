@@ -1,11 +1,11 @@
 <?php
-error_reporting(E_ALL);
 session_start();
 
 include 'conf.php';
 
 isset($_POST['buscas']) ? $buscas = $_POST['buscas'] : $buscas = null;
 isset($_POST['accela']) ? $accela= $_POST['accela'] : $accela= null;
+isset($_SESSION['valid_userid']) ? $valid_userid= $_POST['valid_userid'] : $valid_userid= null;
 
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 

@@ -1,5 +1,9 @@
 <?php
+
  $accela = $_GET['accela'];
+ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0 ;
+
+ 
  ?>
 <script type="text/javascript" src="combofecha.js"></script>
 <script type="text/javascript" src="calendar.js"></script>
@@ -105,7 +109,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
 			?>
 </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>

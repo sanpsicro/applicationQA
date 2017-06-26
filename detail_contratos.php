@@ -1,7 +1,10 @@
 <?php 
+
 $checa_arrayx=array_search("contratos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0; 
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
@@ -12,7 +15,7 @@ die();} else{}
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -21,49 +24,61 @@ die();} else{}
   </tr>
 <tr><td>
 <?php 
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT * from Poliza where idPoliza = '$idPoliza'");
-$idCliente=mysql_result($result,0,"idCliente");
-$idEmpleado=mysql_result($result,0,"idEmpleado");
-$fechaCaptura=mysql_result($result,0,"fechaCaptura");
+$idCliente=mysqli_result($result,0,"idCliente");
+$idEmpleado=mysqli_result($result,0,"idEmpleado");
+$fechaCaptura=mysqli_result($result,0,"fechaCaptura");
 $fecha1=explode(" ",$fechaCaptura);
 $fecha1=explode("-",$fecha1[0]);
-$numPoliza=mysql_result($result,0,"numPoliza");
-$tipoVenta=mysql_result($result,0,"tipoVenta");
-$fechaInicio=mysql_result($result,0,"fechaInicio");
+$numPoliza=mysqli_result($result,0,"numPoliza");
+$tipoVenta=mysqli_result($result,0,"tipoVenta");
+$fechaInicio=mysqli_result($result,0,"fechaInicio");
 $fecha2=explode(" ",$fechaInicio);
 $fecha2=explode("-",$fecha2[0]);
-$fechaVence=mysql_result($result,0,"fechaVence");
+$fechaVence=mysqli_result($result,0,"fechaVence");
 $fecha3=explode(" ",$fechaVence);
 $fecha3=explode("-",$fecha3[0]);
-$factura=mysql_result($result,0,"factura");
-$monto=mysql_result($result,0,"monto");
-$comision=mysql_result($result,0,"comision");
-$ingreso=mysql_result($result,0,"ingreso");
-$productos=mysql_result($result,0,"productos");
+$factura=mysqli_result($result,0,"factura");
+$monto=mysqli_result($result,0,"monto");
+$comision=mysqli_result($result,0,"comision");
+$ingreso=mysqli_result($result,0,"ingreso");
+$productos=mysqli_result($result,0,"productos");
 ###
 $db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
 $result2 = mysqli_query($db2,"SELECT * from Empleado where idEmpleado = '".$idEmpleado."'");
-$vendedor=mysql_result($result2,0,"nombre");
+$vendedor=mysqli_result($result2,0,"nombre");
 ###
 $db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
 $result2 = mysqli_query($db2,"SELECT * from Cliente where idCliente = '".$idCliente."'");
-$cliente=mysql_result($result2,0,"nombre");
+$cliente=mysqli_result($result2,0,"nombre");
 ###
 /*
 $db6 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db6);
 $result6 = mysqli_query("SELECT * from TipoVenta where idVenta = '$tipoVenta'",$db6);
-$tipoVenta=mysql_result($result6,0,"nombre");
+$tipoVenta=mysqli_result($result6,0,"nombre");
 */
 $db7 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db7);
 $result7 = mysqli_query($db7,"SELECT * from productos where id = '".$productos."'");
-$elproducto=mysql_result($result7,0,"producto");
-$terminos=mysql_result($result7,0,"terminos");
+$elproducto=mysqli_result($result7,0,"producto");
+$terminos=mysqli_result($result7,0,"terminos");
 ###
 
 ?>
@@ -91,7 +106,7 @@ $terminos=mysql_result($result7,0,"terminos");
 	if($factura=="1"){
 echo'<tr><td align=right><b>Factura</b></td><td>&nbsp;</td></tr>
 <tr><td bgcolor="#CCCCCC" align=right><strong>Monto:</strong></td><td bgcolor="#CCCCCC">$'.number_format($monto,2).'</td></tr>
-<tr><td align=right><strong>Comisión:</strong></td><td>$'.number_format($comision,2).'</td></tr>
+<tr><td align=right><strong>Comisi&oacuten:</strong></td><td>$'.number_format($comision,2).'</td></tr>
 <tr><td bgcolor="#CCCCCC" align=right><strong>Ingreso:</strong></td><td bgcolor="#CCCCCC">$'.number_format($ingreso,2).'</td></tr>';
 }
 
