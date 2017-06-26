@@ -1,5 +1,6 @@
 <?php
 session_start();
+set_time_limit(300);
 ob_start();
 
 if ( isset( $_SESSION["valid_user"] ) && isset($_SESSION["valid_modulos"] ) && isset($_SESSION["valid_permisos"] ))

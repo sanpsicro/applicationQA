@@ -21,7 +21,13 @@
         <tr> 
           <td><table width="100%" height=100% border="1" cellpadding="6" cellspacing="0" bordercolor="#000000" bgcolor="#FFFFFF" class="contentarea1">
               <tr> 
-                <td valign="top" align="center"><p>&nbsp;</p><?php  
+                <td valign="top" align="center"><p>&nbsp;</p>
+                <?php  
+                isset($_POST['tmpid']) ? $tmpid = $_POST['tmpid'] : $tmpid = 0 ;
+                isset($_POST['cliente']) ? $cliente = $_POST['cliente'] : $cliente = 0 ;
+                isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = 0 ;
+                isset($_POST['numcontrato']) ? $numcontrato = $_POST['numcontrato'] : $numcontrato = 0 ;
+                isset($_POST['producto']) ? $producto = $_POST['producto'] : $producto = 0 ;
 				
 $checa_array1=array_search("4_i",$explota_permisos);
 if($checa_array1===FALSE){

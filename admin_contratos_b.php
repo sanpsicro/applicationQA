@@ -1,7 +1,7 @@
 <?php
 
  $accela = $_GET['accela'];
- isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0 ;
+
 
  
  ?>
@@ -89,7 +89,7 @@ function validar(formulario) {
  
  <script type="text/javascript" language="JavaScript">
 function confirmGeneral(generalurl) { 
-if (confirm("�Est� seguro?")) { 
+if (confirm("¿Está  seguro?")) { 
 document.location = generalurl; 
 }
 }
