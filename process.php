@@ -24,8 +24,15 @@ header("Location: index.php?errorcode=3");
     }
     return false;
 }
-
  
+// from admin_contratos
+isset($_POST['tmpid']) ? $tmpid = $_POST['tmpid'] : $tmpid = 0 ;
+isset($_POST['cliente']) ? $cliente = $_POST['cliente'] : $cliente = 0 ;
+isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = 0 ;
+isset($_POST['numcontrato']) ? $numcontrato = $_POST['numcontrato'] : $numcontrato = 0 ;
+isset($_POST['producto']) ? $producto = $_POST['producto'] : $producto = 0 ;
+isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
+// admin_contratos 
  isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
  isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = null;
  isset($_GET['module']) ? $module = $_GET['module'] : $module = null;
@@ -1069,7 +1076,7 @@ if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `Poliza` ( `idCliente`, `idEmpleado`, `fechaCaptura`, `numPoliza`, `tipoCliente`, `tipoVenta`, `factura`, `monto`, `comision`, `ingreso`, `productos`, `status`, `usuario`, `password`) 
 VALUES ('$cliente', '$vendedor', now(), '$numcontrato', '$tipocliente', '$tipoventa', '$factura', '$monto', '$comision', '$ingreso', '$producto', 'no validado', '$numcontrato', '$rfc')");
-$idPoliza=mysqli_insert_id();  
+$idPoliza=mysqli_insert_id($link);   // se agrego $link  
 $link= mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE usuarios_contrato SET idPoliza='$idPoliza', productos='$producto' where contrato='$numcontrato'";
 mysqli_query($link, $sSQL);

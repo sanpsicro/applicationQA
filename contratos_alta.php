@@ -7,7 +7,7 @@
             <td width="400" 			class="questtitle">&nbsp; 
 </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="mainframe.php?module=contratos"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="mainframe.php?module=contratos"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -28,8 +28,10 @@
                 isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = 0 ;
                 isset($_POST['numcontrato']) ? $numcontrato = $_POST['numcontrato'] : $numcontrato = 0 ;
                 isset($_POST['producto']) ? $producto = $_POST['producto'] : $producto = 0 ;
+                isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
 				
 $checa_array1=array_search("4_i",$explota_permisos);
+
 if($checa_array1===FALSE){
 echo'<p><strong>Se ha registrado el Contrato en la base de datos </strong></p><br><br>
 
