@@ -1,6 +1,19 @@
 <?php 
 session_start();
+
+
+// isset($_GET['id']) ? $id = $_GET['id'] : $id = 0 ;
+// isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0 ;
+// isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = "" ;
+// isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = "" ;
+// isset($_GET['tmpid']) ? $tmpid = $_GET['tmpid'] : $tmpid = "" ;
+// isset($_GET['tipocliente']) ? $tipocliente = $_GET['tipocliente'] : $tipocliente = "" ;
+// isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = "" ;
+
  include 'conf.php';
+ 
+ 
+ 
  function mysqli_result($res,$row=0,$col=0){
  	$numrows = mysqli_num_rows($res);
  	if ($numrows && $row <= ($numrows-1) && $row >=0){
@@ -14,9 +27,7 @@ session_start();
  }
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-isset($_GET['id']) ? $id = $_GET['id'] : $id = 0 ;
-isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0 ;
-isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = "" ;
+
 
 $result = mysqli_query($db,"SELECT * from usuarios_contrato where id = '$id'");
 $fecha_inicio=mysqli_result($result,0,"fecha_inicio");

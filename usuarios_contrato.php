@@ -13,6 +13,7 @@ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = null;
 isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = $_POST['idCliente'];
 
 
+
 ?>
  <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <link href="style_1.css" rel="stylesheet" type="text/css" />

@@ -16,7 +16,6 @@ session_start();
   isset($_POST['id']) ? $id= $_POST['id'] : $id= null;
   
 
-  var_dump($idCliente);
  
   
   //indefinidas
