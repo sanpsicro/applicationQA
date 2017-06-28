@@ -1,5 +1,4 @@
 <?php
-
  $accela = $_GET['accela'];
  //isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0 ;
  isset($_POST['idCliente']) ? $idCliente = $_POST['idCliente'] : $idCliente = 0 ;

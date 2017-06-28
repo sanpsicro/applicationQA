@@ -1,39 +1,57 @@
 <?php 
 session_start();
  include 'conf.php';
+ 
+ $idPoliza = $_GET['idPoliza'];
+ $tmpid = $_GET['tmpid'];
+ $tipocliente = $_GET['tipocliente'];
+ $numcontrato = $_GET['numcontrato'];
+ isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente=  0;
+ 
   $accela = $_GET['accela'];
-  isset($_POST['same']) ? $same= $_POST['same'] : $same= null;
-  $idPoliza = $_GET['idPoliza'];
-  $tmpid = $_GET['tmpid'];
+  isset($_GET['same']) ? $same= $_GET['same'] : $same= null;
+ 
   isset($_POST['fecha']) ? $fecha= $_POST['fecha'] : $fecha= null;
   isset($_POST['comision']) ? $comision= $_POST['comision'] : $comision= null;
   isset($_POST['id']) ? $id= $_POST['id'] : $id= null;
   
-  $tipocliente = $_GET['tipocliente'];
-  $numcontrato = $_GET['numcontrato'];
-  $idCliente = $_GET['idCliente'];
+
+  var_dump($idCliente);
+ 
   
   //indefinidas
-  isset($_POST['nombre']) ? $nombre= $_POST['nombre'] : $nombre= null;
-  isset($_POST['domicilio']) ? $domicilio= $_POST['domicilio'] : $domicilio= null;
-  isset($_POST['estado']) ? $estado= $_POST['estado'] : $estado= null;
-  isset($_POST['cel']) ? $cel= $_POST['cel'] : $cel= null;
-  isset($_POST['mail']) ? $mail= $_POST['mail'] : $mail= null;
-  isset($_POST['marca']) ? $marca= $_POST['marca'] : $marca= null;
-  isset($_POST['tipo']) ? $tipo= $_POST['tipo'] : $tipo= null;
-  isset($_POST['placas']) ? $placas= $_POST['placas'] : $placas= null;
-  isset($_POST['servicio']) ? $servicio= $_POST['servicio'] : $servicio= null;
+
+   isset($_POST['marca']) ? $marca= $_POST['marca'] : $marca= null;
+   isset($_POST['tipo']) ? $tipo= $_POST['tipo'] : $tipo= null;
+   isset($_POST['placas']) ? $placas= $_POST['placas'] : $placas= null;
+   isset($_POST['servicio']) ? $servicio= $_POST['servicio'] : $servicio= null;
   
-  isset($_POST['tipoventa']) ? $tipoventa= $_POST['tipoventa'] : $tipoventa= null;
+   isset($_POST['tipoventa']) ? $tipoventa= $_POST['tipoventa'] : $tipoventa= null;
   isset($_POST['monto']) ? $monto= $_POST['monto'] : $monto= null;
-  isset($_POST['ciudad']) ? $ciudad= $_POST['ciudad'] : $ciudad = null;
-  isset($_POST['tel']) ? $tel = $_POST['tel'] : $tel= null;
-  isset($_POST['nextel']) ? $nextel= $_POST['nextel'] : $nextel= null;
+
+
   
-  isset($_POST['modelo']) ? $modelo= $_POST['modelo'] : $modelo= null;
+   isset($_POST['modelo']) ? $modelo= $_POST['modelo'] : $modelo= null;
   isset($_POST['color']) ? $color= $_POST['color'] : $color= null;
-  isset($_POST['serie']) ? $serie= $_POST['serie'] : $serie= null;
-  isset($_POST['ingreso']) ? $ingreso= $_POST['ingreso'] : $ingreso= null;
+   isset($_POST['serie']) ? $serie= $_POST['serie'] : $serie= null;
+   isset($_POST['ingreso']) ? $ingreso= $_POST['ingreso'] : $ingreso= null;
+   
+  
+   $nombre="";
+   $domicilioa="";
+   $domiciliob="";
+   $domicilio="";
+   $ciudad="";
+   $municipio="";
+   $estado="";
+   $colonia="";
+   $tel="";
+   $cel="";
+   $nextel="";
+   $mail="";
+  
+
+
   
   
   
@@ -51,16 +69,17 @@ session_start();
   }
   
  if($accela=="edit" && isset($id)){
+ 	
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
-$result = mysqli_query($db,"SELECT * from usuarios_contrato where id = '$id'");
+$result = mysqli_query($db,"SELECT * from usuarios_contrato where id = '$id'") ;
 $fecha_inicio=mysqli_result($result,0,"fecha_inicio");
 $finicio=explode(" ",$fecha_inicio);
 $finix=explode("-",$finicio[0]);
 $fecha_vencimiento=mysqli_result($result,0,"fecha_vencimiento");
 $fvence=explode(" ",$fecha_vencimiento);
 $fvenx=explode("-",$fvence[0]);
-$monto=mysqli_result($result,0,"monto");
+$monto=mysqli_result($result,0,"monto")  ;
 $comision=mysqli_result($result,0,"comision");
 $ingreso=mysqli_result($result,0,"ingreso");
 
@@ -95,7 +114,7 @@ $mail=mysqli_result($result,0,"mail");
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT * from Cliente where idCliente = '$idCliente'");
-$nombre=mysqli_result($result,0,"nombre");
+$nombre=mysqli_result($result,0,"nombre")  ;
 $domicilioa=mysqli_result($result,0,"calle");
 $domiciliob=mysqli_result($result,0,"numero");
 $domicilio="$domicilioa $domiciliob";

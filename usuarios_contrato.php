@@ -1,24 +1,16 @@
 <?php
 session_start();
  $explota_permisos=explode(",",$_SESSION["valid_permisos"]);
- if(isset($_POST['tmpid'])  || isset($_POST['tipocliente']) || isset($_POST['numcontrato']) || isset($_POST['idCliente']) ){ 
-$tmpid = $_POST['tmpid'];
+  
+ isset($_GET['tmpid']) ? $tmpid = $_GET['tmpid'] : $tmpid = null;
+ isset($_GET['tipocliente']) ? $tipocliente = $_GET['tipocliente'] : $tipocliente = null;
+ isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = null;
+ isset($_GET['code']) ? $code = $_GET['code'] : $code = null;
 
-$tipocliente = $_POST['tipocliente'];
-$numcontrato = $_POST['numcontrato'];
-$idCliente = $_POST['idCliente'];
-$code = $_POST['code'];
-}else{
-$tmpid = null;
-$idPoliza = null;
-$tipocliente = null;
-$numcontrato = null;
-$idCliente = null;
-$code = null;
-}
 
 isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
 isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = null;
+isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = $_POST['idCliente'];
 
 
 ?>
@@ -40,7 +32,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="admin_usuarios_contrato.php?acc
     </table>      </td>
   </tr>
   <?php 
-if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. No puede agregar m�s usuarios.</b></td></tr>';}
+if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. No puede agregar más usuarios.</b></td></tr>';}
    include 'conf.php';
    if(isset($idPoliza) && $idPoliza!="" && $idPoliza!="0"){
    $condicion="where idPoliza = '$idPoliza'";
