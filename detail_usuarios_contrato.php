@@ -2,13 +2,13 @@
 session_start();
 
 
-// isset($_GET['id']) ? $id = $_GET['id'] : $id = 0 ;
-// isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0 ;
-// isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = "" ;
-// isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = "" ;
-// isset($_GET['tmpid']) ? $tmpid = $_GET['tmpid'] : $tmpid = "" ;
-// isset($_GET['tipocliente']) ? $tipocliente = $_GET['tipocliente'] : $tipocliente = "" ;
-// isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = "" ;
+isset($_GET['id']) ? $id = $_GET['id'] : $id = 0 ;
+isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = 0 ;
+isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = "" ;
+isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = "" ;
+isset($_GET['tmpid']) ? $tmpid = $_GET['tmpid'] : $tmpid = "" ;
+isset($_GET['tipocliente']) ? $tipocliente = $_GET['tipocliente'] : $tipocliente = "" ;
+isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = "" ;
 
  include 'conf.php';
  

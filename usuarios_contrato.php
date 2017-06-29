@@ -1,11 +1,12 @@
 <?php
 session_start();
  $explota_permisos=explode(",",$_SESSION["valid_permisos"]);
+ 
   
  isset($_GET['tmpid']) ? $tmpid = $_GET['tmpid'] : $tmpid = null;
  isset($_GET['tipocliente']) ? $tipocliente = $_GET['tipocliente'] : $tipocliente = null;
  isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = null;
- isset($_GET['code']) ? $code = $_GET['code'] : $code = null;
+ isset($_GET['code']) ? $code = $_GET['code'] : $code = 0;
 
 
 isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
@@ -41,9 +42,10 @@ if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. 
    else{
 $condicion="where contrato = '$numcontrato'";
    }
+   
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link,"SELECT * FROM usuarios_contrato $condicion order by inciso"); 
+$result = mysqli_query($link,"SELECT * FROM usuarios_contrato " .$condicion. " order by inciso"); 
 if (mysqli_num_rows($result)){ 
 echo' <tr>
     <td align="center" bgcolor="#bbbbbb"><strong>Nombre</strong></td>
