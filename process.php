@@ -1184,14 +1184,20 @@ header("Location: mainframe.php?module=$module&code=2");
 
 ################################################################################
 if($module=="servicios"){ 
+isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null ;
+isset($_GET['id']) ? $id = $_GET['id'] : $id = null ;
+isset($_POST['servicios']) ? $servicios = $_POST['servicios'] : $servicios = null ;
+isset($_POST['tipo']) ? $tipo = $_POST['tipo'] : $tipo = null ;
+isset($_POST['servicio']) ? $servicio = $_POST['servicio'] : $servicio = null ;
 
-
-if(($accela=="new" or $accela=="edit") && is_array($servicios)){$servicios_enlatados=implode(",",$servicios);}
+if(($accela=="new" or $accela=="edit") && is_array($servicios)){
+	
+	$servicios_enlatados=implode(",",$servicios);}
 
 if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `servicios` ( `servicio`, `tipo`, `campos`) 
-VALUES ('$servicio', '$tipo', '$servicios_enlatados')");
+VALUES ('$servicio', '$tipo', '$servicios_enlatados')") or die(mysqli_error($link));
 header("Location: mainframe.php?module=$module&code=1");
 }
 #=====

@@ -1,5 +1,5 @@
 <?php 
-
+error_reporting(E_ALL);
 $checa_arrayx=array_search("servicios",$explota_modulos);
 
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
@@ -11,6 +11,10 @@ die();} else{}
 if(empty($show)){$show=10;}
 
 if(empty($sort)){$sort="servicio";}
+
+isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
+isset($_GET['quest']) ? $quest = $_GET['quest'] : $quest = null;
+isset($_POST['thisis']) ? $thisis = $_POST['thisis'] : $thisis = "";
 
 ?>
 
@@ -54,27 +58,27 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_servicios&accela=
 
 
 
-                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por p�gina</option>
+                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
 
 
 
-                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por p�gina</option>
+                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
 
 
 
-                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por p�gina</option>
+                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
 
 
 
-                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por p�gina</option>
+                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
 
 
 
-                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por p�gina</option>
+                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
 
 
 
-                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
 
 
 
@@ -108,7 +112,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_servicios&accela=
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">B&uacutesqueda: 
 
 
 
@@ -170,7 +174,7 @@ if(isset($quest) && $quest!=""){
 
 
 
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 
 
 
@@ -186,7 +190,7 @@ else{$condicion="";}
 
 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 
 //mysql_select_db($database, $link); 
 
@@ -196,11 +200,11 @@ $pag = ($_GET['pag']);
 
 if (!isset($pag)) $pag = 1;
 
-$result = mysqli_query("SELECT COUNT(*) FROM servicios $condicion", $link); 
+$result = mysqli_query($link,"SELECT COUNT(*) FROM servicios $condicion"); 
 
 
 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 
 
 
@@ -212,15 +216,15 @@ $reg1 = ($pag-1) * $tampag;
 
 
 
-$result = mysqli_query("SELECT * FROM servicios $condicion order by $sort  
+$result = mysqli_query($link,"SELECT * FROM servicios $condicion order by $sort  
 
 
 
-  LIMIT $reg1, $tampag", $link); 
+  LIMIT $reg1, $tampag"); 
 
 
 
-$_GET["accela"]=$accela;
+
 
 $_GET["quest"]=$quest;
 
@@ -252,7 +256,7 @@ $_GET["show"]=$show;
 
 
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacutegina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 

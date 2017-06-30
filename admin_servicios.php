@@ -70,6 +70,10 @@ function SetAllCheckBoxesb(FormName, FieldName, CheckValue)
       
       
  <?php  
+ error_reporting(E_ALL);
+ 
+ isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
+ isset($_GET['id']) ? $id = $_GET['id'] : $id = 0;
  
  $checa_array1=array_search("2_a",$explota_permisos);
 
@@ -99,10 +103,15 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_servicios&accela=
 
 			
 
-			if($accela=="new"){echo'Dar de alta Servicio';}
+			if($accela=="new"){echo'Dar de alta Servicio';
+			
+			$camposex = ["",""];
+			isset($_POST['servicio']) ? $servicio = $_GET['servicio'] : $servicio = "";
+			$tipo="";
+			}
 
 			else{echo'Editar Servicio';
-
+          
 
 
 			}
@@ -123,7 +132,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_servicios&accela=
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">B&uacutesqueda: 
 
 
 

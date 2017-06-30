@@ -1,8 +1,8 @@
-<? 
+<?php 
 #Database
 $host="localhost"; 
-$username="plataforma2017_Q"; 
-$pass="XwF3!7kuW+hS"; 
+$username="root"; 
+$pass=""; 
 $database="opcyons_opcyon";
 #misc
 $unixid = time(); 
@@ -10,7 +10,7 @@ $unixid = time();
 if(!function_exists('conectar')):
 	function conectar()
 	{
-		mysqli_connect("localhost","plataforma2017_Q","XwF3!7kuW+hS","opcyons_opcyon");
+		mysqli_connect("localhost","root","","opcyons_opcyon");
 		////mysql_select_db("opcyons_opcyon");
 	}
 endif;
