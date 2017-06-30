@@ -66,6 +66,9 @@ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
  isset($_POST['direccion']) ? $direccion = $_POST['direccion'] : $direccion = null;
  isset($_POST['estado']) ? $estado = $_POST['estado'] : $estado = 0;
  isset($_POST['estado2']) ? $estado2 = $_POST['estado2'] : $estado2 = 0;
+ isset($_GET['monto']) ? $monto = $_GET['monto'] : $monto = 0;
+ isset($_POST['factura']) ? $factura = $_POST['factura'] : $factura = 0;
+ isset($_POST['comision']) ? $comision = $_POST['comision'] : $comision = 0;
  isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio = 0;
  isset($_POST['municipio2']) ? $municipio2= $_POST['municipio2'] : $municipio2 = 0;
  isset($_POST['colonia']) ? $colonia = $_POST['colonia'] : $colonia = 0;
@@ -77,7 +80,8 @@ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
  isset($_POST['nextel']) ? $nextel= $_POST['nextel'] : $nextel = null;
  isset($_POST['email']) ? $email= $_POST['email'] : $email = null;
  isset($_POST['activo']) ? $activo = $_POST['activo'] : $activo = null;
- isset($_POST['tipocliente']) ? $tipocliente = $_POST['tipocliente'] : $tipocliente = null;
+ isset($_POST['tipocliente']) ? $tipocliente = $_POST['tipocliente'] : $tipocliente = 0;
+ isset($_POST['tipoventa']) ? $tipoventa = $_POST['tipoventa'] : $tipoventa = 0;
  isset($_POST['vendedor']) ? $vendedor = $_POST['vendedor'] : $vendedor = null;
 #----------------
 if($module=="usuarios"){ 
@@ -1074,9 +1078,9 @@ $ingreso=($monto-$comision);
 
 if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);
-mysqli_query($link,"INSERT INTO `Poliza` ( `idCliente`, `idEmpleado`, `fechaCaptura`, `numPoliza`, `tipoCliente`, `tipoVenta`, `factura`, `monto`, `comision`, `ingreso`, `productos`, `status`, `usuario`, `password`) 
-VALUES ('$cliente', '$vendedor', now(), '$numcontrato', '$tipocliente', '$tipoventa', '$factura', '$monto', '$comision', '$ingreso', '$producto', 'no validado', '$numcontrato', '$rfc')");
-$idPoliza=mysqli_insert_id($link);   // se agrego $link  
+mysqli_query($link,"INSERT INTO `Poliza` ( `idCliente`, `idEmpleado`, `fechaCaptura`, `numPoliza`, `tipoCliente`, `tipoVenta`, `factura`, `monto`, `comision`, `ingreso`, `productos`,subpolizas, `status`, `usuario`, `password`) 
+VALUES ('$cliente', '$vendedor', now(), '$numcontrato', '$tipocliente', '$tipoventa', '$factura', '$monto', '$comision', '$ingreso', '$producto',0, 'no validado', '$numcontrato', '$rfc')");
+$idPoliza=mysqli_insert_id($link) or die(mysqli_error($link));   // se agrego $link  
 $link= mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE usuarios_contrato SET idPoliza='$idPoliza', productos='$producto' where contrato='$numcontrato'";
 mysqli_query($link, $sSQL);
