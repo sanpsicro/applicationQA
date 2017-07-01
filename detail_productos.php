@@ -1,5 +1,4 @@
 <?php 
-error_reporting(E_ALL);
 $checa_arrayx=array_search("servicios",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -14,7 +13,7 @@ $id = $_GET['id'];
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -68,7 +67,7 @@ $absolute=$absolute+1;
 		</td>
     </tr>
 	
-	<tr><td bgcolor="#CCCCCC"><b>Términos:</b>
+	<tr><td bgcolor="#CCCCCC"><b>T&eacuterminos:</b>
 	  <p>
 	<?php 
 	echo nl2br($terminos);

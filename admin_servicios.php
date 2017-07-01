@@ -70,7 +70,7 @@ function SetAllCheckBoxesb(FormName, FieldName, CheckValue)
       
       
  <?php  
- error_reporting(E_ALL);
+ 
  
  isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
  isset($_GET['id']) ? $id = $_GET['id'] : $id = 0;

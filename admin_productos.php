@@ -139,6 +139,9 @@ function mysqli_result($res,$row=0,$col=0){
     return false;
 }
 
+//descomentar si todos empiezan uncheck
+//$serviciosx = ["",""]; 
+
  if($accela=="edit" && isset($id)){
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
@@ -195,7 +198,7 @@ echo'<td bgcolor="#eeeeee" width=50%><table width=100% cellpadding=0 cellspacing
 $checa_array=array_search($row["id"],$serviciosx);
 if($checa_array===FALSE){} else{echo ' checked'; 
 $llenaxv="si";}
-echo' onClick="Enab('.$cuentainputs.')"><b>'.$row["servicio"].'</b></td><td width=50%>N�m. de eventos <input name="numeventos[]" id="numeventos" type="text" size="10"';
+echo' onClick="Enab('.$cuentainputs.')"><b>'.$row["servicio"].'</b></td><td width=50%>N&uacutem. de eventos <input name="numeventos[]" id="numeventos" type="text" size="10"';
 if($llenaxv=="si"){echo 'value="'.$numeventosx["$cuentallenos"].'"';  $ponesto=""; $cuentallenos=$cuentallenos+1;}else{echo'value="Ingrese numero"'; $ponesto="disabled";}
 
 echo''.$ponesto.' onKeyPress="return numbersonly(this, event)"></></td></tr></table>
