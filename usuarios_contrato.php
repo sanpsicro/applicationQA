@@ -11,8 +11,7 @@ session_start();
 
 isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
 isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = null;
-isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = $_POST['idCliente'];
-
+isset($_GET['idCliente']) ? $idCliente = $_GET['idCliente'] : $idCliente = 0;
 
 
 ?>
@@ -45,7 +44,9 @@ $condicion="where contrato = '$numcontrato'";
    
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link,"SELECT * FROM usuarios_contrato " .$condicion. " order by inciso"); 
+$result = mysqli_query($link,"SELECT * FROM usuarios_contrato " .$condicion. " order by inciso") or die(mysqli_errno($link)); 
+
+
 if (mysqli_num_rows($result)){ 
 echo' <tr>
     <td align="center" bgcolor="#bbbbbb"><strong>Nombre</strong></td>

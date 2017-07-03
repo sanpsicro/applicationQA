@@ -45,7 +45,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
 								
 
 							<?php
-							error_reporting(E_ALL);
+						
 isset($_GET['cliente']) ? $cliente = $_GET['cliente'] : $cliente = "" ;
 isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = "" ;
 $valid_userid = $_SESSION['valid_userid'];
