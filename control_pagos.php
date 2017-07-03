@@ -1,5 +1,4 @@
-<?
-$checa_arrayx=array_search("pagos",$explota_modulos);
+<?php $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 if(empty($show)){$show=50;}
@@ -15,27 +14,27 @@ if(empty($selenium)){$selenium="all";}
 <form class="filtro" method="post" action="mainframe.php?module=control_pagos">
 <td width="700">
 	<select name="show" id="mostrar">
-		<option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-		<option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-		<option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-		<option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-		<option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-		<option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+		<option value="10" <?php if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
+		<option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
+		<option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
+		<option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
+		<option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
+		<option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
 	</select>
 	<select name="sort" id="ordenar">
-		<option value="pr.nombre" <? if($sort=="pr.nombre"){echo"selected";}?>>Ordenar por Proveedor</option>
-		<option value="p.expediente DESC" <? if($sort=="p.expediente DESC"){echo"selected";}?>>Ordenar por Expediente</option>
-		<option value="p.status DESC" <? if($sort=="p.status DESC"){echo"selected";}?>>Ordenar por status</option>                
+		<option value="pr.nombre" <?php if($sort=="pr.nombre"){echo"selected";}?>>Ordenar por Proveedor</option>
+		<option value="p.expediente DESC" <?php if($sort=="p.expediente DESC"){echo"selected";}?>>Ordenar por Expediente</option>
+		<option value="p.status DESC" <?php if($sort=="p.status DESC"){echo"selected";}?>>Ordenar por status</option>                
 	</select>
 	<select name="selenium" id="selenium">
-		<option value="all" <? if($selenium=="all"){echo' selected ';}?>>Todos</option>
-		<option value="pagados" <? if($selenium=="pagados"){echo' selected ';}?>>Pagados</option>
-		<option value="no pagados" <? if($selenium=="no pagados"){echo' selected ';}?>>No Pagados</option>
+		<option value="all" <?php if($selenium=="all"){echo' selected ';}?>>Todos</option>
+		<option value="pagados" <?php if($selenium=="pagados"){echo' selected ';}?>>Pagados</option>
+		<option value="no pagados" <?php if($selenium=="no pagados"){echo' selected ';}?>>No Pagados</option>
 	</select>
 	<input type="submit" name="Submit2" value="Mostrar"></td><td align="right" class="questtitle">
 </form>
 <form class="filtro" method="post" action="bridge.php?module=control_pagos">
-Búsqueda: 
+Bï¿½squeda: 
 	<input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> 
 	<input type="submit" name="Submit" value="Buscar">
  </td></form>
@@ -46,14 +45,13 @@ Búsqueda:
 
 
 <tr><td>
-<?
-if(isset($code) && $code=="1"){echo'<br><div class="xplik">Nuevo pago Registrado</div>';}
+<?php if(isset($code) && $code=="1"){echo'<br><div class="xplik">Nuevo pago Registrado</div>';}
 if(isset($code) && $code=="2"){echo'<br><div class="xplik">Datos del Pago actualizados</div>';}
 if(isset($code) && $code=="3"){echo'<div class="xplik">Pago eliminado</div>';}
 
 
 if(isset($quest) && $quest!=""){
-echo'<div class="xplik">Resultados de la búsqueda:</div>';
+echo'<div class="xplik">Resultados de la bï¿½squeda:</div>';
 $condicion="WHERE pr.nombre like '%$quest%' OR p.expediente like '%$quest%'";
 }
 else{
@@ -131,5 +129,5 @@ else{echo'<center><b>No hay resultados</b></center>';}
 
 echo paginacion($pag, $total, $tampag, "mainframe.php?module=control_pagos&quest=$quest&sort=$sort&show=$show&pag=");
 ?>
-<!-- <? echo print_r($_SESSION);?> -->
+<!-- <?php echo print_r($_SESSION);?> -->
 </td></tr></table>

@@ -1,5 +1,4 @@
-<?
-$checa_arrayx=array_search("proveedores",$explota_modulos);
+<?php $checa_arrayx=array_search("proveedores",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 if(empty($show)){$show=10;}
@@ -41,7 +40,7 @@ document.onpaste=new Function("return false");
 
 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Proveedores</span></td><td width=150 class="blacklinks">
-	  <?  $checa_array1=array_search("15_a",$explota_permisos);
+	  <?php  $checa_array1=array_search("15_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accela=new">Nuevo Proveedor</a> ]';} ?></td></tr></table></td></tr>
 
@@ -59,7 +58,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=proveedores<? if($quest!=""){echo"&quest=$quest";}?>">
+            <form name="form1" method="post" action="bridge.php?module=proveedores<?php if($quest!=""){echo"&quest=$quest";}?>">
 
 
 
@@ -71,27 +70,27 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
 
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
+                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
 
 
 
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
+                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
 
 
 
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
+                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
 
 
 
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
+                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
 
 
 
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
+                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
 
 
 
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
 
 
 
@@ -100,8 +99,8 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
               <select name="sort" id="ordenar">
-                <option value="nombre"  <? if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>
-                <option value="status"  <? if($sort=="status"){echo"selected";}?>>Ordenar por status</option>                
+                <option value="nombre"  <?php if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>
+                <option value="status"  <?php if($sort=="status"){echo"selected";}?>>Ordenar por status</option>                
               </select>
 
 
@@ -118,7 +117,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Bï¿½squeda: 
 
 
 
@@ -193,7 +192,7 @@ if(isset($quest) && $quest!=""){
 
 
 
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 
 
 
@@ -275,7 +274,7 @@ $_GET["show"]=$show;
 
 
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -369,13 +368,13 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Status</b></td>					  		 
 					  <td align=middle class="titles"><b>Estado</b></td>
 			 		  <td align=middle class="titles"><b>Municipio</b></td>
-                      <td align=middle class="titles"><b>Teléfono</b></td>					  
+                      <td align=middle class="titles"><b>Telï¿½fono</b></td>					  
                       <td align=middle class="titles"><b>Celular</b></td>					  
                       <td align=middle class="titles"><b>Fax</b></td>					  
                       <td align=middle class="titles"><b>Nextel</b></td>					  
                       <td align=middle class="titles"><b>Email</b></td>					  
 
-                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operación</b></td></tr>';
+                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaciï¿½n</b></td></tr>';
 
 $bgcolor="#cccccc";
 

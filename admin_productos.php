@@ -140,7 +140,7 @@ function mysqli_result($res,$row=0,$col=0){
 }
 
 //descomentar si todos empiezan uncheck
-//$serviciosx = ["",""]; 
+$serviciosx = ["",""]; 
 
  if($accela=="edit" && isset($id)){
 $db = mysqli_connect($host,$username,$pass,$database);
