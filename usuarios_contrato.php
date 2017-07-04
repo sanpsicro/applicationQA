@@ -78,7 +78,8 @@ $finix=$row["fecha_vencimiento"];
 $finix=explode(" ",$finix);
 $finixx=explode("-",$finix[0]);
 //se cambio finix por finix al final
-$finalix="".$finixx[2]."/".$finixx[1]."/".$finixx[0]." ".$finixx[1]."";
+//$finalix="".$finixx[2]."/".$finixx[1]."/".$finixx[0]." ".$finixx[0]."";
+$finalix="".$finixx[2]."/".$finixx[1]."/".$finixx[0]." ";
 
 }
 else{$finalix="N/A";}
@@ -93,10 +94,10 @@ if($row["tipo_venta"]=="1"){echo'Anual';}
 elseif($row["tipo_venta"]=="2"){echo 'Semestral';}
 elseif($row["tipo_venta"]=="3"){echo'Mensual';}
 else{echo'Evento';}
-//se cambio finicio por finiciox
+//se cambio finicio por finiciox, se quito '.$finicio[1].' al final
 
 echo'</td>
-<td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$finiciox[2].'/'.$finiciox[1].'/'.$finiciox[0].' '.$finiciox[1].'</td> 
+<td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$finiciox[2].'/'.$finiciox[1].'/'.$finiciox[0].' </td> 
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$finalix.'</td>
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$row["clave"].'</td>
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$row["status"].'</td>

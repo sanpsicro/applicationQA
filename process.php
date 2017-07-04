@@ -28,8 +28,8 @@ header("Location: index.php?errorcode=3");
 // from admin_contratos
 isset($_POST['tmpid']) ? $tmpid = $_POST['tmpid'] : $tmpid = 0 ;
 isset($_POST['cliente']) ? $cliente = $_POST['cliente'] : $cliente = 0 ;
-isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = 0 ;
-isset($_POST['numcontrato']) ? $numcontrato = $_POST['numcontrato'] : $numcontrato = 0 ;
+isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = "" ;
+isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = 0 ;
 isset($_POST['producto']) ? $producto = $_POST['producto'] : $producto = 0 ;
 isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
 // admin_contratos 
@@ -66,9 +66,9 @@ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
  isset($_POST['direccion']) ? $direccion = $_POST['direccion'] : $direccion = null;
  isset($_POST['estado']) ? $estado = $_POST['estado'] : $estado = 0;
  isset($_POST['estado2']) ? $estado2 = $_POST['estado2'] : $estado2 = 0;
- isset($_GET['monto']) ? $monto = $_GET['monto'] : $monto = 0;
+ isset($_POST['monto']) && $_POST['monto'] != "" ? $monto = $_POST['monto'] : $monto = 0;
  isset($_POST['factura']) ? $factura = $_POST['factura'] : $factura = 0;
- isset($_POST['comision']) ? $comision = $_POST['comision'] : $comision = 0;
+ isset($_POST['comision']) && $_POST['comision'] != "" ? $comision = $_POST['comision'] : $comision = '0';
  isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio = 0;
  isset($_POST['municipio2']) ? $municipio2= $_POST['municipio2'] : $municipio2 = 0;
  isset($_POST['colonia']) ? $colonia = $_POST['colonia'] : $colonia = 0;
@@ -96,6 +96,25 @@ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
  isset($_POST['numeventos']) ? $numeventos = $_POST['numeventos'] : $numeventos = null ;
  isset($_POST['terminos']) ? $terminos = $_POST['terminos'] : $terminos = null ;
  
+ //from usuarios_contrato 
+ isset($_POST['fecha_inicio']) ? $fecha_inicio = $_POST['fecha_inicio'] : $fecha_inicio = null ;
+ isset($_POST['fecha_vencimiento']) ? $fecha_vencimiento = $_POST['fecha_vencimiento'] : $fecha_vencimiento = null ;
+ isset($_POST['fecha_a']) ? $fecha_a = $_POST['fecha_a'] : $fecha_a = null ;
+ isset($_POST['fecha_d']) ? $fecha_d = $_POST['fecha_d'] : $fecha_d = null ;
+ isset($_POST['fecha_m']) ? $fecha_m = $_POST['fecha_m'] : $fecha_m = null ;
+ isset($_POST['domicilio']) ? $domicilio = $_POST['domicilio'] : $domicilio = null ;
+ 
+ 
+ 
+ //from usuarios_contrato
+ isset($_POST['marca']) ? $marca = $_POST['marca'] : $marca = null ;
+ isset($_POST['modelo']) ? $modelo = $_POST['modelo'] : $modelo = null ;
+ isset($_POST['serie']) ? $serie = $_POST['serie'] : $serie = null ;
+ isset($_POST['color']) ? $color = $_POST['color'] : $color = null ;
+ isset($_POST['placas']) ? $placas = $_POST['placas'] : $placas = null ;
+ isset($_POST['tel']) ? $tel = $_POST['tel'] : $tel = null ;
+ isset($_POST['cel']) ? $cel = $_POST['cel'] : $cel = null ;
+ isset($_POST['mail']) ? $mail = $_POST['mail'] : $mail = null ;
  
 #----------------
 if($module=="usuarios"){ 
@@ -938,8 +957,14 @@ if($module=="usuarios_contrato"){
 if($accela=="new" or $accela=="edit"){
 $fecha1expre=explode(" ",$fecha_inicio);
 $fecha1ex=explode("-",$fecha1expre[0]);
+
+if($fecha_vencimiento!=""){
 $fecha2expre=explode(" ",$fecha_vencimiento);
 $fecha2ex=explode("-",$fecha2expre[0]);
+}else{
+	$fecha2expre=explode(" ","00-00-00");
+	$fecha2ex=explode("-",$fecha2expre[0]);
+}
 
 $ingreso=($monto-$comision);
 }
@@ -985,18 +1010,18 @@ if(mysqli_num_rows($numero))
 	$incisoAnterior=mysqli_result($numero,0,"maximoInciso");
 	$inciso = $incisoAnterior + 1;
 }
-else
-	$inciso = 1;
+else{
+	$inciso = 1;}
 ##endcomprobacion_subnumero
-
+var_dump($comision);
 $clave="".$numcontrato."_".$inciso."";
 $password="".$fecha_d."".$fecha_m."".$fecha_a."";
 
 $separador="-";
-
+//se quito .$fecha2expre[1] de values
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `usuarios_contrato` ( `contrato`, `inciso`, `idPoliza`, `tipo_venta`, `fecha_inicio`, `fecha_vencimiento`, `marca`, `modelo`, `tipo`, `color`, `placas`, `serie`, `servicio`, `nombre`, `fecha_nacimiento`, `domicilio`, `colonia`, `ciudad`, `municipio`, `estado`, `tel`, `cel`, `nextel`, `mail`, `clave`, `password`, `status`, `monto`, `comision`, `ingreso`) 
-VALUES ('$numcontrato', '$inciso', '$idPoliza', '$tipoventa', '$fecha1ex[2]-$fecha1ex[1]-$fecha1ex[0] $fecha1expre[1]', '$fecha2ex[2]$separador$fecha2ex[1]$separador$fecha2ex[0] $fecha2expre[1]', '$marca', '$modelo', '$tipo', '$color', '$placas', '$serie', '$servicio', '$nombre', '$fecha_a-$fecha_m-$fecha_d',  '$domicilio', '$colonia', '$ciudad', '$municipio', '$estado', '$tel', '$cel', '$nextel', '$mail', '$clave', '$password', 'no validado', '$monto', '$comision', '$ingreso')");
+		VALUES ('$numcontrato', '$inciso', '$idPoliza', '$tipoventa', '$fecha1ex[2]-$fecha1ex[1]-$fecha1ex[0] $fecha1expre[1]', '$fecha2ex[2]$separador$fecha2ex[1]$separador$fecha2ex[0]$fecha2expre[1]', '$marca', '$modelo', '$tipo', '$color', '$placas', '$serie', '$servicio', '$nombre', '$fecha_a-$fecha_m-$fecha_d',  '$domicilio', '$colonia', '$ciudad', '$municipio', '$estado', '$tel', '$cel', '$nextel', '$mail', '$clave', '$password', 'no validado', '$monto', '$comision', '$ingreso')") or die(mysqli_error($link));
 header("Location: usuarios_contrato.php?idPoliza=$idPoliza&tmpid=$tmpid&numcontrato=$numcontrato&code=1&tipocliente=$tipocliente&idCliente=$idCliente");
 }
 #=====
