@@ -13,7 +13,7 @@ session_start();
  
   isset($_POST['fecha']) ? $fecha= $_POST['fecha'] : $fecha= null;
   isset($_POST['comision']) ? $comision= $_POST['comision'] : $comision= null;
-  isset($_POST['id']) ? $id= $_POST['id'] : $id= null;
+  isset($_GET['id']) ? $id= $_GET['id'] : $id= null;
   
 
  
@@ -35,6 +35,12 @@ session_start();
    isset($_POST['serie']) ? $serie= $_POST['serie'] : $serie= null;
    isset($_POST['ingreso']) ? $ingreso= $_POST['ingreso'] : $ingreso= null;
    
+   
+   
+   
+   
+
+  
   
    $nombre="";
    $domicilioa="";
@@ -125,6 +131,8 @@ $tel=mysqli_result($result,0,"telefonoCasa");
 $cel=mysqli_result($result,0,"telefonoCelular");
 $nextel=mysqli_result($result,0,"nextel");
 $mail=mysqli_result($result,0,"email");
+
+
 }
 ?>
 
