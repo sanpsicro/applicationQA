@@ -29,8 +29,8 @@ header("Location: index.php?errorcode=3");
 isset($_POST['tmpid']) ? $tmpid = $_POST['tmpid'] : $tmpid = 0 ;
 isset($_POST['cliente']) ? $cliente = $_POST['cliente'] : $cliente = 0 ;
 isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = "" ;
-isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = 0 ;
-isset($_POST['producto']) ? $producto = $_POST['producto'] : $producto = 0 ;
+isset($_POST['numcontrato']) ? $numcontrato = $_POST['numcontrato'] : $numcontrato = 0 ;
+isset($_POST['producto']) ? $producto = $_POST['producto'] : $producto = "" ;
 isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
 // admin_contratos 
  isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
@@ -1122,7 +1122,7 @@ VALUES ('$cliente', '$vendedor', now(), '$numcontrato', '$tipocliente', '$tipove
 $idPoliza=mysqli_insert_id($link) or die(mysqli_error($link));   // se agrego $link  
 $link= mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE usuarios_contrato SET idPoliza='$idPoliza', productos='$producto' where contrato='$numcontrato'";
-mysqli_query($link, $sSQL);
+mysqli_query($link,$sSQL) or die(var_dump($producto)); // actualiza usuarios_contrato
 
 $link= mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
@@ -1132,7 +1132,7 @@ $consecutivo=($consecutivo+1);
 
 $link= mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE Empleado SET indexPoliza='$consecutivo' where idEmpleado='$vendedor'";
-mysqli_query($link, $sSQL);
+mysqli_query($link, $sSQL) ;
 
 header("Location: mainframe.php?module=contratos_alta&idPoliza=$idPoliza");
 }

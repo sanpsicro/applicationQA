@@ -4,6 +4,7 @@ if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 if(empty($show)){$show=10;}
 if(empty($sort)){$sort="servicio";}
+isset($_GET['clave']) ? $clave = $_GET['clave'] : $clave = "";
 ?>
 <script language="javascript">
 function enableCosto(hx)
@@ -53,7 +54,7 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,lo
 echo microtime_float();
 $inicio=microtime_float();
  echo "<!-- $inicio -->";
-$db = $link = mysqli_connect($host,$username,$pass,$database);
+$db = mysqli_connect($host,$username,$pass,$database);
 //////mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT nombre,contrato,fecha_inicio,productos,status,marca,modelo,tipo,color,placas,serie,fecha_inicio,fecha_vencimiento from usuarios_contrato where clave='".$clave."'");
 $nombre=mysqli_result($result,0,"nombre");
@@ -76,7 +77,7 @@ $fecha_vencimiento="$diav/$mesv/$aniov";
 $fechafinal="$diav-$mesv-$aniov";
 
 
-$db = $link = mysqli_connect($host,$username,$pass,$database);
+$db = mysqli_connect($host,$username,$pass,$database);
 //////mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT idCliente from Poliza where numPoliza ='".$contrato."'");
 $idcliente=mysqli_result($result,0,"idCliente");
@@ -165,7 +166,7 @@ if($errorvigencia=="si"){
 $alertas=''.$alertas.'<script language="Javascript">alert ("USUARIO SIN VIGENCIA")</script>';
 
 $despliega='<tr>
-    <td align=middle bgcolor="#ff0000"><b><font color="#ffffff">Póliza Vencida</font></b></td>
+    <td align=middle bgcolor="#ff0000"><b><font color="#ffffff">Pï¿½liza Vencida</font></b></td>
     <td align=middle bgcolor="#FFCC00"> NO UTILIZAR SERVICIOS <script language="Javascript">history.go(-1);</script></td>
   </tr>';}
 
@@ -227,7 +228,7 @@ echo"<form action='process.php?module=cabina&clave=".$clave."&accela=new' method
 if($restform=="si"){echo'<div id=capaexpansion style="display:block">';}
 else{echo'<div id=capaexpansion style="display:none">';}
 echo'<table width="100%" border="0" cellpadding=0 cellspacing=0>
-<tr><td width=50% align="middle" bgcolor="#cccccc"><b>Alta de servicio</b></td><td width=50% align="middle" bgcolor="#cccccc"><b>Histórico de servicios</b></td></tr>
+<tr><td width=50% align="middle" bgcolor="#cccccc"><b>Alta de servicio</b></td><td width=50% align="middle" bgcolor="#cccccc"><b>Histï¿½rico de servicios</b></td></tr>
 <tr><td width=50% valign=top><table width="100%" border="0" cellpadding=3 cellspacing=3>';
 foreach($productos_poliza as $losprod){
 $link = mysqli_connect($host,$username,$pass,$database);
@@ -270,7 +271,7 @@ $in=$in+1;
 echo'</table></td><td width=50% valign=top>
 
 <table width="100%" border="0" cellpadding=3 cellspacing=3>
-<tr><td bgcolor="#bbbbbb" align=middle><b>Número de expediente</b></td><td bgcolor="#bbbbbb"  align=middle><b>Servicio utilizado</b></td><td bgcolor="#bbbbbb"  align=middle><b>Detalle</b></td></tr>';
+<tr><td bgcolor="#bbbbbb" align=middle><b>Nï¿½mero de expediente</b></td><td bgcolor="#bbbbbb"  align=middle><b>Servicio utilizado</b></td><td bgcolor="#bbbbbb"  align=middle><b>Detalle</b></td></tr>';
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
