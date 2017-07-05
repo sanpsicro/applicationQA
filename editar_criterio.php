@@ -1,21 +1,46 @@
-<?
+<?php 
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 
-
+isset($_GET['id']) ? $id = $_GET['id'] : $id = null ; 
+isset($_GET['flim-flam']) ? $flim_flam = $_GET['flim-flam'] : $flim_flam = null ; 
 ##
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
+
+//initialize
+$resp_ajustador="";
+$resp_abogado="";
+$resp_perito="";
+$resp_consignado="";
+$juzgado="";
+$causa_penal="";
+$procesado="";
+
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
+
+
+$result = mysqli_query($db,"SELECT * from seguimiento_juridico where general = '$id'");
 if (mysqli_num_rows($result)){ 
-$resp_ajustador=mysql_result($result,0,"resp_ajustador");
-$resp_abogado=mysql_result($result,0,"resp_abogado");
-$resp_perito=mysql_result($result,0,"resp_perito");
-$resp_consignado=mysql_result($result,0,"resp_consignado");
-$juzgado=mysql_result($result,0,"juzgado");
-$causa_penal=mysql_result($result,0,"causa_penal");
-$procesado=mysql_result($result,0,"procesado");
+$resp_ajustador=mysqli_result($result,0,"resp_ajustador");
+$resp_abogado=mysqli_result($result,0,"resp_abogado");
+$resp_perito=mysqli_result($result,0,"resp_perito");
+$resp_consignado=mysqli_result($result,0,"resp_consignado");
+$juzgado=mysqli_result($result,0,"juzgado");
+$causa_penal=mysqli_result($result,0,"causa_penal");
+$procesado=mysqli_result($result,0,"procesado");
 }
 ##
 echo'<form method="post" onsubmit="FAjax(\'criterio.php?&flim-flam=new Date().getTime()\',\'criterio\',\'id='.$_GET['id'].'&crt_ajustador=\'+document.getElementById(\'crt_ajustador\').value+\'&crt_abogado=\'+document.getElementById(\'crt_abogado\').value+\'&crt_perito=\'+document.getElementById(\'crt_perito\').value+\'&crt_consignado=\'+document.getElementById(\'crt_consignado\').value+\'&juzgado=\'+document.getElementById(\'juzgado\').value+\'&causa_penal=\'+document.getElementById(\'causa_penal\').value+\'&procesado=\'+document.getElementById(\'procesado\').value,\'POST\'); return false" action="#">';
@@ -138,7 +163,7 @@ echo'>Ambos
     </strong></td>
     <td bgcolor="#ffffff"><input name="Enviar" type="submit" value="Enviar" /> 
             &nbsp;&nbsp;
-            <input type="button" name="Button" value="Cancelar" onclick="javascript:FAjax(\'criterio.php?id='.$_GET[id].'&flim-flam=new Date().getTime()\',\'criterio\',\'\',\'get\');"/></td>
+            <input type="button" name="Button" value="Cancelar" onclick="javascript:FAjax(\'criterio.php?id='.$_GET['id'].'&flim-flam=new Date().getTime()\',\'criterio\',\'\',\'get\');"/></td>
     <td bgcolor="#ffffff">&nbsp;</td>
     <td align="right" bgcolor="#ffffff">&nbsp;</td>
   </tr>
