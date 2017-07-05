@@ -1,33 +1,48 @@
 <script type="text/javascript" src="subcombo.js"></script>
-<?
+<?php 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from general where id = '$id'",$db);
+
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+} 
+
+
+$result = mysqli_query($db,"SELECT * from general where id = '$id'");
 if (mysqli_num_rows($result)){ 
-$servicio=mysql_result($result,0,"servicio");
-$motivo_servicio=mysql_result($result,0,"motivo_servicio");
-$tecnico_solicitado=mysql_result($result,0,"tecnico_solicitado");
-$tipo_asistencia_medica=mysql_result($result,0,"tipo_asistencia_medica");
-$tipo_asistencia_vial=mysql_result($result,0,"tipo_asistencia_vial");
-$ubicacion_requiere=mysql_result($result,0,"ubicacion_requiere");
-$domicilio_cliente=mysql_result($result,0,"domicilio_cliente");
-$domicilio_sustituto=mysql_result($result,0,"domicilio_sustituto");
-$ubicacion_estado=mysql_result($result,0,"ubicacion_estado");
-$ubicacion_municipio=mysql_result($result,0,"ubicacion_municipio");
-$ubicacion_colonia=mysql_result($result,0,"ubicacion_colonia");
-$ubicacion_ciudad=mysql_result($result,0,"ubicacion_ciudad");
-$destino_servicio=mysql_result($result,0,"destino_servicio");
-$destino_estado=mysql_result($result,0,"destino_estado");
-$destino_municipio=mysql_result($result,0,"destino_municipio");
-$destino_colonia=mysql_result($result,0,"destino_colonia");
-$destino_ciudad=mysql_result($result,0,"destino_ciudad");
-$observaciones=mysql_result($result,0,"observaciones");
+$servicio=mysqli_result($result,0,"servicio");
+$motivo_servicio=mysqli_result($result,0,"motivo_servicio");
+$tecnico_solicitado=mysqli_result($result,0,"tecnico_solicitado");
+$tipo_asistencia_medica=mysqli_result($result,0,"tipo_asistencia_medica");
+$tipo_asistencia_vial=mysqli_result($result,0,"tipo_asistencia_vial");
+$ubicacion_requiere=mysqli_result($result,0,"ubicacion_requiere");
+$domicilio_cliente=mysqli_result($result,0,"domicilio_cliente");
+$domicilio_sustituto=mysqli_result($result,0,"domicilio_sustituto");
+$ubicacion_estado=mysqli_result($result,0,"ubicacion_estado");
+$ubicacion_municipio=mysqli_result($result,0,"ubicacion_municipio");
+$ubicacion_colonia=mysqli_result($result,0,"ubicacion_colonia");
+$ubicacion_ciudad=mysqli_result($result,0,"ubicacion_ciudad");
+$destino_servicio=mysqli_result($result,0,"destino_servicio");
+$destino_estado=mysqli_result($result,0,"destino_estado");
+$destino_municipio=mysqli_result($result,0,"destino_municipio");
+$destino_colonia=mysqli_result($result,0,"destino_colonia");
+$destino_ciudad=mysqli_result($result,0,"destino_ciudad");
+$observaciones=mysqli_result($result,0,"observaciones");
 }
 
 $result = mysqli_query("SELECT * from servicios where id = '$servicio'",$db);
 if (mysqli_num_rows($result)){ 
-$servicio=mysql_result($result,0,"servicio");
-$campos=mysql_result($result,0,"campos");
+$servicio=mysqli_result($result,0,"servicio");
+$campos=mysqli_result($result,0,"campos");
 $camposex=explode(",",$campos);
 }
 /*
@@ -41,18 +56,18 @@ $ivx=0;
           
 <tr>
 
-<?
+<?php 
 $checa_array=array_search("motivo_servicio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
       <td bgcolor="#ffffff"><strong>Motivo del servicio:</strong><br></td>
-	  <td bgcolor="#ffffff"><textarea name="motivo_servicio" id="motivo_servicio" cols="40" rows="4"><? echo $motivo_servicio;?></textarea></td>
+	  <td bgcolor="#ffffff"><textarea name="motivo_servicio" id="motivo_servicio" cols="40" rows="4"><?php echo $motivo_servicio;?></textarea></td>
       
-            <? $ivx++; 
+            <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
 
-<?
+<?php 
 $checa_array=array_search("tipo_asistencia_vial",$camposex);
 if($checa_array===FALSE){} else{
 ?>
@@ -62,37 +77,37 @@ if($checa_array===FALSE){} else{
 	  
 	  <select name="tipo_asistencia_vial" id="tipo_asistencia_vial">
              <option>Seleccione...</option>
-             <option value="Traslado para evitar alcohol&iacute;metro"  <?
-if($tipo_asistencia_vial=="Traslado para evitar alcoholímetro"){echo' selected ';}?>			 
-			 >Traslado para evitar alcoholímetro</option>
-             <option value="Siniestro" <? if($tipo_asistencia_vial=="Siniestro"){echo' selected ';}	?>		 			 
+             <option value="Traslado para evitar alcohol&iacute;metro"  <?php 
+if($tipo_asistencia_vial=="Traslado para evitar alcoholï¿½metro"){echo' selected ';}?>			 
+			 >Traslado para evitar alcoholï¿½metro</option>
+             <option value="Siniestro" <?php if($tipo_asistencia_vial=="Siniestro"){echo' selected ';}	?>		 			 
 			 >Siniestro</option>
-             <option value="Asistencia" <?
+             <option value="Asistencia" <?php 
 if($tipo_asistencia_vial=="Asistencia"){echo' selected ';}		?>	 			 			 
 			 >Asistencia</option>
-			 <option value="Paso de Corriente" <?
+			 <option value="Paso de Corriente" <?php 
 if($tipo_asistencia_vial=="Paso de Corriente"){echo' selected ';}		?>	 			 			 
 			 >Paso de Corriente</option>
-             <option value="Cambio de llanta" <?
+             <option value="Cambio de llanta" <?php 
 if($tipo_asistencia_vial=="Cambio de llanta"){echo' selected ';} ?>			 			 			 
 			 >Cambio de llanta</option>
-             <option value="Llaves en el interior del vehículo" <? 
-if($tipo_asistencia_vial=="Llaves en el interior del vehículo"){echo' selected ';}?>			 			 			 			 
+             <option value="Llaves en el interior del vehï¿½culo" <?php 
+if($tipo_asistencia_vial=="Llaves en el interior del vehï¿½culo"){echo' selected ';}?>			 			 			 			 
 			 >Llaves en el interior del veh&iacute;culo</option>
-             <option value="Envío de gasolina" <?
-if($tipo_asistencia_vial=="Envío de gasolina"){echo' selected ';} ?>			 			 			 			 			 
+             <option value="Envï¿½o de gasolina" <?php 
+if($tipo_asistencia_vial=="Envï¿½o de gasolina"){echo' selected ';} ?>			 			 			 			 			 
 			 >Env&iacute;o de gasolina</option>
-             <option value="Problemas administrativos" <? 
+             <option value="Problemas administrativos" <?php 
 if($tipo_asistencia_vial=="Problemas administrativos"){echo' selected ';} ?>			 			 			 			 			 			 
 			 >Problemas administrativos</option>
                   </select>    </td>
 	  
       
-                  <? $ivx++; 
+                  <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
 
-      <?
+      <?php 
 $checa_array=array_search("tipo_asistencia_medica",$camposex);
 if($checa_array===FALSE){} else{
 ?>
@@ -102,97 +117,97 @@ if($checa_array===FALSE){} else{
 	  
 	  <select name="tipo_asistencia_medica" id="tipo_asistencia_medica">
            <option>Seleccione...</option>
-             <option value="Consulta telefónica" <? 
-if($tipo_asistencia_medica=="Consulta telefónica"){echo' selected ';}	?>		 			 
+             <option value="Consulta telefï¿½nica" <?php 
+if($tipo_asistencia_medica=="Consulta telefï¿½nica"){echo' selected ';}	?>		 			 
 			 >Consulta telef&oacute;nica</option>
-             <option value="Consulta a domicilio" <? 
+             <option value="Consulta a domicilio" <?php 
 if($tipo_asistencia_medica=="Consulta a domicilio"){echo' selected ';}	?>		 			 
 			 >Consulta a domicilio</option>
-             <option value="Ambulancia" <? 
+             <option value="Ambulancia" <?php 
 if($tipo_asistencia_medica=="Ambulancia"){echo' selected ';}	?>		 			 
 			 >Ambulancia</option>
                   </select>    </td>
-                  <? $ivx++; 
+                  <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 
 
-<?
+<?php 
 $checa_array=array_search("tecnico_solicitado",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 
     <td bgcolor="#ffffff"><strong>T&eacute;cnico solicitado:</strong></td> 
     <td bgcolor="#ffffff"><select name="tecnico_solicitado" id="tecnico_solicitado">
-<option value="Plomero" <? if($tecnico_solicitado=="Plomero"){echo' selected ';} ?> >Plomero</option>
-<option value="Cerrajero" <? if($tecnico_solicitado=="Cerrajero"){echo' selected ';}?> >Cerrajero</option>
-<option value="Vidriero" <? if($tecnico_solicitado=="Vidriero"){echo' selected ';} ?> >Vidriero</option>
-<option value="Electricista" <? if($tecnico_solicitado=="Electricista"){echo' selected ';} ?> >Electricista</option>
-<option value="Carpintero" <? if($tecnico_solicitado=="Carpintero"){echo' selected ';} ?> >Carpintero</option>
-<option value="Ebanista" <? if($tecnico_solicitado=="Ebanista"){echo' selected ';} ?> >Ebanista</option>
-<option value="Jardinero" <? if($tecnico_solicitado=="Jardinero"){echo' selected ';} ?> >Jardinero</option>
-<option value="Herrero" <? if($tecnico_solicitado=="Herrero"){echo' selected ';} ?> >Herrero</option>
-<option value="Albañilería" <? if($tecnico_solicitado=="Albañilería"){echo' selected ';} ?> >Albañilería</option>
-<option value="Impermeabilizador" <? if($tecnico_solicitado=="Impermeabilizador"){echo' selected ';} ?> >Impermeabilizador</option>
-<option value="Puertas eléctricas" <? if($tecnico_solicitado=="Puertas eléctricas"){echo' selected ';} ?> >Puertas eléctricas</option>
-<option value="CCTV" <? if($tecnico_solicitado=="CCTV"){echo' selected ';} ?> >CCTV</option>
-<option value="Técnico en electrodimesticos" <? if($tecnico_solicitado=="Técnico en electrodimesticos"){echo' selected ';} ?> >Técnico en electrodimesticos</option>
-<option value="Lavado de Alfombras y Mobiliario" <? if($tecnico_solicitado=="Lavado de Alfombras y Mobiliario"){echo' selected ';} ?> >Lavado de Alfombras y Mobiliario</option>
-<option value="Pintores" <? if($tecnico_solicitado=="Pintores"){echo' selected ';} ?> >Pintores</option>
-<option value="Mantenimiento y limpieza de Albercas" <? if($tecnico_solicitado=="Mantenimiento y limpieza de Albercas"){echo' selected ';} ?> >Mantenimiento y limpieza de Albercas</option>
-<option value="Técnico en computación" <? if($tecnico_solicitado=="Técnico en computación"){echo' selected ';} ?> >Técnico en computación</option>
-<option value="Transporte de Mudanzas" <? if($tecnico_solicitado=="Transporte de Mudanzas"){echo' selected ';} ?> >Transporte de Mudanzas</option>
-<option value="Calefacción y A/A" <? if($tecnico_solicitado=="Calefacción y A/A"){echo' selected ';} ?> >Calefacción y A/A</option>
-<option value="Handyman" <? if($tecnico_solicitado=="Handyman"){echo' selected ';} ?> >Handyman</option>
-<option value="Servicio Doméstico" <? if($tecnico_solicitado=="Servicio Doméstico"){echo' selected ';} ?> >Servicio Doméstico</option>
-<option value="Otros técnicos" <? if($tecnico_solicitado=="Otros técnicos"){echo' selected ';} ?> >Otros técnicos</option>
+<option value="Plomero" <?php if($tecnico_solicitado=="Plomero"){echo' selected ';} ?> >Plomero</option>
+<option value="Cerrajero" <?php if($tecnico_solicitado=="Cerrajero"){echo' selected ';}?> >Cerrajero</option>
+<option value="Vidriero" <?php if($tecnico_solicitado=="Vidriero"){echo' selected ';} ?> >Vidriero</option>
+<option value="Electricista" <?php if($tecnico_solicitado=="Electricista"){echo' selected ';} ?> >Electricista</option>
+<option value="Carpintero" <?php if($tecnico_solicitado=="Carpintero"){echo' selected ';} ?> >Carpintero</option>
+<option value="Ebanista" <?php if($tecnico_solicitado=="Ebanista"){echo' selected ';} ?> >Ebanista</option>
+<option value="Jardinero" <?php if($tecnico_solicitado=="Jardinero"){echo' selected ';} ?> >Jardinero</option>
+<option value="Herrero" <?php if($tecnico_solicitado=="Herrero"){echo' selected ';} ?> >Herrero</option>
+<option value="Albaï¿½ilerï¿½a" <?php if($tecnico_solicitado=="Albaï¿½ilerï¿½a"){echo' selected ';} ?> >Albaï¿½ilerï¿½a</option>
+<option value="Impermeabilizador" <?php if($tecnico_solicitado=="Impermeabilizador"){echo' selected ';} ?> >Impermeabilizador</option>
+<option value="Puertas elï¿½ctricas" <?php if($tecnico_solicitado=="Puertas elï¿½ctricas"){echo' selected ';} ?> >Puertas elï¿½ctricas</option>
+<option value="CCTV" <?php if($tecnico_solicitado=="CCTV"){echo' selected ';} ?> >CCTV</option>
+<option value="Tï¿½cnico en electrodimesticos" <?php if($tecnico_solicitado=="Tï¿½cnico en electrodimesticos"){echo' selected ';} ?> >Tï¿½cnico en electrodimesticos</option>
+<option value="Lavado de Alfombras y Mobiliario" <?php if($tecnico_solicitado=="Lavado de Alfombras y Mobiliario"){echo' selected ';} ?> >Lavado de Alfombras y Mobiliario</option>
+<option value="Pintores" <?php if($tecnico_solicitado=="Pintores"){echo' selected ';} ?> >Pintores</option>
+<option value="Mantenimiento y limpieza de Albercas" <?php if($tecnico_solicitado=="Mantenimiento y limpieza de Albercas"){echo' selected ';} ?> >Mantenimiento y limpieza de Albercas</option>
+<option value="Tï¿½cnico en computaciï¿½n" <?php if($tecnico_solicitado=="Tï¿½cnico en computaciï¿½n"){echo' selected ';} ?> >Tï¿½cnico en computaciï¿½n</option>
+<option value="Transporte de Mudanzas" <?php if($tecnico_solicitado=="Transporte de Mudanzas"){echo' selected ';} ?> >Transporte de Mudanzas</option>
+<option value="Calefacciï¿½n y A/A" <?php if($tecnico_solicitado=="Calefacciï¿½n y A/A"){echo' selected ';} ?> >Calefacciï¿½n y A/A</option>
+<option value="Handyman" <?php if($tecnico_solicitado=="Handyman"){echo' selected ';} ?> >Handyman</option>
+<option value="Servicio Domï¿½stico" <?php if($tecnico_solicitado=="Servicio Domï¿½stico"){echo' selected ';} ?> >Servicio Domï¿½stico</option>
+<option value="Otros tï¿½cnicos" <?php if($tecnico_solicitado=="Otros tï¿½cnicos"){echo' selected ';} ?> >Otros tï¿½cnicos</option>
     </select></td>
 	  
-                  <? $ivx++; 
+                  <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
-                  <?
+                  <?php 
 $checa_array=array_search("domicilio_cliente",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 	  
    <td bgcolor="#ffffff"><strong>Domicilio cliente: </strong></td>
-            <td bgcolor="#ffffff"><input name="domicilio_cliente" id="domicilio_cliente" type="text" size="25" value="<? echo $domicilio_cliente; ?>"/></td>
+            <td bgcolor="#ffffff"><input name="domicilio_cliente" id="domicilio_cliente" type="text" size="25" value="<?php echo $domicilio_cliente; ?>"/></td>
 
-                  <? $ivx++; 
+                  <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 
-                  <?
+                  <?php 
 $checa_array=array_search("domicilio_sustituto",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 	  
    <td bgcolor="#ffffff"><strong>Domicilio auto sustituto: </strong></td>
-            <td bgcolor="#ffffff"><input name="domicilio_sustituto" id="domicilio_sustituto" type="text" size="25" value="<? echo $domicilio_sustituto; ?>"/></td> 
+            <td bgcolor="#ffffff"><input name="domicilio_sustituto" id="domicilio_sustituto" type="text" size="25" value="<?php echo $domicilio_sustituto; ?>"/></td> 
 	  
-                  <? $ivx++; 
+                  <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 
-                  <?
+                  <?php 
 $checa_array=array_search("ubicacion_requiere",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 
             <td bgcolor="#ffffff"><strong>Ubicacion y referencias: </strong><br></td>
-			<td bgcolor="#ffffff"><textarea name="ubicacion_requiere" id="ubicacion_requiere" cols="40" rows="4"><? echo $ubicacion_requiere;?></textarea></td>
+			<td bgcolor="#ffffff"><textarea name="ubicacion_requiere" id="ubicacion_requiere" cols="40" rows="4"><?php echo $ubicacion_requiere;?></textarea></td>
             
-                              <? $ivx++; 
+                              <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 
-                              <?
+                              <?php 
 $checa_array=array_search("ubicacion_estado",$camposex);
 if($checa_array===FALSE){} else{
 ?>
  <td bgcolor="#ffffff"><strong>Ubicacion Estado: </strong></td>
-            <td bgcolor="#ffffff"><? 
+            <td bgcolor="#ffffff"><?php 
 			echo'<select name="estado" id="estado" onChange=\'cargaContenido(this.id)\'>
             <option value=\'0\'>Seleccione un Estado</option>';
 $link = mysqli_connect($host, $username, $pass); 
@@ -206,16 +221,16 @@ if (mysqli_num_rows($result)){
   }}
 
 echo'        </select>'; ?></td>
-						                              <? $ivx++; 
+						                              <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 
- <?
+ <?php 
 $checa_array=array_search("ubicacion_municipio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
             <td bgcolor="#ffffff"><strong>Ubicacion Municipio: </strong></td>
-            <td bgcolor="#ffffff"><? 
+            <td bgcolor="#ffffff"><?php 
 			
 			if(isset($ubicacion_estado) && $ubicacion_estado!=""){
 echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>';
@@ -239,11 +254,11 @@ echo'</select>';
 else{echo'<select disabled="disabled" name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>
 						<option value="0">Seleccione un Estado</option></select>';}		?>
 			
-			</td>		         	                              <? $ivx++; 
+			</td>		         	                              <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 
- <?
+ <?php 
 $checa_array=array_search("ubicacion_colonia",$camposex);
 if($checa_array===FALSE){} else{
 ?>
@@ -251,7 +266,7 @@ if($checa_array===FALSE){} else{
 						
             <td bgcolor="#ffffff"><strong>Ubicacion  Colonia: </strong></td>
             <td bgcolor="#ffffff">
-			<? 
+			<?php 
 			 if(isset($ubicacion_municipio) && $ubicacion_municipio!=""){
 echo'  <select name="colonia" id="colonia">';
 $link = mysqli_connect($host, $username, $pass); 
@@ -276,42 +291,42 @@ echo'</select>';
 			
 			
 </td>
-        	                              <? $ivx++; 
+        	                              <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 			
-             <?
+             <?php 
 $checa_array=array_search("ubicacion_ciudad",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 
             <td bgcolor="#ffffff"><strong>Ubicacion Ciudad: </strong></td>
-            <td bgcolor="#ffffff"><input name="ciudad" id="ciudad" type="text" size="25" value="<? echo $ubicacion_ciudad; ?>"/></td>
+            <td bgcolor="#ffffff"><input name="ciudad" id="ciudad" type="text" size="25" value="<?php echo $ubicacion_ciudad; ?>"/></td>
 			
-             <? $ivx++; 
+             <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 			
-                         <?
+                         <?php 
 $checa_array=array_search("destino_servicio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 
             
 			            <td bgcolor="#ffffff"><strong>Destino del servicio: </strong></td>
-                        <td bgcolor="#ffffff"><input name="destino_servicio" id="destino_servicio" type="text" size="25" value="<? echo $destino_servicio; ?>"/></td>
+                        <td bgcolor="#ffffff"><input name="destino_servicio" id="destino_servicio" type="text" size="25" value="<?php echo $destino_servicio; ?>"/></td>
 
-			             <? $ivx++; 
+			             <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>      
 			
- <?
+ <?php 
 $checa_array=array_search("destino_estado",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 			
 			<td bgcolor="#ffffff"><strong>Destino Estado: </strong></td>
-            <td bgcolor="#ffffff"><? echo'<select name="estado2" id="estado2" onChange=\'cargaContenido(this.id)\'>
+            <td bgcolor="#ffffff"><?php echo'<select name="estado2" id="estado2" onChange=\'cargaContenido(this.id)\'>
             <option value=\'0\'>Seleccione un Estado</option>';
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
@@ -325,16 +340,16 @@ if (mysqli_num_rows($result)){
 
 echo'        </select>'; ?></td>
 			
-			     <? $ivx++; 
+			     <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>   
-			 <?
+			 <?php 
 $checa_array=array_search("destino_municipio",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 		
 			 <td bgcolor="#ffffff"><strong>Destino Municipio: </strong></td>
-            <td bgcolor="#ffffff"><?
+            <td bgcolor="#ffffff"><?php 
 			
 			if(isset($destino_estado) && $destino_estado!=""){
 echo'  <select name="municipio2" id="municipio2" onChange=\'cargaContenido(this.id)\'>';
@@ -360,16 +375,16 @@ else{echo'<select disabled="disabled" name="municipio2" id="municipio2" onChange
 			
 			</td>						
 						
-						     <? $ivx++; 
+						     <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>   
-				 <?
+				 <?php 
 $checa_array=array_search("destino_colonia",$camposex);
 if($checa_array===FALSE){} else{
 ?>
 			
 			  <td bgcolor="#ffffff"><strong>Destino  Colonia: </strong></td>
-            <td bgcolor="#ffffff"><?
+            <td bgcolor="#ffffff"><?php 
 			
 			 if(isset($destino_municipio) && $destino_municipio!=""){
 echo'  <select name="colonia2" id="colonia2">';
@@ -395,29 +410,29 @@ echo'</select>';
 			
 </td>
 			
-						     <? $ivx++; 
+						     <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>   
-             <?
+             <?php 
 $checa_array=array_search("destino_ciudad",$camposex);
 if($checa_array===FALSE){} else{
 ?>
             
 			<td bgcolor="#ffffff"><strong>Destino Ciudad: </strong></td>
-            <td bgcolor="#ffffff"><input name="ciudad2" id="ciudad2" type="text" size="25" value="<? echo $destino_ciudad; ?>"/></td>
+            <td bgcolor="#ffffff"><input name="ciudad2" id="ciudad2" type="text" size="25" value="<?php echo $destino_ciudad; ?>"/></td>
 				
 			
-			  <? $ivx++; 
+			  <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>   
-			 <?
+			 <?php 
 $checa_array=array_search("observaciones",$camposex);
 if($checa_array===FALSE){} else{
 ?>
             <td bgcolor="#FFFFFF"><b>Observaciones:</b></td>
-            <td bgcolor="#FFFFFF"><textarea name="observaciones" cols="40" rows="4"><? echo $observaciones;?></textarea></td>
+            <td bgcolor="#FFFFFF"><textarea name="observaciones" cols="40" rows="4"><?php echo $observaciones;?></textarea></td>
             
-             <? $ivx++; 
+             <?php $ivx++; 
 			if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>  					
 			</tr>

@@ -79,18 +79,15 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmborra(idex,tercero) { 
-if (confirm("�Est� seguro de querer eliminar al tercero?\n")) { 
+if (confirm("¿Está seguro de querer eliminar al tercero?\n")) { 
 FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-flam='+new Date().getTime(),'terceros','','get');
 }
 }
 </script>
 <script type="text/javascript" src="subcombo.js"></script>
 <?php 
-if(isset($_GET['id'])){
-$id  = $_GET['id'];
-}else{
-$id=null;
-}
+isset($_GET['id']) ? $id = $_GET['id'] : $id="";
+
 
 if(isset($_POST['exxxp'])){
 $exxxp = $_POST['exxxp'];
@@ -1567,7 +1564,7 @@ $cuentacel=strlen($celsms);
 
 if ($cuentacel == 10) { ?>
 
-<strong>SE ENVIAR� UN SMS A: +52<?php $celsms?></strong>
+<strong>SE ENVIARÁ UN SMS A: +52<?php $celsms?></strong>
 <br />
 <form id="form1" name="form1" method="post" action="process.php?module=enviasms2">
 <input type="hidden" name="to" value="+52<?php $celsms?>">
