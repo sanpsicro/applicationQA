@@ -1,13 +1,18 @@
 <?php
 $checa_arrayx=array_search("cabina",$explota_modulos);
+
+isset($_GET['clave']) ? $clave = $_GET['clave'] : $clave = "";
+isset($_GET['servicio']) ? $servicio = $_GET['servicio'] : $servicio = "";
+isset($_GET['idcliente']) ? $idcliente = $_GET['idcliente'] : $idcliente = "";
+
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{
 
 
 $link = mysqli_connect($host,$username,$pass,$database);
 $sql="INSERT INTO `general` (`servicio`, `contrato`, `idCliente`, `fecha_recepcion`, `status`) VALUES ('$servicio', '$clave', '$idcliente', now(),  'abierto')";
-mysqli_query($link, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<b>".mysql_error());
-$expediente=mysqli_insert_id();
+mysqli_query($link, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<b>".mysqli_error());
+$expediente=mysqli_insert_id($link);
 
 echo "Expediente: [$expediente]<br>";
 }
@@ -46,7 +51,7 @@ function g(o){
 </script>
 <script Language="JavaScript">
 function validar(formulario) {
-<?
+<?php 
 if($_POST['cobrarservicio']=="si"){
 echo'if (formulario.costo.value =="") {
     alert("Ingrese el costo por servicio");
@@ -88,7 +93,7 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,lo
 </style>
 
 
-<?
+<?php 
 echo"
 <SCRIPT LANGUAGE=\"JavaScript\">
 popUp('bitacorab.php?id=".$expediente."');
@@ -97,11 +102,11 @@ popUp('bitacorab.php?id=".$expediente."');
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><span class="maintitle">Cabina / Expediente <? echo $expedientex;?></span></td></tr>
+      <td height="44" align="left"><span class="maintitle">Cabina / Expediente <?php echo $expedientex;?></span></td></tr>
 	   <tr> <td  align="right">&nbsp;</td></tr>
  <tr>
    <td align="left">
-   <?
+   <?php 
    
  $link = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
@@ -208,8 +213,8 @@ $camposex=explode(",",$campos);
          <td colspan="6" bgcolor="#999999">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
            <tr>
-             <td><span class="style1"><? echo $nombre_servicio;?></span></td>
-             <td align="right"><strong>[ <a href="javascript:popUp('bitacorab.php?id=<? echo $expediente;?>')">Lanzar bit&aacute;cora</a>]</strong></td>
+             <td><span class="style1"><?php echo $nombre_servicio;?></span></td>
+             <td align="right"><strong>[ <a href="javascript:popUp('bitacorab.php?id=<?php echo $expediente;?>')">Lanzar bit&aacute;cora</a>]</strong></td>
            </tr>
          </table>           </td>
        </tr>
@@ -230,14 +235,14 @@ $camposex=explode(",",$campos);
        </tr>
        <tr>
          <td colspan="6" bgcolor="#CCCCCC">Servicio capturado por usuario: 
-           <input name="nix" type="text" id="nix" size="20" value="<? echo $valid_user;?>" readonly/></td>
+           <input name="nix" type="text" id="nix" size="20" value="<?php echo $valid_user;?>" readonly/></td>
        </tr>
        <tr>
          <td colspan="6" bgcolor="#999999"><span class="style1">Informaci&oacute;n General del Cliente </span></td>
        </tr>
        <tr>
        
-       <?
+       <?php 
        $checa_array=array_search("informacion_caso",$camposex);
 if($checa_array===FALSE){
 #################startelse
@@ -514,20 +519,20 @@ if($checa_array===FALSE){} else{echo '<td height="25" bgcolor="#CCCCCC"><strong>
 <option value="Ebanista">Ebanista</option>
 <option value="Jardinero">Jardinero</option>
 <option value="Herrero">Herrero</option>
-<option value="Albañilería">Albañilería</option>
+<option value="Albaï¿½ilerï¿½a">Albaï¿½ilerï¿½a</option>
 <option value="Impermeabilizador">Impermeabilizador</option>
-<option value="Puertas eléctricas">Puertas eléctricas</option>
+<option value="Puertas elï¿½ctricas">Puertas elï¿½ctricas</option>
 <option value="CCTV">CCTV</option>
-<option value="Técnico en electrodimesticos">Técnico en electrodimesticos</option>
+<option value="Tï¿½cnico en electrodimesticos">Tï¿½cnico en electrodimesticos</option>
 <option value="Lavado de Alfombras y Mobiliario">Lavado de Alfombras y Mobiliario</option>
 <option value="Pintores">Pintores</option>
 <option value="Mantenimiento y limpieza de Albercas">Mantenimiento y limpieza de Albercas</option>
-<option value="Técnico en computación">Técnico en computación</option>
+<option value="Tï¿½cnico en computaciï¿½n">Tï¿½cnico en computaciï¿½n</option>
 <option value="Transporte de Mudanzas">Transporte de Mudanzas</option>
-<option value="Calefacción y A/A">Calefacción y A/A</option>
+<option value="Calefacciï¿½n y A/A">Calefacciï¿½n y A/A</option>
 <option value="Handyman">Handyman</option>
-<option value="Servicio Doméstico">Servicio Doméstico</option>
-<option value="Otros técnicos">Otros técnicos</option>
+<option value="Servicio Domï¿½stico">Servicio Domï¿½stico</option>
+<option value="Otros tï¿½cnicos">Otros tï¿½cnicos</option>
 </select></td>';
 $cuenta_campos=$cuenta_campos+1;
 if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
@@ -602,7 +607,7 @@ if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
 		 }	
 #//
 $checa_array=array_search("ubicacion_estado",$camposex);
-if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicación Estado:</strong></td>
+if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Estado:</strong></td>
          <td bgcolor="#CCCCCC"><select name="estado" id="estado" onChange=\'cargaContenido(this.id)\'><option value=\'0\'>Seleccione un Estado</option>';
 
 $link = mysqli_connect($host, $username, $pass,$database); 
@@ -619,7 +624,7 @@ if (mysqli_num_rows($result)){
 if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}}			 
 #//
 $checa_array=array_search("ubicacion_municipio",$camposex);
-if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicación Municipio:</strong></td>
+if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Municipio:</strong></td>
          <td bgcolor="#CCCCCC">';
 						  if(isset($municipio) && isset($estado)){
 						 echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'><option value="0">SELECCIONE UNA OPCION</option>';
@@ -648,7 +653,7 @@ if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
 }	
 #//			  		 
 $checa_array=array_search("ubicacion_colonia",$camposex);
-if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicación Colonia:</strong></td>
+if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Colonia:</strong></td>
          <td bgcolor="#CCCCCC">';
 						  if(isset($municipio) && isset($estado)){
 						 echo'  <select name="colonia" id="colonia"><option value="0">SELECCIONE UNA OPCION</option>';
@@ -678,7 +683,7 @@ if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
 }	
 #//
 $checa_array=array_search("ubicacion_ciudad",$camposex);
-if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicación Ciudad o localidad:</strong> </td>
+if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Ciudad o localidad:</strong> </td>
          <td bgcolor="#CCCCCC"><input name="ciudad" type="text" id="ciudad" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$ciudad.'"/></td>';
 		 		 $cuenta_campos=$cuenta_campos+1;
 if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
@@ -843,7 +848,7 @@ echo'</tr>';
 		 <td bgcolor="#CCCCCC"><strong>Domicilio donde recoger&aacute; auto sustituto:</strong> </td>
          <td bgcolor="#CCCCCC"><input name="domicilio_sustituto" type="text" id="domicilio_sustituto" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$domicilio.'"/></td>
 		 
-		 <td bgcolor="#CCCCCC"><strong>Ubicación Estado:</strong></td>
+		 <td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Estado:</strong></td>
          <td bgcolor="#CCCCCC"><select name="estado" id="estado" onChange=\'cargaContenido(this.id)\'><option value=\'0\'>Seleccione un Estado</option>';
 
 $link = mysqli_connect($host, $username, $pass,$database); 
@@ -857,7 +862,7 @@ if (mysqli_num_rows($result)){
   }}
 
         echo'</select></td>
-		 <td bgcolor="#CCCCCC"><strong>Ubicación Municipio:</strong></td>
+		 <td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Municipio:</strong></td>
          <td bgcolor="#CCCCCC">';
 						  if(isset($municipio) && isset($estado)){
 						 echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>';
@@ -877,7 +882,7 @@ else{echo'<select disabled="disabled" name="municipio" id="municipio" onChange=\
 					</select>';}
 
 						  echo'</td></tr><tr>
-						  <td bgcolor="#CCCCCC"><strong>Ubicación Colonia:</strong></td>
+						  <td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Colonia:</strong></td>
          <td bgcolor="#CCCCCC">';
 						  if(isset($municipio) && isset($estado)){
 						 echo'  <select name="colonia" id="colonia" onChange=\'cargaContenido(this.id)\'>';
@@ -899,7 +904,7 @@ else{echo'<select disabled="disabled" name="colonia" id="colonia" onChange=\'car
 						<option value="0">Seleccione un Municipio</option>
 					</select>';}
 
-						  echo'</td><td bgcolor="#CCCCCC"><strong>Ubicación Ciudad o localidad:</strong> </td>
+						  echo'</td><td bgcolor="#CCCCCC"><strong>Ubicaciï¿½n Ciudad o localidad:</strong> </td>
          <td bgcolor="#CCCCCC"><input name="ciudad" type="text" id="ciudad" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$ciudad.'"/></td>
 		 <td bgcolor="#CCCCCC"><strong>Destino:</strong></td>
          <td bgcolor="#CCCCCC"><input name="destino" type="text" id="destino" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"/></td></tr><tr>
@@ -1004,7 +1009,7 @@ if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Color:</stro
 if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}}		 		 
 #//
 $checa_array=array_search("auto_placas",$camposex);
-if($checa_array===FALSE){} else{echo '         <td bgcolor="#CCCCCC"><strong>Código Identificador:</strong></td><td bgcolor="#CCCCCC"><input name="placas" type="text" id="placas" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$placas.'"/></td>';
+if($checa_array===FALSE){} else{echo '         <td bgcolor="#CCCCCC"><strong>Cï¿½digo Identificador:</strong></td><td bgcolor="#CCCCCC"><input name="placas" type="text" id="placas" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$placas.'"/></td>';
 		 $cuenta_campos=$cuenta_campos+1;
 
 if($cuenta_campos=="2"){echo'<td colspan=2 bgcolor="#cccccc">&nbsp;</td>';}
@@ -1084,7 +1089,7 @@ echo'</tr>';
 			}
 		}	
 		
-		//Código de reserva
+		//Cï¿½digo de reserva
 		$checa_array=array_search("codigo_reserva",$camposex);
 		if($checa_array===FALSE)
 		{
@@ -1274,7 +1279,7 @@ echo'</tr>';
        
        
        
-	   <?
+	   <?php 
 
 		 
 if($_POST[cobrarservicio]=="si"){echo '
@@ -1489,7 +1494,7 @@ echo'</td>
        <tr>
          <td colspan="6" align="center" bgcolor="#CCCCCC"><input type="submit" name="Submit" value="A L T A   D E   S E R V I C I O" />
           &nbsp;
-          <?
+          <?php 
           echo' <input type="button" name="button2" id="button2" value="C A N C E L A R   S E R V I C I O" onClick="javascript:confirmcancel(\'process.php?module=cabina_d&accela=cancelar&idcaso='.$expediente.'\');" onMouseover="window.status=\'\'; return true;"/>';
 		  ?></td>
          </tr>

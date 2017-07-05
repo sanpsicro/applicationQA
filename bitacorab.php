@@ -1,7 +1,9 @@
 <?php
+
 include("conf.php");
-$id = $_GET['id'];
+isset($_GET['id']) ? $id = $_GET['id'] : $id = "";
 $expedientex=$id;
+
 if(strlen($expedientex)==1){$expedientex="000000".$expedientex."";} 
 if(strlen($expedientex)==2){$expedientex="00000".$expedientex."";} 
 if(strlen($expedientex)==3){$expedientex="0000".$expedientex."";} 
@@ -47,12 +49,14 @@ function mysqli_result($res,$row=0,$col=0){
       </tr></table>
 	  <div id="notas">
 	  <?php 
-$link = mysqli_connect($host, $username, $pass,$database); 
+$link = mysqli_connect($host, $username, $pass,$database) ; 
+
 ////mysql_select_db($database, $link); 
 $result = mysqli_query($link,"SELECT * FROM bitacora where general='".$id."' order by fecha desc"); 
+
 if (mysqli_num_rows($result)){ 
   while ($row = @mysqli_fetch_array($result)) { 
-  
+
 $fexar=$row["fecha"];
 $fexaz=explode(" ",$fexar);
 $fexa=explode("-",$fexaz[0]);
@@ -60,8 +64,9 @@ $fexa=explode("-",$fexaz[0]);
 $userx=$row["usuario"];
 
 $dbl = mysqli_connect($host,$username,$pass,$database);
-////mysql_select_db($database,$dbl);
-$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='".$userx."'");
+//mysql_select_db($database,$dbl);
+$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='".$userx."'") or die(mysqli_error($link));
+
 if (mysqli_num_rows($resultl)){ 
 $eluserx=mysqli_result($resultl,0,"nombre");
 }

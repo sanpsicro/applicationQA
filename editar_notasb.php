@@ -23,7 +23,7 @@ if(empty($fecha[2])){$fecha[2]=date("d");}
 if(empty($fecha[1])){$fecha[1]=date("m");}
 if(empty($fecha[0])){$fecha[0]=date("Y");}
 
-if($_GET['caso'] == "editar")
+if($caso == "editar")
 {
 ##
 $db = mysqli_connect($host,$username,$pass,$database);

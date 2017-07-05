@@ -120,6 +120,7 @@ $monthlimit=mktime($starthora, $startmin, $startseg, $startmes, $startdia - 30, 
 $timers = strtotime($fechafinal);
 $totimers = time ();
 
+
 $alertas="";
 $despliega="";
   
