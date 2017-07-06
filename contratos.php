@@ -6,6 +6,7 @@ $show = $_GET['show'];
 $sort = $_GET['sort'];
 $status = $_GET['status'];
 $quest = $_GET['quest'];
+$code = $_GET['code'];
 if(empty($show)){$show=10;}
 if(empty($sort)){$sort="numPoliza";}
 if(empty($status)){$status="activo";}

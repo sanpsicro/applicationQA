@@ -29,7 +29,11 @@ header("Location: index.php?errorcode=3");
 isset($_POST['tmpid']) ? $tmpid = $_POST['tmpid'] : $tmpid = 0 ;
 isset($_POST['cliente']) ? $cliente = $_POST['cliente'] : $cliente = 0 ;
 isset($_POST['rfc']) ? $rfc = $_POST['rfc'] : $rfc = "" ;
-isset($_POST['numcontrato']) ? $numcontrato = $_POST['numcontrato'] : $numcontrato = 0 ;
+
+
+if(isset($_POST['numcontrato']) && $_POST['numcontrato']!= "") { $numcontrato = $_POST['numcontrato'];}elseif(isset($_GET['numcontrato'])){$numcontrato = $_GET['numcontrato'];}else{$numcontrato=0;}
+
+
 isset($_POST['producto']) ? $producto = $_POST['producto'] : $producto = "" ;
 isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
 // admin_contratos 
@@ -1013,7 +1017,7 @@ if(mysqli_num_rows($numero))
 else{
 	$inciso = 1;}
 ##endcomprobacion_subnumero
-var_dump($comision);
+
 $clave="".$numcontrato."_".$inciso."";
 $password="".$fecha_d."".$fecha_m."".$fecha_a."";
 

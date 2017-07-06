@@ -7,6 +7,10 @@ header("Location: index.php?errorcode=3");
 }
 include 'conf.php';
 
+extract($_GET);
+extract($_POST);
+isset($_GET['display']) ? $display = $_GET['display'] : $display = "" ;
+$valid_userid = $_SESSION['valid_userid'];
 
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 
@@ -32,7 +36,7 @@ $municipio=mysqli_result($result,0,"ubicacion_municipio");
 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbl);
-$resultl = mysqli_query($db1,"SELECT * from Empleado where idEmpleado='$valid_userid'");
+$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$valid_userid'");
 $extension=mysqli_result($resultl,0,"extension");
 ?>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
@@ -69,12 +73,11 @@ document.getElementById(subobj).style.display="none"
     <td colspan="6" bgcolor="#bbbbbb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td><strong>Proveedores en la localidad </strong></td>
-        <td width="300" align="center" class="blacklinks"><a href="asigna_proveedor.php?idcaso=<? echo $idcaso; ?>&display=allstate">Proveedores en el Estado</a> | <a href="asigna_proveedor.php?idcaso=<? echo $idcaso; ?>&display=all">Todos los Proveedores</a></td>
+        <td width="300" align="center" class="blacklinks"><a href="asigna_proveedor.php?idcaso=<?php echo $idcaso; ?>&display=allstate">Proveedores en el Estado</a> | <a href="asigna_proveedor.php?idcaso=<?php echo $idcaso; ?>&display=all">Todos los Proveedores</a></td>
       </tr>
     </table></td>
   </tr>
-   <?
-if($display=="allstate"){$condicion="where (cobertura like '$estado-%' or cobertura like '%,$estado-%') and (trabajos like '%,$servicio,%' or trabajos='$servicio' or trabajos like '$servicio,%' or trabajos like '%,$servicio')";
+   <?php if($display=="allstate"){$condicion="where (cobertura like '$estado-%' or cobertura like '%,$estado-%') and (trabajos like '%,$servicio,%' or trabajos='$servicio' or trabajos like '$servicio,%' or trabajos like '%,$servicio')";
 $arreglo="nombre";
 }
    
@@ -173,7 +176,7 @@ $services=explode(",",$row["trabajos"]);
 </tr>
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto:</b> '.$row["contacto"].'<br>
-<b>Teléfono:</b> 
+<b>Telï¿½fono:</b> 
 <form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel"].'';
  $telctc1 = $row["tel"];
@@ -203,7 +206,7 @@ echo'
 
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto2:</b> '.$row["contacto2"].'<br>
-<b>Teléfono:</b>
+<b>Telï¿½fono:</b>
 <form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel2"].'';
  $telctc1 = $row["tel2"];

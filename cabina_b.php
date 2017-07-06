@@ -118,7 +118,7 @@ $tiempoinicial=mktime($fexhox[0], $fexhox[1], $fexhox[2], $fexfex[1], $fexfex[2]
 $tiempolimit=mktime($starthora - 24, $startmin, $startseg, $startmes, $startdia, $startano);
 $monthlimit=mktime($starthora, $startmin, $startseg, $startmes, $startdia - 30, $startano);
 $timers = strtotime($fechafinal);
-$totimers = time ();
+$totimers = time();
 
 
 $alertas="";

@@ -5,7 +5,7 @@ session_start();
   
  isset($_GET['tmpid']) ? $tmpid = $_GET['tmpid'] : $tmpid = null;
  isset($_GET['tipocliente']) ? $tipocliente = $_GET['tipocliente'] : $tipocliente = null;
- isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = null;
+ isset($_GET['numcontrato']) ? $numcontrato = $_GET['numcontrato'] : $numcontrato = "";
  isset($_GET['code']) ? $code = $_GET['code'] : $code = 0;
 
 
