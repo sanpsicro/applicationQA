@@ -1,9 +1,23 @@
 <?php 
+
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header('Content-Type: text/xml; charset=ISO-8859-1');
 
 isset($_GET['flim-flam']) ? $flim_flam = $_GET['flim-flam'] : $flim_flam = null ; 
 isset($_GET['caso']) ? $caso = $_GET['caso'] : $caso = null ; 
+isset($_GET['id']) ? $id = $_GET['id'] : $id = null ; 
+isset($_GET['idnota']) ? $idnota = $_GET['idnota'] : $idnota = "" ; 
+
+//initialize vars
+$adjunto1 = "";
+$adjunto2 = "";
+$adjunto3 = "";
+$adjunto4 = "";
+
+$comentario ="";
+$etapa ="";
+$tipo ="";
+
 
 include('conf.php'); 
 function mysqli_result($res,$row=0,$col=0){
@@ -27,7 +41,7 @@ if($caso == "editar")
 ##
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query($db,"SELECT * from notas_legal where general='".$_GET['id']."' AND  id= '".$_GET['idnota']."'");
+$result = mysqli_query($db,"SELECT * from notas_legal where general='".$_GET['id']."' AND  id= '".$_GET['idnota']."'") or die(mysqli_error($link));
 if (mysqli_num_rows($result)){ 
 $fecha=mysqli_result($result,0,"fecha");
 $fecha=explode("-",$fecha);

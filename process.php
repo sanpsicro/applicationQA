@@ -120,6 +120,9 @@ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
  isset($_POST['cel']) ? $cel = $_POST['cel'] : $cel = null ;
  isset($_POST['mail']) ? $mail = $_POST['mail'] : $mail = null ;
  
+ //from cabina_d
+ isset($_GET['idcaso']) ? $idcaso = $_GET['idcaso'] : $idcaso = null ;
+ 
 #----------------
 if($module=="usuarios"){ 
 if(count($modules_auth)!="0" && $modules_auth!=" " && $modules_auth!=""){$modulos_enlatados=implode(",",$modules_auth);}

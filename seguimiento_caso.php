@@ -98,7 +98,7 @@ document.location = delUrl;
 
 </script>
 <?php
-isset($_GET['id']) ? $id = $_GET['id'] : $id = null ; 
+isset($_GET['id']) ? $id = $_GET['id'] : $id = "" ; 
 
 include 'conf.php';
 function mysqli_result($res,$row=0,$col=0){
@@ -114,7 +114,7 @@ function mysqli_result($res,$row=0,$col=0){
 }
 $link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database);
-$result=mysqli_query($link, "SELECT tipo FROM servicios,general where general.servicio=servicios.id AND general.id='".$id."'") or die(mysql_error());
+$result=mysqli_query($link, "SELECT tipo FROM servicios,general where general.servicio=servicios.id AND general.id='".$id."'") ;
 $tipoServicio=mysqli_result($result,0,"tipo");
 ?>
 

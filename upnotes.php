@@ -2,6 +2,25 @@
 session_start();
 $unixid = time(); 
 
+isset($_GET['caso']) ? $caso = $_GET['caso'] : $caso ="" ;
+isset($_GET['id']) ? $id = $_GET['id'] : $id ="" ;
+isset($_GET['idnota']) ? $idnota = $_GET['idnota'] : $idnota ="" ;
+
+isset($_POST['general']) ? $general= $_POST['general'] : $general="" ;
+isset($_POST['etapa']) ? $etapa= $_POST['etapa'] : $etapa="" ;
+isset($_POST['tipo']) ? $tipo= $_POST['tipo'] : $tipo="" ;
+isset($_POST['comentario']) ? $comentario= $_POST['comentario'] : $comentario="" ;
+isset($_POST['adjunto1']) ? $adjunto1= $_POST['adjunto1'] : $adjunto1="" ;
+isset($_POST['adjunto2']) ? $adjunto2= $_POST['adjunto2'] : $adjunto2="" ;
+isset($_POST['adjunto3']) ? $adjunto3= $_POST['adjunto3'] : $adjunto3="" ;
+isset($_POST['adjunto4']) ? $adjunto4= $_POST['adjunto4'] : $adjunto4="" ;
+
+isset($_POST['fecha_a']) ? $fecha_a= $_POST['fecha_a'] : $fecha_a="" ;
+isset($_POST['fecha_m']) ? $fecha_m= $_POST['fecha_m'] : $fecha_m="" ;
+isset($_POST['fecha_d']) ? $fecha_d= $_POST['fecha_d'] : $fecha_d="" ;
+
+
+
 
 include('conf.php'); 
 function mysqli_result($res,$row=0,$col=0){
@@ -32,7 +51,7 @@ if(isset($file1) && $file1!="" && $file1!=" "){
 if($caso=="editar"){
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from notas_legal where id='$idnota' and general = '$id'");
 if (mysqli_num_rows($result)){ 
 $exfile1=mysqli_result($result,0,"adjunto1");
 if($exfile1!="" && $exfile1!=" "){
@@ -73,7 +92,7 @@ if(isset($file2) && $file2!="" && $file2!=" "){
 if($caso=="editar"){
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from notas_legal where id='$idnota' and general = '$id'");
 if (mysqli_num_rows($result)){ 
 $exfile2=mysqli_result($result,0,"adjunto2");
 if($exfile2!="" && $exfile2!=" "){
@@ -113,7 +132,7 @@ if(isset($file3) && $file3!="" && $file3!=" "){
 if($caso=="editar"){
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from notas_legal where id='$idnota' and general = '$id'");
 if (mysqli_num_rows($result)){ 
 $exfile3=mysqli_result($result,0,"adjunto3");
 if($exfile3!="" && $exfile3!=" "){
@@ -153,7 +172,7 @@ if(isset($file4) && $file4!="" && $file4!=" "){
 if($caso=="editar"){
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from notas_legal where id='$idnota' and general = '$id'");
 if (mysqli_num_rows($result)){ 
 $exfile4=mysqli_result($result,0,"adjunto4");
 if($exfile4!="" && $exfile4!=" "){
@@ -191,14 +210,14 @@ if(copy($file4,"proveedores/adjuntos/$nuevonombre")){$archivo4=$nuevonombre; $un
 
 
 if($caso == "editar"){
-mysqli_connect($host,$username,$pass,$database);
+$link = mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE notas_legal SET fecha='$fecha_a-$fecha_m-$fecha_d', etapa='$etapa', tipo='$tipo', comentario='$comentario', adjunto1='$archivo1', adjunto2='$archivo2', adjunto3='$archivo3', adjunto4='$archivo4' where id='$idnota'";
-mysqli_query($database, "$sSQL");
+mysqli_query($link, $sSQL);
 header("Location: mainframe.php?module=seguimiento_caso&id=$id");
 }
 if($caso == "nuevo"){
-mysqli_connect($host,$username,$pass,$database);
-mysqli_query($database,"INSERT INTO `notas_legal` (`general`, `fecha`, `etapa`, `tipo`, `comentario`, `adjunto1`, `adjunto2`, `adjunto3`, `adjunto4`) VALUES ('$id', '$fecha_a-$fecha_m-$fecha_d', '$etapa', '$tipo', '$comentario', '$archivo1', '$archivo2', '$archivo3', '$archivo4')"); 
+$link = mysqli_connect($host,$username,$pass,$database);
+mysqli_query($link,"INSERT INTO `notas_legal` (`general`, `fecha`, `etapa`, `tipo`, `comentario`, `adjunto1`, `adjunto2`, `adjunto3`, `adjunto4`) VALUES ('$id', '$fecha_a-$fecha_m-$fecha_d', '$etapa', '$tipo', '$comentario', '$archivo1', '$archivo2', '$archivo3', '$archivo4')") or die(mysqli_error($link)); 
 header("Location: mainframe.php?module=seguimiento_caso&id=$id");
 }
 
@@ -206,7 +225,7 @@ if($caso == "borrar"){
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notas_legal where id='$idnota' and general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from notas_legal where id='$idnota' and general = '$id'");
 if (mysqli_num_rows($result)){ 
 $exfile1=mysqli_result($result,0,"adjunto1");
 $exfile2=mysqli_result($result,0,"adjunto2");
@@ -230,9 +249,9 @@ unlink($predel4);
 }
 }
 
-mysqli_connect($host,$username,$pass,$database);
+$link = mysqli_connect($host,$username,$pass,$database);
 $sSQL="Delete From notas_legal Where id ='$idnota' and general='$id'";
-mysqli_query("$database",$sSQL);
+mysqli_query($link,$sSQL);
 header("Location: mainframe.php?module=seguimiento_caso&id=$id");
 }
 ?>

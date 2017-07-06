@@ -252,9 +252,9 @@ if($mikarea!="" && $mikarea!=" "){
 $apart=explode("-",$mikarea);
 $dbdou = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbdou);
-$resultdou = mysqli_query($db,"SELECT * from Estado where idEstado = '$apart[0]'",$dbdou);
+$resultdou = mysqli_query($dbdou,"SELECT * from Estado where idEstado = '$apart[0]'");
 $xexestado=mysqli_result($resultdou,0,"NombreEstado");
-$resultdou = mysqli_query($db,"SELECT * from Municipio where idMunicipio = '$apart[1]'",$dbdou);
+$resultdou = mysqli_query($dbdou,"SELECT * from Municipio where idMunicipio = '$apart[1]'");
 $xexmunicipio=mysqli_result($resultdou,0,"NombreMunicipio");
 if($mikarea=="".$estado."-".$municipio."-".$apart[2].""){echo'<li><b>'.$xexestado.' - '.$xexmunicipio.' ( '.$apart[2].')</b><br>';
 $arregloa=$apart[2];
@@ -282,7 +282,7 @@ echo '<DIV id="servicios'.$row["id"].'" style="position:absolute; display:none; 
 foreach($services as $servo){
 $dbx = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbx);
-$resultx = mysqli_query($db,"SELECT * from servicios where id = '$servo'",$dbx);
+$resultx = mysqli_query($dbx,"SELECT * from servicios where id = '$servo'");
 $servox=mysqli_result($resultx,0,"servicio");
 if($servo==$servicio){echo'<li><b>'.$servox.'</b>';}
 else{echo'<li>'.$servox.'';}

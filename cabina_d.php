@@ -2,6 +2,7 @@
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 
+isset($_GET['idcaso']) ? $idcaso = $_GET['idcaso'] : $idcaso ="";
 ?>
 
 <script type="text/javascript" src="subcombo.js"></script>
