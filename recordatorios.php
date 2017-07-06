@@ -1,4 +1,4 @@
-<?
+<?php  
 session_start();
 if(empty($_SESSION["valid_user"])){die();} 
 
@@ -34,7 +34,7 @@ background-position: left bottom;
 </script>
 </head>
 <body>
-<? 
+<?php  
 
 $referencia=$_SERVER['HTTP_REFERER'];
 $parsed = parse_url( $referencia, PHP_URL_QUERY );
@@ -55,14 +55,14 @@ $general=$query['id'];
     <label for="recordatorio" class="whiter">Tarea:</label>
     <input type="text" class="form-control" id="recordatorio" name="recordatorio" placeholder="Recordatorio">
 </div>
-<? if ($module==detail_seguimiento) { ?>
+<?php  if ($module=="detail_seguimiento") { ?>
 <div class="form-group">
     <label for="expediente" class="whiter">Relacionado al expediente:</label>
-    <input type="text" class="form-control" id="expediente" name="expediente" value="<?=$general?>" placeholder="expediente">
+    <input type="text" class="form-control" id="expediente" name="expediente" value="<?php  $general?>" placeholder="expediente">
 </div>
-<? } else { ?> <input type="hidden" name="general" value="" />  <? }?>
+<?php  } else { ?> <input type="hidden" name="general" value="" />  <?php  }?>
 <div class="form-group">
- 	<label for="proximos" class="whiter">Programar en los próximos:</label>
+ 	<label for="proximos" class="whiter">Programar en los prï¿½ximos:</label>
     <select  class="form-control" name="proximos" id="proximos">
     <option value="5">5 minutos</option>
     <option value="10">10 minutos</option>
@@ -75,7 +75,7 @@ $general=$query['id'];
     
     </select>
 </div>
-<? 
+<?php  
 $hactual=date("H");
 $mes=date("m");
 $dia=date("d");
@@ -95,11 +95,11 @@ $nminuto=$minuto+5;
 </div>
  <div class="checkbox">
     <label class="whiter">
-      <input type="checkbox" name="privacidad"> Sólo para mi
+      <input type="checkbox" name="privacidad"> Sï¿½lo para mi
     </label>
   </div>
 <input type="hidden" name="actuar" value="new" />
-<input type="hidden" name="userid" value="<?=$valid_userid?>" />
+<input type="hidden" name="userid" value="<?php  $valid_userid?>" />
 <div class="centerb"><button type="submit" class="btn btn-success" role="button">CREAR</button></div>
 </form>
 <script type="text/javascript">
