@@ -11,7 +11,7 @@ die();} else{
 
 $link = mysqli_connect($host,$username,$pass,$database);
 $sql="INSERT INTO `general` (`servicio`, `contrato`, `idCliente`, `fecha_recepcion`, `status`) VALUES ('$servicio', '$clave', '$idcliente', now(),  'abierto')";
-mysqli_query($link, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<b>".mysqli_error());
+mysqli_query($link, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<b>".mysqli_error($link));
 $expediente=mysqli_insert_id($link);
 
 echo "Expediente: [$expediente]<br>";
