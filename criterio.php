@@ -3,7 +3,7 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 
-//cambiar todos por GET
+
 isset($_POST['id']) ? $id = $_POST['id'] : $id = "" ;
 isset($_POST['crt_ajustador']) ? $crt_ajustador= $_POST['crt_ajustador'] : $crt_ajustador= "" ;
 isset($_POST['crt_abogado']) ? $crt_abogado= $_POST['crt_abogado'] : $crt_abogado= "" ;
@@ -53,7 +53,7 @@ mysqli_query($link, $sSQL);
 else{
 #crear registro
 $link = mysqli_connect($host,$username,$pass,$database);
-mysqli_query($link,"INSERT INTO `seguimiento_juridico` (`resp_ajustador`, `resp_abogado`, `resp_perito`, `resp_consignado`, `juzgado`, `causa_penal`, `procesado`) VALUES ('$crt_ajustador', '$crt_abogado', '$crt_perito', '$crt_consignado', '$juzgado', '$causa_penal', '$procesado')"); 
+mysqli_query($link,"INSERT INTO `seguimiento_juridico` (general,`resp_ajustador`, `resp_abogado`, `resp_perito`, `resp_consignado`, `juzgado`, `causa_penal`, `procesado`) VALUES ('$id','$crt_ajustador', '$crt_abogado', '$crt_perito', '$crt_consignado', '$juzgado', '$causa_penal', '$procesado')") or die(mysqli_error($link)); 
 }
 }
 $db = mysqli_connect($host,$username,$pass,$database);

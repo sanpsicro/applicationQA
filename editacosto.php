@@ -4,7 +4,8 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 $id=$_GET['id'];
-$caso = $_POST['caso'];
+$caso = "";
+//$caso = $_POST['caso'];
 function mysqli_result($res,$row=0,$col=0){
 	$numrows = mysqli_num_rows($res);
 	if ($numrows && $row <= ($numrows-1) && $row >=0){

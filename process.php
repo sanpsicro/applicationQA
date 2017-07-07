@@ -1498,6 +1498,16 @@ header("Location: mainframe.php?module=$module&id=$id");
 }
 
 if($module=="usuariox"){
+
+	isset($_POST['num_cliente']) ? $num_cliente = $_POST['num_cliente'] : $num_cliente = "" ;	
+	isset($_POST['num_siniestro']) ? $num_siniestro= $_POST['num_siniestro'] : $num_siniestro= "" ;	
+	isset($_POST['usuario']) ? $usuario= $_POST['usuario'] : $usuario= "" ;	
+	isset($_POST['reporte_cliente']) ? $reporte_cliente= $_POST['reporte_cliente'] : $reporte_cliente= "" ;	
+	isset($_POST['tel_reporta']) ? $tel_reporta= $_POST['tel_reporta'] : $tel_reporta= "" ;	
+	isset($_POST['ejecutivo']) ? $ejecutivo= $_POST['ejecutivo'] : $ejecutivo= "" ;	
+	isset($_POST['cobertura']) ? $cobertura= $_POST['cobertura'] : $cobertura= "" ;	
+	isset($_POST['reporta']) ? $reporta= $_POST['reporta'] : $reporta= "" ;	
+	
 $num_cliente=strtoupper($num_cliente);
 $num_siniestro=strtoupper($num_siniestro);
 $usuario=strtoupper($usuario);

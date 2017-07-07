@@ -11,7 +11,7 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,lo
 
 <script type="text/javascript" language="JavaScript">
 function confirmGeneral(generalurl) { 
-if (confirm("�Est� seguro?")) { 
+if (confirm("¿Está seguro?")) { 
 document.location = generalurl; 
 }
 }
