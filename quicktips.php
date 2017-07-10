@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("quicktips",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -14,7 +14,7 @@ if(empty($sort)){$sort="id";}
       </td>
   </tr>
 <tr><td>
-<?
+<?php  
 $condicion="";
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
@@ -22,7 +22,7 @@ if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
 $result = mysqli_query("SELECT COUNT(*) FROM quicktips $condicion", $link); 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query("SELECT * FROM quicktips $condicion order by $sort  
@@ -36,7 +36,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
@@ -55,11 +55,11 @@ $texto .= "</select></td><td width=5>&nbsp;</td><td width=30><font color=#000000
 if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                     <tr> 
-	                  <td class="titles">Título</td>	
+	                  <td class="titles">TÃ­tulo</td>	
                       <td class="titles">Mensaje</td>	
-					   <td class="titles">Ícono</td>	
+					   <td class="titles">Ã­cono</td>	
 					   <td class="titles">Activo</td>			  		  
-                      <td class="titles">Operación</td></tr>';
+                      <td class="titles">Operaciï¿½n</td></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 

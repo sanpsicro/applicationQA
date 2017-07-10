@@ -203,7 +203,7 @@ if(validaSelect($selectDestino) && validaOpcion($opcionSeleccionada))
 
 	echo "<select name='municipio' id='municipio'>";
 
-	while($registro=mysql_fetch_row($consulta))
+	while($registro=mysqli_fetch_row($consulta))
 
 	{
 

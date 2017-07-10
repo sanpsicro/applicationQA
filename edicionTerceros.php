@@ -1,5 +1,5 @@
 <script type="text/javascript" src="subcombo.js"></script>
-<?
+<?php  
 if($_GET['caso'] == "editar")
 {
 ##

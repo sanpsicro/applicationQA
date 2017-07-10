@@ -36,12 +36,12 @@ function mysqli_result($res,$row=0,$col=0){
             <form name="form1" method="post" action="mainframe.php?module=seguimiento">
             <td width="700"> 
               <select name="show" id="mostrar">
-                <option value="10" <?php   if($show =="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <?php   if($show =="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <?php   if($show =="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <?php   if($show =="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <?php   if($show =="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <?php   if($show =="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php   if($show =="10"){echo"selected";}?>>10 por pï¿½gina</option>
+                <option value="20"  <?php   if($show =="20"){echo"selected";}?>>20 por pï¿½gina</option>
+                <option value="30"  <?php   if($show =="30"){echo"selected";}?>>30 por pï¿½gina</option>
+                <option value="50"  <?php   if($show =="50"){echo"selected";}?>>50 por pï¿½gina</option>
+                <option value="100"  <?php   if($show =="100"){echo"selected";}?>>100 por pï¿½gina</option>
+                <option value="200"  <?php   if($show =="200"){echo"selected";}?>>200 por pï¿½gina</option>
               </select>
               <select name="sort" id="ordenar">
                 <option value="general.fecha_recepcion"  <?php   if($sort=="general.fecha_recepcion"){echo"selected";}?>>Ordenar por fecha</option>
@@ -57,7 +57,7 @@ function mysqli_result($res,$row=0,$col=0){
                 <option value="en tramite" <?php   if($display=="en tramite"){echo' selected ';} ?>>En tramite</option>                
                 <option value="abierto_tramite" <?php   if($display=="abierto_tramite"){echo' selected ';} ?>>Abierto o en tramite</option>                                
 <!--                <option value="finalizado" <?php   if($display=="finalizado"){echo' selected ';} ?>>Finalizado</option> -->
-                <option value="concluido" <?php   if($display=="concluido"){echo' selected ';} ?>>Concluído</option>                
+                <option value="concluido" <?php   if($display=="concluido"){echo' selected ';} ?>>Concluï¿½do</option>                
                 <option value="cancelado" <?php   if($display=="cancelado"){echo' selected ';} ?>>Cancelados</option>
               </select>
               
@@ -72,7 +72,7 @@ function mysqli_result($res,$row=0,$col=0){
               
           <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
-            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest" size="15"  onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -81,9 +81,9 @@ function mysqli_result($res,$row=0,$col=0){
   </tr>
 <tr><td>
 <?php  
-if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo suceso registrado en bitácora</div></b><p>';}
-if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de bitácora actualizados</div></b><p>';}
-if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Bitácora eliminada</div></b><p>';}
+if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo suceso registrado en bitï¿½cora</div></b><p>';}
+if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de bitï¿½cora actualizados</div></b><p>';}
+if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Bitï¿½cora eliminada</div></b><p>';}
 
 if($display=="all"){$precondicion="Where general.id != '0'";}
 if($display=="abierto"){$precondicion="Where general.status='abierto'";}
@@ -95,7 +95,7 @@ if($display=="cancelado"){$precondicion="Where general.status like'%cancelado%'"
 
 if(isset($quest) && $quest!=""){
 $precondicion="";
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 $condicion="Where general.contrato like '%".$quest."%' 
 			OR general.expediente like '%".$quest."%' 
 			OR Provedor.nombre like '%".$quest."%' 
@@ -145,7 +145,7 @@ $prego1 = "SELECT COUNT(*) FROM chatstat where atendido=0 and status=2";}
 
 $result = mysqli_query($link ,$prego1); 
 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 $tampag = $show ;
 $reg1 = ($pag-1) * $tampag;
 
@@ -185,7 +185,7 @@ $_GET["show"]=$show ;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\" ". $enlace . $isabel . " \">".$isabel."</option> ";} else {
@@ -205,14 +205,14 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles">Servicio</td>
                       <td align=middle class="titles">Expediente</td>	
 					  <td align=middle class="titles">Reporte Cliente</td>					  
-                      <td align=middle class="titles">Fecha recepción</td>					  
+                      <td align=middle class="titles">Fecha recepciï¿½n</td>					  
                       <td align=middle class="titles">Tiempo de Contacto</td>
                       <td class="titles">Cliente</td>				  
                       <td class="titles">Usuario</td>					  
                       <td class="titles">Proveedor</td>					  					  
                       <td class="titles">Ubicacion Municipio</td>
                       <td class="titles">Destino Municipio</td>					  					  
-                      <td width="150" class="titles">Operación</td></tr>';
+                      <td width="150" class="titles">Operaciï¿½n</td></tr>';
 $bgcolor="#0b7eb7";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}
@@ -229,7 +229,7 @@ $destinoMunicipio=mysqli_result($resultMunicipio,0,"NombreMunicipio");
 
 $generalid=$row["id"];
 $nuevosmensajes = mysqli_query($link,"SELECT COUNT(*) FROM clientacora where visto=0 and tipo=2 and general=".$generalid);
-list($sumale) = mysql_fetch_row($nuevosmensajes);
+list($sumale) = mysqli_fetch_row($nuevosmensajes);
 
   echo'                <tr> 
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$row["servicio"].'</td>
@@ -247,7 +247,7 @@ list($sumale) = mysql_fetch_row($nuevosmensajes);
 echo'<td bgcolor="'.$bgcolor.'" class="dataclass"><center>';
 if($sumale>=1) {echo '<img src="mensaje.gif">';} else {echo '<img src="msgoff.gif">';}
 echo' | <a href="?module=detail_seguimiento&id='.$row["id"].'">Detalle</a> |';
-echo' <a href="?module=bitacora&id='.$row["id"].'">Bitácora</a>';
+echo' <a href="?module=bitacora&id='.$row["id"].'">Bitï¿½cora</a>';
 
 // $querylegal="SELECT tipo FROM servicios WHERE id='$row[servicio]'";
 // #echo $querylegal;
@@ -257,7 +257,7 @@ if($row['tipoServicio']=="legal")
 {
 	 $checa_array1=array_search("23_d",$explota_permisos);
 	 if($checa_array1===FALSE){}else{
-		echo ' | <a href="?module=seguimiento_caso&id='.$row["id"].'">Seguimiento</a> | <a href="?module=conclusion_caso&id='.$row["id"].'">Conclusión</a>';
+		echo ' | <a href="?module=seguimiento_caso&id='.$row["id"].'">Seguimiento</a> | <a href="?module=conclusion_caso&id='.$row["id"].'">Conclusiï¿½n</a>';
 	}
 }
 #echo' <a href="?module=cabina_b&id='.$row["id"].'&accela=edita">Editar</a> ';

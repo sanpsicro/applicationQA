@@ -12,7 +12,7 @@ padding: 30px;
 
 
 
-<?  
+<?php   
 
 
 $checa_array1=array_search("dir".$capid,$explota_permisos);
@@ -30,7 +30,7 @@ die();} else{} ?>
 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">
 	  
-	  <? 
+	  <?php  
 	  
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
@@ -64,7 +64,7 @@ echo $nombre;
 
 
 
-<?  $checa_array1=array_search("cap_a",$explota_permisos);
+<?php   $checa_array1=array_search("cap_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'
 

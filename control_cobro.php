@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -18,7 +18,7 @@ die();} else{}
 </tr>
 <tr>
 	<td>
-		<?
+		<?php  
 		$link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 		$query="SELECT Pr.nombre,p.conceptor,p.expediente,p.monto,p.status,p.id, p.fecha FROM cobranza p,Provedor Pr WHERE p.id='$cobro'";
@@ -60,15 +60,15 @@ if ($row["fecha"]!="0000-00-00 00:00:00") {$fpago=date("d/m/Y", $fpagado);} else
 		  <td bgcolor="#cccccc">
 			<strong>ACTUALIZAR:</strong> 
 			<form method="post" action="setPago.php">
-				<input type="hidden" name="id" value="<? echo $cobro; ?>">
+				<input type="hidden" name="id" value="<?php  echo $cobro; ?>">
 				<input type="hidden" name="obj" value="cobranza">
-                Monto: <input type="text" name="monto" value="<? echo number_format($row["monto"],2); ?>"><br />
+                Monto: <input type="text" name="monto" value="<?php  echo number_format($row["monto"],2); ?>"><br />
 Fecha de pago: 
 <select name="diap">
-<?
+<?php  
 if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagod=date("d", $fpagado);} else{$fpagod=date(d);}
 ?>
-<option value="<? echo $fpagod; ?>"><? echo $fpagod; ?></option>
+<option value="<?php  echo $fpagod; ?>"><?php  echo $fpagod; ?></option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -103,10 +103,10 @@ if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagod=date("d", $fpagado);} else{$f
 </select>
 /
 <select name="mesp">
-<?
+<?php  
 if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagom=date("m", $fpagado);} else{$fpagom=date(m);}
 ?>
-<option value="<? echo $fpagom; ?>"><? echo $fpagom; ?></option>
+<option value="<?php  echo $fpagom; ?>"><?php  echo $fpagom; ?></option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -122,10 +122,10 @@ if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagom=date("m", $fpagado);} else{$f
 </select>
 /
 <select name="anop">
-<?
+<?php  
 if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagoa=date("Y", $fpagado);} else{$fpagoa=date(Y);}
 ?>
-<option value="<? echo $fpagoa; ?>"><? echo $fpagoa; ?></option>
+<option value="<?php  echo $fpagoa; ?>"><?php  echo $fpagoa; ?></option>
 <option value="2014">2014</option>
 <option value="2013">2013</option>
 <option value="2012">2012</option>
@@ -133,8 +133,8 @@ if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagoa=date("Y", $fpagado);} else{$f
 
 <br />
 				<select name="status">
-					<option value="no pagado" <? if($row['status']=="no pagado")echo "selected"; ?>>No pagado</option>
-					<option value="pagado" <? if($row['status']=="pagado")echo "selected"; ?>>Pagado</option>
+					<option value="no pagado" <?php  if($row['status']=="no pagado")echo "selected"; ?>>No pagado</option>
+					<option value="pagado" <?php  if($row['status']=="pagado")echo "selected"; ?>>Pagado</option>
 				</select><br />
 				<input type="submit" value="Actualizar">
 			</form>
@@ -145,13 +145,13 @@ if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagoa=date("Y", $fpagado);} else{$f
 		</tr>
 		<tr>
 		  <td bgcolor="#ffffff">
-		  <form method="post" action="control_cobro_agrega_nota.php?expediente=<? echo $row['expediente']; ?>&cobro=<? echo $cobro; ?>">
+		  <form method="post" action="control_cobro_agrega_nota.php?expediente=<?php  echo $row['expediente']; ?>&cobro=<?php  echo $cobro; ?>">
 			<strong>Comentario:</strong><textarea name="comentario" cols="50" rows="3"></textarea>
 			<input type="submit" value="Agregar">
 		  </form>
 		  </td>
 		 </tr>
-		<?
+		<?php  
 		$query="SELECT DATE_FORMAT(notas_cobranza.fecha,'%e/%m/%Y %T') as fecha,Empleado.nombre as usuario,notas_cobranza.comentario FROM notas_cobranza,Empleado WHERE expediente='$row[expediente]' AND Empleado.idEmpleado=notas_cobranza.usuario ORDER BY fecha DESC";
 		
 		$result=mysqli_query($query)or die(mysql_error());

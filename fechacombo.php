@@ -1,4 +1,4 @@
-<?
+<?php  
 $hoydia=$_POST[actual];
 #$hoy_partida=explode(" ",$hoydia);
 $fecha_partida=explode("-",$hoydia);

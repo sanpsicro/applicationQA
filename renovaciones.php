@@ -12,7 +12,7 @@
 .odd{background: #ccc;}
 
 </style>
-<?
+<?php  
 if(empty($show)){$show=10;}
 if(empty($display)){$display="no validados";}
 if(empty($sort)){$sort="contrato, inciso";}
@@ -39,7 +39,7 @@ $result = mysqli_query($query) or die(mysql_error() + "<br>Consulta: $query");
 	<th>Fecha de Inicio</th>
 	<th>Fecha de Vencimiento</th>
 </tr>
-<?
+<?php  
 while($row=mysqli_fetch_array($result))
 {
 	$class = ($i++%2==0) ? "even" : "odd";

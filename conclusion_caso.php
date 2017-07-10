@@ -103,8 +103,8 @@ $tipoServicio=mysqli_result($result,0,"tipo");
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Conclusión</span></td>
-      <td width=100 class="blacklinks"><? if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=$id'>Detalle</a> | <a href='?module=seguimiento_caso&id=".$id."'>Seguimiento</a>";}?></td>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Conclusiï¿½n</span></td>
+      <td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=$id'>Detalle</a> | <a href='?module=seguimiento_caso&id=".$id."'>Seguimiento</a>";}?></td>
 
 
       </tr></table></td></tr>
@@ -115,7 +115,7 @@ $tipoServicio=mysqli_result($result,0,"tipo");
   
   <table width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr>
-      <td colspan="3" bgcolor="#CCCCCC"><strong>Conclusión del caso</strong></td>
+      <td colspan="3" bgcolor="#CCCCCC"><strong>Conclusiï¿½n del caso</strong></td>
       </tr></table>
 	  <div id="finalizacion">	 
 <?php

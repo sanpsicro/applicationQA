@@ -40,14 +40,14 @@ float:left;
 
 </style>
 
-<?
+<?php  
 $checa_arrayx=array_search("capacitacion",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Organización y Métodos</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("cap_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Organizaciï¿½n y Mï¿½todos</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("cap_a",$explota_permisos);
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=capacitacion_admin&accela=new">Nueva Carpeta</a> ]';} ?></td></tr></table></td></tr>
    </table>
       </td>
@@ -57,7 +57,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=capacitacion_admin&acce
 <div class="contenedor" width="100%" align="center">
      <div style="clear:both; height:auto; width:100%; vertical-align:top;" align="center">
 
-  <?
+  <?php  
 $checa_array2=array_search("cap_a",$explota_permisos);
 if ($checa_array2===FALSE) { $activos="and activo=1"; } else{ $activos=""; }
 

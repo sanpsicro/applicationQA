@@ -1,5 +1,5 @@
 <link href="style_1.css" rel="stylesheet" type="text/css" />
-<?
+<?php  
 include('conf.php'); 
 
 if(empty($fecha[2])){$fecha[2]=date("d");}
@@ -20,11 +20,11 @@ $comentario=mysql_result($result,0,"comentario");
 ##
 }
 ?>
-<form method="post" enctype="multipart/form-data" action="upnotesp.php?id=<? echo $id; ?>&popup=<? echo $popup; ?>&caso=<? echo $caso; ?>&idnota=<? echo $idnota; ?>&proveedor=<? echo $nombrep; ?>">
+<form method="post" enctype="multipart/form-data" action="upnotesp.php?id=<?php  echo $id; ?>&popup=<?php  echo $popup; ?>&caso=<?php  echo $caso; ?>&idnota=<?php  echo $idnota; ?>&proveedor=<?php  echo $nombrep; ?>">
 
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
 		<!-- <tr>
-		  <td width="33%" bgcolor="#FFFFFF"><strong>Fecha:</strong> <?
+		  <td width="33%" bgcolor="#FFFFFF"><strong>Fecha:</strong> <?php  
 		echo'  <select name="fecha_d" id="fecha_d">';			
 for($contador=1;$contador<=31;$contador++){
 if(strlen($contador)==1){$cuenta="0".$contador."";} 
@@ -65,7 +65,7 @@ echo'>'.$cuenta.'</option>';
 		<tr>
 		  <td bgcolor="#FFFFFF"><p><strong>Comentario:<br />
 		  </strong><strong>
-          <textarea name="comentario" cols="90" rows="6" id="comentario"><? echo $comentario;?></textarea>
+          <textarea name="comentario" cols="90" rows="6" id="comentario"><?php  echo $comentario;?></textarea>
           </strong></p>	      </td>
   </tr>
 		
@@ -73,7 +73,7 @@ echo'>'.$cuenta.'</option>';
 		  <td align="center" bgcolor="#FFFFFF">
 <input name="Enviar" type="submit" value="Enviar" /> 
             &nbsp;&nbsp;
-           <input type="button" name="Submit2" value="Cancelar" class="butn" onClick="location.href='notas_proveedorb.php?id=<? echo $id;?>'">
+           <input type="button" name="Submit2" value="Cancelar" class="butn" onClick="location.href='notas_proveedorb.php?id=<?php  echo $id;?>'">
 		  </td>
   </tr>
 </table>

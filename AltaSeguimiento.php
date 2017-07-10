@@ -21,12 +21,12 @@ $DATA_AS = @mysqli_fetch_assoc($SEGARES);
 <table width=300>
 <tr>
 <td bgcolor="#EEEEEE" align="right"><b>Expediente:</b></td>
-<td bgcolor="#EEEEEE" align="right"><input type="hidden" name="idExpediente" size="20" value="<? echo $DATA_AS["idExpediente"]; ?>"><? echo $DATA_AS["idExpediente"]; ?>
+<td bgcolor="#EEEEEE" align="right"><input type="hidden" name="idExpediente" size="20" value="<?php  echo $DATA_AS["idExpediente"]; ?>"><?php  echo $DATA_AS["idExpediente"]; ?>
 </td>
 </tr>
 <tr>
 <td bgcolor="#EEEEEE" align="right"><b>Num.Poliza:</b></td>
-<td bgcolor="#EEEEEE" align="right"><? echo $DATA_AS["numPoliza"]; ?></td>
+<td bgcolor="#EEEEEE" align="right"><?php  echo $DATA_AS["numPoliza"]; ?></td>
 </tr>
 <tr>
 <td bgcolor="#EEEEEE" align="right"><b>Estado:</b></td>

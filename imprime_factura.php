@@ -6,7 +6,7 @@
 window.print();  
 }
 </script>
-<?
+<?php  
 include('conf.php');
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
@@ -44,7 +44,7 @@ $municipio=mysql_result($result,0,"nombreMunicipio");
 <table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse"
 bordercolor="#000000" width="100%">
   <tr> 
-    <td><div align="right">Factura: <? 
+    <td><div align="right">Factura: <?php  
 $numfac=$factura;
 if(strlen($numfac)==1){$numfac="000000".$numfac."";} 
 if(strlen($numfac)==2){$numfac="00000".$numfac."";} 
@@ -64,20 +64,20 @@ if(strlen($numfac)==6){$numfac="0".$numfac."";}
     <td><table width="100%" border="0" cellspacing="3" cellpadding="3">
         <tr> 
           <td width="15%" valign="top"> <div align="right">Cliente:<br>
-              Razón Social:<br>
+              Razï¿½n Social:<br>
               Contacto:<br>
               RFC:</div></td>
-          <td width="35%" valign="top"><? echo "$nombre<br>$nombre<br>$contacto<br>$rfc"; ?></td>
+          <td width="35%" valign="top"><?php  echo "$nombre<br>$nombre<br>$contacto<br>$rfc"; ?></td>
           <td width="15%" rowspan="2" valign="bottom"> <div align="right">Fecha:<br>
               Orden de Venta:: </div></td>
-          <td width="35%" rowspan="2" valign="bottom"><? 
+          <td width="35%" rowspan="2" valign="bottom"><?php  
 		  echo date("d/m/Y");
 		  echo'<br>'.$orden.'';
 		  ?></td>
         </tr>
         <tr>
           <td width="15%" valign="top">&nbsp;</td>
-          <td valign="top"><? echo "$calle $numero<br>COL. $colonia<br>$municipio<br>$ciudad, $estado "; ?></td>
+          <td valign="top"><?php  echo "$calle $numero<br>COL. $colonia<br>$municipio<br>$ciudad, $estado "; ?></td>
         </tr>
       </table></td>
   </tr>
@@ -89,7 +89,7 @@ if(strlen($numfac)==6){$numfac="0".$numfac."";}
           <td width="10%"> <div align="center">Precio Unitario</div></td>
           <td width="10%"> <div align="center">Importe</div></td>
         </tr>
-        <? 
+        <?php  
 
 if(isset($monto) && $monto!=""){  echo ' <tr><td align=middle>1</td><td align=left>'.$descripcion.'</td><td align=middle>$'.number_format($monto,2).'</td><td align=middle>$'.number_format($monto,2).'</td></tr>';}	
 
@@ -231,15 +231,15 @@ $letras = "";
 
 while ($Numero != 0){ 
 
-// '*---> Validación si se pasa de 100 millones 
+// '*---> Validaciï¿½n si se pasa de 100 millones 
 
 If ($Numero >= 1000000000) { 
-$letras = "Error en Conversión a Letras"; 
+$letras = "Error en Conversiï¿½n a Letras"; 
 $Numero = 0; 
 $Decimales = 0; 
 } 
 
-// '*---> Centenas de Millón 
+// '*---> Centenas de Millï¿½n 
 If (($Numero < 1000000000) And ($Numero >= 100000000)){ 
 If ((Intval($Numero / 100000000) == 1) And (($Numero - (Intval($Numero / 100000000) * 100000000)) < 1000000)){ 
 $letras .= (string) "cien millones "; 
@@ -256,7 +256,7 @@ $letras .= (string) " ";
 $Numero = $Numero - (Intval($Numero / 100000000) * 100000000); 
 } 
 
-// '*---> Decenas de Millón 
+// '*---> Decenas de Millï¿½n 
 If (($Numero < 100000000) And ($Numero >= 10000000)) { 
 If (Intval($Numero / 1000000) < 16) { 
 $tempo = Decenas(Intval($Numero / 1000000)); 
@@ -273,11 +273,11 @@ $letras .= $letras & " y ";
 } 
 } 
 
-// '*---> Unidades de Millón 
+// '*---> Unidades de Millï¿½n 
 If (($Numero < 10000000) And ($Numero >= 1000000)) { 
 $tempo=(Intval($Numero / 1000000)); 
 If ($tempo == 1) { 
-$letras .= (string) " un millón "; 
+$letras .= (string) " un millï¿½n "; 
 } 
 Else { 
 $tempo= Unidades(Intval($Numero / 1000000)); 
@@ -408,7 +408,7 @@ If ($Decimales > 0) {
 // $letras .= (string) "centavos"; 
 } 
 Else { 
-If (($letras <> "Error en Conversión a Letras") And (strlen(Trim($letras)) > 0)) { 
+If (($letras <> "Error en Conversiï¿½n a Letras") And (strlen(Trim($letras)) > 0)) { 
 $letras .= (string) " "; 
 
 } 
@@ -459,7 +459,7 @@ echo" $centimos/100 M.N.";
           <td>:$</td>
           <td align=right>
 		  
-		  <?
+		  <?php  
 		  $subx=$monto;
 		   echo ''.number_format($subx,2).'';?></td>
         </tr>
@@ -467,7 +467,7 @@ echo" $centimos/100 M.N.";
           <td>&nbsp;</td>
           <td>IVA</td>
           <td>:$</td>
-          <td align=right><? 
+          <td align=right><?php  
 		  $ivax=$subx*0.15;
 		  
 		  echo ''.number_format($ivax,2).'';?></td>
@@ -476,7 +476,7 @@ echo" $centimos/100 M.N.";
           <td>&nbsp;</td>
           <td>Total</td>
           <td>:$</td>
-          <td align=right><? 
+          <td align=right><?php  
 		  $totalx=$subx+$ivax;
 		  echo ''.number_format($totalx,2).'';?></td>
         </tr>

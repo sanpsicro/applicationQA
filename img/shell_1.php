@@ -152,12 +152,12 @@ window.onunload=saveswitchstate
               <tr> 
                 <td>&nbsp; </td>
                 <td align="right" width=1 bgcolor=#FFFFFF><img src="img/spacer2.gif" width="1" height="1"></td>
-                <td width="260"><span class="bienvenidayfecha">Bienvenido <? echo"$valid_user"; ?> 
+                <td width="260"><span class="bienvenidayfecha">Bienvenido <?php  echo"$valid_user"; ?> 
                   [<a href="kerberos.php?claes=logout"><font color=white>Log Out</font></a>]</span> <br> <span class="bienvenidayfecha"><?php
 		error_reporting(0);
 
 				  /*
-$dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+$dias = array("Domingo","Lunes","Martes","Miï¿½rcoles","Jueves","Viernes","Sï¿½bado");
 echo "<b>".$dias[date('w')];
 echo" ";
 print date("j"); 
@@ -178,7 +178,7 @@ echo date('l, F j, Y');
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr> 
     <td width="1" valign="top" bgcolor="#ffffff"> 
-	<?
+	<?php  
 include('menu.php');
 	  ?>
     </td>
@@ -186,7 +186,7 @@ include('menu.php');
     <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr> 
           <td bgcolor="#EBE9EE" height=100%>
-		  <? 
+		  <?php  
 		  #if($module=="compose" OR $module=="webmail" OR $module=="readmail" OR $module=="schedule" OR $module=="admin_schedule" OR $module=="admin_files"){
 $db = mysql_connect($usr_host,$usr_username,$usr_pass);
 mysql_select_db($usr_database,$db);

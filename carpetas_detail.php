@@ -70,7 +70,7 @@ die();} else{}
 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">
 	  
-	  <? 
+	  <?php  
 	  
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
@@ -78,7 +78,7 @@ $result = mysqli_query($db,"SELECT * from modcap where cid = '$capid'");
 $nombre=mysqli_result($result,0,"nombre");
 echo $nombre;
 	   ?>
-      </span></td><td width=350 class="blacklinks">[ <a href="javascript:history.back(1)" class="blacklinks">Regresar</a> ] &nbsp;&nbsp;&nbsp; <?  $checa_array1=array_search("cap_a",$explota_permisos);
+      </span></td><td width=350 class="blacklinks">[ <a href="javascript:history.back(1)" class="blacklinks">Regresar</a> ] &nbsp;&nbsp;&nbsp; <?php   $checa_array1=array_search("cap_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=carpeta_admin&accela=edit&contid='.$contid.'&capid='.$capid.'">Editar</a> ] &nbsp;&nbsp;&nbsp; [ <a href="process.php?module=carpetas&accela=delete&contid='.$contid.'&capid='.$capid.'">Eliminar</a> ]';} ?></td></tr></table></td></tr>
 
@@ -108,7 +108,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=carpeta_admin&accela=ed
 
 
 
-<?
+<?php  
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 

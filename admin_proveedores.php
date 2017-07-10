@@ -76,7 +76,7 @@ $_SESSION['coberturas']="";
 
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Bï¿½squeda: 
 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
 
@@ -169,33 +169,33 @@ echo'<form name="form1" method="post" action="process.php?module=proveedores&acc
                           <td align="right" valign="top"><table width="100%%" border="0" cellspacing="3" cellpadding="3">
                             <tr>
                               <td align="right" bgcolor="#eeeeee"><strong>Nombre:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="nombre" type="text" id="nombre" size="50" value="<? echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="nombre" type="text" id="nombre" size="50" value="<?php  echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Usuario:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="usuario" type="text" id="usuario" size="50" value="<? echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="usuario" type="text" id="usuario" size="50" value="<?php  echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Contrase&ntilde;a:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="contrasena" type="password" id="contrasena" size="50" value="<? echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="contrasena" type="password" id="contrasena" size="50" value="<?php  echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Calle y no.:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="calle" type="text" id="calle" size="50" value="<? echo"$calle";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="calle" type="text" id="calle" size="50" value="<?php  echo"$calle";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Colonia:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="colonia" type="text" id="colonia" size="50" value="<? echo"$colonia";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="colonia" type="text" id="colonia" size="50" value="<?php  echo"$colonia";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>C.P.:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="cp" type="text" id="cp" size="50" value="<? echo"$cp";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="cp" type="text" id="cp" size="50" value="<?php  echo"$cp";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Estado:</strong></td>
                               <td bgcolor="#eeeeee"><select name="estado" id="estado" onchange='cargaContenido(this.id)'>
                                   <option value='0'>Seleccione un Estado</option>
-                                  <?
+                                  <?php  
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
@@ -212,7 +212,7 @@ if (mysqli_num_rows($result)){
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Municipio:</strong></td>
-                              <td bgcolor="#eeeeee"><?
+                              <td bgcolor="#eeeeee"><?php  
 						  if($accela=="edit"){
 						 echo'  <select name="municipio" id="municipio">';
 
@@ -237,11 +237,11 @@ echo'</select>';
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Especialidad:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="especialidad" type="text" id="especialidad" size="50" value="<? echo"$especialidad";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="especialidad" type="text" id="especialidad" size="50" value="<?php  echo"$especialidad";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Trabajos que realiza:</strong></td>
-                              <td bgcolor="#eeeeee"><?
+                              <td bgcolor="#eeeeee"><?php  
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
 $result = mysqli_query($link,"SELECT * FROM servicios"); 
@@ -267,111 +267,111 @@ echo'</table>';
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Horario de atenci&oacute;n:</strong> </td>
-                              <td bgcolor="#eeeeee"><input name="horario" type="text" id="horario" size="50" value="<? echo"$horario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+                              <td bgcolor="#eeeeee"><input name="horario" type="text" id="horario" size="50" value="<?php  echo"$horario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Lista de Precios:</strong> </td>
-                              <td bgcolor="#eeeeee"><textarea name="precios" cols="50" rows="5" id="precios" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><? echo"$precios";?></textarea></td>
+                              <td bgcolor="#eeeeee"><textarea name="precios" cols="50" rows="5" id="precios" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><?php  echo"$precios";?></textarea></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Sucursales:</strong></td>
-                              <td bgcolor="#eeeeee"><textarea name="sucursales" cols="50" rows="5" id="sucursales" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><? echo"$sucursales";?></textarea></td>
+                              <td bgcolor="#eeeeee"><textarea name="sucursales" cols="50" rows="5" id="sucursales" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><?php  echo"$sucursales";?></textarea></td>
                             </tr>
                           </table></td>
                           <td colspan="2" align="right" valign="top"><table width="100%%" border="0" cellspacing="3" cellpadding="3">
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Contacto 1:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="contacto" type="text" id="contacto" onblur="f(this)" onclick="f(this)" onkeydown="f(this)" onkeyup="f(this)" size="50" onattrmodified="g(this)" onpropertychange="g(this)" value="<? echo"$contacto";?>"/></td>
+                              <td bgcolor="#eeeeee"><input name="contacto" type="text" id="contacto" onblur="f(this)" onclick="f(this)" onkeydown="f(this)" onkeyup="f(this)" size="50" onattrmodified="g(this)" onpropertychange="g(this)" value="<?php  echo"$contacto";?>"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel. Oficina 1:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="tel" type="text" id="tel" size="50" value="<? echo"$tel";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="tel" type="text" id="tel" size="50" value="<?php  echo"$tel";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel. Oficina 2:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="tel2" type="text" id="tel2" size="50" value="<? echo"$tel2";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="tel2" type="text" id="tel2" size="50" value="<?php  echo"$tel2";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel. Oficina 3:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><input name="fax2" type="text" id="fax2" size="50" value="<? echo"$fax2";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td valign="top" bgcolor="#eeeeee"><input name="fax2" type="text" id="fax2" size="50" value="<?php  echo"$fax2";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel / Fax:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="fax" type="text" id="fax" size="50" value="<? echo"$fax";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="fax" type="text" id="fax" size="50" value="<?php  echo"$fax";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Celular:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="cel" type="text" id="cel" size="50" value="<? echo"$cel";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="cel" type="text" id="cel" size="50" value="<?php  echo"$cel";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel. Nextel:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="nextel" type="text" id="nextel" size="50" value="<? echo"$nextel";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="nextel" type="text" id="nextel" size="50" value="<?php  echo"$nextel";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>ID Nextel:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="nextelid" type="text" id="nextelid" size="50" value="<? echo"$nextelid";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="nextelid" type="text" id="nextelid" size="50" value="<?php  echo"$nextelid";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel. Casa:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="telcasa" type="text" id="telcasa" size="50" value="<? echo"$telcasa";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="telcasa" type="text" id="telcasa" size="50" value="<?php  echo"$telcasa";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>E-mail:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="mail" type="text" id="mail" size="50" value="<? echo"$mail";?>" /></td>
+                              <td bgcolor="#eeeeee"><input name="mail" type="text" id="mail" size="50" value="<?php  echo"$mail";?>" /></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Contacto 2:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="contacto2" type="text" id="contacto2" onblur="f(this)" onclick="f(this)" onkeydown="f(this)" onkeyup="f(this)" size="50" onattrmodified="g(this)" onpropertychange="g(this)" value="<? echo"$contacto2";?>"/></td>
+                              <td bgcolor="#eeeeee"><input name="contacto2" type="text" id="contacto2" onblur="f(this)" onclick="f(this)" onkeydown="f(this)" onkeyup="f(this)" size="50" onattrmodified="g(this)" onpropertychange="g(this)" value="<?php  echo"$contacto2";?>"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel&eacute;fono Celular:</strong></td>
-                              <td bgcolor="#eeeeee"><input name="cel2" type="text" id="cel2" size="50" value="<? echo"$cel2";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td bgcolor="#eeeeee"><input name="cel2" type="text" id="cel2" size="50" value="<?php  echo"$cel2";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Tel. Nextel:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><input name="nextel2" type="text" id="nextel2" size="50" value="<? echo"$nextel2";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td valign="top" bgcolor="#eeeeee"><input name="nextel2" type="text" id="nextel2" size="50" value="<?php  echo"$nextel2";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>ID Nextel:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><input name="nextelid2" type="text" id="nextelid2" size="50" value="<? echo"$nextelid2";?>" onkeypress="return numbersonly(this, event)"/></td>
+                              <td valign="top" bgcolor="#eeeeee"><input name="nextelid2" type="text" id="nextelid2" size="50" value="<?php  echo"$nextelid2";?>" onkeypress="return numbersonly(this, event)"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>E-mail:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><input name="mail2" type="text" id="mail2" size="50" value="<? echo"$mail2";?>"/></td>
+                              <td valign="top" bgcolor="#eeeeee"><input name="mail2" type="text" id="mail2" size="50" value="<?php  echo"$mail2";?>"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Banco:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><input name="banco" type="text" id="banco" size="50" value="<? echo"$banco";?>"/></td>
+                              <td valign="top" bgcolor="#eeeeee"><input name="banco" type="text" id="banco" size="50" value="<?php  echo"$banco";?>"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>No. de Cuenta:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><input name="numcuenta" type="text" id="numcuenta" size="50" value="<? echo"$numcuenta";?>"/></td>
+                              <td valign="top" bgcolor="#eeeeee"><input name="numcuenta" type="text" id="numcuenta" size="50" value="<?php  echo"$numcuenta";?>"/></td>
                             </tr>
 							<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>CLABE:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><input name="clabe" type="text" id="clabe" size="50" value="<? echo"$clabe";?>"/></td>
+                              <td valign="top" bgcolor="#eeeeee"><input name="clabe" type="text" id="clabe" size="50" value="<?php  echo"$clabe";?>"/></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Observaciones:</strong></td>
                               <td valign="top" bgcolor="#eeeeee"><strong><strong>
-                                <textarea name="observaciones" cols="50" rows="10" id="observaciones" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><? echo"$observaciones";?></textarea>
+                                <textarea name="observaciones" cols="50" rows="10" id="observaciones" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"><?php  echo"$observaciones";?></textarea>
                               </strong></strong></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Status:</strong></td>
                               <td valign="top" bgcolor="#eeeeee"><select name="status" id="status">
-                                <option value="activo" <? if($status=="activo"){echo' selected ';} ?>>Activo</option>
-                                <option value="inactivo" <? if($status=="inactivo"){echo' selected ';} ?>>Inactivo</option>
+                                <option value="activo" <?php  if($status=="activo"){echo' selected ';} ?>>Activo</option>
+                                <option value="inactivo" <?php  if($status=="inactivo"){echo' selected ';} ?>>Inactivo</option>
                               </select>
                               </td>
                             </tr>
                             						<tr>
                               <td align="right" valign="top" bgcolor="#eeeeee"><strong>Modificado:</strong></td>
-                              <td valign="top" bgcolor="#eeeeee"><? echo"$lastdate";?> por: <strong><? echo"$lastuser";?></strong></td>
+                              <td valign="top" bgcolor="#eeeeee"><?php  echo"$lastdate";?> por: <strong><?php  echo"$lastuser";?></strong></td>
                             </tr>
                             <tr>
                               <td align="right" valign="top" bgcolor="#eeeeee" colspan="2">
-                           <? 
+                           <?php  
 			if($accela=="new"){echo'';}
 			else{echo'<iframe src ="notas_proveedorb.php?&id='.$id.'&popup=1" name="window2" width="100%" marginwidth="50" height="200" marginheight="50" align="30" frameborder="0" id="window2" border="0"></iframe>';
 
@@ -388,7 +388,7 @@ echo'</table>';
 					  <table width="100%" border="0" cellspacing="3" cellpadding="3">
                                                       <tr>
                                                         <td width="100%" bgcolor="#eeeeee"> <strong>Areas de cobertura:</strong>
-														<?
+														<?php  
 														echo'<iframe src ="areas_cobertura.php?accela='.$accela.'&id='.$id.'" name="window1" width="100%" marginwidth="50" height="200" marginheight="50" align="30" frameborder="0" id="window1" border="0"></iframe>';
 														?>
                                                       </td>

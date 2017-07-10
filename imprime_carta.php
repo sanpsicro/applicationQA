@@ -21,7 +21,7 @@
 window.print();  
 }
 </script>
-  <?
+  <?php  
 include('conf.php');
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
@@ -78,52 +78,52 @@ $cliente=mysql_result($result,0,"nombre");
   <tr>
     <td colspan="2"><table width="100%" border="0" cellspacing="3" cellpadding="3">
       <tr>
-        <td><p><strong><? #echo $proveedor;
+        <td><p><strong><?php  #echo $proveedor;
 		?></strong></p>
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
               <td>&nbsp;</td>
               <td width="250"><p><strong>M&eacute;xico D.F. a
-                <? 
+                <?php  
 		echo date("d");?>
                 de
-                <? 
+                <?php  
 		
 		$dias = array("enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre");
 echo $dias[date('n')-1];
 ?>
-                de <? echo date("Y");?>.</strong></p>
-                  <p><strong>Reporte Cliente: <? echo $reporte_cliente;?></strong></p></td>
+                de <?php  echo date("Y");?>.</strong></p>
+                  <p><strong>Reporte Cliente: <?php  echo $reporte_cliente;?></strong></p></td>
             </tr>
           </table>
           <p><strong>A QUIEN CORRESPONDA:</strong></p>
           <p><strong>PRESENTE:</strong></p>
           <p>&nbsp;</p>
-          <p><strong>Por este conducto me permito hacer de  su conocimiento, que en el servicio otorgado bajo el n&uacute;mero de expediente  citado al rubro, relacionado con la unidad Marca: <? echo $marca; ?>, Tipo: <? echo $tipo; ?>, Modelo: <? echo $modelo; ?>, Color: <? echo $color; ?>, Placas: <? echo $placas; ?>, se  generaron los siguientes costos adicionales como lo establece el convenio que  existe entre GRUAS AYASA y <? echo $cliente; ?>: </strong></p>
+          <p><strong>Por este conducto me permito hacer de  su conocimiento, que en el servicio otorgado bajo el n&uacute;mero de expediente  citado al rubro, relacionado con la unidad Marca: <?php  echo $marca; ?>, Tipo: <?php  echo $tipo; ?>, Modelo: <?php  echo $modelo; ?>, Color: <?php  echo $color; ?>, Placas: <?php  echo $placas; ?>, se  generaron los siguientes costos adicionales como lo establece el convenio que  existe entre GRUAS AYASA y <?php  echo $cliente; ?>: </strong></p>
           <table width="300" border="0" cellspacing="3" cellpadding="3">
             <tr>
               <td><strong>Banderazo:</strong></td>
-              <td><strong>$<? echo number_format($banderazo,2);?></strong></td>
+              <td><strong>$<?php  echo number_format($banderazo,2);?></strong></td>
             </tr>
             <tr>
               <td><strong>Blindaje:</strong></td>
-              <td><strong>$<? echo number_format($blindaje,2);?></strong></td>
+              <td><strong>$<?php  echo number_format($blindaje,2);?></strong></td>
             </tr>
             <tr>
               <td><strong>Maniobras</strong></td>
-              <td><strong>$<? echo number_format($maniobras,2);?></strong></td>
+              <td><strong>$<?php  echo number_format($maniobras,2);?></strong></td>
             </tr>
             <tr>
               <td><strong>Tiempo de Espera</strong></td>
-              <td><strong>$<? echo number_format($espera,2);?></strong></td>
+              <td><strong>$<?php  echo number_format($espera,2);?></strong></td>
             </tr>
             <tr>
               <td><strong>Otro:</strong></td>
-              <td><strong>$<? echo number_format($otro,2);?></strong></td>
+              <td><strong>$<?php  echo number_format($otro,2);?></strong></td>
             </tr>
             <tr>
               <td><strong>TOTAL </strong></td>
-              <td><strong>$<? 
+              <td><strong>$<?php  
 			  $totalix=$otro+$espera+$maniobras+$blindaje+$banderazo;
 #			  $totalix=$totalix*1.15;
 			  echo number_format($totalix,2);?></strong></td>
@@ -138,7 +138,7 @@ echo $dias[date('n')-1];
               <td>________________________________________________________________________</td>
             </tr>
             <tr>
-              <td><p align="center"><strong><? echo $empleado; ?></strong><br>
+              <td><p align="center"><strong><?php  echo $empleado; ?></strong><br>
                       <strong>Coordinador Cabina</strong></p></td>
             </tr>
           </table>

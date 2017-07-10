@@ -1,4 +1,4 @@
-<?
+<?php  
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header('Content-Type: text/xml; charset=ISO-8859-1');
 
@@ -196,22 +196,22 @@ echo' <table width="100%" border="0" cellspacing="3" cellpadding="3">
             <td colspan="3" bgcolor="#FFFFFF"><table width="100%%" border="0" cellspacing="3" cellpadding="3">
                 <tr>
                   <td><strong>Delitos:</strong> '; 
-				  if($delitos=="si"){echo'Sí';} else{echo'No';}
+				  if($delitos=="si"){echo'Sï¿½';} else{echo'No';}
 				  echo'</td>
                   <td><strong>Da&ntilde;os:</strong> '; 
-				  if($danos=="si"){echo'Sí';} else{echo'No';}				  
+				  if($danos=="si"){echo'Sï¿½';} else{echo'No';}				  
 				  echo'</td>
                   <td><strong>Lesiones:</strong> '; 
-				  				  if($lesiones=="si"){echo'Sí';} else{echo'No';}
+				  				  if($lesiones=="si"){echo'Sï¿½';} else{echo'No';}
 				  echo'</td>
                   <td><strong>Homicidios:</strong> '; 
-				  				  if($homicidios=="si"){echo'Sí';} else{echo'No';}
+				  				  if($homicidios=="si"){echo'Sï¿½';} else{echo'No';}
 				  echo'</td>
                   <td><strong>Ataques:</strong> ';
-				  if($ataques=="si"){echo'Sí';} else{echo'No';}				  
+				  if($ataques=="si"){echo'Sï¿½';} else{echo'No';}				  
 				   echo'</td>
                   <td><strong>Robo:</strong> '; 
-				  if($robo=="si"){echo'Sí';} else{echo'No';}				  
+				  if($robo=="si"){echo'Sï¿½';} else{echo'No';}				  
 				  echo'</td>
                 </tr>
             </table></td>

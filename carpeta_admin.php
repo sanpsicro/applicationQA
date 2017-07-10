@@ -78,7 +78,7 @@ tinymce.init({
 
             <td width="400" 			class="questtitle"> 
 
-			<? 
+			<?php  
 
 			if($accela=="new"){echo'Nuevo Tema';}
 
@@ -202,7 +202,7 @@ echo'<form name="frm" method="post" action="process.php?module=carpetas&accela='
         
         <td width="100" align="right" bgcolor="#cccccc"><strong>T&iacute;tulo:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="titulo" type="text" id="nombre" size="50" value="<? echo"$titulo";?>" /></td>
+        <td width="200" bgcolor="#cccccc"><input name="titulo" type="text" id="nombre" size="50" value="<?php  echo"$titulo";?>" /></td>
         
         </tr>
     
@@ -213,9 +213,9 @@ echo'<form name="frm" method="post" action="process.php?module=carpetas&accela='
         
                <td bgcolor="#FFFFFF" width="200" valign="top">
                
-               <input type="radio" name="tipo" value="1" <? if($tipo=="1"){echo' checked';} ?> <? if (empty($tipo)) { echo ' checked';} ?> /> Contenido <br /><br />
+               <input type="radio" name="tipo" value="1" <?php  if($tipo=="1"){echo' checked';} ?> <?php  if (empty($tipo)) { echo ' checked';} ?> /> Contenido <br /><br />
                
-                              <input type="radio" name="tipo" value="2" <? if($tipo=="2"){echo' checked';} ?> /> Descarga <br /><br />
+                              <input type="radio" name="tipo" value="2" <?php  if($tipo=="2"){echo' checked';} ?> /> Descarga <br /><br />
                
      </td>
         </tr>
@@ -223,7 +223,7 @@ echo'<form name="frm" method="post" action="process.php?module=carpetas&accela='
         
         <td width="100" align="right" bgcolor="#cccccc"><strong>Contenido:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><textarea name="contenido"><? echo"$contenido";?></textarea></td>
+        <td width="200" bgcolor="#cccccc"><textarea name="contenido"><?php  echo"$contenido";?></textarea></td>
         
         </tr>
   
@@ -233,7 +233,7 @@ echo'<form name="frm" method="post" action="process.php?module=carpetas&accela='
         <br /><br />
         </td>
         
-        <td width="200" bgcolor="#cccccc"><input name="archivo" type="text" id="fieldID2" size="50" value="<? echo"$archivo";?>" />
+        <td width="200" bgcolor="#cccccc"><input name="archivo" type="text" id="fieldID2" size="50" value="<?php  echo"$archivo";?>" />
         <a class="fancybox-archivos fancybox.iframe bklink" href="filemanager/dialog.php?type=2&field_id=fieldID2&akey=chksiw299aX">Seleccionar</a>
                 </td>
         
@@ -247,9 +247,9 @@ echo'<form name="frm" method="post" action="process.php?module=carpetas&accela='
                
                <select name="activo" id="activo">
 
-          <option value="1" <? if($activo=="1"){echo' selected';} ?>>Si</option>
+          <option value="1" <?php  if($activo=="1"){echo' selected';} ?>>Si</option>
 
-          <option value="0" <? if($activo=="0"){echo' selected';} ?>>No</option>
+          <option value="0" <?php  if($activo=="0"){echo' selected';} ?>>No</option>
 
         </select>   
                              

@@ -1,4 +1,4 @@
-<?
+<?php  
 extract($_GET);
 extract($_POST);
 include("conf.php");

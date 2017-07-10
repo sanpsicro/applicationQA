@@ -1,4 +1,4 @@
-<?
+<?php  
 
 
 
@@ -108,7 +108,7 @@
 
 <form id="form1" name="form1" method="post" action="#">
 
-<input type="hidden" name="id" value=" <? echo $id; ?> ">
+<input type="hidden" name="id" value=" <?php  echo $id; ?> ">
 
   <table width="100%" border="0" cellspacing="3" cellpadding="3">
 

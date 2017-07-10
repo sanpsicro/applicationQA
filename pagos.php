@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -15,25 +15,25 @@ if(empty($selenium)){$selenium="no pagados";}
             <form name="form1" method="post" action="mainframe.php?module=pagos">
             <td> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="Provedor.nombre" <? if($sort=="Provedor.nombre"){echo"selected";}?>>Ordenar por Proveedor</option>
-                <option value="pagos.status" <? if($sort=="pagos.status"){echo"selected";}?>>Ordenar por status</option>                
+                <option value="Provedor.nombre" <?php  if($sort=="Provedor.nombre"){echo"selected";}?>>Ordenar por Proveedor</option>
+                <option value="pagos.status" <?php  if($sort=="pagos.status"){echo"selected";}?>>Ordenar por status</option>                
               </select>
               <select name="selenium" id="selenium">
-                <option value="all" <? if($selenium=="all"){echo' selected ';}?>>Todos</option>
-                <option value="pagados" <? if($selenium=="pagados"){echo' selected ';}?>>Pagados</option>
-                <option value="no pagados" <? if($selenium=="no pagados"){echo' selected ';}?>>No Pagados</option>
+                <option value="all" <?php  if($selenium=="all"){echo' selected ';}?>>Todos</option>
+                <option value="pagados" <?php  if($selenium=="pagados"){echo' selected ';}?>>Pagados</option>
+                <option value="no pagados" <?php  if($selenium=="no pagados"){echo' selected ';}?>>No Pagados</option>
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
-            <form name="form1" method="post" action="bridge.php?module=pagos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=pagos"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -42,14 +42,14 @@ if(empty($selenium)){$selenium="no pagados";}
     </td>
   </tr>
 <tr><td>
-<?
+<?php  
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo pago Registrado</div></b><p>';}
 if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos del Pago actualizados</div></b><p>';}
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Pago eliminado</div></b><p>';}
 
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 $condicion="where Provedor.nombre like '%$quest%'";
 }
 else{
@@ -63,7 +63,7 @@ if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
 $result = mysqli_query("SELECT COUNT(*) from pagos left join Provedor on (pagos.proveedor = Provedor.id) $condicion", $link); 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query("SELECT pagos.id, pagos.conceptor, pagos.monto, pagos.status, Provedor.nombre from pagos left join Provedor on (pagos.proveedor = Provedor.id) $condicion order by $sort LIMIT $reg1, $tampag", $link); 
@@ -76,7 +76,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {

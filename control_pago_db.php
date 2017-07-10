@@ -1,4 +1,4 @@
-<?
+<?php  
 extract($_REQUEST);
 include("conf.php");
 $link = mysqli_connect($host, $username, $pass); 

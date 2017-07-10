@@ -1,4 +1,4 @@
-<?
+<?php  
 if(empty($show)){$show=10;}
 if(empty($sort)){$sort="nombre";}
 ?>
@@ -14,31 +14,31 @@ if(empty($sort)){$sort="nombre";}
 
           <tr>
 
-            <form name="form1" method="post" action="mainframe.php?module=polizas<? if($quest!=""){echo"&quest=$quest";}?>">
+            <form name="form1" method="post" action="mainframe.php?module=polizas<?php  if($quest!=""){echo"&quest=$quest";}?>">
 
             <td width="400"> 
 
               <select name="show" id="mostrar">
 
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
 
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
 
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
 
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
 
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
 
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
 
               </select>
 
               <select name="sort" id="ordenar">
 
-                <option value="nombre"  <? if($sort=="nombre"){echo"selected";}?>>Ordenar por Num de contrato</option>
-                <option value="contacto" <? if($sort=="contacto"){echo"selected";}?>>Ordenar por Fecha de vencimiento</option>				
-                <option value="estado" <? if($sort=="estado"){echo"selected";}?>>Ordenar por Status</option>				
+                <option value="nombre"  <?php  if($sort=="nombre"){echo"selected";}?>>Ordenar por Num de contrato</option>
+                <option value="contacto" <?php  if($sort=="contacto"){echo"selected";}?>>Ordenar por Fecha de vencimiento</option>				
+                <option value="estado" <?php  if($sort=="estado"){echo"selected";}?>>Ordenar por Status</option>				
 
               </select>
 
@@ -48,7 +48,7 @@ if(empty($sort)){$sort="nombre";}
 
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="mainframe.php?module=polizas"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="mainframe.php?module=polizas"><td align="right" class="questtitle">Bï¿½squeda: 
 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
 
@@ -66,7 +66,7 @@ if(empty($sort)){$sort="nombre";}
 
 <tr><td bgcolor="#eeeeee">
 
-<?
+<?php  
 
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva Poliza Registrada</div></b><p>';}
 
@@ -78,7 +78,7 @@ if(isset($code) && $code=="4"){echo'<br><b><div class="xplik">Error: El Cliente 
 
 if(isset($quest) && $quest!=""){
 
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 
 $condicion="where (nombre like '%$quest%' OR rfc like '%$quest%' OR contacto like '%$quest%' OR telefonoCelular like '%$quest%' OR telefonoCasa like '%$quest%' OR telefonoOficina like '%$quest%' OR nextel like '%$quest%' OR email like '%$quest%')";
 
@@ -93,7 +93,7 @@ $pag = ($_GET['pag']);
 if (!isset($pag)) $pag = 1;
 $result = mysqli_query("SELECT COUNT(*) FROM Poliza $condicion", $link); 
 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 
 $tampag = $show;
 
@@ -119,7 +119,7 @@ $_GET["show"]=$show;
 
   $posterior = $actual + 1;
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15 bgcolor=#eeeeee background=\"img/barpaginador.gif\">&nbsp;</td><td width=80 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><font color=#FFFFFF>Ir a la página</font></td><td width=5 background=img/barpaginador.gif>&nbsp;</td><td width=30 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15 bgcolor=#eeeeee background=\"img/barpaginador.gif\">&nbsp;</td><td width=80 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><font color=#FFFFFF>Ir a la pï¿½gina</font></td><td width=5 background=img/barpaginador.gif>&nbsp;</td><td width=30 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -181,7 +181,7 @@ echo'<table width="100%" border="0" cellspacing="0" cellpadding="0" background="
                       <td width="1" background="img/spacer1.gif"><img src="img/spacer1.gif" width="1" height="1"></td>
 
                     			
-                      <td background="img/bar4.gif" width=150  align=middle class="dataclass"><b>Operación</b></td></tr>';
+                      <td background="img/bar4.gif" width=150  align=middle class="dataclass"><b>Operaciï¿½n</b></td></tr>';
 
 
 

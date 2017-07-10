@@ -1,4 +1,4 @@
-<?
+<?php  
 ob_start("ob_gzhandler");//
 session_start();
 if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
@@ -13,8 +13,8 @@ header("Expires: Mon,26 Jul 1997 05:00:00 GMT");
 error_reporting(E_ALL ^ E_NOTICE);
 $NO_EDITAR=true;
 ?>
-<? include('conf.php'); ?>
-<? include('dbfunc.php'); ?>
+<?php  include('conf.php'); ?>
+<?php  include('dbfunc.php'); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -103,7 +103,7 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmborra(idex,tercero) { 
-if (confirm("¿Está seguro de querer eliminar al tercero?\n")) { 
+if (confirm("ï¿½Estï¿½ seguro de querer eliminar al tercero?\n")) { 
 FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-flam='+new Date().getTime(),'terceros','','get');
 }
 }
@@ -111,7 +111,7 @@ FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-f
 <script type="text/javascript" src="subcombo.js"></script>
 </head>
 <body>
-<? 
+<?php  
 if($set_date=="arribo"){
 mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET arribo=now() where id='$id'";
@@ -181,8 +181,8 @@ $probestar=mysql_result($result,0,"nombre");
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr>
-      <td width="50%"><span class="maintitle">Detalle del Expediente <? echo $expediente;?></span></td>
-      <td width=50% align="right"><span class="maintitle">Prov: <? echo $probestar;?></span></td>
+      <td width="50%"><span class="maintitle">Detalle del Expediente <?php  echo $expediente;?></span></td>
+      <td width=50% align="right"><span class="maintitle">Prov: <?php  echo $probestar;?></span></td>
       </tr>
 	  </table></td></tr>
 <tr>
@@ -190,10 +190,10 @@ $probestar=mysql_result($result,0,"nombre");
   <table width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr>
       <td bgcolor="#CCCCCC" colspan=3><strong>Status del caso</strong></td>
-    </tr></table> <div id="statuscaso"><?
+    </tr></table> <div id="statuscaso"><?php  
     include("status_caso.php");
 	?></div>  
-    <?
+    <?php  
 	$ivx=0;
 $checa_array=array_search("informacion_caso",$camposex);
 $checa_array2=array_search("num_contrato",$camposex);
@@ -214,95 +214,95 @@ if($checa_array===FALSE && $checa_array2===FALSE && $checa_array3===FALSE  && $c
       <td bgcolor="#CCCCCC" colspan=3><strong>Informaci&oacute;n del caso</strong></td>
       </tr>
     <tr>
-     <td width="33%" bgcolor="#ffffff"><strong>Servicio solicitado:</strong> <? echo $servicio;?></td>
-      <td width="33%" bgcolor="#ffffff"><strong>Contrato:</strong> <? echo $contrato;?></td>
-      <td width="33%" bgcolor="#ffffff"><strong>Cliente:</strong> <? echo $cliente;?></td>
+     <td width="33%" bgcolor="#ffffff"><strong>Servicio solicitado:</strong> <?php  echo $servicio;?></td>
+      <td width="33%" bgcolor="#ffffff"><strong>Contrato:</strong> <?php  echo $contrato;?></td>
+      <td width="33%" bgcolor="#ffffff"><strong>Cliente:</strong> <?php  echo $cliente;?></td>
     </tr>
     <tr>
-      <td bgcolor="#ffffff"><strong>Fecha de recepci&oacute;n:</strong> <? echo ''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
-       <? $ivx++; 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}?>
+      <td bgcolor="#ffffff"><strong>Fecha de recepci&oacute;n:</strong> <?php  echo ''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
+       <?php  $ivx++; 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}?>
       
-<?
+<?php  
 $checa_arrayx=array_search("reporta",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>    
-      <td bgcolor="#ffffff"><strong>Reporta:</strong> <? echo $reporta;?></td>
+      <td bgcolor="#ffffff"><strong>Reporta:</strong> <?php  echo $reporta;?></td>
       
-      <? $ivx++; 
+      <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-<?
+<?php  
 $checa_arrayx=array_search("tel_reporta",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-      <td bgcolor="#ffffff"><strong>Tel&eacute;fono de quien reporta:</strong> <? echo $tel_reporta;?></td>      
-            <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Tel&eacute;fono de quien reporta:</strong> <?php  echo $tel_reporta;?></td>      
+            <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
             
-<?
+<?php  
 $checa_arrayx=array_search("fecha_suceso",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-      <td bgcolor="#ffffff"><strong>Fecha del suceso:</strong> <? echo ''.$fexa2d[2].'/'.$fexa2d[1].'/'.$fexa2d[0].' '.$fexa2[1].'';?></td>
-      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Fecha del suceso:</strong> <?php  echo ''.$fexa2d[2].'/'.$fexa2d[1].'/'.$fexa2d[0].' '.$fexa2[1].'';?></td>
+      <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-      <?
+      <?php  
 $checa_arrayx=array_search("convenio",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-      <td bgcolor="#ffffff"><strong>Convenio:</strong> <? echo $convenio;?></td>      <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Convenio:</strong> <?php  echo $convenio;?></td>      <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-      <?
+      <?php  
 $checa_arrayx=array_search("inciso",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-      <td bgcolor="#ffffff"><strong>Inciso:</strong> <? echo $inciso;?></td>             <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Inciso:</strong> <?php  echo $inciso;?></td>             <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-      <td bgcolor="#ffffff"><strong>N&uacute;mero de contrato:</strong> <? echo $num_contrato;?></td>   <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>N&uacute;mero de contrato:</strong> <?php  echo $num_contrato;?></td>   <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			?>  
-      <td bgcolor="#ffffff"><strong>Expediente:</strong> <? echo $expediente;?></td>   <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Expediente:</strong> <?php  echo $expediente;?></td>   <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			?>  
-      <td bgcolor="#ffffff"><strong>Nombre del cliente:</strong> <? echo $num_cliente;?></td>  <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Nombre del cliente:</strong> <?php  echo $num_cliente;?></td>  <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			?>
-        <?
+        <?php  
 $checa_arrayx=array_search("num_siniestro",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-          <td bgcolor="#ffffff"><strong>N&uacute;mero del siniestro:</strong> <? echo $num_siniestro;?></td>
- <? $ivx++; 
+          <td bgcolor="#ffffff"><strong>N&uacute;mero del siniestro:</strong> <?php  echo $num_siniestro;?></td>
+ <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
-          <?
+          <?php  
 $checa_arrayx=array_search("usuario",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-      <td bgcolor="#ffffff"><strong>Usuario:</strong> <? echo $usuario;?></td>
- <? $ivx++; 
+      <td bgcolor="#ffffff"><strong>Usuario:</strong> <?php  echo $usuario;?></td>
+ <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
       
-      <?
+      <?php  
 $checa_arrayx=array_search("reporte_cliente",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
-            <td bgcolor="#ffffff"><strong>Reporte cliente:</strong> <? echo $reporte_cliente;?></td>
- <? $ivx++; 
+            <td bgcolor="#ffffff"><strong>Reporte cliente:</strong> <?php  echo $reporte_cliente;?></td>
+ <?php  $ivx++; 
 			            if($ivx=="3"){echo'</tr><tr>'; $ivx=0;}
 			}?>
     </tr>
    </table>
-        <?
+        <?php  
 }
 	?>
        
-              <?
+              <?php  
 $checa_array=array_search("detalles_servicio",$camposex);
 $checa_array2=array_search("tecnico_solicitado",$camposex);
 $checa_array3=array_search("motivo_servicio",$camposex);
@@ -327,13 +327,13 @@ if($checa_array===FALSE && $checa_array2===FALSE && $checa_array3===FALSE && $ch
       <table width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr>
       <td colspan="3" bgcolor="#CCCCCC"><strong>Detalles del servicio</strong> </td>
-      </tr></table> <div id="servisuservisu"> <?
+      </tr></table> <div id="servisuservisu"> <?php  
       include('servisuservisu.php'); 
 	  ?>  
       </div>
-      <?       }	  ?>
+      <?php        }	  ?>
       
-       <?
+       <?php  
 $checa_array=array_search("informacion_vehiculo",$camposex);
 $checa_array2=array_search("auto_marca",$camposex);
 $checa_array3=array_search("auto_tipo",$camposex);
@@ -346,12 +346,12 @@ if($checa_array===FALSE && $checa_array2===FALSE && $checa_array3===FALSE && $ch
     <tr>
       <td colspan="3" bgcolor="#CCCCCC"><strong>Informaci&oacute;n del veh&iacute;culo</strong> </td>
       </tr></table><div id="datosvehiculo">
-          <?
+          <?php  
 include ("datos_vehiculo.php");
 	?>
       </div>   
-      <? } ?>
-                    <?
+      <?php  } ?>
+                    <?php  
 $checa_array=array_search("informacion_poliza",$camposex);
 if($checa_array===FALSE){} else{
 	?>
@@ -360,13 +360,13 @@ if($checa_array===FALSE){} else{
       <td colspan="3" bgcolor="#CCCCCC"><strong>Informaci&oacute;n de la p&oacute;liza</strong></td>
     </tr></table>
     <div id="infopoliza">
-    <?
+    <?php  
 include ("info_poliza.php");
 	?>
      
     </div>
-          <?       }	  ?>
-                          <?
+          <?php        }	  ?>
+                          <?php  
 $checa_array=array_search("informacion_legal",$camposex);
 if($checa_array===FALSE){} else{
 	?>
@@ -375,7 +375,7 @@ if($checa_array===FALSE){} else{
       <td colspan="3" bgcolor="#CCCCCC"><strong>Situaci&oacute;n Jur&iacute;dica </strong></td>
       </tr></table>
 	  <div id="situacion" style="display:block">
-	  <?
+	  <?php  
 	  $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
@@ -408,9 +408,9 @@ $concepto_caucion_vehiculo=mysql_result($result,0,"concepto_caucion_vehiculo");
 	  ?>
 	  <table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
-            <td bgcolor="#ffffff"><strong>Situaci&oacute;n del conductor: </strong> <? echo $situacion_conductor;?></td>
-            <td bgcolor="#ffffff"><strong>Detenci&oacute;n:</strong>  <? echo ''.$detencion[2].'/'.$detencion[1].'/'.$detencion[0].'';?></td>
-            <td bgcolor="#ffffff"><strong>Liberaci&oacute;n:</strong>  <? echo ''.$liberacion[2].'/'.$liberacion[1].'/'.$liberacion[0].'';?></td>
+            <td bgcolor="#ffffff"><strong>Situaci&oacute;n del conductor: </strong> <?php  echo $situacion_conductor;?></td>
+            <td bgcolor="#ffffff"><strong>Detenci&oacute;n:</strong>  <?php  echo ''.$detencion[2].'/'.$detencion[1].'/'.$detencion[0].'';?></td>
+            <td bgcolor="#ffffff"><strong>Liberaci&oacute;n:</strong>  <?php  echo ''.$liberacion[2].'/'.$liberacion[1].'/'.$liberacion[0].'';?></td>
           </tr>
           <tr>
             <td colspan="3" bgcolor="#ffffff">
@@ -419,21 +419,21 @@ $concepto_caucion_vehiculo=mysql_result($result,0,"concepto_caucion_vehiculo");
 					<td><strong>Cauci&oacute;n</strong></td><td><strong>Monto</strong></td><td><strong>Concepto</strong></td><td></td>
 				</tr>
 				<tr>
-					<td><? echo nl2br($caucion_conductor);?></td><td><? echo nl2br($monto_caucion_conductor);?></td><td><? echo nl2br($concepto_caucion_conductor);?></td><td></td>
+					<td><?php  echo nl2br($caucion_conductor);?></td><td><?php  echo nl2br($monto_caucion_conductor);?></td><td><?php  echo nl2br($concepto_caucion_conductor);?></td><td></td>
 				</tr>
 				<tr>
 					<td><strong>Fianzas</strong></td><td><strong>Montos</strong></td><td><strong>Folios</strong></td><td><strong>Concepto</strong></td>
 				</tr>
 				<tr>
-					<td><? echo nl2br($fianzas_conductor);?></td><td><? echo nl2br($monto_fianzas_conductor);?></td><td><? echo nl2br($folios_fianzas_conductor);?></td><td><? echo nl2br($concepto_fianzas_conductor);?></td>
+					<td><?php  echo nl2br($fianzas_conductor);?></td><td><?php  echo nl2br($monto_fianzas_conductor);?></td><td><?php  echo nl2br($folios_fianzas_conductor);?></td><td><?php  echo nl2br($concepto_fianzas_conductor);?></td>
 				</tr>
 				</table>
 			</td>
           </tr>
           <tr>
-            <td bgcolor="#ffffff"><strong>Situaci&oacute;n del veh&iacute;culo: </strong> <? echo $situacion_vehiculo;?></td>
-            <td bgcolor="#ffffff"><strong>Detenci&oacute;n:</strong> <? echo ''.$detencion_vehiculo[2].'/'.$detencion_vehiculo[1].'/'.$detencion_vehiculo[0].'';?></td>
-            <td bgcolor="#ffffff"><strong>Liberaci&oacute;n:</strong> <? echo ''.$liberacion_vehiculo[2].'/'.$liberacion_vehiculo[1].'/'.$liberacion_vehiculo[0].'';?></td>
+            <td bgcolor="#ffffff"><strong>Situaci&oacute;n del veh&iacute;culo: </strong> <?php  echo $situacion_vehiculo;?></td>
+            <td bgcolor="#ffffff"><strong>Detenci&oacute;n:</strong> <?php  echo ''.$detencion_vehiculo[2].'/'.$detencion_vehiculo[1].'/'.$detencion_vehiculo[0].'';?></td>
+            <td bgcolor="#ffffff"><strong>Liberaci&oacute;n:</strong> <?php  echo ''.$liberacion_vehiculo[2].'/'.$liberacion_vehiculo[1].'/'.$liberacion_vehiculo[0].'';?></td>
           </tr>
           <tr>
             <td colspan="3" bgcolor="#ffffff">
@@ -442,13 +442,13 @@ $concepto_caucion_vehiculo=mysql_result($result,0,"concepto_caucion_vehiculo");
 					<td><strong>Cauci&oacute;n</strong></td><td><strong>Monto</strong></td><td><strong>Concepto</strong></td><td></td>
 				</tr>
 				<tr>
-					<td><? echo nl2br($caucion_vehiculo);?></td><td><? echo nl2br($monto_caucion_vehiculo);?></td><td><? echo nl2br($concepto_caucion_vehiculo);?></td><td></td>
+					<td><?php  echo nl2br($caucion_vehiculo);?></td><td><?php  echo nl2br($monto_caucion_vehiculo);?></td><td><?php  echo nl2br($concepto_caucion_vehiculo);?></td><td></td>
 				</tr>
 				<tr>
 					<td><strong>Fianzas</strong></td><td><strong>Montos</strong></td><td><strong>Folios</strong></td><td><strong>Concepto</strong></td>
 				</tr>
 				<tr>
-					<td><? echo nl2br($fianzas_vehiculo);?></td><td><? echo nl2br($monto_fianzas_vehiculo);?></td><td><? echo nl2br($folios_fianzas_vehiculo);?></td><td><? echo nl2br($concepto_fianzas_vehiculo);?></td>
+					<td><?php  echo nl2br($fianzas_vehiculo);?></td><td><?php  echo nl2br($monto_fianzas_vehiculo);?></td><td><?php  echo nl2br($folios_fianzas_vehiculo);?></td><td><?php  echo nl2br($concepto_fianzas_vehiculo);?></td>
 				</tr>
 				</table>
 			</td>
@@ -459,7 +459,7 @@ $concepto_caucion_vehiculo=mysql_result($result,0,"concepto_caucion_vehiculo");
       <td colspan="3" bgcolor="#CCCCCC"><strong>Detalle del Siniestro</strong></td>
       </tr></table>
 <div id="siniestro">
-<?
+<?php  
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
@@ -514,64 +514,64 @@ $municipio=mysql_result($result,0,"NombreMunicipio");
 ?>
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
           <!-- tr>
-            <td bgcolor="#FFFFFF"><strong>Conductor:</strong> <? echo $conductor; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono1:</strong> <? echo $tel1; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono2:</strong> <? echo $tel2; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Conductor:</strong> <?php  echo $conductor; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono1:</strong> <?php  echo $tel1; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono2:</strong> <?php  echo $tel2; ?></td>
           </tr -->
           <tr>
-            <td bgcolor="#FFFFFF"><strong>Siniestro:</strong> <? echo $siniestro; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Averiguaci&oacute;n previa: </strong> <? echo $averiguacion; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Autoridad:</strong> <? echo $autoridad; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Siniestro:</strong> <?php  echo $siniestro; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Averiguaci&oacute;n previa: </strong> <?php  echo $averiguacion; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Autoridad:</strong> <?php  echo $autoridad; ?></td>
           </tr>
           <tr>
-            <td bgcolor="#FFFFFF"><strong>Fecha del accidente: </strong> <? echo''.$fecha_accidente[2].'/'.$fecha_accidente[1].'/'.$fecha_accidente[0].''; ?></td>
-            <td bgcolor="#FFFFFF"><strong>N&uacute;mero de lesionados: </strong> <? echo $numlesionados; ?></td>
-            <td bgcolor="#FFFFFF"><strong>N&uacute;mero de homicidios: </strong> <? echo $numhomicidios; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Fecha del accidente: </strong> <?php  echo''.$fecha_accidente[2].'/'.$fecha_accidente[1].'/'.$fecha_accidente[0].''; ?></td>
+            <td bgcolor="#FFFFFF"><strong>N&uacute;mero de lesionados: </strong> <?php  echo $numlesionados; ?></td>
+            <td bgcolor="#FFFFFF"><strong>N&uacute;mero de homicidios: </strong> <?php  echo $numhomicidios; ?></td>
           </tr>
           <tr>
             <td colspan="3" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="3" cellpadding="3">
                 <tr>
                   <td><strong>Delitos:</strong> 
-				   <? /* if($delitos=="si"){echo'Sí';} else{echo'No';} */ ?>
+				   <?php  /* if($delitos=="si"){echo'Sï¿½';} else{echo'No';} */ ?>
 				  </td>
                   <td><strong>Da&ntilde;os:</strong>
-				  <? if($danos=="si"){echo'Sí';} else{echo'No';} ?>				  
+				  <?php  if($danos=="si"){echo'Sï¿½';} else{echo'No';} ?>				  
 				  </td>
                   <td><strong>Lesiones:</strong>
-				  				 <? if($lesiones=="si"){echo'Sí';} else{echo'No';} ?>
+				  				 <?php  if($lesiones=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Homicidios:</strong>
-				  				  <? if($homicidios=="si"){echo'Sí';} else{echo'No';} ?>
+				  				  <?php  if($homicidios=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Ataques:</strong>
-				<?  if($ataques=="si"){echo'Sí';} else{echo'No';} ?>
+				<?php   if($ataques=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Robo:</strong>
-				<?   if($robo=="si"){echo'Sí';} else{echo'No';}	?>
+				<?php    if($robo=="si"){echo'Sï¿½';} else{echo'No';}	?>
 				  </td>
                 </tr>
             </table></td>
           </tr>
           <tr>
-            <td colspan="3" bgcolor="#FFFFFF"><strong>Descripci&oacute;n:</strong><br> <? echo nl2br($descripcion); ?></td>
+            <td colspan="3" bgcolor="#FFFFFF"><strong>Descripci&oacute;n:</strong><br> <?php  echo nl2br($descripcion); ?></td>
           </tr>
           <tr>
-            <td bgcolor="#FFFFFF" colspan="2"><strong>Lugar de los hechos y Referencias: </strong>  <?  echo "$lugar_hechos $referencias"; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Colonia:</strong>  <?  echo $colonia; ?></td>
+            <td bgcolor="#FFFFFF" colspan="2"><strong>Lugar de los hechos y Referencias: </strong>  <?php   echo "$lugar_hechos $referencias"; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Colonia:</strong>  <?php   echo $colonia; ?></td>
           </tr>
           <tr>
-            <td bgcolor="#FFFFFF"><strong>Ciudad:</strong>  <?  echo $ciudad; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Municipio:</strong>  <?  echo $municipio; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Estado:</strong>  <?  echo $estado; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Ciudad:</strong>  <?php   echo $ciudad; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Municipio:</strong>  <?php   echo $municipio; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Estado:</strong>  <?php   echo $estado; ?></td>
           </tr>
           <!-- tr>
-            <td bgcolor="#FFFFFF"><strong>Ajustador:</strong>  <?  echo $ajustador; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono1:</strong>  <?  echo $telajustador1; ?></td>
-            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono2:</strong>  <?  echo $telajustador2; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Ajustador:</strong>  <?php   echo $ajustador; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono1:</strong>  <?php   echo $telajustador1; ?></td>
+            <td bgcolor="#FFFFFF"><strong>Tel&eacute;fono2:</strong>  <?php   echo $telajustador2; ?></td>
           </tr -->
           <tr>
-            <td bgcolor="#FFFFFF"><strong>Monto da&ntilde;os: </strong> $<?  echo number_format($monto_danos,2); ?></td>
-            <td bgcolor="#FFFFFF"><strong>Monto Deducible: </strong>$<?  echo number_format($monto_deducible,2); ?></td>
+            <td bgcolor="#FFFFFF"><strong>Monto da&ntilde;os: </strong> $<?php   echo number_format($monto_danos,2); ?></td>
+            <td bgcolor="#FFFFFF"><strong>Monto Deducible: </strong>$<?php   echo number_format($monto_deducible,2); ?></td>
           </tr>
         </table>
 </div>
@@ -585,7 +585,7 @@ $municipio=mysql_result($result,0,"NombreMunicipio");
       </tr>
   </table>
   <div id="terceros">
-  <?
+  <?php  
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM terceros where general='$id' order by tipo desc, nombre", $link); 
@@ -682,7 +682,7 @@ else{echo'Da&ntilde;o estimado:';}
   </div>
   </td>
 </tr></table>
-          <?       }	  ?>
+          <?php        }	  ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="6">
 <tr>
 	<th bgcolor="#cccccc" height="25">Seguimiento</th>
@@ -690,7 +690,7 @@ else{echo'Da&ntilde;o estimado:';}
   <tr>
 <td height=50>
 
-<?
+<?php  
 $result = consulta_mysql("SELECT b.*,e.nombre as nombreEmp 
 						FROM bitacora b 
 							LEFT JOIN Empleado e 
@@ -724,6 +724,6 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 </table>
 </body>
 </html>
-<?
+<?php  
 ob_flush();
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php  
 session_start();
 $unixid = time(); 
 include('conf.php'); 

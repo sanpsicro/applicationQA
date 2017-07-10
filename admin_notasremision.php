@@ -1,6 +1,6 @@
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remisión</span></td><td width=150 class="blacklinks">&nbsp;</td></tr></table></td></tr>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remisiï¿½n</span></td><td width=150 class="blacklinks">&nbsp;</td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
@@ -8,7 +8,7 @@
 
 </td>
             <td>&nbsp;</td>
-           <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">Búsqueda: 
+           <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -56,27 +56,27 @@ $status=mysqli_result($result,0,"status");
 echo'<form method="post" action="process.php?module=notasremision&accela='.$accela.'&id='.$id.'">'; 
 ?><table width="100%" cellpadding="3" cellspacing="3">
   <tr>
-    <td bgcolor="#eeeeee"><strong>Nota de Remisión Num: </strong></td>
-    <td bgcolor="#eeeeee"><input name="factura" type="text" id="factura" value="<? echo $numfac;?>" onKeyPress="return numbersonly(this, event)"/></td>
+    <td bgcolor="#eeeeee"><strong>Nota de Remisiï¿½n Num: </strong></td>
+    <td bgcolor="#eeeeee"><input name="factura" type="text" id="factura" value="<?php  echo $numfac;?>" onKeyPress="return numbersonly(this, event)"/></td>
   </tr>
   <tr>
     <td bgcolor="#eeeeee"><strong>Orden de venta:</strong></td>
-    <td bgcolor="#eeeeee"><input name="orden" type="text" id="orden" value="<? echo $orden;?>" onKeyPress="return numbersonly(this, event)"/></td>
+    <td bgcolor="#eeeeee"><input name="orden" type="text" id="orden" value="<?php  echo $orden;?>" onKeyPress="return numbersonly(this, event)"/></td>
   </tr>
   <tr>
     <td bgcolor="#eeeeee"><strong>Monto:</strong></td>
-    <td bgcolor="#eeeeee"><input name="monto" type="text" id="monto" value="<? echo $precio;?>" onKeyPress="return numbersonly(this, event)"/></td>
+    <td bgcolor="#eeeeee"><input name="monto" type="text" id="monto" value="<?php  echo $precio;?>" onKeyPress="return numbersonly(this, event)"/></td>
   </tr>
   <tr>
     <td bgcolor="#eeeeee"><strong>Descripcion:</strong></td>
-    <td bgcolor="#eeeeee"><textarea name="descripcion" cols="50" rows="3"><? echo $descripcion;?></textarea></td>
+    <td bgcolor="#eeeeee"><textarea name="descripcion" cols="50" rows="3"><?php  echo $descripcion;?></textarea></td>
   </tr>
   <tr>
     <td bgcolor="#eeeeee"><strong>Status:</strong></td>
     <td bgcolor="#eeeeee"><select name="status" id="status">
-      <option value="no pagada" <? if($status=="no pagada"){echo' selected ';} ?>>No pagada</option>
-      <option value="pagada" <? if($status=="pagada"){echo' selected ';} ?>>Pagada</option>
-      <option value="cancelada" <? if($status=="cancelada"){echo' selected ';} ?>>Cancelada</option>
+      <option value="no pagada" <?php  if($status=="no pagada"){echo' selected ';} ?>>No pagada</option>
+      <option value="pagada" <?php  if($status=="pagada"){echo' selected ';} ?>>Pagada</option>
+      <option value="cancelada" <?php  if($status=="cancelada"){echo' selected ';} ?>>Cancelada</option>
     </select>
     </td>
   </tr>

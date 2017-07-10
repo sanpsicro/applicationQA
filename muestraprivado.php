@@ -1,4 +1,4 @@
-<?
+<?php  
 session_start();
 if(empty($_SESSION["valid_user"])){die();} 
 
@@ -30,7 +30,7 @@ background-position: left top;
 </style>
 </head>
 <body>
-<?
+<?php  
 
 include('conf.php'); 
 

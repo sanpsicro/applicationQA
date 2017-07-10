@@ -1,4 +1,4 @@
-<?
+<?php  
 session_start();
 if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
 {}
@@ -9,9 +9,9 @@ header("Location: index.php?errorcode=3");
 
 
 
-<? include('conf.php'); ?>
-<? include('dbfunc.php'); ?>
-<?
+<?php  include('conf.php'); ?>
+<?php  include('dbfunc.php'); ?>
+<?php  
 
 
 $link = mysqli_connect($host, $username, $pass); 
@@ -30,7 +30,7 @@ $link = mysqli_connect($host, $username, $pass);
 
 ?>
 
-			<? 
+			<?php  
 
 if (isset($gr)) {
 				

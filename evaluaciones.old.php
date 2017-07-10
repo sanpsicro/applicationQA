@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("evaluaciones",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -7,33 +7,33 @@ if(empty($sort)){$sort="fecha_recepcion";}
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Evaluaciones</span></td><td width=150 class="blacklinks"><?
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Evaluaciones</span></td><td width=150 class="blacklinks"><?php  
 if(!empty($filter)){echo'[ <a href="?module=evaluaciones">Ver evaluaciones</a> ]';}
 else{echo'[ <a href="?module=evaluaciones&filter=evaluar">Realizar evaluaciones</a> ]';}	  
 	  ?></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
-            <form name="form1" method="post" action="bridge.php?module=evaluaciones<? if($quest!=""){echo"&quest=$quest";} if(!empty($filter)){echo'&filter='.$filter.'';}?>">
+            <form name="form1" method="post" action="bridge.php?module=evaluaciones<?php  if($quest!=""){echo"&quest=$quest";} if(!empty($filter)){echo'&filter='.$filter.'';}?>">
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-               <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-               <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-               <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
+               <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
+               <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
+               <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
              </select>
               <select name="sort" id="ordenar">
-                <option value="fecha_recepcion"  <? if($sort=="fecha_recepcion"){echo"selected";}?>>Ordenar por fecha de recepción</option>
-                <option value="contrato" <? if($sort=="contrato"){echo"selected";}?>>Ordenar por número de contrato</option>
-                <option value="promedio" <? if($sort=="promedio"){echo"selected";}?>>Ordenar por promedio</option>								
-                <option value="idEmpleado" <? if($sort=="idEmpleado"){echo"selected";}?>>Ordenar por empleado</option>				
+                <option value="fecha_recepcion"  <?php  if($sort=="fecha_recepcion"){echo"selected";}?>>Ordenar por fecha de recepciï¿½n</option>
+                <option value="contrato" <?php  if($sort=="contrato"){echo"selected";}?>>Ordenar por nï¿½mero de contrato</option>
+                <option value="promedio" <?php  if($sort=="promedio"){echo"selected";}?>>Ordenar por promedio</option>								
+                <option value="idEmpleado" <?php  if($sort=="idEmpleado"){echo"selected";}?>>Ordenar por empleado</option>				
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=evaluaciones<? if(!empty($filter)){echo'&filter='.$filter.'';} ?>"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=evaluaciones<?php  if(!empty($filter)){echo'&filter='.$filter.'';} ?>"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -41,14 +41,14 @@ else{echo'[ <a href="?module=evaluaciones&filter=evaluar">Realizar evaluaciones<
       </td>
   </tr>
 <tr><td>
-<?
-if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva evaluación Registrada</div></b><p>';}
-if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de evaluación actualizados</div></b><p>';}
-if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Evaluación eliminada</div></b><p>';}
-if(isset($code) && $code=="4"){echo'<br><b><div class="xplik">Error: la evaluación ya existe</div></b><p>';}
+<?php  
+if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva evaluaciï¿½n Registrada</div></b><p>';}
+if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de evaluaciï¿½n actualizados</div></b><p>';}
+if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Evaluaciï¿½n eliminada</div></b><p>';}
+if(isset($code) && $code=="4"){echo'<br><b><div class="xplik">Error: la evaluaciï¿½n ya existe</div></b><p>';}
 
 
-if(isset($quest) && $quest!=""){echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+if(isset($quest) && $quest!=""){echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 if(empty($filter)){$condicion="where evaluado ='evaluado' AND (contrato like '%$quest%' OR contacto like '%$quest%')";}
 else{$condicion="where evaluado !='evaluado' AND (contrato like '%$quest%' OR contacto like '%$quest%')";}
 }
@@ -63,7 +63,7 @@ if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
 $result = mysqli_query("SELECT COUNT(*) from general left join evaluaciones on (general.id = evaluaciones.general) $condicion", $link); 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query("SELECT general.id as milene,general.idEmpleado,general.contrato,general.fecha_recepcion,general.evaluado,evaluaciones.promedio from general left join evaluaciones on (general.id = evaluaciones.general) $condicion order by $sort LIMIT $reg1, $tampag", $link); 
@@ -76,7 +76,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
@@ -96,10 +96,10 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                     <tr> 
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Empleado</b></td>
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Num. Contrato</b></td>
-                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fecha recepción</b></td>					  
+                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fecha recepciï¿½n</b></td>					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Promedio</b></td>					  					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Status</b></td>				  
-                      <td bgcolor="#BBBBBB" width=250  align=middle class="dataclass"><b>Operación</b></td></tr>';
+                      <td bgcolor="#BBBBBB" width=250  align=middle class="dataclass"><b>Operaciï¿½n</b></td></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}

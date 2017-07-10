@@ -1,4 +1,4 @@
-<?
+<?php  
 if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
 {}
 else {
@@ -56,7 +56,7 @@ die();} else{}
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">Bï¿½squeda: 
 
 
 
@@ -90,7 +90,7 @@ die();} else{}
 
 <tr><td>
 
-<?
+<?php  
 
 $db = mysqli_connect($host,$username,$pass,$database);
 
@@ -198,63 +198,63 @@ $colonia=mysql_result($result5,0,"nombreColonia");
 
   <tr>
 
-    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del usuario <? echo ''.$usuario.' ('.$tipo.')';?></b></td>
+    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del usuario <?php  echo ''.$usuario.' ('.$tipo.')';?></b></td>
 
     </tr>
 
   <tr>
 
-    <td width="50%" bgcolor="#CCCCCC"><strong>Nombre:</strong> <? echo $nombre?></td>
+    <td width="50%" bgcolor="#CCCCCC"><strong>Nombre:</strong> <?php  echo $nombre?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Cargo:</strong> <? echo $cargo?></td>
-
-    </tr>
-
-  <tr>
-
-    <td><strong>Departamento:</strong> <? echo $departamento?></td>
-
-    <td><strong>Activo:</strong> <? if($activo=="1"){echo'Sí';} else{echo'No';}?></td>
+    <td bgcolor="#CCCCCC"><strong>Cargo:</strong> <?php  echo $cargo?></td>
 
     </tr>
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Dirección:</strong> <? echo $direccion?></td>
+    <td><strong>Departamento:</strong> <?php  echo $departamento?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Estado:</strong> <? echo $estado?></td>
-
-    </tr>
-
-  <tr>
-
-    <td><strong>Municipio:</strong> <? echo $municipio?></td>
-
-    <td><strong>Colonia:</strong> <? echo $colonia?></td>
+    <td><strong>Activo:</strong> <?php  if($activo=="1"){echo'Sï¿½';} else{echo'No';}?></td>
 
     </tr>
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Teléfono Casa:</strong> <? echo $telefonocasa?></td>
+    <td bgcolor="#CCCCCC"><strong>Direcciï¿½n:</strong> <?php  echo $direccion?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Teléfono Celular:</strong> <? echo $telefonocelular?></td>
-
-    </tr>
-
-  <tr>
-
-    <td><strong>Nextel:</strong> <? echo $nextel?></td>
-
-    <td><strong>ID Nextel:</strong> <? echo $idnextel?></td>
+    <td bgcolor="#CCCCCC"><strong>Estado:</strong> <?php  echo $estado?></td>
 
     </tr>
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Email:</strong> <? echo '<a href="mailto:'.$email.'">'.$email.'</a>';?></td>
+    <td><strong>Municipio:</strong> <?php  echo $municipio?></td>
 
-   <td><strong>Extensión:</strong> <? echo $extension?></td>
+    <td><strong>Colonia:</strong> <?php  echo $colonia?></td>
+
+    </tr>
+
+  <tr>
+
+    <td bgcolor="#CCCCCC"><strong>Telï¿½fono Casa:</strong> <?php  echo $telefonocasa?></td>
+
+    <td bgcolor="#CCCCCC"><strong>Telï¿½fono Celular:</strong> <?php  echo $telefonocelular?></td>
+
+    </tr>
+
+  <tr>
+
+    <td><strong>Nextel:</strong> <?php  echo $nextel?></td>
+
+    <td><strong>ID Nextel:</strong> <?php  echo $idnextel?></td>
+
+    </tr>
+
+  <tr>
+
+    <td bgcolor="#CCCCCC"><strong>Email:</strong> <?php  echo '<a href="mailto:'.$email.'">'.$email.'</a>';?></td>
+
+   <td><strong>Extensiï¿½n:</strong> <?php  echo $extension?></td>
 
   </tr>
 

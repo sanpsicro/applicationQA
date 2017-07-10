@@ -1,4 +1,4 @@
-<?
+<?php  
 
 	include 'conf.php';
 if($_GET["select"]=="municipio"){

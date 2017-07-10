@@ -63,7 +63,7 @@ function validar(formulario) {
 
 
   if (formulario.contrasena.value.length < 4) {
-    alert("Escriba una contraseña");
+    alert("Escriba una contraseï¿½a");
     formulario.contrasena.focus();
     return (false);
   }
@@ -82,7 +82,7 @@ function validar(formulario) {
   }
   
     if (formulario.direccion.value.length < 4) {
-    alert("Escriba una dirección");
+    alert("Escriba una direcciï¿½n");
     formulario.direccion.focus();
     return (false);
   }
@@ -106,14 +106,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un teléfono");
+    alert("Escriba un telï¿½fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   /*
   
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una dirección de correo válida"); 
+    alert("Escriba una direcciï¿½n de correo vï¿½lida"); 
 	    formulario.email.focus();
     return (false); 
   }
@@ -131,7 +131,7 @@ function validar(formulario) {
 
 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr>
-            <td><span class="maintitle">Usuarios Webservice</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("ws_a",$explota_permisos);
+            <td><span class="maintitle">Usuarios Webservice</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("ws_a",$explota_permisos);
 
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=new">Nuevo Usuario</a> ]';} ?></td></tr></table></td></tr>
 
@@ -155,7 +155,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=n
 
             <td width="400" 			class="questtitle"> 
 
-			<? 
+			<?php  
 
 			if($accela=="new"){echo'Dar de alta Usuario';}
 
@@ -294,7 +294,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td align="right" bgcolor="#cccccc"><strong>Usuario:</strong></td>
         
-        <td bgcolor="#cccccc"><input name="usuario" type="text" id="usuario" size="50" value="<? echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="usuario" type="text" id="usuario" size="50" value="<?php  echo"$usuario";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
         
         </tr>
       
@@ -302,7 +302,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td align="right" bgcolor="#cccccc"><strong>Contrase&ntilde;a:</strong></td>
         
-        <td bgcolor="#cccccc"><input name="contrasena" type="password" id="contrasena" size="50" value="<? echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
+        <td bgcolor="#cccccc"><input name="contrasena" type="password" id="contrasena" size="50" value="<?php  echo"$contrasena";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"></td>
         
         </tr>
       
@@ -310,7 +310,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td width="100" align="right" bgcolor="#cccccc"><strong>Nombre:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<? echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="nombre" type="text" id="nombre" size="50" value="<?php  echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"/></td>
         
         </tr>
       
@@ -318,7 +318,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Email:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="email" type="text" id="email" size="50" value="<? echo"$email";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="email" type="text" id="email" size="50" value="<?php  echo"$email";?>"/></td>
         
         </tr>
       
@@ -326,7 +326,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 1:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato1" type="text" id="email" size="50" value="<? echo"$contrato1";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato1" type="text" id="email" size="50" value="<?php  echo"$contrato1";?>"/></td>
         
         </tr>
       
@@ -334,7 +334,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 2:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato2" type="text" id="email" size="50" value="<? echo"$contrato2";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato2" type="text" id="email" size="50" value="<?php  echo"$contrato2";?>"/></td>
         
         </tr>
       
@@ -342,7 +342,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 3:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato3" type="text" id="email" size="50" value="<? echo"$contrato3";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato3" type="text" id="email" size="50" value="<?php  echo"$contrato3";?>"/></td>
         
         </tr>
       
@@ -350,7 +350,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 4:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato4" type="text" id="email" size="50" value="<? echo"$contrato4";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato4" type="text" id="email" size="50" value="<?php  echo"$contrato4";?>"/></td>
         
         </tr>
       
@@ -358,7 +358,7 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td width="100" align="right" valign="top" bgcolor="#cccccc"><strong>Contrato 5:</strong></td>
         
-        <td width="200" bgcolor="#cccccc"><input name="contrato5" type="text" id="email" size="50" value="<? echo"$contrato5";?>"/></td>
+        <td width="200" bgcolor="#cccccc"><input name="contrato5" type="text" id="email" size="50" value="<?php  echo"$contrato5";?>"/></td>
         
         </tr>
       
@@ -368,9 +368,9 @@ echo'<form name="frm" method="post" action="process.php?module=usuariosws&accela
         
         <td bgcolor="#cccccc"><select name="activo" id="activo">
           
-          <option value="1" <? if($activo=="1"){echo' selected';} ?>>Si</option>
+          <option value="1" <?php  if($activo=="1"){echo' selected';} ?>>Si</option>
           
-          <option value="0" <? if($activo=="0"){echo' selected';} ?>>No</option>
+          <option value="0" <?php  if($activo=="0"){echo' selected';} ?>>No</option>
           
           </select>        </td>
         

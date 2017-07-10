@@ -1,4 +1,4 @@
-<?
+<?php  
 	
 	
 
@@ -30,7 +30,7 @@ if($checa_arrayx===FALSE)
 <div id="container">
 <div id="form">
 
-<?
+<?php  
 
 include 'conf.php';
 

@@ -229,7 +229,7 @@ the returned xml has the following structure
 	
 		header("Content-Type: text/xml");
 
-		echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?><results>";
+		echo "<?php  ml version=\"1.0\" encoding=\"utf-8\" ?><results>";
 	
 	$input = strtolower( $_GET['input'] );
 	$len = strlen($input);

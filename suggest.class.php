@@ -39,7 +39,7 @@ $query = 'SELECT nombre, idCliente ' .
 // execute the SQL query
 $result = $this->mMysqli->query($query);
 // build the XML response
-$output = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+$output = '<?php  ml version="1.0" encoding="UTF-8" standalone="yes"?>';
 $output .= '<response>';
 // if we have results, loop through them and add them to the output
 if($result->num_rows)

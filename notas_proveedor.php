@@ -1,4 +1,4 @@
-<?
+<?php  
 
 $linka = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
@@ -98,7 +98,7 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmDelete(delUrl,name_cat) { 
-if (confirm("¿Está seguro de querer eliminar \n" + name_cat + "?")) { 
+if (confirm("ï¿½Estï¿½ seguro de querer eliminar \n" + name_cat + "?")) { 
 document.location = delUrl; 
 }
 }
@@ -106,7 +106,7 @@ document.location = delUrl;
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="questtitle">Notas / Proveedor <? echo $nombrep;?> </span></td>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="questtitle">Notas / Proveedor <?php  echo $nombrep;?> </span></td>
       <td width=200 align="right" class="blacklinks">&nbsp;</td>
 
       </tr></table></td></tr>
@@ -121,12 +121,12 @@ document.location = delUrl;
       <td colspan="3" bgcolor="#CCCCCC"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td><strong>Notas</strong></td>
-          <td align="right"><b>[ <a href="javascript:FAjax('editar_notasp.php?id=<? echo $id; ?>&amp;popup=0&amp;caso=nuevo&amp;flim-flam=new Date().getTime();','notas','','get');">Agregar Nota</a> ]</b></td>
+          <td align="right"><b>[ <a href="javascript:FAjax('editar_notasp.php?id=<?php  echo $id; ?>&amp;popup=0&amp;caso=nuevo&amp;flim-flam=new Date().getTime();','notas','','get');">Agregar Nota</a> ]</b></td>
         </tr>
       </table></td>
       </tr></table>
 	  <div id="notas">
-	  <?
+	  <?php  
 $link = mysqli_connect($host, $username, $pass); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM notasprov where general='$id' order by fecha desc", $link); 

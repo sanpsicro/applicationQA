@@ -37,7 +37,7 @@ function g(o){
 </script>
 </head><body>
  <table width="100%%" border="0" cellspacing="3" cellpadding="3">
- <?
+ <?php  
 
 echo'<form name="frm" method="post" action="process.php?module=beneficiarios&accela='.$accela.'&idPoliza='.$idPoliza.'&tmpid='.$tmpid.'&id='.$id.'&tipocliente='.$tipocliente.'">';
 
@@ -51,7 +51,7 @@ echo'<form name="frm" method="post" action="process.php?module=beneficiarios&acc
 
         <td><strong>Beneficiarios</strong></td>
 
-        <td width="150" align="center" class="blacklinks">[ <a href="beneficiarios.php?tmpid=<? echo $tmpid; ?>&idPoliza=<? echo $idPoliza; ?>&tipocliente=<? echo $tipocliente; ?>">Lista de beneficiarios</a> ]</td>
+        <td width="150" align="center" class="blacklinks">[ <a href="beneficiarios.php?tmpid=<?php  echo $tmpid; ?>&idPoliza=<?php  echo $idPoliza; ?>&tipocliente=<?php  echo $tipocliente; ?>">Lista de beneficiarios</a> ]</td>
       </tr>
     </table>      </td>
   </tr>
@@ -59,16 +59,16 @@ echo'<form name="frm" method="post" action="process.php?module=beneficiarios&acc
 
     <td align="right" bgcolor="#bbbbbb"><strong>Nombre</strong><strong>:</strong><strong></strong></td>
 
-    <td align="left" bgcolor="#bbbbbb"><input name="nombre" type="text" id="nombre" size="30" value="<? echo $nombre; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+    <td align="left" bgcolor="#bbbbbb"><input name="nombre" type="text" id="nombre" size="30" value="<?php  echo $nombre; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
     <td align="right" bgcolor="#bbbbbb"><strong>Edad:</strong></td>
 
-    <td align="left" bgcolor="#bbbbbb"><input name="edad" type="text" id="edad" size="30" value="<? echo $edad; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+    <td align="left" bgcolor="#bbbbbb"><input name="edad" type="text" id="edad" size="30" value="<?php  echo $edad; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
 
      <td align="right" bgcolor="#bbbbbb"><strong>Parentesco:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="parentesco" type="text" id="parentesco" size="30" value="<? echo $parentesco; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="parentesco" type="text" id="parentesco" size="30" value="<?php  echo $parentesco; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
    </tr>
 
@@ -76,7 +76,7 @@ echo'<form name="frm" method="post" action="process.php?module=beneficiarios&acc
 
      <td align="center" bgcolor="#bbbbbb" colspan=6>
 <input type="submit" name="Submit" value="Agregar Beneficiario" onClick="return confirm(
-  'Se dará de alta el vehículo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n ¿Desea continuar?');"> 
+  'Se darï¿½ de alta el vehï¿½culo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n ï¿½Desea continuar?');"> 
 &nbsp; <input type="reset" name="Submit2" value="Reestablecer"></td>
    </tr></form>
  </table></body></html>

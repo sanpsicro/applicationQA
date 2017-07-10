@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -15,27 +15,27 @@ if(empty($selenium)){$selenium="no pagados";}
             <form name="form1" method="post" action="mainframe.php?module=control_cobranza">
             <td> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
               </select>
               <select name="sort" id="ordenar">
-              <option value="cobranza.id DESC" <? if($sort=="cobranza.id DESC"){echo"selected";}?>>Ordenar por Expediente</option>
-                <option value="Cliente.nombre" <? if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por Cliente</option>
-                <option value="cobranza.status" <? if($sort=="cobranza.status"){echo"selected";}?>>Ordenar por Status</option>                
-				<option value="cobranza.monto" <? if($sort=="cobranza.monto"){echo"selected";}?>>Ordenar por Monto</option>   
+              <option value="cobranza.id DESC" <?php  if($sort=="cobranza.id DESC"){echo"selected";}?>>Ordenar por Expediente</option>
+                <option value="Cliente.nombre" <?php  if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por Cliente</option>
+                <option value="cobranza.status" <?php  if($sort=="cobranza.status"){echo"selected";}?>>Ordenar por Status</option>                
+				<option value="cobranza.monto" <?php  if($sort=="cobranza.monto"){echo"selected";}?>>Ordenar por Monto</option>   
               </select>
               <select name="selenium" id="selenium">
-                <option value="all" <? if($selenium=="all"){echo' selected ';}?>>Todos</option>
-                <option value="pagados" <? if($selenium=="pagados"){echo' selected ';}?>>Pagados</option>
-                <option value="no pagados" <? if($selenium=="no pagados"){echo' selected ';}?>>No Pagados</option>
+                <option value="all" <?php  if($selenium=="all"){echo' selected ';}?>>Todos</option>
+                <option value="pagados" <?php  if($selenium=="pagados"){echo' selected ';}?>>Pagados</option>
+                <option value="no pagados" <?php  if($selenium=="no pagados"){echo' selected ';}?>>No Pagados</option>
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
-            <form name="form1" method="post" action="bridge.php?module=control_cobranza"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=control_cobranza"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -44,14 +44,14 @@ if(empty($selenium)){$selenium="no pagados";}
     </td>
   </tr>
 <tr><td>
-<?
+<?php  
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo pago Registrado</div></b><p>';}
 if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos del Pago actualizados</div></b><p>';}
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Pago eliminado</div></b><p>';}
 
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 $condicion="AND (Cliente.nombre like '%$quest%' OR cobranza.expediente=$quest)";
 }
 else{

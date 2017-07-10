@@ -1,4 +1,4 @@
-<?
+<?php  
 if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
 {}
 else {
@@ -81,7 +81,7 @@ die();} else{}
 
 <tr><td>
 
-<?
+<?php  
 
 $db = mysqli_connect($host,$username,$pass,$database);
 
@@ -118,21 +118,13 @@ $activo=mysql_result($result,0,"activo");
 
   <tr>
 
-    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del usuario: <? echo ' '.$usuario.' ';?></b></td>
+    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del usuario: <?php  echo ' '.$usuario.' ';?></b></td>
 
     </tr>
 
   <tr>
 
-    <td width="50%" bgcolor="#CCCCCC"><strong>Nombre:</strong> <? echo $nombre?></td>
-
-
-
-    </tr>
-
-  <tr>
-
-    <td><strong>Usuario:</strong> <? echo $usuario?></td>
+    <td width="50%" bgcolor="#CCCCCC"><strong>Nombre:</strong> <?php  echo $nombre?></td>
 
 
 
@@ -140,7 +132,7 @@ $activo=mysql_result($result,0,"activo");
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Email:</strong> <? echo $email?></td>
+    <td><strong>Usuario:</strong> <?php  echo $usuario?></td>
 
 
 
@@ -148,7 +140,15 @@ $activo=mysql_result($result,0,"activo");
 
   <tr>
 
-    <td><strong>Contrato 1:</strong> <? echo $contrato2?></td>
+    <td bgcolor="#CCCCCC"><strong>Email:</strong> <?php  echo $email?></td>
+
+
+
+    </tr>
+
+  <tr>
+
+    <td><strong>Contrato 1:</strong> <?php  echo $contrato2?></td>
 
   
 
@@ -156,7 +156,7 @@ $activo=mysql_result($result,0,"activo");
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Contrato 2:</strong> <? echo $contrato2?></td>
+    <td bgcolor="#CCCCCC"><strong>Contrato 2:</strong> <?php  echo $contrato2?></td>
 
   
 
@@ -164,7 +164,7 @@ $activo=mysql_result($result,0,"activo");
 
   <tr>
 
-    <td><strong>Contrato 3:</strong> <? echo $contrato3?></td>
+    <td><strong>Contrato 3:</strong> <?php  echo $contrato3?></td>
 
    
 
@@ -172,7 +172,7 @@ $activo=mysql_result($result,0,"activo");
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Contrato 4:</strong> <? echo $contrato4?></td>
+    <td bgcolor="#CCCCCC"><strong>Contrato 4:</strong> <?php  echo $contrato4?></td>
 
 
 
@@ -180,7 +180,7 @@ $activo=mysql_result($result,0,"activo");
   
     <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Contrato 5:</strong> <? echo $contrato5?></td>
+    <td bgcolor="#CCCCCC"><strong>Contrato 5:</strong> <?php  echo $contrato5?></td>
 
 
 

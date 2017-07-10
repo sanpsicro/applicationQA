@@ -1,4 +1,4 @@
-<?
+<?php  
 include("conf.php");
 
 mysqli_connect($host,$username,$pass,$database);

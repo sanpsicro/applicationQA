@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("evaluaciones",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -14,7 +14,7 @@ die();} else{}
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-             <form name="form1" method="post" action="bridge.php?module=validaciones"><td align="right" class="questtitle">Búsqueda: 
+             <form name="form1" method="post" action="bridge.php?module=validaciones"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
 
@@ -80,20 +80,20 @@ $comision_vendedor=mysqli_result($result,0,"comision_vendedor");
 
   <tr>
 
-    <td width="25%" bgcolor="#eeeeee"><strong>Nombre:</strong> <? echo $nombre;?></td>
-    <td width="25%" bgcolor="#eeeeee"><p><strong>Clave de usuario:</strong> <? echo $clave;?></td>
+    <td width="25%" bgcolor="#eeeeee"><strong>Nombre:</strong> <?php  echo $nombre;?></td>
+    <td width="25%" bgcolor="#eeeeee"><p><strong>Clave de usuario:</strong> <?php  echo $clave;?></td>
   </tr>
   <tr>
-    <td bgcolor="#FFFFFF"><strong>Tipo de pago:</strong> <? echo $tipo_pago;?></td>
-    <td bgcolor="#FFFFFF"><strong>Fecha de pago:</strong> <? echo''.$fecha1[2].'/'.$fecha1[1].'/'.$fecha1[0].'';?></td>
+    <td bgcolor="#FFFFFF"><strong>Tipo de pago:</strong> <?php  echo $tipo_pago;?></td>
+    <td bgcolor="#FFFFFF"><strong>Fecha de pago:</strong> <?php  echo''.$fecha1[2].'/'.$fecha1[1].'/'.$fecha1[0].'';?></td>
   </tr>
   <tr>
-    <td bgcolor="#eeeeee"><strong>Cuenta de ingreso del pago:</strong> <? echo $cuanta_ingreso;?></td>
-    <td bgcolor="#eeeeee"><strong>Observaciones:</strong> <? echo nl2br($observaciones);?></td>
+    <td bgcolor="#eeeeee"><strong>Cuenta de ingreso del pago:</strong> <?php  echo $cuanta_ingreso;?></td>
+    <td bgcolor="#eeeeee"><strong>Observaciones:</strong> <?php  echo nl2br($observaciones);?></td>
   </tr>
   <tr>
-    <td bgcolor="#FFFFFF"><strong>Monto comisi&oacute;n vendedor:</strong> $<? echo number_format($comision_vendedor,2); ?></td>
-    <td bgcolor="#FFFFFF"><strong>Fecha de pago de comisi&oacute;n:</strong> <? echo''.$fecha2[2].'/'.$fecha2[1].'/'.$fecha2[0].'';?></td>
+    <td bgcolor="#FFFFFF"><strong>Monto comisi&oacute;n vendedor:</strong> $<?php  echo number_format($comision_vendedor,2); ?></td>
+    <td bgcolor="#FFFFFF"><strong>Fecha de pago de comisi&oacute;n:</strong> <?php  echo''.$fecha2[2].'/'.$fecha2[1].'/'.$fecha2[0].'';?></td>
   </tr>
 </table>
 

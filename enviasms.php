@@ -1,4 +1,4 @@
-<?
+<?php  
 session_start();
 if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
 {}
@@ -7,7 +7,7 @@ header("Location: index.php?errorcode=3");
 }
 ?>
 
-<?
+<?php  
 
 echo $gr;
 echo $to;

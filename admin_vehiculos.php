@@ -68,7 +68,7 @@ function g(o){
 
  <table width="100%%" border="0" cellspacing="3" cellpadding="3">
 
- <?
+ <?php  
 
 echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela='.$accela.'&idPoliza='.$idPoliza.'&tmpid='.$tmpid.'&idVehiculo='.$idVehiculo.'&tipocliente='.$tipocliente.'">';
 
@@ -82,7 +82,7 @@ echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela=
 
         <td><strong>Veh&iacute;culos</strong></td>
 
-        <td width="150" align="center" class="blacklinks">[ <a href="vehiculos.php?tmpid=<? echo $tmpid; ?>&idPoliza=<? echo $idPoliza; ?>&tipocliente=<? echo $tipocliente; ?>">Lista de vehículos</a> ]</td>
+        <td width="150" align="center" class="blacklinks">[ <a href="vehiculos.php?tmpid=<?php  echo $tmpid; ?>&idPoliza=<?php  echo $idPoliza; ?>&tipocliente=<?php  echo $tipocliente; ?>">Lista de vehï¿½culos</a> ]</td>
 
       </tr>
 
@@ -96,11 +96,11 @@ echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela=
 
     <td width="25%" align="right" bgcolor="#bbbbbb"><strong>Marca</strong><strong>:</strong><strong></strong></td>
 
-    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="marca" type="text" id="marca" size="30" value="<? echo $marca; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="marca" type="text" id="marca" size="30" value="<?php  echo $marca; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
     <td width="25%" align="right" bgcolor="#bbbbbb"><strong>Modelo:</strong></td>
 
-    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="modelo" type="text" id="modelo" size="30" value="<? echo $modelo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+    <td width="25%" align="left" bgcolor="#bbbbbb"><input name="modelo" type="text" id="modelo" size="30" value="<?php  echo $modelo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
    </tr>
 
@@ -108,11 +108,11 @@ echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela=
 
      <td align="right" bgcolor="#bbbbbb"><strong>Tipo:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="tipo" type="text" id="tipo" size="30" value="<? echo $tipo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="tipo" type="text" id="tipo" size="30" value="<?php  echo $tipo; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
      <td align="right" bgcolor="#bbbbbb"><strong>Color:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="color" type="text" id="color" size="30" value="<? echo $color; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="color" type="text" id="color" size="30" value="<?php  echo $color; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
    </tr>
 
@@ -120,11 +120,11 @@ echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela=
 
      <td align="right" bgcolor="#bbbbbb"><strong>Placas:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="placas" type="text" id="placas" size="30" value="<? echo $placas; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="placas" type="text" id="placas" size="30" value="<?php  echo $placas; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
      <td align="right" bgcolor="#bbbbbb"><strong>Serie:</strong></td>
 
-     <td align="left" bgcolor="#bbbbbb"><input name="serie" type="text" id="serie" size="30" value="<? echo $serie; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
+     <td align="left" bgcolor="#bbbbbb"><input name="serie" type="text" id="serie" size="30" value="<?php  echo $serie; ?>" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"></td>
 
    </tr>
 
@@ -134,16 +134,16 @@ echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela=
 
      <td align="left" bgcolor="#bbbbbb"><select name="servicio" id="servicio">
 
-       <option value="PARTICULAR" <? if($servicio=="PARTICULAR"){echo' selected';}  ?>>Particular</option>
+       <option value="PARTICULAR" <?php  if($servicio=="PARTICULAR"){echo' selected';}  ?>>Particular</option>
 
-       <option value="PUBLICO" <? if($servicio=="PUBLICO"){echo' selected';}  ?>>P&uacute;blico</option>
+       <option value="PUBLICO" <?php  if($servicio=="PUBLICO"){echo' selected';}  ?>>P&uacute;blico</option>
 
      </select>
 
      </td>
 
      <td align="right" bgcolor="#bbbbbb"><input type="submit" name="Submit" value="Agregar Veh&iacute;culo" onClick="return confirm(
-  'Se dará de alta el vehículo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n ¿Desea continuar?');"></td>
+  'Se darï¿½ de alta el vehï¿½culo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n ï¿½Desea continuar?');"></td>
 
      <td align="left" bgcolor="#bbbbbb"><input type="reset" name="Submit2" value="Reestablecer"></td>
 

@@ -78,12 +78,12 @@ body {
 </style>
 <script type="text/javascript" src="subcombo_corto.js"></script>
 </head><body>
-<form id="form1x" name="form1x" method="post" action="areas_cobertura.php?accela=<? echo $accela; ?>">
+<form id="form1x" name="form1x" method="post" action="areas_cobertura.php?accela=<?php  echo $accela; ?>">
   <table width="100%%" border="0" cellspacing="3" cellpadding="3">
     <tr>
       <td bgcolor="#CCCCCC"><select name="estado" id="estado" onchange='cargaContenido(this.id)'>
                                   <option value='0'>Seleccione un Estado</option>
-                                  <?
+                                  <?php  
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
@@ -95,7 +95,7 @@ if (mysqli_num_rows($result)){
 
 			  ?>
       </select></td>
-      <td bgcolor="#CCCCCC"><?
+      <td bgcolor="#CCCCCC"><?php  
 						  
 echo'<select disabled="disabled" name="municipio" id="municipio">
 						<option value="0">Seleccione un Estado</option>

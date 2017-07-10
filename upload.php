@@ -1,4 +1,4 @@
-<?
+<?php  
 session_start();
 $unixid = time(); 
 include('conf.php'); 
@@ -15,18 +15,18 @@ $file_1_name_b=strtr($file_1_name_b,"'","");
 $file_1_name_b=strtr($file_1_name_b,"'","_");
 $file_1_name_b=strtr($file_1_name_b," ","_");
 $file_1_name_b=strtr($file_1_name_b,",","_");
-$file_1_name_b = str_replace('á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('é', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Á', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('É', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Í', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ó', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ú', 'a', $file_1_name_b);
-$file_1_name_b = str_replace('Ñ', 'n', $file_1_name_b);
-$file_1_name_b = str_replace('ñ', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'a', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
+$file_1_name_b = str_replace('ï¿½', 'n', $file_1_name_b);
 $file_1_name_b = strtolower($file_1_name_b);
 $nuevonombre="".$valid_userid."_".$unixid."_".$file_1_name_b."";
 if(copy($file1,"adjuntosexp/$nuevonombre")){$archivo1=$nuevonombre; $unixid=$unixid+1;

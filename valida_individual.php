@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("4_v",$explota_permisos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -22,7 +22,7 @@ die();} else{}
 <tr>
   <td>
 <p>
-  <?
+  <?php  
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
@@ -52,33 +52,33 @@ $comision_vendedor=mysql_result($result,0,"comision_vendedor");
 }
 ?>
 </p>
-<form id="form2" name="form2" method="post" action="process.php?module=validaciones&accela=<? echo $accela?><? if($accela=="edit"){echo'&idval='.$idval.'';}?>">
+<form id="form2" name="form2" method="post" action="process.php?module=validaciones&accela=<?php  echo $accela?><?php  if($accela=="edit"){echo'&idval='.$idval.'';}?>">
   <table width="100%" border="0" cellspacing="3" cellpadding="3">
     <tr>
       <td colspan="4" bgcolor="#CCCCCC"><strong>Validaci&oacute;n de usuario de contrato 
-        <input name="id" type="hidden" id="id" value="<? echo $id; ?>" />
-        <input name="clave" type="hidden" id="contrato" value="<? echo $clave; ?>" />        
+        <input name="id" type="hidden" id="id" value="<?php  echo $id; ?>" />
+        <input name="clave" type="hidden" id="contrato" value="<?php  echo $clave; ?>" />        
       </strong></td>
     </tr>
     <tr>
       <td width="25%" align="right" bgcolor="#ffffff"><strong>Nombre:</strong></td>
-      <td width="25%" bgcolor="#ffffff"><? echo $nombre; ?></td>
+      <td width="25%" bgcolor="#ffffff"><?php  echo $nombre; ?></td>
       <td width="25%" align="right" bgcolor="#ffffff"><strong>Clave de usuario:</strong></td>
-      <td width="25%" bgcolor="#ffffff"><? echo $clave; ?></td>
+      <td width="25%" bgcolor="#ffffff"><?php  echo $clave; ?></td>
     </tr>
     <tr>
       <td align="right" bgcolor="#ffffff"><strong>Tipo de pago:</strong></td>
       <td bgcolor="#ffffff"><select name="tipo_pago" id="tipo_pago">
-        <option value="efectivo" <? if($tipo_pago=="efectivo"){echo' selected ';}?>>Efectivo</option>
-        <option value="cheque"  <? if($tipo_pago=="cheque"){echo' selected ';}?>>Cheque</option>
-        <option value="transferencia"  <? if($tipo_pago=="transferencia"){echo' selected ';}?>>Transferencia</option>
-        <option value="tarjeta de credito"  <? if($tipo_pago=="tarjeta de credito"){echo' selected ';}?>>Tarjeta de cr&eacute;dito</option>
-        <option value="domicializacion"  <? if($tipo_pago=="domicializacion"){echo' selected ';}?>>Domicializaci&oacute;n</option>
-        <option value="recibo telefonico"  <? if($tipo_pago=="recibo telefonico"){echo' selected ';}?>>Recibo telef&oacute;nico</option>
-        <option value="otro"  <? if($tipo_pago=="otro"){echo' selected ';}?>>Otro</option>
+        <option value="efectivo" <?php  if($tipo_pago=="efectivo"){echo' selected ';}?>>Efectivo</option>
+        <option value="cheque"  <?php  if($tipo_pago=="cheque"){echo' selected ';}?>>Cheque</option>
+        <option value="transferencia"  <?php  if($tipo_pago=="transferencia"){echo' selected ';}?>>Transferencia</option>
+        <option value="tarjeta de credito"  <?php  if($tipo_pago=="tarjeta de credito"){echo' selected ';}?>>Tarjeta de cr&eacute;dito</option>
+        <option value="domicializacion"  <?php  if($tipo_pago=="domicializacion"){echo' selected ';}?>>Domicializaci&oacute;n</option>
+        <option value="recibo telefonico"  <?php  if($tipo_pago=="recibo telefonico"){echo' selected ';}?>>Recibo telef&oacute;nico</option>
+        <option value="otro"  <?php  if($tipo_pago=="otro"){echo' selected ';}?>>Otro</option>
       </select>      </td>
       <td align="right" bgcolor="#ffffff"><strong>Fecha de pago:</strong></td>
-      <td bgcolor="#ffffff"><?
+      <td bgcolor="#ffffff"><?php  
 if(empty($uno_fecha[2])){$uno_fecha[2]=date("j");}	  
 if(empty($uno_fecha[1])){$uno_fecha[1]=date("m");}	  
 if(empty($uno_fecha[0])){$uno_fecha[0]=date("Y");}	  
@@ -115,22 +115,22 @@ echo'</select>';
     <tr>
       <td align="right" bgcolor="#ffffff"><strong>Cuenta de ingreso del pago:</strong></td>
       <td bgcolor="#ffffff"><select name="cuenta_ingreso" id="cuenta_ingreso">
-        <option value="caja" <? if($cuanta_ingreso=="caja"){echo' selected ';}?>>Caja</option>
-        <option value="bancomer" <? if($cuanta_ingreso=="bancomer"){echo' selected ';}?>>Bancomer</option>
-        <option value="banorte" <? if($cuanta_ingreso=="banorte"){echo' selected ';}?>>Banorte</option>
-        <option value="hsbc" <? if($cuanta_ingreso=="hsbc"){echo' selected ';}?>>HSBC</option>
-        <option value="banamex" <? if($cuanta_ingreso=="banamex"){echo' selected ';}?>>Banamex</option>
-        <option value="otro" <? if($cuanta_ingreso=="otro"){echo' selected ';}?>>Otro</option>        
+        <option value="caja" <?php  if($cuanta_ingreso=="caja"){echo' selected ';}?>>Caja</option>
+        <option value="bancomer" <?php  if($cuanta_ingreso=="bancomer"){echo' selected ';}?>>Bancomer</option>
+        <option value="banorte" <?php  if($cuanta_ingreso=="banorte"){echo' selected ';}?>>Banorte</option>
+        <option value="hsbc" <?php  if($cuanta_ingreso=="hsbc"){echo' selected ';}?>>HSBC</option>
+        <option value="banamex" <?php  if($cuanta_ingreso=="banamex"){echo' selected ';}?>>Banamex</option>
+        <option value="otro" <?php  if($cuanta_ingreso=="otro"){echo' selected ';}?>>Otro</option>        
       </select>      </td>
       <td align="right" bgcolor="#ffffff"><strong>Observaciones:</strong></td>
-      <td bgcolor="#ffffff"><textarea name="observaciones" id="observaciones" cols="50" rows="3"><? echo $observaciones;?></textarea></td>
+      <td bgcolor="#ffffff"><textarea name="observaciones" id="observaciones" cols="50" rows="3"><?php  echo $observaciones;?></textarea></td>
     </tr>
     <tr>
       <td align="right" bgcolor="#ffffff"><strong>Monto comisi&oacute;n vendedor:</strong></td>
       <td bgcolor="#ffffff">$
-        <input name="comision" type="text" id="comision" size="20"  onKeyPress="return numbersonly(this, event)" value="<? echo $comision_vendedor;?>"/></td>
+        <input name="comision" type="text" id="comision" size="20"  onKeyPress="return numbersonly(this, event)" value="<?php  echo $comision_vendedor;?>"/></td>
       <td align="right" bgcolor="#ffffff"><strong>Fecha de pago de comisi&oacute;n</strong></td>
-      <td bgcolor="#ffffff"><?
+      <td bgcolor="#ffffff"><?php  
 if(empty($dos_fecha[2])){$dos_fecha[2]=date("j");}	  
 if(empty($dos_fecha[1])){$dos_fecha[1]=date("m");}	  
 if(empty($dos_fecha[0])){$dos_fecha[0]=date("Y");}	  

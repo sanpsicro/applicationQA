@@ -1,4 +1,4 @@
-<? if(empty($_SESSION["valid_user"])){die();} ?> 
+<?php  if(empty($_SESSION["valid_user"])){die();} ?> 
 
 
 <table width="218" border="0" cellspacing="0" cellpadding="0">
@@ -33,7 +33,7 @@
                       <td width="14"><img src="img/arrow.gif" width="9" height="15" /></td>
                       <td width="176"><a href="?module=polizas" class="linksmenu">Polizas</a></td>
                     </tr>
-		  <? 
+		  <?php  
 $db = mysql_connect($usr_host,$usr_username,$usr_pass);
 mysql_select_db($usr_database,$db);
 $result = mysql_query("SELECT * from administradores where usuario = '$valid_user'",$db);

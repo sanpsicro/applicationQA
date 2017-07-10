@@ -1,10 +1,10 @@
-<?
+<?php  
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 ?>
-<span class="maintitle">Pagos Expediente <a href="detalle_seguimiento.php?id=<?=$expediente?>" target="_blank"><?=$expediente?></a></span><br />
-<?
+<span class="maintitle">Pagos Expediente <a href="detalle_seguimiento.php?id=<?php  $expediente?>" target="_blank"><?php  $expediente?></a></span><br />
+<?php  
 if(isset($code) && $code=="1"){echo'<br><div class="xplik">Nuevo pago Registrado</div>';}
 if(isset($code) && $code=="2"){echo'<br><div class="xplik">Datos del Pago actualizados</div>';}
 if(isset($code) && $code=="3"){echo'<div class="xplik">Pago eliminado</div>';}
@@ -84,9 +84,9 @@ else{
 ?>
 <?php if($pago_cerrado === false): ?> 
 <div class="control_pagos">
-	<a href="mainframe.php?module=control_pago_alta&expediente=<?=$expediente?>&proveedor=<?=$proveedor?>">Agregar Pago</a>
-	<small><a href="control_pago_db.php?action=cerrar&expediente=<?=$expediente?>&proveedor=<?=$proveedor?>">Cerrar Pagos</a></small>
+	<a href="mainframe.php?module=control_pago_alta&expediente=<?php  $expediente?>&proveedor=<?php  $proveedor?>">Agregar Pago</a>
+	<small><a href="control_pago_db.php?action=cerrar&expediente=<?php  $expediente?>&proveedor=<?php  $proveedor?>">Cerrar Pagos</a></small>
 </div>
 <?php endif; ?>
-<!-- <? echo print_r($_SESSION);?> -->
+<!-- <?php  echo print_r($_SESSION);?> -->
 </td></tr></table>

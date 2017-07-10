@@ -1,5 +1,5 @@
 <script type="text/javascript" src="subcombo.js"></script>
-<?
+<?php  
 mysqli_connect("$host","$username","$pass");
 $result=mysqli_query("$database","select * from seguimiento_juridico where general = '$_POST[id]'");
 $cuantosson=mysqli_num_rows($result);
@@ -117,7 +117,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($danos=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				  </td>
@@ -130,7 +130,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($lesiones=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				  
@@ -145,7 +145,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($homicidios=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				  </td>
@@ -159,7 +159,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($ataques=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  									  
 									  
@@ -173,7 +173,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($robo=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				 

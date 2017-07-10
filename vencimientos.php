@@ -1,4 +1,4 @@
-<?
+<?php  
 	
 	
 
@@ -35,33 +35,33 @@ if(!isset($tipoCont) || $tipoCont == '')
 	<tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
-            <form name="form1" method="POST" action="bridge.php?module=vencimientos<? if($quest!=""){echo"&quest=$quest";}?>">
+            <form name="form1" method="POST" action="bridge.php?module=vencimientos<?php  if($quest!=""){echo"&quest=$quest";}?>">
             <td width="600"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
               </select>              
 			  <select name="tipoCont" id="tipoCont">
-			  	<option value="1" <? if($tipoCont==1){echo"selected";}?>>Vencidos</option>
-				<option value="2" <? if($tipoCont==2){echo"selected";}?>>Por vencer</option>
-				<option value="3" <? if($tipoCont==3){echo"selected";}?>>Todos</option>
+			  	<option value="1" <?php  if($tipoCont==1){echo"selected";}?>>Vencidos</option>
+				<option value="2" <?php  if($tipoCont==2){echo"selected";}?>>Por vencer</option>
+				<option value="3" <?php  if($tipoCont==3){echo"selected";}?>>Todos</option>
 			  </select>			  	 	 	
 			  <select name="sort" id="ordenar">
-                <option value="fecha_inicio"  <? if($sort=="fecha_inicio"){echo"selected";}?>>Ordenar po Fecha de Inicio</option>
-                <option value="fecha_vencimiento" <? if($sort=="fecha_vencimiento"){echo"selected";}?>>Ordenar por Fecha de Vencimiento</option>
-                <option value="contrato" <? if($sort=="contrato"){echo"selected";}?>>Ordenar por Contrato</option>
-				<option value="nombre" <? if($sort=="nombre"){echo"selected";}?>>Ordenar por Nombre</option>
-				<option value="status" <? if($sort=="status"){echo"selected";}?>>Ordenar por Status</option>
+                <option value="fecha_inicio"  <?php  if($sort=="fecha_inicio"){echo"selected";}?>>Ordenar po Fecha de Inicio</option>
+                <option value="fecha_vencimiento" <?php  if($sort=="fecha_vencimiento"){echo"selected";}?>>Ordenar por Fecha de Vencimiento</option>
+                <option value="contrato" <?php  if($sort=="contrato"){echo"selected";}?>>Ordenar por Contrato</option>
+				<option value="nombre" <?php  if($sort=="nombre"){echo"selected";}?>>Ordenar por Nombre</option>
+				<option value="status" <?php  if($sort=="status"){echo"selected";}?>>Ordenar por Status</option>
               </select>
 			  <input type="submit" name="Submit2" value="Mostrar">
 			  </td>			  
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=vencimientos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=vencimientos"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" > <input type="submit" name="Submit" value="Buscar">
             </td>
 			</form>
@@ -70,9 +70,9 @@ if(!isset($tipoCont) || $tipoCont == '')
       </td>
   </tr>
 <tr><td>
-<?
+<?php  
 
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 $condicion=" WHERE 1";
 
 if(isset($quest) && $quest != '')
@@ -85,14 +85,14 @@ if(isset($tipoCont) && $tipoCont != '')
 	else if($tipoCont == 2)	
 		$condicion.=" AND fecha_vencimiento > NOW()";
 }	
-$link = mysqli_connect($host, $username, $pass);
+$link = mysqli_connect($host, $username, $pass,$database);
 //mysql_select_db($database, $link); 
 
 if (!isset($pag))
 	$pag = 1;
 	
-$result = mysqli_query("SELECT COUNT(*) FROM usuarios_contrato $condicion", $link); 
-list($total) = mysql_fetch_row($result);
+	$result = mysqli_query($link,"SELECT COUNT(*) FROM usuarios_contrato $condicion"); 
+list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $sql="SELECT
@@ -108,7 +108,7 @@ $sql="SELECT
 	  $condicion
 	  ORDER BY $sort
 	  LIMIT $reg1, $tampag";
-$result = mysqli_query($sql, $link); 
+	  $result = mysqli_query($link,$sql); 
 //echo "DATO:[$sql]";
 if(!$result)
 	die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<b>".mysql_error());
@@ -123,7 +123,7 @@ $_GET["tipoCont"]=$tipoCont;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {

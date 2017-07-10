@@ -1,4 +1,4 @@
-<? $checa_arrayx=array_search("4_v",$explota_permisos);
+<?php  $checa_arrayx=array_search("4_v",$explota_permisos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 if(empty($show)){$show=10;}
@@ -14,18 +14,18 @@ if(empty($sort)){$sort="contrato, inciso";}
             <form name="form1" method="post" action="bridge.php?module=validaciones">
             <td width="400"> 
               <select name="display" id="display">
-                <option value="todos" <? if($display=="todos"){echo"selected";}?>>Todos</option>
-                <option value="validados"  <? if($display=="validados"){echo"selected";}?>>Validados</option>
-                <option value="no validados"  <? if($display=="no validados"){echo"selected";}?>>No validados</option>
+                <option value="todos" <?php  if($display=="todos"){echo"selected";}?>>Todos</option>
+                <option value="validados"  <?php  if($display=="validados"){echo"selected";}?>>Validados</option>
+                <option value="no validados"  <?php  if($display=="no validados"){echo"selected";}?>>No validados</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="contrato, inciso" <? if($sort=="contrato, inciso"){echo"selected";}?>>Ordenar por número de contrato</option>
-                <option value="nombre" <? if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>				
+                <option value="contrato, inciso" <?php  if($sort=="contrato, inciso"){echo"selected";}?>>Ordenar por nï¿½mero de contrato</option>
+                <option value="nombre" <?php  if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>				
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=validaciones"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=validaciones"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -33,11 +33,11 @@ if(empty($sort)){$sort="contrato, inciso";}
       </td>
   </tr>
 <tr><td>
-<?
-if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Validación realizada</div></b><p>';}
+<?php  
+if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Validaciï¿½n realizada</div></b><p>';}
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 $condicion="where nombre like '%$quest%' OR contrato like '%$quest%' OR clave like '%$quest%'";
 }
 else{
@@ -47,9 +47,9 @@ if($display=="no validados"){$condicion="Where status='no validado'";}
 }
 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query("SELECT * from usuarios_contrato $condicion order by $sort", $link); 
+$result = mysqli_query( $link,"SELECT * from usuarios_contrato $condicion order by $sort"); 
 if (mysqli_num_rows($result)){ 
 echo'<form action="process.php?module=validaciones&idPoliza='.$idPoliza.'&accela=validar" method="post" name="frm">
 <table width="100%" border="0" cellspacing="3" cellpadding="3">

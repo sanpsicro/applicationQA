@@ -19,17 +19,17 @@
         <tr>
           <form action="mainframe.php?module=comisiones_vendedores" method="post" name="form1" id="form1">
             <td width="400"><select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
               </select>
                 <select name="sort" id="ordenar">
-                  <option value="numPoliza" <? if($sort=="numPoliza"){echo"selected";}?>>Ordenar por n&uacute;mero de contrato</option>
-                  <option value="Cliente.nombre" <? if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por cliente</option>
-                  <option value="Empleado.nombre" <? if($sort=="Empleado.nombre"){echo"selected";}?>>Ordenar por vendedor</option>
+                  <option value="numPoliza" <?php  if($sort=="numPoliza"){echo"selected";}?>>Ordenar por n&uacute;mero de contrato</option>
+                  <option value="Cliente.nombre" <?php  if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por cliente</option>
+                  <option value="Empleado.nombre" <?php  if($sort=="Empleado.nombre"){echo"selected";}?>>Ordenar por vendedor</option>
                 </select>
                 <input type="submit" name="Submit3" value="Mostrar" />
             </td>
@@ -100,8 +100,8 @@ echo'<form name="frm" method="post" action="process.php?module=comisiones_vended
       <tr>
         <td align="right" bgcolor="#cccccc"><strong>Status:</strong></td>
         <td bgcolor="#cccccc"><select name="status" id="status">
-          <option value="pagado" <? if($status=="pagado"){ echo' selected ';} ?>>Pagado</option>
-          <option value="no pagado" <? if($status=="no pagado"){ echo' selected ';} ?>>No pagado</option>
+          <option value="pagado" <?php  if($status=="pagado"){ echo' selected ';} ?>>Pagado</option>
+          <option value="no pagado" <?php  if($status=="no pagado"){ echo' selected ';} ?>>No pagado</option>
         </select>        </td>
       </tr>
       

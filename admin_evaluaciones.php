@@ -5,10 +5,10 @@
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
             <td width="400" class="questtitle"> 
-			Realizar evaluación
+			Realizar evaluaciï¿½n
 </td>
             <td>&nbsp;</td>
-           <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">Búsqueda: 
+           <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -64,11 +64,11 @@ echo'<form name="frm" method="post" action="process.php?module=evaluaciones&acce
 <table width="100%" border="0" cellspacing="3" cellpadding="3" style="font-size: 15px;">
   <tr>
     <td style="font-size: 13px;" style="font-size: 13px;" width="50%" bgcolor="#eeeeee"><strong>Nombre de la persona que contesta la encuesta:</strong></td>
-    <td style="font-size: 13px;" width="200" bgcolor="#eeeeee"><input name="nombre" type="text" id="nombre" size="50" value="<? echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" /></td>
+    <td style="font-size: 13px;" width="200" bgcolor="#eeeeee"><input name="nombre" type="text" id="nombre" size="50" value="<?php  echo"$nombre";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" /></td>
   </tr>
   <tr>
     <td style="font-size: 13px;" bgcolor="#eeeeee"><strong>&iquest;Qu&eacute; relaci&oacute;n tiene con el usuario? </strong></td>
-    <td style="font-size: 13px;" bgcolor="#eeeeee"><input name="relacion" type="text" id="relacion" size="50" value="<? echo"$relacion";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" /></td>
+    <td style="font-size: 13px;" bgcolor="#eeeeee"><input name="relacion" type="text" id="relacion" size="50" value="<?php  echo"$relacion";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" /></td>
   </tr>
   <tr>
     <td style="font-size: 13px;" height="70" colspan="2" valign="middle" bgcolor="#eeeeee"><div align="justify">&ldquo;A continuaci&oacute;n le realizare varias preguntas para conocer el grado de satisfacci&oacute;n que usted percibe de nuestro servicio, todas podr&aacute; usted calificarlas en una escala del 0 al 10, en la inteligencia de que el 0 significa el grado de menos satisfacci&oacute;n y el 10 grado de m&aacute;xima satisfacci&oacute;n&rdquo;</div></td>
@@ -154,7 +154,7 @@ echo'<form name="frm" method="post" action="process.php?module=evaluaciones&acce
     </select></td>
   </tr>
    <tr>
-    <td style="font-size: 13px;" bgcolor="#eeeeee"><strong>En base al servicio de asistencia recibido, &iquest; Usted compraría nuevamente su __________ ?</strong></td>
+    <td style="font-size: 13px;" bgcolor="#eeeeee"><strong>En base al servicio de asistencia recibido, &iquest; Usted comprarï¿½a nuevamente su __________ ?</strong></td>
     <td style="font-size: 13px;" bgcolor="#eeeeee"><select name="renovaria" id="renovaria">
       <option value="SI">SI</option>
       <option value="NO">NO</option>
@@ -171,7 +171,7 @@ echo'<form name="frm" method="post" action="process.php?module=evaluaciones&acce
     </tr>
   <tr>
     <td style="font-size: 13px;" bgcolor="#eeeeee"><strong>Nombre de la persona que realiz&oacute; la encuesta: </strong></td>
-    <td style="font-size: 13px;" bgcolor="#eeeeee"><input name="encuestador" type="text" id="encuestador" size="50" value="<? echo"$encuestador";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" /></td>
+    <td style="font-size: 13px;" bgcolor="#eeeeee"><input name="encuestador" type="text" id="encuestador" size="50" value="<?php  echo"$encuestador";?>" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" /></td>
   </tr>
 </table>
 <input type="submit" name="Submit" value="Guardar" />

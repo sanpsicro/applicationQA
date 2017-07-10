@@ -12,14 +12,14 @@ session_start();
       <tr>
         <td><strong>Beneficiarios</strong></td>
         <td width="150" align="center" class="blacklinks">
-		<? echo'
+		<?php  echo'
 	[ <a href="admin_beneficiarios.php?accela=new&tmpid='.$tmpid.'&idPoliza='.$idPoliza.'&tipocliente='.$tipocliente.'">Nuevo beneficiario</a> ]'; ?>
 </td>
       </tr>
     </table>      </td>
   </tr>
-  <?
-if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. No puede agregar más beneficiarios.</b></td></tr>';}
+  <?php  
+if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. No puede agregar mï¿½s beneficiarios.</b></td></tr>';}
    include 'conf.php';
    if(isset($idPoliza) && $idPoliza!="" && $idPoliza!="0"){
    $condicion="where idPoliza = '$idPoliza'";

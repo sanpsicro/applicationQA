@@ -1,4 +1,4 @@
-<?
+<?php  
 session_start();
 if(empty($_SESSION["valid_user"])){die();} 
 
@@ -27,7 +27,7 @@ background-position: left top;
 </style>
 </head>
 <body>
-<?
+<?php  
 
 include('conf.php'); 
 
@@ -58,7 +58,7 @@ echo '
 </div>
 <div class="col-sm-12">
 <div class="text-right"><br>
-<a href="memoria.php?userid='.$valid_userid.'&id='.$id.'&actuar=qtiper" class="wtlink">MENSAJE LEÍDO Y ENTENDIDO <span class="glyphicon glyphicon-remove"></span></a>
+<a href="memoria.php?userid='.$valid_userid.'&id='.$id.'&actuar=qtiper" class="wtlink">MENSAJE LEï¿½DO Y ENTENDIDO <span class="glyphicon glyphicon-remove"></span></a>
 </div>
 </div>
 

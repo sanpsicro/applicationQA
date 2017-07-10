@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("facturacion",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -7,26 +7,26 @@ if(empty($sort)){$sort="factura";}
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remision</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("22_a",$explota_permisos);
-if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&accela=new">Nueva Nota de Remisión</a> ]';} ?></td></tr></table></td></tr>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remision</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("22_a",$explota_permisos);
+if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&accela=new">Nueva Nota de Remisiï¿½n</a> ]';} ?></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
-            <form name="form1" method="post" action="bridge.php?module=notasremision<? if($quest!=""){echo"&quest=$quest";}?>">
+            <form name="form1" method="post" action="bridge.php?module=notasremision<?php  if($quest!=""){echo"&quest=$quest";}?>">
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por pï¿½gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por pï¿½gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por pï¿½gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por pï¿½gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por pï¿½gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por pï¿½gina</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="factura"  <? if($sort=="factura"){echo"selected";}?>>Ordenar por Nota</option>
-                <option value="fecha" <? if($sort=="fecha"){echo"selected";}?>>Ordenar por fecha</option>
-                <option value="notasremision.status" <? if($sort=="notasremision.status"){echo"selected";}?>>Ordenar por status</option>				
-                <option value="Cliente.nombre" <? if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por cliente</option>								
+                <option value="factura"  <?php  if($sort=="factura"){echo"selected";}?>>Ordenar por Nota</option>
+                <option value="fecha" <?php  if($sort=="fecha"){echo"selected";}?>>Ordenar por fecha</option>
+                <option value="notasremision.status" <?php  if($sort=="notasremision.status"){echo"selected";}?>>Ordenar por status</option>				
+                <option value="Cliente.nombre" <?php  if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por cliente</option>								
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
@@ -37,7 +37,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">Bï¿½squeda: 
 
 
 
@@ -73,13 +73,13 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
 
 
 
-<?
-if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva Nota de Remisión Registrada</div></b><p>';}
-if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de la Nota de Remisión actualizados</div></b><p>';}
-if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Nota de Remisión eliminada</div></b><p>';}
+<?php  
+if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva Nota de Remisiï¿½n Registrada</div></b><p>';}
+if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de la Nota de Remisiï¿½n actualizados</div></b><p>';}
+if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Nota de Remisiï¿½n eliminada</div></b><p>';}
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la bï¿½squeda:</div></b><p>';
 $condicion="where (factura like '%$quest%' OR nombre like '%$quest%')";
 }
 else{$condicion="";}
@@ -89,7 +89,7 @@ if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
 $result = mysqli_query("SELECT COUNT(*) FROM notasremision left join Cliente on (notasremision.cliente = Cliente.idCliente) $condicion", $link); 
-list($total) = mysql_fetch_row($result);
+list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query("SELECT notasremision.id as factid, notasremision.cliente, notasremision.factura, notasremision.fecha, notasremision.total, notasremision.status as statusfactura, Cliente.nombre FROM notasremision left join Cliente on (notasremision.cliente = Cliente.idCliente) $condicion order by $sort  
@@ -103,7 +103,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la pï¿½gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
@@ -125,7 +125,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Fecha</b></td>
                       <td align=middle class="titles"><b>Total</b></td>					  
                       <td align=middle class="titles"><b>Status</b></td>					  
-                      <td align=middle class="titles"><b>Operación</b></td></tr>';
+                      <td align=middle class="titles"><b>Operaciï¿½n</b></td></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
   

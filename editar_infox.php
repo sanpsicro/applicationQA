@@ -1,4 +1,4 @@
-<?
+<?php  
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
@@ -362,7 +362,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($delitos=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
                    </strong></td>
                   <td align=middle><strong>Da&ntilde;os:
@@ -374,7 +374,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($danos=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				  </td>
@@ -387,7 +387,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($lesiones=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				  
@@ -402,7 +402,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($homicidios=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				  </td>
@@ -416,7 +416,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($ataques=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  									  
 									  
@@ -430,7 +430,7 @@ echo'</select>';
 				  echo'>No</option>
 				  <option value="si"'; 
 				  if($robo=="si"){echo' selected ';}
-				  echo'>Sí</option>				  
+				  echo'>Sï¿½</option>				  
 				  </select>
 				  
 				 

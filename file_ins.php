@@ -14,8 +14,8 @@
   </tr>
   <tr>
 
-<input type="hidden" name="id" value="<?=$_GET['id']?>" />
-<input type="hidden" name="time" value="<? echo date("Y-m-d H:m:s")?>" />
+<input type="hidden" name="id" value="<?php  $_GET['id']?>" />
+<input type="hidden" name="time" value="<?php  echo date("Y-m-d H:m:s")?>" />
     <td><input type="text" name="name" /></td>
     <td><input type="file" name="file" /></td>
     <td><input type="submit" name="envia" value="envia" /></td>

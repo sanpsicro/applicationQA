@@ -1,4 +1,4 @@
-<?
+<?php  
 $checa_arrayx=array_search("proveedores",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -38,7 +38,7 @@ document.onpaste=new Function("return false");
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Bï¿½squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -46,7 +46,7 @@ document.onpaste=new Function("return false");
       </td>
   </tr>
 <tr><td>
-<?
+<?php  
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query("SELECT * from Provedor where id = '$id'",$db);
@@ -109,26 +109,26 @@ $tipoVenta=mysql_result($result6,0,"nombre");
 
   <tr>
 
-    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del Proveedor <? echo ''.$nombre.'';?></b></td>
+    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles del Proveedor <?php  echo ''.$nombre.'';?></b></td>
     </tr>
 
   <tr>
 
-    <td width="50%" bgcolor="#CCCCCC"><strong>Usuario:</strong> <? echo $usuario?></td>
+    <td width="50%" bgcolor="#CCCCCC"><strong>Usuario:</strong> <?php  echo $usuario?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Dirección:</strong> <? echo ''.$calle.' COL '.$colonia.' CP '.$cp.', '.$municipio.', '.$estado.'';?></td>
+    <td bgcolor="#CCCCCC"><strong>Direcciï¿½n:</strong> <?php  echo ''.$calle.' COL '.$colonia.' CP '.$cp.', '.$municipio.', '.$estado.'';?></td>
     </tr>
 
   <tr>
 
-    <td valign="top"><strong>Especialidad :</strong> <? echo''.$especialidad.''; ?></td>
+    <td valign="top"><strong>Especialidad :</strong> <?php  echo''.$especialidad.''; ?></td>
 
-    <td valign="top"><strong>Horario de atenci&oacute;n:</strong> <? echo''.$horario.''; ?></td>
+    <td valign="top"><strong>Horario de atenci&oacute;n:</strong> <?php  echo''.$horario.''; ?></td>
     </tr>
 
   <tr>
 
-    <td valign="top" bgcolor="#CCCCCC"><strong>Trabajos que realiza:</strong> <p><?
+    <td valign="top" bgcolor="#CCCCCC"><strong>Trabajos que realiza:</strong> <p><?php  
 	$trabajos=explode(",",$trabajos);
 	foreach($trabajos as $chamba){
 	
@@ -143,7 +143,7 @@ echo'<li>'.$servicio.'<br>';
 ?></td>
 
     <td valign="top" bgcolor="#CCCCCC"><strong>Area de cobertura:</strong><p> 
-	<? 
+	<?php  
 $areas_cobertura=explode(",",$cobertura);
 sort($areas_cobertura);
 foreach($areas_cobertura as $mikarea){
@@ -160,45 +160,45 @@ echo'<li>'.$estado.' - '.$municipio.' <strong>('.$apart[2].')</strong><br>';
 }	?></td>
     </tr>
   <tr>
-    <td valign="top"><strong>Lista de precios: </strong><? echo $precios; ?></td>
-    <td valign="top"><strong>Sucursales:</strong> <? echo nl2br($sucursales); ?></td>
+    <td valign="top"><strong>Lista de precios: </strong><?php  echo $precios; ?></td>
+    <td valign="top"><strong>Sucursales:</strong> <?php  echo nl2br($sucursales); ?></td>
   </tr>
   <tr>
-    <td valign="top" bgcolor="#CCCCCC"><strong>Contacto 1:</strong> <? echo $contacto ; ?><br>
-	<strong>Tel. Oficina 1:</strong> <? echo $tel ; ?><br>
-	<strong>Tel. Oficina 2:</strong> <? echo $tel2 ; ?><br>
-	<strong>Tel. Oficina 3:</strong> <? echo $fax2 ; ?><br>
-	<strong>Tel / Fax:</strong> <? echo $fax ; ?><br>
-	<strong>Celular:</strong> <? echo $cel ; ?><br>
-	<strong>Nextel:</strong> <? echo $nextel ; ?><br>
-	<strong>ID Nextel:</strong> <? echo $nextelid ; ?><br>
-	<strong>Tel. Casa:</strong> <? echo $telcasa ; ?><br>
-	<strong>Email:</strong> <? echo $mail ; ?></td>
-    <td valign="top" bgcolor="#CCCCCC"><strong>Contacto2:</strong> <? echo $contacto2 ; ?><br>
-	<strong>Celular:</strong> <? echo $cel2 ; ?><br>
-	<strong>Nextel:</strong> <? echo $nextel2 ; ?><br>
-	<strong>ID Nextel:</strong> <? echo $nextelid2 ; ?><br>
-	<strong>Tel. Casa:</strong> <? echo $telcasa2 ; ?><br>
-	<strong>Email:</strong> <? echo $mail2 ; ?></td>
+    <td valign="top" bgcolor="#CCCCCC"><strong>Contacto 1:</strong> <?php  echo $contacto ; ?><br>
+	<strong>Tel. Oficina 1:</strong> <?php  echo $tel ; ?><br>
+	<strong>Tel. Oficina 2:</strong> <?php  echo $tel2 ; ?><br>
+	<strong>Tel. Oficina 3:</strong> <?php  echo $fax2 ; ?><br>
+	<strong>Tel / Fax:</strong> <?php  echo $fax ; ?><br>
+	<strong>Celular:</strong> <?php  echo $cel ; ?><br>
+	<strong>Nextel:</strong> <?php  echo $nextel ; ?><br>
+	<strong>ID Nextel:</strong> <?php  echo $nextelid ; ?><br>
+	<strong>Tel. Casa:</strong> <?php  echo $telcasa ; ?><br>
+	<strong>Email:</strong> <?php  echo $mail ; ?></td>
+    <td valign="top" bgcolor="#CCCCCC"><strong>Contacto2:</strong> <?php  echo $contacto2 ; ?><br>
+	<strong>Celular:</strong> <?php  echo $cel2 ; ?><br>
+	<strong>Nextel:</strong> <?php  echo $nextel2 ; ?><br>
+	<strong>ID Nextel:</strong> <?php  echo $nextelid2 ; ?><br>
+	<strong>Tel. Casa:</strong> <?php  echo $telcasa2 ; ?><br>
+	<strong>Email:</strong> <?php  echo $mail2 ; ?></td>
   </tr>
   <tr>
 	<td colspan="2"  valign="top" bgcolor="#CCCCCC">
-	<b>Banco:</b><? echo $banco; ?><br>
-	<b>No. Cuenta:</b><? echo $numcuenta; ?><br>
-	<b>CLABE:</b><? echo $clabe; ?><br>
+	<b>Banco:</b><?php  echo $banco; ?><br>
+	<b>No. Cuenta:</b><?php  echo $numcuenta; ?><br>
+	<b>CLABE:</b><?php  echo $clabe; ?><br>
 	</td>
   </tr>
   <tr>
     <td colspan="2" valign="top"><p><strong>Observaciones:</strong></p>
-      <p><? echo nl2br($observaciones); ?>
+      <p><?php  echo nl2br($observaciones); ?>
       <br /><br />
-      <strong>Modificado el: <? echo $lastdate; ?> por: <? echo $lastuser; ?></strong>
+      <strong>Modificado el: <?php  echo $lastdate; ?> por: <?php  echo $lastuser; ?></strong>
       </p>
       </td>
     </tr>
     
       <tr>
-    <td colspan="2" valign="top"><?
+    <td colspan="2" valign="top"><?php  
     echo'<iframe src ="notas_proveedorb.php?&id='.$id.'&popup=1" name="window2" width="100%" marginwidth="50" height="200" marginheight="50" align="30" frameborder="0" id="window2" border="0"></iframe>';
 														?>
 	</td>

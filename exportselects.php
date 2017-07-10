@@ -9,7 +9,7 @@ $explota_modular=explode(",",$_SESSION["valid_modulos"]);
 <table border="0" cellspacing="3" cellpadding="3" width=100%>
   <tr>
     <td>
-<?
+<?php  
 if(empty($tablax))
 {
 	?>
@@ -21,107 +21,107 @@ if(empty($tablax))
 
 
  
-<?  $checa_arrayo1=array_search("expusuarios",$explota_modular);
+<?php   $checa_arrayo1=array_search("expusuarios",$explota_modular);
 if($checa_arrayo1===FALSE){} else{echo'
 <option value="Empleado" ';
 if($tablax=="Empleado"){echo"selected";}
 echo '>Usuarios</option>';} ?>
 
  
- <?  $checa_arrayo2=array_search("expclientes",$explota_modular);
+ <?php   $checa_arrayo2=array_search("expclientes",$explota_modular);
 if($checa_arrayo2===FALSE){} else{echo'
 <option value="Cliente" ';
 if($tablax=="Cliente"){echo"selected";}
 echo '>Clientes</option>';} ?>
 
 
-<?  $checa_arrayo3=array_search("expcontratos",$explota_modular);
+<?php   $checa_arrayo3=array_search("expcontratos",$explota_modular);
 if($checa_arrayo3===FALSE){} else{echo'
 <option value="Poliza" ';
 if($tablax=="Poliza"){echo"selected";}
 echo '>Contratos</option>';} ?>
 
 
-<?  $checa_arrayo4=array_search("expvalidaciones",$explota_modular);
+<?php   $checa_arrayo4=array_search("expvalidaciones",$explota_modular);
 if($checa_arrayo4===FALSE){} else{echo'
 <option value="validaciones" ';
 if($tablax=="validaciones"){echo"selected";}
 echo '>Validaciones</option>';} ?>
 
-<?  $checa_arrayo5=array_search("expproveedores",$explota_modular);
+<?php   $checa_arrayo5=array_search("expproveedores",$explota_modular);
 if($checa_arrayo5===FALSE){} else{echo'
 <option value="proveedores" ';
 if($tablax=="proveedores"){echo"selected";}
 echo '>Proveedores</option>';} ?>
 
-<?  $checa_arrayo6=array_search("expventas",$explota_modular);
+<?php   $checa_arrayo6=array_search("expventas",$explota_modular);
 if($checa_arrayo6===FALSE){} else{echo'
 <option value="ventas" ';
 if($tablax=="ventas"){echo"selected";}
 echo '>Ventas</option>';} ?>
 
-<?  $checa_arrayo7=array_search("expseguimiento",$explota_modular);    
+<?php   $checa_arrayo7=array_search("expseguimiento",$explota_modular);    
 if($checa_arrayo7===FALSE){} else{echo'
 <option value="general" ';
 if($tablax=="general"){echo"selected";}
 echo '>Seguimiento</option>';} ?>
 
-<?  $checa_arrayo8=array_search("expcpagos",$explota_modular);      
+<?php   $checa_arrayo8=array_search("expcpagos",$explota_modular);      
 if($checa_arrayo8===FALSE){} else{echo'      
 <option value="pagos" ';
 if($tablax=="pagos"){echo"selected";}
 echo '>Control de Pagos</option>';} ?>
 
-<?  $checa_arrayo9=array_search("expcobranza",$explota_modular);
+<?php   $checa_arrayo9=array_search("expcobranza",$explota_modular);
 if($checa_arrayo9===FALSE){} else{echo'  
 <option value="cobranza" ';
 if($tablax=="cobranza"){echo"selected";}
 echo '>Control de Cobranza</option>';} ?>
 
-<?  $checa_arrayo10=array_search("expcpc",$explota_modular);
+<?php   $checa_arrayo10=array_search("expcpc",$explota_modular);
 if($checa_arrayo10===FALSE){} else{echo'
 <option value="combinado" ';
 if($tablax=="combinado"){echo"selected";}
 echo '>Control de Pago/Cobranza</option>';} ?>
 
-<?  $checa_arrayo11=array_search("expevaluaciones",$explota_modular);     
+<?php   $checa_arrayo11=array_search("expevaluaciones",$explota_modular);     
 if($checa_arrayo11===FALSE){} else{echo'     
 <option value="evaluaciones" ';
 if($tablax=="evaluaciones"){echo"selected";}
 echo '>Evaluaciones</option>';} ?>         
  
-<?  $checa_arrayo12=array_search("expcomvend",$explota_modular);          
+<?php   $checa_arrayo12=array_search("expcomvend",$explota_modular);          
 if($checa_arrayo12===FALSE){} else{echo'
 <option value="comisiones" ';
 if($tablax=="comisiones"){echo"selected";}
 echo '>Comisiones de vendedores</option>';} ?>
                     
 					
-<?  $checa_arrayo13=array_search("expfacturas",$explota_modular);
+<?php   $checa_arrayo13=array_search("expfacturas",$explota_modular);
 if($checa_arrayo13===FALSE){} else{echo'
 <option value="facturas" ';
 if($tablax=="facturas"){echo"selected";}
 echo '>Facturas</option>';} ?>
       
 	  
-<?  $checa_arrayo14=array_search("expnotrem",$explota_modular);      
+<?php   $checa_arrayo14=array_search("expnotrem",$explota_modular);      
 if($checa_arrayo14===FALSE){} else{echo'    
 <option value="notas_remision" ';
 if($tablax=="notas_remision"){echo"selected";}
-echo '>Notas de remisión</option>';} ?>
+echo '>Notas de remisiï¿½n</option>';} ?>
       
 </select>
 
-<?
+<?php  
 }
 ?>
 
-<?
+<?php  
 if(!empty($tablax))
 {
 	?>
  <div><strong>Reporte: 
-  <?
+  <?php  
 if($tablax=="Empleado"){echo"Usuarios";} 
 if($tablax=="Cliente"){echo"Cliente";} 
 if($tablax=="Poliza"){echo"Contratos";}
@@ -142,12 +142,12 @@ if($tablax=="notas_remision"){echo"Notas de Remision";}
   
 <a href="mainframe.php?module=exportacion">< regresar</a>    
 </div>
-<input type="hidden" name="tablax" value="<? echo $tablax; ?>" />
-<?
+<input type="hidden" name="tablax" value="<?php  echo $tablax; ?>" />
+<?php  
 }
 ?>
              
-<?
+<?php  
 
 if(!function_exists("existe"))
 {
@@ -281,7 +281,7 @@ if($activo=="all"){echo' selected ';}
 echo'>Indistinto</option>
 <option value="si"'; 
 if($activo=="si"){echo' selected ';}
-echo'>Sí</option>
+echo'>Sï¿½</option>
 <option value="no"'; 
 if($activo=="no"){echo' selected ';}
 echo'>No</option>
@@ -300,7 +300,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>Bï¿½squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -329,7 +329,7 @@ echo'<td>
 	 
 	   echo'<option value="Empleado.direccion"';
      if($sort=="Empleado.direccion"){echo"selected";}
-	 echo'>Dirección</option>';
+	 echo'>Direcciï¿½n</option>';
 	 
 	   echo'<option value="Colonia.NombreColonia"';
      if($sort=="Colonia.NombreColonia"){echo"selected";}
@@ -429,7 +429,7 @@ $quest=null;
 				<option value="no"'.($activo=="no"?' selected ':'').'>No Validado</option>
 			</select><br>
 
-	<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+	<b>Bï¿½squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 	</td>';
 
 	echo'<td>
@@ -1275,7 +1275,7 @@ echo'
     <td width="10" bgcolor="#eeeeee"><input name="filtrofecha1" type="checkbox" id="filtrofecha1" value="enabled" ';
 	if($filtrofecha1=="enabled"){echo'checked';}
 	echo'/></td>
-    <td width="120" bgcolor="#eeeeee"><strong>Fecha de recepción</strong></td>
+    <td width="120" bgcolor="#eeeeee"><strong>Fecha de recepciï¿½n</strong></td>
     <td width="180" bgcolor="#eeeeee"><strong>Inicial:</strong> '; 
 	
 if(empty($recepcion_d)){$recepcion_d=date("j");}	  
@@ -1489,7 +1489,7 @@ if($tablax=="notas_remision"){
 }
 ############################################################################################################
 ?>    
-<?
+<?php  
 /*
 $link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$link);
@@ -1637,7 +1637,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>Bï¿½squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -1714,7 +1714,7 @@ echo'>Descendente</option>
 
 ############################################################################################################
 ?>              
-<?
+<?php  
 if($tablax=="Poliza"){
 if(empty($campos)){$campos=array();}
 echo'<td>
@@ -1867,7 +1867,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>Bï¿½squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -1900,7 +1900,7 @@ echo'<td>
 	 
 	   echo'<option value="Cliente.calle"';
      if($sort=="Cliente.calle"){echo"selected";}
-	 echo'>Dirección</option>';
+	 echo'>Direcciï¿½n</option>';
 	 
 	   echo'<option value="Colonia.NombreColonia"';
      if($sort=="Colonia.NombreColonia"){echo"selected";}
@@ -1928,7 +1928,7 @@ echo'<td>
 	 
 	 	   echo'<option value="Cliente.telefonoOficina"';
      if($sort=="Cliente.telefonoOficina"){echo"selected";}
-	 echo'>Teléfono oficina</option>';
+	 echo'>Telï¿½fono oficina</option>';
 	 
 	 	 	   echo'<option value="Cliente.fax"';
      if($sort=="Cliente.fax"){echo"selected";}
@@ -1991,7 +1991,7 @@ echo'>Descendente</option>
 
 ?>
 
-<?
+<?php  
 if($tablax=="general"){
 if(empty($campos)){$campos=array();}
 echo'<td>
@@ -2352,7 +2352,7 @@ echo'/> Delitos<br>
 <input name="campos[]" type="checkbox" value="danos"'; 
 $checa_array1=array_search("danos",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
-echo'/> Daños<br>
+echo'/> Daï¿½os<br>
 <input name="campos[]" type="checkbox" value="lesiones"'; 
 $checa_array1=array_search("lesiones",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
@@ -2414,7 +2414,7 @@ echo'/> Ajustador tel 2<br>
 <input name="campos[]" type="checkbox" value="monto_danos"'; 
 $checa_array1=array_search("monto_danos",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
-echo'/> Monto daños<br>
+echo'/> Monto daï¿½os<br>
 <input name="campos[]" type="checkbox" value="monto_deducible"'; 
 $checa_array1=array_search("monto_deducible",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
@@ -2564,7 +2564,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>Bï¿½squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>';
@@ -2576,7 +2576,7 @@ echo'<table border="0" cellspacing="3" cellpadding="3">
     <td width="10" bgcolor="#eeeeee"><input name="filtrofecha1" type="checkbox" id="filtrofecha1" value="enabled" ';
 	if($filtrofecha1=="enabled"){echo'checked';}
 	echo'/></td>
-    <td width="150" bgcolor="#eeeeee"><strong>Fecha de recepción</strong></td>
+    <td width="150" bgcolor="#eeeeee"><strong>Fecha de recepciï¿½n</strong></td>
     <td width="180" bgcolor="#eeeeee"><strong>Inicial:</strong> '; 
 	
 if(empty($recepcion_d)){$recepcion_d=date("j");}	  

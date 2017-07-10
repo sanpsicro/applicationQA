@@ -1,4 +1,4 @@
-<?
+<?php  
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
@@ -21,11 +21,11 @@ $comentario=mysql_result($result,0,"comentario");
 ##
 }
 ?>
-<form method="post" enctype="multipart/form-data" action="upnotes.php?id=<? echo $id; ?>&caso=<? echo $caso; ?>&idnota=<? echo $idnota; ?>">
+<form method="post" enctype="multipart/form-data" action="upnotes.php?id=<?php  echo $id; ?>&caso=<?php  echo $caso; ?>&idnota=<?php  echo $idnota; ?>">
 
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
 		<!-- <tr>
-		  <td width="33%" bgcolor="#FFFFFF"><strong>Fecha:</strong> <?
+		  <td width="33%" bgcolor="#FFFFFF"><strong>Fecha:</strong> <?php  
 		echo'  <select name="fecha_d" id="fecha_d">';			
 for($contador=1;$contador<=31;$contador++){
 if(strlen($contador)==1){$cuenta="0".$contador."";} 
@@ -66,7 +66,7 @@ echo'>'.$cuenta.'</option>';
 		<tr>
 		  <td bgcolor="#FFFFFF"><p><strong>Comentario:<br />
 		  </strong><strong>
-          <textarea name="comentario" cols="90" rows="6" id="comentario"><? echo $comentario;?></textarea>
+          <textarea name="comentario" cols="90" rows="6" id="comentario"><?php  echo $comentario;?></textarea>
           </strong></p>	      </td>
   </tr>
 		
@@ -74,7 +74,7 @@ echo'>'.$cuenta.'</option>';
 		  <td align="center" bgcolor="#FFFFFF">
 <input name="Enviar" type="submit" value="Enviar" /> 
             &nbsp;&nbsp;
-            <input type="button" name="Button" value="Cancelar" onClick="location.href='?module=bitacora&id=<? echo $id;?>'"/>		  </td>
+            <input type="button" name="Button" value="Cancelar" onClick="location.href='?module=bitacora&id=<?php  echo $id;?>'"/>		  </td>
   </tr>
 </table>
 </form>
