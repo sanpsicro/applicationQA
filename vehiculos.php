@@ -27,7 +27,7 @@ if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. 
    else{
 $condicion="where tmpid = '$tmpid'";
    }
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Vehiculo $condicion order by idVehiculo", $link); 
 if (mysqli_num_rows($result)){ 

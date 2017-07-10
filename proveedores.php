@@ -208,7 +208,7 @@ else{$condicion="";}
 
 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 
 ////mysql_select_db($database, $link); 
 

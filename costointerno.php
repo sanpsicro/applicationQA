@@ -3,9 +3,21 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header('Content-Type: text/xml; charset=ISO-8859-1');
 
 isset($_POST['id']) ? $id = $_POST['id'] : $id = "" ;
+isset($_POST['caso']) ? $caso = $_POST['caso'] : $caso = "" ;
+isset($_POST['expediente']) ? $expediente = $_POST['expediente'] : $expediente = "" ;
+isset($_POST['proveedor']) ? $proveedor = $_POST['proveedor'] : $proveedor = "" ;
+isset($_POST['banderazo']) ? $banderazo= $_POST['banderazo'] : $banderazo= "" ;
+isset($_POST['blindaje']) ? $blindaje= $_POST['blindaje'] : $blindaje= "" ;
+isset($_POST['maniobras']) ? $maniobras= $_POST['maniobras'] : $maniobras= "" ;
+isset($_POST['espera']) ? $espera= $_POST['espera'] : $espera= "" ;
+isset($_POST['otro']) ? $otro= $_POST['otro'] : $otro= "" ;
+isset($_POST['total']) ? $total= $_POST['total'] : $total= "" ;
+isset($_POST['monto']) ? $monto= $_POST['monto'] : $monto= "" ;
+
+
 
 include('conf.php'); 
-if(isset($_POST[id]) && $_POST[id]!=""){
+if(isset($_POST['id']) && $_POST['id']!=""){
 
 #-------------------->------------------------>
 $link = mysqli_connect($host,$username,$pass,$database);
@@ -52,8 +64,8 @@ mysqli_query($link,"INSERT INTO `pagos` (`proveedor`, `conceptor`, `monto`, `sta
 ##  Control de Cobranza
 
 $totalCobranza=$banderazo+$blindaje+$maniobras+$espera+$otro;
-$link = mysqli_connect("$host","$username","$pass");
-$result=mysqli_query($link,"select * from cobranza where expediente = '$expediente'") or die(mysql_error($link));
+$link = mysqli_connect($host,$username,$pass,$database);
+$result=mysqli_query($link,"select * from cobranza where expediente = '$expediente'") ;
 $cuantosson=mysqli_num_rows($result);
 mysqli_free_result($result);
 if ($cuantosson>0) {
@@ -76,8 +88,11 @@ mysqli_query($link, $sSQL);
 
 
 #-------------------->------------------------>
+}if(!isset($_SESSION)){
+	session_start();
+	$explota_permisos=explode(",",$_SESSION["valid_permisos"]);
 }
-$explota_permisos=explode(",",$_SESSION["valid_permisos"]);
+
 include('status_caso.php'); 
 
 ?>

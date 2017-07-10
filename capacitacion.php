@@ -61,7 +61,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=capacitacion_admin&acce
 $checa_array2=array_search("cap_a",$explota_permisos);
 if ($checa_array2===FALSE) { $activos="and activo=1"; } else{ $activos=""; }
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 
 //mysql_select_db($database, $link); 
 

@@ -34,7 +34,7 @@ background-position: left top;
 
 include('conf.php'); 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM recordatorios where visto=0 and privacidad=0 and hora<now() order by hora ASC LIMIT 1", $link); 
  if (mysqli_num_rows($result))

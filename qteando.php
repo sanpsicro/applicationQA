@@ -28,7 +28,7 @@ $link = mysqli_connect($host, $username, $pass,$database);
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT COUNT(*) FROM Empleado where idEmpleado=$valid_userid AND activo=1 and qtip NOT BETWEEN '$inicio' AND '$final'", $link); 
 list($total1) = mysqli_fetch_row($result);
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link);
 $result2 = mysqli_query("SELECT COUNT(*) FROM quicktips where activo=1 LIMIT 1", $link); 
 list($total2) = mysqli_fetch_row($result2);

@@ -235,7 +235,7 @@ the returned xml has the following structure
 	$len = strlen($input);
 	$aResults = array();
 	$i=1;
-	$link = mysqli_connect($host, $username, $pass); 
+	$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT idCliente, nombre FROM Cliente where nombre like '%$input%'", $link); 
 if (mysqli_num_rows($result)){ 

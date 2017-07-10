@@ -1,7 +1,7 @@
 <?php  
 extract($_REQUEST);
 include("conf.php");
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $fecha_corte="$fecha_corte_anio-$fecha_corte_mes-$fecha_corte_dia";
 $fecha_pago="$fecha_pago_anio-$fecha_pago_mes-$fecha_pago_dia";

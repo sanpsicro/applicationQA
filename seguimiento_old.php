@@ -199,7 +199,7 @@ if($moko=="fkrucmsh"){$postq="AND general.contacto!='0000-00-00 00:00:00' AND ge
 
 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 
 //mysql_select_db($database, $link); 
 

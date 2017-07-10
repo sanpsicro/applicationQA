@@ -23,42 +23,58 @@ window.print();
 </script>
   <?php  
 include('conf.php');
+
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+	
+}
+
+isset($_GET['id']) ? $id = $_GET['id'] : $id = "" ;
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from general where id = '$id'",$db);
-$expediente=mysql_result($result,0,"expediente");
-$reporte_cliente=mysql_result($result,0,"reporte_cliente");
-$num_cliente=mysql_result($result,0,"num_cliente");
-$marca=mysql_result($result,0,"auto_marca");
-$tipo=mysql_result($result,0,"auto_tipo");
-$modelo=mysql_result($result,0,"auto_modelo");
-$color=mysql_result($result,0,"auto_color");
-$placas=mysql_result($result,0,"auto_placas");
-$proveedor=mysql_result($result,0,"proveedor");
-$banderazo=mysql_result($result,0,"banderazo");
-$blindaje=mysql_result($result,0,"blindaje");
-$maniobras=mysql_result($result,0,"maniobras");
-$espera=mysql_result($result,0,"espera");
-$otro=mysql_result($result,0,"otro");
-$total=mysql_result($result,0,"total");
-$idEmpleado=mysql_result($result,0,"idEmpleado");
-$cliente=mysql_result($result,0,"idCliente");
+$result = mysqli_query($db,"SELECT * from general where id = '$id'");
+$expediente=mysqli_result($result,0,"expediente");
+$reporte_cliente=mysqli_result($result,0,"reporte_cliente");
+$num_cliente=mysqli_result($result,0,"num_cliente");
+$marca=mysqli_result($result,0,"auto_marca");
+$tipo=mysqli_result($result,0,"auto_tipo");
+$modelo=mysqli_result($result,0,"auto_modelo");
+$color=mysqli_result($result,0,"auto_color");
+$placas=mysqli_result($result,0,"auto_placas");
+$proveedor=mysqli_result($result,0,"proveedor");
+$banderazo=mysqli_result($result,0,"banderazo");
+$blindaje=mysqli_result($result,0,"blindaje");
+$maniobras=mysqli_result($result,0,"maniobras");
+$espera=mysqli_result($result,0,"espera");
+$otro=mysqli_result($result,0,"otro");
+$total=mysqli_result($result,0,"total");
+$idEmpleado=mysqli_result($result,0,"idEmpleado");
+$cliente=mysqli_result($result,0,"idCliente");
 
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT nombre from Provedor where id = '$proveedor'",$db);
-$proveedor=mysql_result($result,0,"nombre");
+$result = mysqli_query($db,"SELECT nombre from Provedor where id = '$proveedor'");
+$proveedor=mysqli_result($result,0,"nombre");
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT nombre from Empleado where idEmpleado = '$idEmpleado'",$db);
-$empleado=mysql_result($result,0,"nombre");
+$result = mysqli_query($db,"SELECT nombre from Empleado where idEmpleado = '$idEmpleado'");
+$empleado=mysqli_result($result,0,"nombre");
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Cliente where idCliente = '$cliente'",$db);
-$cliente=mysql_result($result,0,"nombre");
+$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '$cliente'");
+$cliente=mysqli_result($result,0,"nombre");
 
 
 ?>

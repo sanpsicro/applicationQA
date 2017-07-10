@@ -17,7 +17,7 @@ if(empty($show)){$show=10;}
 if(empty($display)){$display="no validados";}
 if(empty($sort)){$sort="contrato, inciso";}
 
-mysqli_connect($host, $username, $pass); 
+mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database); 
 
 $query="SELECT uc.*

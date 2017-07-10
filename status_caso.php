@@ -16,9 +16,39 @@ document.location = generalurl;
 }
 }
 </script>
+
 <?php 
+if(!isset($_SESSION)){
+session_start();
+}
+
+if(isset($_GET['id']) && $_GET['id'] != ""){ 
+	$id = $_GET['id'];
+}elseif(isset($_POST['id']) && $_POST['id'] != ""){
+	$id = $_POST['id'];
+	
+	}else{ $id= "" ;
+	}
+
+if(!function_exists("mysqli_result")){
+	
+	function mysqli_result($res,$row=0,$col=0){
+		$numrows = mysqli_num_rows($res);
+		if ($numrows && $row <= ($numrows-1) && $row >=0){
+			mysqli_data_seek($res,$row);
+			$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+			if (isset($resrow[$col])){
+				return $resrow[$col];
+			}
+		}
+		return false;
+	}
+	
+	
+} 
+
 $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-$explota_permisos=explode(",",$_SESSION["valid_permisos"]);
+$explota_permisos=explode(",",$_SESSION['valid_permisos']);
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT * from general where id = '".$id."'");
@@ -399,7 +429,7 @@ $tyurruext="".$fexa4da[2]."/".$fexa4da[1]."/".$fexa4da[0]." ".$fexa4a[1]."";
 }
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Provedor where id = '$proveedorasignado'",$db);
+$result = mysqli_query($db,"SELECT * from Provedor where id = '$proveedorasignado'");
 if (mysqli_num_rows($result)){ 
 $proveedorasignado=mysqli_result($result,0,"nombre");
 $proveedornotas=mysqli_result($result,0,"id");
@@ -407,7 +437,7 @@ $proveedornotas=mysqli_result($result,0,"id");
 ####
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT monto from pagos where expediente = '$expp' LIMIT 1",$db);
+$result = mysqli_query($db,"SELECT monto from pagos where expediente = '$expp' LIMIT 1");
 if (mysqli_num_rows($result)){ 
 $costoint=mysqli_result($result,0,"monto");
 }
@@ -453,6 +483,8 @@ return $resultado;
 $segundos=date('h')*60*60+(date('i')*60)+date('s');
 
 #""""""""""""""""""""""""""""""""""""
+
+
 
 
 ?>

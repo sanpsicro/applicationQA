@@ -1,6 +1,6 @@
 <?php  
 
-$linka = mysqli_connect($host, $username, $pass); 
+$linka = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $resultar = mysqli_query("SELECT * FROM Provedor where id='$_GET[id]' LIMIT 1", $link); 
 if (mysqli_num_rows($resultar)){ 
@@ -127,7 +127,7 @@ document.location = delUrl;
       </tr></table>
 	  <div id="notas">
 	  <?php  
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM notasprov where general='$id' order by fecha desc", $link); 
 if (mysqli_num_rows($result)){ 

@@ -586,7 +586,7 @@ $municipio=mysql_result($result,0,"NombreMunicipio");
   </table>
   <div id="terceros">
   <?php  
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM terceros where general='$id' order by tipo desc, nombre", $link); 
 if (mysqli_num_rows($result)){ 

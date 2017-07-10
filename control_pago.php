@@ -10,7 +10,7 @@ if(isset($code) && $code=="2"){echo'<br><div class="xplik">Datos del Pago actual
 if(isset($code) && $code=="3"){echo'<div class="xplik">Pago eliminado</div>';}
 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 

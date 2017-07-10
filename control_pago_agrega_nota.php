@@ -1,7 +1,7 @@
 <?php  
 include("conf.php");
 session_start();
-mysqli_connect($host, $username, $pass); 
+mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database); 
 
 $query="INSERT INTO notas_pagos (id,expediente,usuario,fecha,comentario) 

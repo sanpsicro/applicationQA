@@ -19,7 +19,7 @@ die();} else{}
 <tr>
 	<td>
 		<?php  
-		$link = mysqli_connect($host, $username, $pass); 
+		$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 		$query="SELECT Pr.nombre,p.conceptor,p.expediente,p.monto,p.status,p.id, p.fecha FROM cobranza p,Provedor Pr WHERE p.id='$cobro'";
 		$result=mysqli_query($query, $link) or die(mysql_error());

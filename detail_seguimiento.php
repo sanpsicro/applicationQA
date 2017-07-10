@@ -87,6 +87,23 @@ FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-f
 <script type="text/javascript" src="subcombo.js"></script>
 <?php 
 isset($_GET['id']) ? $id = $_GET['id'] : $id="";
+isset($_GET['set_date']) ? $set_date = $_GET['set_date'] : $set_date="";
+
+isset($_POST['dterminoext']) ? $dterminoext= $_POST['dterminoext'] : $dterminoext="";
+isset($_POST['mterminoext']) ? $mterminoext= $_POST['mterminoext'] : $mterminoext="";
+isset($_POST['aterminoext']) ? $aterminoext= $_POST['aterminoext'] : $aterminoext="";
+isset($_POST['hterminoext']) ? $hterminoext= $_POST['hterminoext'] : $hterminoext="";
+isset($_POST['minterminoext']) ? $minterminoext= $_POST['minterminoext'] : $minterminoext="";
+isset($_POST['segundero2']) ? $segundero2= $_POST['segundero2'] : $segundero2="";
+
+isset($_POST['dcontext']) ? $dcontext= $_POST['dcontext'] : $dcontext="";
+isset($_POST['mcontext']) ? $mcontext= $_POST['mcontext'] : $mcontext="";
+isset($_POST['acontext']) ? $acontext= $_POST['acontext'] : $acontext="";
+isset($_POST['hcontext']) ? $hcontext= $_POST['hcontext'] : $hcontext="";
+isset($_POST['mincontext']) ? $mincontext= $_POST['mincontext'] : $mincontext="";
+isset($_POST['segundero1']) ? $segundero1= $_POST['segundero1'] : $segundero1="";
+
+
 
 
 if(isset($_POST['exxxp'])){
@@ -1071,7 +1088,7 @@ if($checa_array1===FALSE){echo '-->';} else{echo'';}
   </table>
   <div id="terceros">
   <?php 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 ////mysql_select_db($database, $link); 
 $result = mysqli_query($db,"SELECT * FROM terceros where general='".$id."' order by tipo desc, nombre", $link); 
 if (mysqli_num_rows($result)){ 
@@ -1190,7 +1207,7 @@ else{echo'Da&ntilde;o estimado:';}
  </tr>     
 
 <?php 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 ////mysql_select_db($database, $link); 
 $result = mysqli_query($db,"SELECT * FROM adjuntos where general='".$id."' order by fecha desc", $link); 
 if (mysqli_num_rows($result)){ 
@@ -1272,7 +1289,7 @@ $(document).ready(function() {
 <input name="Enviar" type="submit" value="Enviar" />
     </div></form><div class="clear"></div>
       <?php 
-				$link = mysqli_connect($host, $username, $pass); 
+				$link = mysqli_connect($host,$username,$pass,$database); 
 				////mysql_select_db($database, $link); 
 				$result = mysqli_query($db,"SELECT * FROM bitacora where general='".$id."' order by fecha desc", $link); 
 				if (mysqli_num_rows($result)){ 
@@ -1316,7 +1333,7 @@ $(document).ready(function() {
         </form><div class="clear"></div>
        
      <?php 
-				$link = mysqli_connect($host, $username, $pass); 
+				$link = mysqli_connect($host,$username,$pass,$database); 
 				////mysql_select_db($database, $link); 
 				$result = mysqli_query($db,"SELECT * FROM clientacora where general='".$id."' order by fecha desc", $link); 
 				
@@ -1469,7 +1486,7 @@ $resultl = mysqli_query($db,"SELECT status from chatstat where gr='".$id."'",$db
     <div class="rightchat">
 
 <?php 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 				////mysql_select_db($database, $link); 
 				$result = mysqli_query($link,"SELECT tel_reporta FROM general where id='".$id."' LIMIT 1"); 
 				
@@ -1541,7 +1558,7 @@ $resultl = mysqli_query($db,"SELECT lat,longi from chatstat where gr='".$id."'",
         <div id="tab5">
 
 <?php 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 				////mysql_select_db($database, $link); 
 				$result = mysqli_query($link,"SELECT tel_reporta FROM general where id='".$id."' LIMIT 1"); 
 				

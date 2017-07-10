@@ -14,7 +14,7 @@ header("Location: index.php?errorcode=3");
 <?php  
 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 				//mysql_select_db($database, $link); 
 				$result = mysqli_query("SELECT tel_reporta FROM general where id='$gr' LIMIT 1", $link); 
 				

@@ -1,10 +1,25 @@
 <?php  
 include("conf.php");
+isset($_GET['id']) ? $id = $_GET['id'] : $id ="" ;
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
+
+$eluserx = "";
 ?>
 <?php  
-$linka = mysqli_connect($host, $username, $pass); 
+$linka = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $linka); 
-$resultar = mysqli_query("SELECT * FROM Provedor where id='$id' LIMIT 1", $linka); 
+$resultar = mysqli_query($linka,"SELECT * FROM Provedor where id='$id' LIMIT 1"); 
 if (mysqli_num_rows($resultar)){ 
   while ($row = @mysqli_fetch_array($resultar)) { 
   
@@ -43,9 +58,9 @@ $nombrep=$row["nombre"];
       </tr></table>
 	  <div id="notas">
 <?php  
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query("SELECT * FROM notasprov where general='$id' order by fecha desc", $link); 
+$result = mysqli_query($link,"SELECT * FROM notasprov where general='$id' order by fecha desc"); 
 if (mysqli_num_rows($result)){ 
   while ($row = @mysqli_fetch_array($result)) { 
   
@@ -57,9 +72,9 @@ $userx=$row["usuario"];
 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbl);
-$resultl = mysqli_query("SELECT * from Empleado where idEmpleado='$userx'",$dbl);
+$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$userx'");
 if (mysqli_num_rows($resultl)){ 
-$eluserx=mysql_result($resultl,0,"nombre");
+$eluserx=mysqli_result($resultl,0,"nombre");
 }
 
 echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">

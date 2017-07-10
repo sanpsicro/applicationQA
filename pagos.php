@@ -57,7 +57,7 @@ if($selenium=="all"){$condicion="";}
 if($selenium=="pagados"){$condicion="where pagos.status='pagado'";}
 if($selenium=="no pagados"){$condicion="where pagos.status='no pagado'";}
 }
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 

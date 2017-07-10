@@ -2,6 +2,7 @@
 session_start();
 if(empty($_SESSION["valid_user"])){die();} 
 
+$valid_userid = $_SESSION['valid_userid'];
 ?>
 <html>
 <head>
@@ -62,7 +63,7 @@ $general=$query['id'];
 </div>
 <?php  } else { ?> <input type="hidden" name="general" value="" />  <?php  }?>
 <div class="form-group">
- 	<label for="proximos" class="whiter">Programar en los pr�ximos:</label>
+ 	<label for="proximos" class="whiter">Programar en los próximos:</label>
     <select  class="form-control" name="proximos" id="proximos">
     <option value="5">5 minutos</option>
     <option value="10">10 minutos</option>
@@ -95,7 +96,7 @@ $nminuto=$minuto+5;
 </div>
  <div class="checkbox">
     <label class="whiter">
-      <input type="checkbox" name="privacidad"> S�lo para mi
+      <input type="checkbox" name="privacidad"> Sólo para mi
     </label>
   </div>
 <input type="hidden" name="actuar" value="new" />

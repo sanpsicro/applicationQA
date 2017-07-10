@@ -5,6 +5,7 @@ header('Content-Type: text/xml; charset=ISO-8859-1');
 include('conf.php'); 
 $id=$_GET['id'];
 $caso = "";
+$monto="";
 //$caso = $_POST['caso'];
 function mysqli_result($res,$row=0,$col=0){
 	$numrows = mysqli_num_rows($res);
@@ -124,4 +125,4 @@ $explota_tipo=explode(",",$_SESSION["valid_tipo"]); ?>
 </form>
 
 
-<?php b_flush();?>
+<?php ob_flush();?>

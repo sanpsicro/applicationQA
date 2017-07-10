@@ -89,7 +89,7 @@ $idcliente=mysqli_result($result,0,"idCliente");
 
 
  /*
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 ////mysql_select_db($database, $link); 
 $result = mysqli_query($db,"SELECT idPoliza,fechaInicio,Poliza.status as polstat,Poliza.productos,Poliza.numPoliza,Cliente.nombre,numPoliza from Poliza left join Cliente on (Cliente.idCliente = Poliza.idCliente) where Poliza.numPoliza='$contrato'", $link); 
 if (mysqli_num_rows($result)){ 

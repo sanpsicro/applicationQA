@@ -75,7 +75,7 @@ $idcliente=mysql_result($result,0,"idCliente");
 
 
  /*
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT idPoliza,fechaInicio,Poliza.status as polstat,Poliza.productos,Poliza.numPoliza,Cliente.nombre,numPoliza from Poliza left join Cliente on (Cliente.idCliente = Poliza.idCliente) where Poliza.numPoliza='$contrato'", $link); 
 if (mysqli_num_rows($result)){ 
@@ -259,7 +259,7 @@ echo'</table></td><td width=50% valign=top>
 <table width="100%" border="0" cellpadding=3 cellspacing=3>
 <tr><td bgcolor="#bbbbbb" align=middle><b>N�mero de expediente</b></td><td bgcolor="#bbbbbb"  align=middle><b>Servicio utilizado</b></td><td bgcolor="#bbbbbb"  align=middle><b>Detalle</b></td></tr>';
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 #$result = mysqli_query("SELECT  general.id, general.expediente, servicios.servicio from general left join servicios on (general.servicio = servicios.id) where contrato = '$clave' AND status!='cancelado al momento'"); 
 $result = mysqli_query("SELECT  g.id, g.expediente, s.servicio from general g,servicios s WHERE g.servicio = s.id AND contrato = '$clave' AND status!='cancelado al momento' ORDER BY id DESC LIMIT 5"); 

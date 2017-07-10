@@ -31,7 +31,7 @@ background-position: left top;
 
 include('conf.php'); 
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM quicktips where activo=1 order by visto ASC LIMIT 1", $link); 
  if (mysqli_num_rows($result))

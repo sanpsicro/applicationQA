@@ -127,7 +127,7 @@ if($tipo_asistencia_medica=="Ambulancia"){echo' selected ';}
             <td bgcolor="#ffffff"><strong>Ubicacion Estado: </strong></td>
             <td bgcolor="#ffffff"><select name="estado" id="estado" onChange=\'cargaContenido(this.id)\'>
             <option value=\'0\'>Seleccione un Estado</option>';
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
 if (mysqli_num_rows($result)){ 
@@ -145,7 +145,7 @@ echo'        </select></td>
 			
 			if(isset($ubicacion_estado) && $ubicacion_estado!=""){
 echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>';
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$ubicacion_estado'order by NombreMunicipio", $link); 
 if (mysqli_num_rows($result)){ 
@@ -172,7 +172,7 @@ else{echo'<select disabled="disabled" name="municipio" id="municipio" onChange=\
 			
 			 if(isset($ubicacion_municipio) && $ubicacion_municipio!=""){
 echo'  <select name="colonia" id="colonia">';
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$ubicacion_municipio'order by NombreColonia", $link); 
 if (mysqli_num_rows($result)){ 
@@ -209,7 +209,7 @@ echo'</select>';
 			<td bgcolor="#ffffff"><strong>DestinoEstado: </strong></td>
             <td bgcolor="#ffffff"><select name="estado2" id="estado2" onChange=\'cargaContenido(this.id)\'>
             <option value=\'0\'>Seleccione un Estado</option>';
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Estado order by NombreEstado", $link); 
 if (mysqli_num_rows($result)){ 
@@ -232,7 +232,7 @@ echo'        </select></td></tr><tr>
 			
 			if(isset($destino_estado) && $destino_estado!=""){
 echo'  <select name="municipio2" id="municipio2" onChange=\'cargaContenido(this.id)\'>';
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Municipio where idEstado='$destino_estado'order by NombreMunicipio", $link); 
 if (mysqli_num_rows($result)){ 
@@ -262,7 +262,7 @@ else{echo'<select disabled="disabled" name="municipio2" id="municipio2" onChange
 			
 			 if(isset($destino_municipio) && $destino_municipio!=""){
 echo'  <select name="colonia2" id="colonia2">';
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM Colonia where idMunicipio='$destino_municipio'order by NombreColonia", $link); 
 if (mysqli_num_rows($result)){ 

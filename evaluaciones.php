@@ -57,7 +57,7 @@ if(empty($filter)){$condicion="AND evaluado ='evaluado'";}
 else{$condicion="AND evaluado !='evaluado'";}
 }
 
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 

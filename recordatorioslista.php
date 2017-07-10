@@ -15,7 +15,7 @@ if(empty($sort)){$sort="hora DESC";}
 <tr><td>
 <?php  
 $condicion="";
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
@@ -62,7 +62,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
   $usuario=$row["empleado"];
-  $link = mysqli_connect($host, $username, $pass); 
+  $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $resultar = mysqli_query("SELECT usuario FROM Empleado where idEmpleado=$usuario", $link); 
 $usuario=mysql_result($resultar,0,"usuario");

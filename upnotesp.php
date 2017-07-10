@@ -3,34 +3,52 @@ session_start();
 $unixid = time(); 
 include('conf.php'); 
 
-$dbl = mysqli_connect($host,$username,$pass,$database);
-//mysql_select_db($database,$dbl);
-$resultl = mysqli_query("SELECT * from Empleado where idEmpleado='$valid_userid'",$dbl);
-if (mysqli_num_rows($resultl)){ 
-$eluserx=mysql_result($resultl,0,"nombre");
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
 }
 
-$linka = mysqli_connect($host, $username, $pass); 
+isset($_SESSION['valid_userid']) ? $valid_userid = $_SESSION['valid_userid'] : $valid_userid = "" ;
+isset($_GET['id']) ? $id = $_GET['id'] : $id = "" ;
+isset($_GET['caso']) ? $caso = $_GET['caso'] : $caso = "" ;
+isset($_GET['popup']) ? $popup = $_GET['popup'] : $popup = "" ;
+isset($_POST['comentario']) ? $comentario = $_POST['comentario'] : $comentario = "" ;
+
+$dbl = mysqli_connect($host,$username,$pass,$database);
+//mysql_select_db($database,$dbl);
+$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$valid_userid'");
+if (mysqli_num_rows($resultl)){ 
+$eluserx=mysqli_result($resultl,0,"nombre");
+}
+
+$linka = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $linka); 
-$resultar = mysqli_query("SELECT * FROM Provedor where id='$_GET[id]' LIMIT 1", $linka); 
+$resultar = mysqli_query($linka,"SELECT * FROM Provedor where id='$id' LIMIT 1"); 
 if (mysqli_num_rows($resultar)){ 
-$nombrep=mysql_result($resultar,0,"nombre");  
+$nombrep=mysqli_result($resultar,0,"nombre");  
 }
 
 if($caso == "editar"){
-mysqli_connect($host,$username,$pass,$database);
+$link =mysqli_connect($host,$username,$pass,$database);
 $comentario=strtoupper($comentario);
 $sSQL="UPDATE notasprov SET fecha='$fecha_a-$fecha_m-$fecha_d', comentario='$comentario' where id='$idnota'";
-mysqli_query($database, "$sSQL");
+mysqli_query($link, $sSQL);
 if($popup=="0")
 	header("Location: mainframe.php?module=notas_proveedor&id=$id");
 else
 	header("Location: notas_proveedorb.php?id=$id");
 }
 if($caso == "nuevo"){
-mysqli_connect($host,$username,$pass,$database);
+$link = mysqli_connect($host,$username,$pass,$database);
 $comentario=strtoupper($comentario);
-mysqli_query($database,"INSERT INTO `notasprov` (`general`, `usuario`, `fecha`, `comentario`) VALUES ('$id', '$valid_userid', now(), '$comentario')"); 
+mysqli_query($link,"INSERT INTO `notasprov` (`general`, `usuario`, `fecha`, `comentario`) VALUES ('$id', '$valid_userid', now(), '$comentario')"); 
 
 
 $asunto = 'Reporte Proveedores';
@@ -95,9 +113,9 @@ else
 }
 
 if($caso == "borrar"){
-mysqli_connect($host,$username,$pass,$database);
+$link = mysqli_connect($host,$username,$pass,$database);
 $sSQL="Delete From notasprov Where id ='$idnota' and general='$id'";
-mysqli_query("$database",$sSQL);
+mysqli_query($link,$sSQL);
 if($popup=="0")
 	header("Location: mainframe.php?module=notas_proveedor&id=$id");
 else

@@ -1,23 +1,41 @@
 <link href="style_1.css" rel="stylesheet" type="text/css" />
 <?php  
 include('conf.php'); 
+isset($_GET['id']) ? $id = $_GET['id'] : $id ="" ;
+isset($_GET['caso']) ? $caso = $_GET['caso'] : $caso ="" ;
+isset($_GET['idnota']) ? $idnota = $_GET['idnota'] : $idnota ="" ;
 
 if(empty($fecha[2])){$fecha[2]=date("d");}
 if(empty($fecha[1])){$fecha[1]=date("m");}
 if(empty($fecha[0])){$fecha[0]=date("Y");}
 
-if($_GET['caso'] == "editar")
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
+
+if($caso == "editar")
 {
 ##
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from notasprov where general='$_GET[id]' AND  id= '$_GET[idnota]'",$db);
+$result = mysqli_query($db,"SELECT * from notasprov where general='$id' AND  id= '$idnota'");
 if (mysqli_num_rows($result)){ 
-$fecha=mysql_result($result,0,"fecha");
+$fecha=mysqli_result($result,0,"fecha");
 $fecha=explode("-",$fecha);
-$comentario=mysql_result($result,0,"comentario");
+$comentario=mysqli_result($result,0,"comentario");
 }
 ##
+}else{
+$comentario = "";	
+	
 }
 ?>
 <form method="post" enctype="multipart/form-data" action="upnotesp.php?id=<?php  echo $id; ?>&popup=<?php  echo $popup; ?>&caso=<?php  echo $caso; ?>&idnota=<?php  echo $idnota; ?>&proveedor=<?php  echo $nombrep; ?>">

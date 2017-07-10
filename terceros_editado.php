@@ -70,7 +70,7 @@ $sSQL="Delete From terceros Where id ='$idtercero' and general='$id'";
 mysqli_query("$database",$sSQL);
 }
 ##############################################################################
-$link = mysqli_connect($host, $username, $pass); 
+$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 $result = mysqli_query("SELECT * FROM terceros where general='$id' order by tipo desc, nombre", $link); 
 if (mysqli_num_rows($result)){ 
