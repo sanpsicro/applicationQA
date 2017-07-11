@@ -41,7 +41,7 @@ if(empty($sort)){$sort="numPoliza";}
 <?php  
 if(isset($quest) && $quest!=""){
 echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
-$condicion="AND(Cliente.nombre like '%$quest%' OR Poliza.numPoliza like '%$quest%' or Empleado.nombre like '%$quest%')";
+$condicion="AND (Cliente.nombre like '%$quest%' OR Poliza.numPoliza like '%$quest%' or Empleado.nombre like '%$quest%')";
 }
 else{$condicion="";}
 $previo="where (usuarios_contrato.status='validado' and Cliente.tipocliente!=4) or Cliente.tipocliente=4";
