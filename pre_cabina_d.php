@@ -1,4 +1,5 @@
-<?php 	extract($_GET);
+<?php 	
+extract($_GET);
 	extract($_POST);
 	
 	
@@ -8,24 +9,24 @@ if(isset($zauruz) && $zauruz=="irix")
 {
 
 	##startcomprobacion
-	mysqli_connect("$host","$username","$pass");
-	$result=mysqli_query("$database","select * from seguimiento_juridico where general = '$idcaso'");
+	$link = mysqli_connect($host,$username,$pass,$database);
+	$result=mysqli_query($link,"select * from seguimiento_juridico where general = '$idcaso'");
 	$cuantosson=mysqli_num_rows($result);
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	
 	if ($cuantosson>0)
 	{
 		#actualizar registro
 		$link = mysqli_connect($host,$username,$pass,$database);
 		$sSQL="UPDATE seguimiento_juridico SET situacion_juridica='$situacion_conductor', detencion='$detencion_conductor_ano-$detencion_conductor_mes-$detencion_conductor_dia', liberacion='$liberacion_conductor_ano-$liberacion_conductor_mes-$liberacion_conductor_dia', fianzas='$fianzas_conductor', situacion_vehiculo='$situacion_vehiculo', detencion_vehiculo='$detencion_vehiculo_ano-$detencion_vehiculo_mes-$detencion_vehiculo_dia', liberacion_vehiculo='$liberacion_vehiculo_ano-$liberacion_vehiculo_mes-$liberacion_vehiculo_dia', fianzas_vehiculo='$fianzas_vehiculo', conductor='$conductor', telconductor='$tel1', telconductor2='$tel2', siniestro='$siniestrox', averiguacion='$averiguacion', autoridad='$autoridad', fecha_accidente='$accidente_ano-$accidente_mes-$accidente_dia', numlesionados='$numlesionados', numhomicidios='$numhomicidios', delitos='$delitos', danos='$danos', lesiones='$lesiones', homicidios='$homicidios', ataques='$ataques', robo='$robo', descripcion='$descripcion', lugar_hechos='$lugar_hechos', referencias='$referencias', colonia='$colonia', ciudad='$ciudad', municipio='$municipio', estado='$estado', ajustador='$ajustador', telid='$telid', telajustador='$telajustador1', telajustador2='$telajustador2', monto_danos='$monto_danos', monto_deducible='$monto_deducible'where general='$idcaso'";
-		mysqli_query($link, "$sSQL") or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
+		mysqli_query($link, $sSQL) or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error($link));
 	}
 	else
 	{
 		#crear registro
 		$link = mysqli_connect($host,$username,$pass,$database);
 		$sql="INSERT INTO `seguimiento_juridico` (`general`, `situacion_juridica`, `detencion`, `liberacion`, `fianzas`, `situacion_vehiculo`, `detencion_vehiculo`, `liberacion_vehiculo`, `fianzas_vehiculo`, `conductor`, `telconductor`, `telconductor2`, `siniestro`, `averiguacion`, `autoridad`, `fecha_accidente`, `numlesionados`, `numhomicidios`, `delitos`, `danos`, `lesiones`, `homicidios`, `ataques`, `robo`, `descripcion`, `lugar_hechos`, `referencias`, `colonia`, `ciudad`, `municipio`, `estado`, `ajustador`, `telajustador`, `telajustador2`, `monto_danos`, `monto_deducible`) VALUES ('$idcaso', '$situacion_conductor', '$detencion_conductor_ano-$detencion_conductor_mes-$detencion_conductor_dia', '$liberacion_conductor_ano-$liberacion_conductor_mes-$liberacion_conductor_dia', '$fianzas_conductor', '$situacion_vehiculo', '$detencion_vehiculo_ano-$detencion_vehiculo_mes-$detencion_vehiculo_dia', '$liberacion_vehiculo_ano-$liberacion_vehiculo_mes-$liberacion_vehiculo_dia', '$fianzas_vehiculo', '$conductor', '$tel1', '$tel2', '$siniestrox', '$averiguacion', '$autoridad', '$accidente_ano-$accidente_mes-$accidente_dia', '$numlesionados', '$numhomicidios', '$delitos', '$danos', '$lesiones', '$homicidios', '$ataques', '$robo', '$descripcion', '$lugar_hechos', '$referencias', '$colonia', '$ciudad', '$municipio', '$estado', '$ajustador', '$telajustador1', '$telajustador2', '$monto_danos', '$monto_deducible')";
-		mysqli_query($link, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());	
+		mysqli_query($link, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<br><b>".mysql_error($link));	
 	}
 	##endcomprobacion
 	
@@ -105,7 +106,7 @@ else
 		   email_v='$email_v',
 		   ultimoseguimiento=now()
 		   where id='$expediente' AND contrato='$clave'";
-	mysqli_query($link, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
+	mysqli_query($link, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error($link));
 	//echo "Query:<br><br>$sSQL<br>";
 
 	/*
@@ -162,7 +163,7 @@ else
 		   aseg_conductor_tel2='$aseg_conductor_tel2'
 		   where id='$expediente'
 		   AND contrato='$clave'";
-	mysqli_query($link, "$sSQL")  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error());
+	mysqli_query($link, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysql_error($link));
 
 	#$idcaso=mysql_insert_id();  
 	$idcaso=$expediente;
