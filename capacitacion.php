@@ -47,7 +47,7 @@ die();} else{}
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Organizaci�n y M�todos</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("cap_a",$explota_permisos);
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Organizaci&oacuten y M&eacutetodos</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("cap_a",$explota_permisos);
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=capacitacion_admin&accela=new">Nueva Carpeta</a> ]';} ?></td></tr></table></td></tr>
    </table>
       </td>
@@ -65,7 +65,7 @@ $link = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database, $link); 
 
-$result = mysqli_query("SELECT * FROM modcap WHERE parent=0 $activos order by nombre", $link); 
+$result = mysqli_query($link,"SELECT * FROM modcap WHERE parent=0 $activos order by nombre"); 
 
 if (mysqli_num_rows($result)){ 
 

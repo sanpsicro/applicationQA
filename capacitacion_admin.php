@@ -1,5 +1,18 @@
 <?php   
 
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
+
+$accela = $_GET['accela'];
 
 $checa_array1=array_search("cap_a",$explota_permisos);
 
@@ -109,11 +122,11 @@ $db = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db);
 
-$result = mysqli_query("SELECT * from modcap where cid = '$capid'",$db);
-$idpermi=mysql_result($result,0,"idpermi");
-$nombre=mysql_result($result,0,"nombre");
-$icon=mysql_result($result,0,"ico");
-$activo=mysql_result($result,0,"activo");
+$result = mysqli_query($db,"SELECT * from modcap where cid = '$capid'");
+$idpermi=mysqli_result($result,0,"idpermi");
+$nombre=mysqli_result($result,0,"nombre");
+$icon=mysqli_result($result,0,"ico");
+$activo=mysqli_result($result,0,"activo");
 
 
 }

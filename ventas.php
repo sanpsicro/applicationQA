@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 $checa_arrayx=array_search("ventas",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -15,22 +16,22 @@ if(empty($sort)){$sort="numPoliza";}
             <form name="form1" method="post" action="bridge.php?module=ventas<?php  if($quest!=""){echo"&quest=$quest";}?>">
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="numPoliza" <?php  if($sort=="numPoliza"){echo"selected";}?>>Ordenar por número de contrato</option>
+                <option value="numPoliza" <?php  if($sort=="numPoliza"){echo"selected";}?>>Ordenar por n&uacutemero de contrato</option>
                 <option value="Cliente.nombre" <?php  if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por cliente</option>                
                  <option value="Empleado.nombre" <?php  if($sort=="Empleado.nombre"){echo"selected";}?>>Ordenar por vendedor</option>				
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=ventas"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=ventas"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -64,7 +65,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacutegina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {

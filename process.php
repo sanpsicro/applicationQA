@@ -530,6 +530,17 @@ header("Location: mainframe.php?module=detail_seguimiento&id=$gr&current=5");
 
 #----------------
 if($module=="capacitacion"){ 
+	
+isset($_POST['nombre']) ? $nombre = $_POST['nombre'] : $nombre = "" ;	
+isset($_POST['idpermi']) ? $idpermi= $_POST['idpermi'] : $idpermi= "" ;	
+isset($_POST['icon']) ? $icon= $_POST['icon'] : $icon= "" ;	
+isset($_POST['activo']) ? $activo= $_POST['activo'] : $activo= "" ;	
+
+
+isset($_GET['capid']) ? $capid= $_GET['capid'] : $capid= "" ;	
+isset($_GET['parent']) ? $parent= $_GET['parent'] : $parent= "" ;	
+
+
 
 if(isset($accela) && $accela=="new"){
 
