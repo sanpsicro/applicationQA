@@ -23,31 +23,47 @@ die();} else{}
   <td>
 <p>
   <?php  
+  
+  isset($_GET['id']) ? $id = $_GET['id'] : $id = "" ;
+  isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = "" ;
+  
+  
+  function mysqli_result($res,$row=0,$col=0){
+  	$numrows = mysqli_num_rows($res);
+  	if ($numrows && $row <= ($numrows-1) && $row >=0){
+  		mysqli_data_seek($res,$row);
+  		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+  		if (isset($resrow[$col])){
+  			return $resrow[$col];
+  		}
+  	}
+  	return false;
+  }
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from usuarios_contrato where id = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from usuarios_contrato where id = '$id'");
 if (mysqli_num_rows($result)){ 
-$contrato=mysql_result($result,0,"contrato");
-$inciso=mysql_result($result,0,"inciso");
-$clave=mysql_result($result,0,"clave");
-$nombre=mysql_result($result,0,"nombre");
+$contrato=mysqli_result($result,0,"contrato");
+$inciso=mysqli_result($result,0,"inciso");
+$clave=mysqli_result($result,0,"clave");
+$nombre=mysqli_result($result,0,"nombre");
 }
 if($accela!="new"){$accela="edit";}
 if($accela=="edit"){
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from validaciones  where clave_usuario  = '$clave'",$db);
+$result = mysqli_query($db,"SELECT * from validaciones  where clave_usuario  = '$clave'");
 if (mysqli_num_rows($result)){ 
-$idval=mysql_result($result,0,"id");
-$tipo_pago=mysql_result($result,0,"tipo_pago");
-$fecha_pago=mysql_result($result,0,"fecha_pago");
+$idval=mysqli_result($result,0,"id");
+$tipo_pago=mysqli_result($result,0,"tipo_pago");
+$fecha_pago=mysqli_result($result,0,"fecha_pago");
 $uno_fecha=explode("-",$fecha_pago);
-$fecha_pago_comision=mysql_result($result,0,"fecha_pago_comision");
+$fecha_pago_comision=mysqli_result($result,0,"fecha_pago_comision");
 $dos_fecha=explode("-",$fecha_pago_comision);
-$cuanta_ingreso=mysql_result($result,0,"cuenta_ingreso");
-$observaciones=mysql_result($result,0,"observaciones");
-$comision_vendedor=mysql_result($result,0,"comision_vendedor");
+$cuanta_ingreso=mysqli_result($result,0,"cuenta_ingreso");
+$observaciones=mysqli_result($result,0,"observaciones");
+$comision_vendedor=mysqli_result($result,0,"comision_vendedor");
 }
 }
 ?>

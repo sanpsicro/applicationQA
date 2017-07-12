@@ -1418,6 +1418,20 @@ mysqli_query($link, $sSQL);
 header("Location: mainframe.php?module=$module&display=validados");
 }
 */
+	
+	isset($_GET['idval']) ? $idval = $_GET['idval']  :  $idval = "" ;
+
+	isset($_POST['id']) ? $id= $_POST['id']  :  $id= "" ;
+	isset($_POST['clave']) ? $clave= $_POST['clave']  :  $clave= "" ;
+	isset($_POST['tipo_pago']) ? $tipo_pago= $_POST['tipo_pago']  :  $tipo_pago= "" ;
+	isset($_POST['pago_dia']) ? $pago_dia= $_POST['pago_dia']  :  $pago_dia= "" ;
+	isset($_POST['pago_mes']) ? $pago_mes= $_POST['pago_mes']  :  $pago_mes= "" ;
+	isset($_POST['pago_ano']) ? $pago_ano= $_POST['pago_ano']  :  $pago_ano= "" ;
+	isset($_POST['cuenta_ingreso']) ? $cuenta_ingreso= $_POST['cuenta_ingreso']  :  $cuenta_ingreso= "" ;
+	isset($_POST['pago_comision_dia']) ? $pago_comision_dia= $_POST['pago_comision_dia']  :  $pago_comision_dia= "" ;
+	isset($_POST['pago_comision_mes']) ? $pago_comision_mes= $_POST['pago_comision_mes']  :  $pago_comision_mes= "" ;
+	isset($_POST['pago_comision_ano']) ? $pago_comision_ano= $_POST['pago_comision_ano']  :  $pago_comision_ano= "" ;
+	
 
 if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);

@@ -1,5 +1,7 @@
 <?php  
 $checa_arrayx=array_search("evaluaciones",$explota_modulos);
+
+isset($_GET['id']) ? $id = $_GET['id'] :  $id = "";
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 ?>

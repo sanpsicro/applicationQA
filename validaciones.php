@@ -1,6 +1,11 @@
 <?php  $checa_arrayx=array_search("4_v",$explota_permisos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+
+$sort = $_GET['sort'];
+$display = $_GET['display'];
+
 if(empty($show)){$show=10;}
 if(empty($display)){$display="no validados";}
 if(empty($sort)){$sort="contrato, inciso";}
@@ -37,7 +42,7 @@ if(empty($sort)){$sort="contrato, inciso";}
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Validaci�n realizada</div></b><p>';}
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 $condicion="where nombre like '%$quest%' OR contrato like '%$quest%' OR clave like '%$quest%'";
 }
 else{
@@ -49,7 +54,7 @@ if($display=="no validados"){$condicion="Where status='no validado'";}
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query( $link,"SELECT * from usuarios_contrato $condicion order by $sort"); 
+$result = mysqli_query( $link,"SELECT  * from usuarios_contrato $condicion order by $sort limit 100"); 
 if (mysqli_num_rows($result)){ 
 echo'<form action="process.php?module=validaciones&idPoliza='.$idPoliza.'&accela=validar" method="post" name="frm">
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
