@@ -1,3 +1,8 @@
+<?php 
+isset($_GET['idusuario']) ? $idusuario= $_GET['idusuario'] : $idusuario= "" ;
+isset($_GET['accela']) ? $accela= $_GET['accela'] : $accela= "" ;
+
+?>
 <script type="text/javascript" src="subcombo.js"></script>
 
 <style type="text/css">
@@ -156,6 +161,8 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=n
             <td width="400" 			class="questtitle"> 
 
 			<?php  
+			
+			
 
 			if($accela=="new"){echo'Dar de alta Usuario';}
 

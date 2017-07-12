@@ -241,6 +241,22 @@ header("Location: mainframe.php?module=$module&code=3");
 
 #----------------
 if($module=="usuariosws"){ 
+	
+	isset($_GET['idusuario']) ? $idusuario= $_GET['idusuario'] : $idusuario= "" ;
+	
+	
+	isset($_POST['usuario']) ? $usuario= $_POST['usuario'] : $usuario= "" ;
+	isset($_POST['contrasena']) ? $contrasena= $_POST['contrasena'] : $contrasena= "" ;
+	isset($_POST['nombre']) ? $nombre= $_POST['nombre'] : $nombre= "" ;
+	isset($_POST['email']) ? $email= $_POST['email'] : $email= "" ;
+	isset($_POST['contrato1']) ? $contrato1= $_POST['contrato1'] : $contrato1= "" ;
+	isset($_POST['contrato2']) ? $contrato2= $_POST['contrato2'] : $contrato2= "" ;
+	isset($_POST['contrato3']) ? $contrato3= $_POST['contrato3'] : $contrato3= "" ;
+	isset($_POST['contrato4']) ? $contrato4= $_POST['contrato4'] : $contrato4= "" ;
+	isset($_POST['contrato5']) ? $contrato5= $_POST['contrato5'] : $contrato5= "" ;
+	isset($_POST['activo']) ? $activo= $_POST['activo'] : $activo= "" ;
+	
+	
 if(count($modules_auth)!="0" && $modules_auth!=" " && $modules_auth!=""){$modulos_enlatados=implode(",",$modules_auth);}
 else{$modulos_enlatados="";}
 if(count($permi)!="0" && $permi!=" " && $permi!=""){$permisos_enlatados=implode(",",$permi);}

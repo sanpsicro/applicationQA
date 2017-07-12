@@ -36,13 +36,11 @@ background-position: left bottom;
 </head>
 <body>
 <?php  
-
 $referencia=$_SERVER['HTTP_REFERER'];
 $parsed = parse_url( $referencia, PHP_URL_QUERY );
 parse_str( $parsed, $query );
 $module=$query['module'];
 $general=$query['id'];
-
 ?>
 
 

@@ -1,5 +1,5 @@
 <?php  
-if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
+if ( isset( $_SESSION['valid_user'] ) &&  isset( $_SESSION['valid_modulos'] ) &&  isset( $_SESSION['valid_permisos'] ) )
 {}
 else {
 header("Location: index.php?errorcode=3");
@@ -82,32 +82,45 @@ die();} else{}
 <tr><td>
 
 <?php  
+isset($_GET['idusuario']) ? $idusuario= $_GET['idusuario'] : $idusuario= "" ;
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 
 $db = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db);
 
-$result = mysqli_query("SELECT * from webservice where idusuario = '$idusuario'",$db);
+$result = mysqli_query($db,"SELECT * from webservice where idusuario = '$idusuario'");
 
-$usuario=mysql_result($result,0,"usuario");
+$usuario=mysqli_result($result,0,"usuario");
 
-$contrasena=mysql_result($result,0,"contrasena");
+$contrasena=mysqli_result($result,0,"contrasena");
 
-$nombre=mysql_result($result,0,"nombre");
+$nombre=mysqli_result($result,0,"nombre");
 
-$email=mysql_result($result,0,"email");
+$email=mysqli_result($result,0,"email");
 
-$contrato1=mysql_result($result,0,"contrato1");
+$contrato1=mysqli_result($result,0,"contrato1");
 
-$contrato2=mysql_result($result,0,"contrato2");
+$contrato2=mysqli_result($result,0,"contrato2");
 
-$contrato3=mysql_result($result,0,"contrato3");
+$contrato3=mysqli_result($result,0,"contrato3");
 
-$contrato4=mysql_result($result,0,"contrato4");
+$contrato4=mysqli_result($result,0,"contrato4");
 
-$contrato5=mysql_result($result,0,"contrato5");
+$contrato5=mysqli_result($result,0,"contrato5");
 
-$activo=mysql_result($result,0,"activo"); 
+$activo=mysqli_result($result,0,"activo"); 
 
 
 

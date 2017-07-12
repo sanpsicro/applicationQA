@@ -1,16 +1,19 @@
 <?php  
 session_start();
-if(empty($_SESSION["valid_user"])){var_dump($_SESSION);} 
+if(empty($_SESSION["valid_user"])){die();} 
 $unixid = time(); 
 include('conf.php'); 
 
 isset($_POST['recordatorio']) ? $recordatorio= $_POST['recordatorio'] : $recordatorio= "" ;
+isset($_POST['general']) ? $general= $_POST['general'] : $general= "" ;
 isset($_POST['expediente']) ? $expediente= $_POST['expediente'] : $expediente= "" ;
 isset($_POST['proximos']) ? $proximos= $_POST['proximos'] : $proximos= "" ;
-isset($_POST['privacidad']) ? $privacidad= $_POST['privacidad'] : $privacidad= "" ;
+isset($_POST['privacidad']) ? $privacidad= $_POST['privacidad'] : $privacidad= 0 ;
 isset($_POST['recordate']) ? $recordate= $_POST['recordate'] : $recordate= "" ;
 isset($_POST['actuar']) ? $actuar= $_POST['actuar'] : $actuar= "" ;
 isset($_POST['userid']) ? $userid= $_POST['userid'] : $userid= "" ;
+
+$visto ="";
 
 
 
@@ -29,13 +32,13 @@ $link = mysqli_connect($host,$username,$pass,$database);
 if(isset($actuar) && $actuar=="new" && $proximos=="recuerdame"){
 
 
-$privacidad = (isset($_POST['privacidad'])) ? 1 : 0;
+
 
 $link = mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `recordatorios` ( `empleado`, `recordatorio`, `general`, `hora`, `visto`, `privacidad`) 
 
-VALUES ('$userid', '$recordatorio', '$expediente', '$recordate', '$visto', '$privacidad')"); 
+		VALUES ('$userid', '$recordatorio', '$expediente', '$recordate', '$visto', '$privacidad')") or die(mysqli_error($link)); 
 
 
 echo '
@@ -66,13 +69,13 @@ $ano=date("Y");
 
 $newtime=date("Y-m-d H:i:s", mktime($hora,$minuto+$proximos,$segundo,$mes,$dia,$ano));
 
-$privacidad = (isset($_POST['privacidad'])) ? 1 : 0;
+
 
 $link = mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `recordatorios` ( `empleado`, `recordatorio`, `general`, `hora`, `visto`, `privacidad`) 
 
-VALUES ('$userid', '$recordatorio', '$expediente', '$newtime', '$visto', '$privacidad')"); 
+VALUES ('$userid', '$recordatorio', '$expediente', '$newtime', '$visto', '$privacidad')") or die(mysqli_error($link)); 
 
 echo '
 <script>

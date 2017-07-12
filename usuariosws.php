@@ -31,12 +31,12 @@ $link = mysqli_connect($host,$username,$pass,$database);
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
-$result = mysqli_query("SELECT COUNT(*) FROM webservice $condicion", $link); 
+$result = mysqli_query($link,"SELECT COUNT(*) FROM webservice $condicion"); 
 list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
-$result = mysqli_query("SELECT * FROM webservice $condicion order by $sort  
-  LIMIT $reg1, $tampag", $link); 
+$result = mysqli_query($link,"SELECT * FROM webservice $condicion order by $sort  
+  LIMIT $reg1, $tampag"); 
 $_GET["accela"]=$accela;
 $_GET["quest"]=$quest;
 $_GET["sort"]=$sort;

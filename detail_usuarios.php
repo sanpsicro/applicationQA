@@ -1,5 +1,5 @@
 <?php  
-if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
+if ( isset( $_SESSION['valid_user'] ) && isset( $_SESSION['valid_modulos'] )&& isset( $_SESSION['valid_permisos'] ))
 {}
 else {
 header("Location: index.php?errorcode=3");
@@ -56,7 +56,7 @@ die();} else{}
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">B&uacutesqueda: 
 
 
 
@@ -91,54 +91,67 @@ die();} else{}
 <tr><td>
 
 <?php  
+isset($_GET['idEmpleado']) ? $idEmpleado = $_GET['idEmpleado'] : $idEmpleado = "" ;
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 
 $db = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db);
 
-$result = mysqli_query("SELECT * from Empleado where idEmpleado = '$idEmpleado'",$db);
+$result = mysqli_query($db,"SELECT * from Empleado where idEmpleado = '$idEmpleado'");
 
-$usuario=mysql_result($result,0,"usuario");
+$usuario=mysqli_result($result,0,"usuario");
 
-$contrasena=mysql_result($result,0,"contrasena");
+$contrasena=mysqli_result($result,0,"contrasena");
 
-$nombre=mysql_result($result,0,"nombre");
+$nombre=mysqli_result($result,0,"nombre");
 
-$cargo=mysql_result($result,0,"cargo");
+$cargo=mysqli_result($result,0,"cargo");
 
-$departamento=mysql_result($result,0,"idDepartamento");
+$departamento=mysqli_result($result,0,"idDepartamento");
 
-$direccion=mysql_result($result,0,"direccion");
+$direccion=mysqli_result($result,0,"direccion");
 
-$estado=mysql_result($result,0,"estado");
+$estado=mysqli_result($result,0,"estado");
 
-$municipio=mysql_result($result,0,"municipio");
+$municipio=mysqli_result($result,0,"municipio");
 
-$colonia=mysql_result($result,0,"colonia");
+$colonia=mysqli_result($result,0,"colonia");
 
-$extension=mysql_result($result,0,"extension");
+$extension=mysqli_result($result,0,"extension");
 
-$telefonocasa=mysql_result($result,0,"telefonoCasa");
+$telefonocasa=mysqli_result($result,0,"telefonoCasa");
 
-$telefonocelular=mysql_result($result,0,"telefonoCelular");
+$telefonocelular=mysqli_result($result,0,"telefonoCelular");
 
-$nextel=mysql_result($result,0,"nextel");
+$nextel=mysqli_result($result,0,"nextel");
 
-$idnextel=mysql_result($result,0,"idnextel");
+$idnextel=mysqli_result($result,0,"idnextel");
 
-$email=mysql_result($result,0,"email");
+$email=mysqli_result($result,0,"email");
 
-$tipo=mysql_result($result,0,"tipo");
+$tipo=mysqli_result($result,0,"tipo");
 
-$modules=mysql_result($result,0,"modules");
+$modules=mysqli_result($result,0,"modules");
 
 $modules_exploited=explode(",",$modules);
 
-$permisos=mysql_result($result,0,"permisos");
+$permisos=mysqli_result($result,0,"permisos");
 
 $permisos_exploited=explode(",",$permisos);
 
-$activo=mysql_result($result,0,"activo"); 
+$activo=mysqli_result($result,0,"activo"); 
 
 
 
@@ -148,9 +161,9 @@ $db2 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db2);
 
-$result2 = mysqli_query("SELECT * from Departamento where idDepartamento = '$departamento'",$db2);
+$result2 = mysqli_query($db2,"SELECT * from Departamento where idDepartamento = '$departamento'");
 
-$departamento=mysql_result($result2,0,"nombre");
+$departamento=mysqli_result($result2,0,"nombre");
 
 
 
@@ -162,9 +175,9 @@ $db3 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db3);
 
-$result3 = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db3);
+$result3 = mysqli_query($db3,"SELECT * from Estado where idEstado = '$estado'");
 
-$estado=mysql_result($result3,0,"nombreEstado");
+$estado=mysqli_result($result3,0,"nombreEstado");
 
 
 
@@ -176,9 +189,9 @@ $db4 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db4);
 
-$result4 = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db4);
+$result4 = mysqli_query($db4,"SELECT * from Municipio where idMunicipio = '$municipio'");
 
-$municipio=mysql_result($result4,0,"nombreMunicipio");
+$municipio=mysqli_result($result4,0,"nombreMunicipio");
 
 
 
@@ -188,9 +201,9 @@ $db5 = mysqli_connect($host,$username,$pass,$database);
 
 //mysql_select_db($database,$db5);
 
-$result5 = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$db5);
+$result5 = mysqli_query($db5,"SELECT * from Colonia where idColonia = '$colonia'");
 
-$colonia=mysql_result($result5,0,"nombreColonia");
+$colonia=mysqli_result($result5,0,"nombreColonia");
 
 ?>
 
