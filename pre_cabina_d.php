@@ -1,6 +1,6 @@
 <?php 	
 extract($_GET);
-	extract($_POST);
+extract($_POST);
 	
 	
 
@@ -106,7 +106,7 @@ else
 		   email_v='$email_v',
 		   ultimoseguimiento=now()
 		   where id='$expediente' AND contrato='$clave'";
-	mysqli_query($link, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysqli_error($link));
+	mysqli_query($link, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysqli_error($link) . var_dump(extract($_POST)));
 	//echo "Query:<br><br>$sSQL<br>";
 
 	/*
