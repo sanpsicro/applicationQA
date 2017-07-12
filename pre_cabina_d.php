@@ -1,8 +1,44 @@
 <?php 	
-extract($_GET);
-extract($_POST);
-	
-	
+isset($_POST['servicio']) ? $servicio = $_POST['servicio'] : $servicio  = "";
+isset($_POST['idcliente']) ? $idcliente= $_POST['idcliente'] : $idcliente= "";
+isset($_POST['clave']) ? $clave= $_POST['clave'] : $clave= "";
+isset($_POST['tipo_expediente']) ? $tipo_expediente= $_POST['tipo_expediente'] : $tipo_expediente= "";
+isset($_POST['nix']) ? $nix= $_POST['nix'] : $nix= "";
+isset($_POST['fecha_recepcion']) ? $fecha_recepcion= $_POST['fecha_recepcion'] : $fecha_recepcion= "";
+isset($_POST['tipo_expediente']) ? $tipo_expediente= $_POST['tipo_expediente'] : $tipo_expediente= "";
+isset($_POST['hora1']) ? $hora1= $_POST['hora1'] : $hora1= "";
+isset($_POST['num_contrato']) ? $num_contrato= $_POST['num_contrato'] : $num_contrato= "";
+isset($_POST['reporta']) ? $reporta= $_POST['reporta'] : $reporta= "";
+isset($_POST['tel_reporta']) ? $tel_reporta= $_POST['tel_reporta'] : $tel_reporta= "";
+isset($_POST['fecha1']) ? $fecha1= $_POST['fecha1'] : $fecha1= "";
+isset($_POST['expediente']) ? $expediente= $_POST['expediente'] : $expediente= "";
+isset($_POST['cliente']) ? $cliente= $_POST['cliente'] : $cliente= "";
+isset($_POST['num_contrato']) ? $num_contrato= $_POST['num_contrato'] : $num_contrato= "";
+isset($_POST['usuario']) ? $usuario= $_POST['usuario'] : $usuario= "";
+isset($_POST['motivo']) ? $motivo= $_POST['motivo'] : $motivo= "";
+isset($_POST['domicilio']) ? $domicilio= $_POST['domicilio'] : $domicilio= "";
+isset($_POST['estado']) ? $estado= $_POST['estado'] : $estado= "";
+isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio= "";
+isset($_POST['num_contrato']) ? $num_contrato= $_POST['num_contrato'] : $num_contrato= "";
+isset($_POST['colonia']) ? $colonia= $_POST['colonia'] : $colonia= "";
+isset($_POST['ciudad']) ? $ciudad= $_POST['ciudad'] : $ciudad= "";
+isset($_POST['marca']) ? $marca= $_POST['marca'] : $marca= "";
+isset($_POST['tipo']) ? $tipo= $_POST['tipo'] : $tipo= "";
+isset($_POST['modelo']) ? $modelo= $_POST['modelo'] : $modelo= "";
+isset($_POST['color']) ? $color= $_POST['color'] : $color= "";
+isset($_POST['placas']) ? $placas= $_POST['placas'] : $placas= "";
+isset($_POST['color']) ? $color= $_POST['color'] : $color= "";
+isset($_POST['costo']) ? $costo= $_POST['costo'] : $costo= "";
+isset($_POST['capturalegal']) ? $capturalegal= $_POST['capturalegal'] : $capturalegal= "";
+
+
+isset($_GET['clave']) ? $clave= $_GET['clave'] : $clave= "";
+isset($_GET['idcliente']) ? $idcliente= $_GET['idcliente'] : $idcliente= "";
+isset($_GET['servicio']) ? $servicio= $_GET['servicio'] : $servicio= "";
+isset($_GET['expediente']) ? $expediente= $_GET['expediente'] : $expediente= "";
+
+
+
 
 ##################------------------
 if(isset($zauruz) && $zauruz=="irix")
@@ -41,6 +77,8 @@ else
 	$fecha_recepcion=explode("-",$fecha_recepcion);
 	$fecha_suceso=explode("-",$fecha1);
 	$apertura_expediente="$anox-$mex-$diax $hora1";
+	
+	
 
 	/*
 	mysqli_connect($host,$username,$pass,$database);

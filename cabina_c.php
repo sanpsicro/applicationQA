@@ -1,4 +1,5 @@
 <?php
+
 $checa_arrayx=array_search("cabina",$explota_modulos);
 
 isset($_GET['clave']) ? $clave = $_GET['clave'] : $clave = "";
@@ -446,14 +447,14 @@ if($cuenta_campos=="1"){echo'<td colspan=4 bgcolor="#cccccc">&nbsp;</td>';}
          <td bgcolor="#CCCCCC"><input name="tel_reporta" type="text" id="tel_reporta" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" onkeypress="return numbersonly(this, event)"/></td>
 
 <td bgcolor="#CCCCCC"><strong>Fecha en que se sucit&oacute; el hecho:</strong></td>
-         <td bgcolor="#CCCCCC"><input name="fecha1" type="text" id="fecha1" size="15" value="'.date("d-m-Y").'" readonly="readonly"/></td>
+         <td bgcolor="#CCCCCC"><input name="fecha1" type="text" id="fecha1" size="15" readonly  value="'.date("d-m-Y").'"  /></td>
 		 	 <script type="text/javascript">
                             Calendar.setup({
                                     inputField     :    "fecha1",   // id of the input field
                                     ifFormat       :    "%d-%m-%Y",       // format of the input field
                                     timeFormat     :    "24"
                             });
-                  </script>
+                </script>
 
 </tr><tr>
 
