@@ -3,8 +3,10 @@ if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 
 
-$sort = $_GET['sort'];
-$display = $_GET['display'];
+
+isset($_GET['quest']) ? $quest = $_GET['quest'] : $quest = "";
+isset($_GET['display']) ? $display= $_GET['display'] : $display= "";
+isset($_GET['sort']) ? $sort= $_GET['sort'] : $sort= "";
 
 if(empty($show)){$show=10;}
 if(empty($display)){$display="no validados";}
