@@ -2,13 +2,13 @@
 include 'conf.php';
 $show=$_POST['show'];
 $sort=$_POST['sort'];
-$display=$_POST['display'];
-$moko=$_POST['moko'];
+
 $code=$_POST['code'];
 isset($_GET['quest']) ? $quest=$_GET['quest'] : $quest="" ;
+isset($_GET['display']) ? $display=$_GET['display'] : $display="" ;
+isset($_GET['moko']) ? $moko=$_GET['moko'] : $moko="" ;
 
-if(empty($display)){$display = $_GET['display'];}
-if(empty($moko)){$moko = $_GET['moko'];}
+
 
 if(empty($show )){$show =50;}
 if(empty($sort)){$sort="general.fecha_recepcion";}
@@ -176,10 +176,7 @@ $result = mysqli_query($link,$prego2) or die (mysql_error());
 
   
   
-$_GET["accela"]=$accela;
-$_GET["quest"]=$quest;
-$_GET["sort"]=$sort;
-$_GET["show"]=$show ;
+
   function paginar($actual, $total, $por_pagina, $enlace) {
   $pag = ($_GET['pag']);   
   $total_paginas = ceil($total/$por_pagina);
