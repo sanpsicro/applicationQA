@@ -2,6 +2,12 @@
 $checa_arrayx=array_search("comisiones_vendedores",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_POST['show']) ? $show = $_POST['show']: $show = "" ;
+isset($_POST['sort']) ? $sort = $_POST['sort']: $sort = "" ;
+isset($_GET['quest']) ? $quest = $_GET['quest']: $quest = "" ;
+isset($_GET['accela']) ? $accela = $_GET['accela']: $accela = "" ;
+
 if(empty($show)){$show=50;}
 if(empty($sort)){$sort="Poliza.numPoliza";}
 ?>
@@ -15,15 +21,15 @@ if(empty($sort)){$sort="Poliza.numPoliza";}
             <form name="form1" method="post" action="mainframe.php?module=comisiones_vendedores">
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p�gina</option>
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p�gina</option>
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p�gina</option>
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p�gina</option>
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p�gina</option>
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="numPoliza" <?php  if($sort=="numPoliza"){echo"selected";}?>>Ordenar por n�mero de contrato</option>
+                <option value="numPoliza" <?php  if($sort=="numPoliza"){echo"selected";}?>>Ordenar por n&uacutemero de contrato</option>
                 <option value="Cliente.nombre" <?php  if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por cliente</option>                
                  <option value="Empleado.nombre" <?php  if($sort=="Empleado.nombre"){echo"selected";}?>>Ordenar por vendedor</option>				
               </select>
@@ -31,7 +37,7 @@ if(empty($sort)){$sort="Poliza.numPoliza";}
           </form>
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="bridge.php?module=comisiones_vendedores"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=comisiones_vendedores"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -45,7 +51,7 @@ if(empty($sort)){$sort="Poliza.numPoliza";}
 
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacutesqueda:</div></b><p>';
 $condicion="AND(Cliente.nombre like '%$quest%' OR Poliza.numPoliza like '%$quest%' or Empleado.nombre like '%$quest%')";
 }
 else{$condicion="";}
@@ -60,23 +66,20 @@ $pag = ($_GET['pag']);
 
 if (!isset($pag)) $pag = 1;
 	
-$result = mysqli_query("SELECT COUNT(DISTINCT Poliza.numPoliza) from Poliza left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) where usuarios_contrato.status='validado' $condicion", $link); 
+$result = mysqli_query($link,"SELECT COUNT(DISTINCT Poliza.numPoliza) from Poliza left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) where usuarios_contrato.status='validado' $condicion"); 
 list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
-$result = mysqli_query("SELECT DISTINCT Poliza.numPoliza from Poliza left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) where usuarios_contrato.status='validado' $condicion order by $sort LIMIT $reg1, $tampag", $link); 
+$result = mysqli_query($link,"SELECT DISTINCT Poliza.numPoliza from Poliza left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) where usuarios_contrato.status='validado' $condicion order by $sort LIMIT $reg1, $tampag"); 
 
-$_GET["accela"]=$accela;
-$_GET["quest"]=$quest;
-$_GET["sort"]=$sort;
-$_GET["show"]=$show;
+
 
   function paginar($actual, $total, $por_pagina, $enlace) {
   $pag = ($_GET['pag']);   
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacutegina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
@@ -136,7 +139,7 @@ $contrato=$row["numPoliza"];
 
 $dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
-$resultv = mysqli_query("SELECT * from usuarios_contrato where contrato = '$contrato'",$dbv);
+$resultv = mysqli_query($dbv,"SELECT * from usuarios_contrato where contrato = '$contrato'");
 if (mysqli_num_rows($resultv)){ 
 $monto=0;
 $ingreso=0;
@@ -148,24 +151,24 @@ $comision=$comision+$rowv["comision"];
 
 $dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
-$resultv = mysqli_query("SELECT idEmpleado from Poliza where numPoliza = '$contrato'",$dbv);
+$resultv = mysqli_query($dbv,"SELECT idEmpleado from Poliza where numPoliza = '$contrato'");
 if (mysqli_num_rows($resultv)){ 
-$vendedor=mysql_result($resultv,0,"idEmpleado");
+$vendedor=mysqli_result($resultv,0,"idEmpleado");
 
 }
 
 $dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
-$resultv = mysqli_query("SELECT nombre from Empleado where idEmpleado = '$vendedor'",$dbv);
+$resultv = mysqli_query($dbv,"SELECT nombre from Empleado where idEmpleado = '$vendedor'");
 if (mysqli_num_rows($resultv)){ 
-$vendedor=mysql_result($resultv,0,"nombre");
+$vendedor=mysqli_result($resultv,0,"nombre");
 }
 
 $dbv = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbv);
-$resultv = mysqli_query("SELECT status from comisiones_contratos where contrato = '$contrato'",$dbv);
+$resultv = mysqli_query($dbv,"SELECT status from comisiones_contratos where contrato = '$contrato'");
 if (mysqli_num_rows($resultv)){ 
-$status=mysql_result($resultv,0,"status");
+$status=mysqli_result($resultv,0,"status");
 }
 
 
@@ -205,7 +208,17 @@ else{echo'<center><b>No hay resultados</b></center>';}
 
 
 
-
+  function mysqli_result($res,$row=0,$col=0){
+  	$numrows = mysqli_num_rows($res);
+  	if ($numrows && $row <= ($numrows-1) && $row >=0){
+  		mysqli_data_seek($res,$row);
+  		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+  		if (isset($resrow[$col])){
+  			return $resrow[$col];
+  		}
+  	}
+  	return false;
+  }
 
 
 ?>

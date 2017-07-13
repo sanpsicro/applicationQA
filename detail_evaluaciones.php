@@ -2,6 +2,8 @@
 $checa_arrayx=array_search("evaluaciones",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_GET['id']) ? $id = $_GET['id']: $id = "" ;
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
@@ -44,30 +46,42 @@ die();} else{}
 <tr><td>
 
 <?php  
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from evaluaciones where general = '$id'",$db);
-$result2 = mysqli_query("SELECT servicio,proveedor from general where id = '$id'",$db);
-$servid=mysql_result($result2,0,"servicio");
-$provid=mysql_result($result2,0,"proveedor");
-$result3 = mysqli_query("SELECT servicio from servicios where id = '$servid'",$db);
-$result4 = mysqli_query("SELECT nombre from Provedor where id = '$provid'",$db);
-$service=mysql_result($result3,0,"servicio");
-$proverbio=mysql_result($result4,0,"nombre");
-$fecha=mysql_result($result,0,"fecha");
+$result = mysqli_query($db,"SELECT * from evaluaciones where general = '$id'");
+$result2 = mysqli_query($db,"SELECT servicio,proveedor from general where id = '$id'");
+$servid=mysqli_result($result2,0,"servicio");
+$provid=mysqli_result($result2,0,"proveedor");
+$result3 = mysqli_query($db,"SELECT servicio from servicios where id = '$servid'");
+$result4 = mysqli_query($db,"SELECT nombre from Provedor where id = '$provid'");
+$service=mysqli_result($result3,0,"servicio");
+$proverbio=mysqli_result($result4,0,"nombre");
+$fecha=mysqli_result($result,0,"fecha");
 $fechax=explode(" ",$fecha);
 $fechay=explode("-",$fechax[0]);
-$nombre=mysql_result($result,0,"nombre");
-$relacion=mysql_result($result,0,"relacion");
-$cortesia=mysql_result($result,0,"cortesia");
-$puntualidad=mysql_result($result,0,"puntualidad");
-$presentacion=mysql_result($result,0,"presentacion");
-$atencion=mysql_result($result,0,"atencion");
-$solucion=mysql_result($result,0,"solucion");
-$observaciones=mysql_result($result,0,"observaciones");
-$encuestador=mysql_result($result,0,"encuestador");
-$promedio=mysql_result($result,0,"promedio");
-$renovaria=mysql_result($result,0,"renovaria");
+$nombre=mysqli_result($result,0,"nombre");
+$relacion=mysqli_result($result,0,"relacion");
+$cortesia=mysqli_result($result,0,"cortesia");
+$puntualidad=mysqli_result($result,0,"puntualidad");
+$presentacion=mysqli_result($result,0,"presentacion");
+$atencion=mysqli_result($result,0,"atencion");
+$solucion=mysqli_result($result,0,"solucion");
+$observaciones=mysqli_result($result,0,"observaciones");
+$encuestador=mysqli_result($result,0,"encuestador");
+$promedio=mysqli_result($result,0,"promedio");
+$renovaria=mysqli_result($result,0,"renovaria");
 ?>
 <table width="100%%" border="0" cellspacing="3" cellpadding="3">
   <tr>

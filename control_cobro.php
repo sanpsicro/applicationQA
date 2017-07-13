@@ -2,6 +2,8 @@
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_GET['cobro']) ? $cobro = $_GET['cobro']: $cobro = "" ;
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
 <tr> 
@@ -22,7 +24,7 @@ die();} else{}
 		$link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
 		$query="SELECT Pr.nombre,p.conceptor,p.expediente,p.monto,p.status,p.id, p.fecha FROM cobranza p,Provedor Pr WHERE p.id='$cobro'";
-		$result=mysqli_query($query, $link) or die(mysql_error());
+		$result=mysqli_query($link,$query) or die(mysqli_error($link));
 		if (mysqli_num_rows($result)){ 
 		echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 		                    <tr> 
@@ -152,9 +154,9 @@ if ($row["fecha"]!="0000-00-00 00:00:00") {$fpagoa=date("Y", $fpagado);} else{$f
 		  </td>
 		 </tr>
 		<?php  
-		$query="SELECT DATE_FORMAT(notas_cobranza.fecha,'%e/%m/%Y %T') as fecha,Empleado.nombre as usuario,notas_cobranza.comentario FROM notas_cobranza,Empleado WHERE expediente='$row[expediente]' AND Empleado.idEmpleado=notas_cobranza.usuario ORDER BY fecha DESC";
+		$query="SELECT DATE_FORMAT(notas_cobranza.fecha,'%e/%m/%Y %T') as fecha,Empleado.nombre as usuario,notas_cobranza.comentario FROM notas_cobranza,Empleado WHERE expediente='".$row['expediente']."' AND Empleado.idEmpleado=notas_cobranza.usuario ORDER BY fecha DESC";
 		
-		$result=mysqli_query($query)or die(mysql_error());
+		$result=mysqli_query($link,$query) or die(mysqli_error($link));
 		#echo print_r($_SESSION);
 		#echo $query;
 		if (mysqli_num_rows($result)){ 
