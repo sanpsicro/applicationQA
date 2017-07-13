@@ -1,7 +1,10 @@
 <?php  
+error_reporting(E_ALL);
 $checa_arrayx=array_search("proveedores",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_GET['id']) ? $id  = $_GET['id'] : $id = null ;
 ?>
 
 <script type="text/javascript"> 
@@ -38,7 +41,7 @@ document.onpaste=new Function("return false");
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">B&uacutesqueda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -47,61 +50,75 @@ document.onpaste=new Function("return false");
   </tr>
 <tr><td>
 <?php  
+
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
+}
+
+
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Provedor where id = '$id'",$db);
-$nombre=mysql_result($result,0,"nombre");
-$usuario=mysql_result($result,0,"usuario");
-$contrasena=mysql_result($result,0,"contrasena");
-$calle=mysql_result($result,0,"calle");
-$colonia=mysql_result($result,0,"colonia");
-$cp=mysql_result($result,0,"cp");
-$estado=mysql_result($result,0,"estado");
-$municipio=mysql_result($result,0,"municipio");
-$especialidad=mysql_result($result,0,"especialidad");
-$trabajos=mysql_result($result,0,"trabajos");
+$result = mysqli_query($db,"SELECT * from Provedor where id = '$id'");
+$nombre=mysqli_result($result,0,"nombre");
+$usuario=mysqli_result($result,0,"usuario");
+$contrasena=mysqli_result($result,0,"contrasena");
+$calle=mysqli_result($result,0,"calle");
+$colonia=mysqli_result($result,0,"colonia");
+$cp=mysqli_result($result,0,"cp");
+$estado=mysqli_result($result,0,"estado");
+$municipio=mysqli_result($result,0,"municipio");
+$especialidad=mysqli_result($result,0,"especialidad");
+$trabajos=mysqli_result($result,0,"trabajos");
 $serviciosx=explode(",",$trabajos);
-$cobertura=mysql_result($result,0,"cobertura");
-$horario=mysql_result($result,0,"horario");
-$precios=mysql_result($result,0,"precios");
-$sucursales=mysql_result($result,0,"sucursales");
-$contacto=mysql_result($result,0,"contacto");
-$tel=mysql_result($result,0,"tel");
-$fax=mysql_result($result,0,"fax");
-$cel=mysql_result($result,0,"cel");
-$nextel=mysql_result($result,0,"nextel");
-$nextelid=mysql_result($result,0,"nextelid");
-$nextelid2=mysql_result($result,0,"nextelid2");
-$telcasa=mysql_result($result,0,"telcasa");
-$telcasa2=mysql_result($result,0,"telcasa2");
-$mail=mysql_result($result,0,"mail");
-$contacto2=mysql_result($result,0,"contacto2");
-$tel2=mysql_result($result,0,"tel2");
-$fax2=mysql_result($result,0,"fax2");
-$cel2=mysql_result($result,0,"cel2");
-$nextel2=mysql_result($result,0,"nextel2");
-$mail2=mysql_result($result,0,"mail2");
-$banco=mysql_result($result,0,"banco");
-$numcuenta=mysql_result($result,0,"numcuenta");
-$clabe=mysql_result($result,0,"clabe");
-$observaciones=mysql_result($result,0,"observaciones");
-$lastuser=mysql_result($result,0,"lastuser");
-$lastdate=mysql_result($result,0,"lastdate");
+$cobertura=mysqli_result($result,0,"cobertura");
+$horario=mysqli_result($result,0,"horario");
+$precios=mysqli_result($result,0,"precios");
+$sucursales=mysqli_result($result,0,"sucursales");
+$contacto=mysqli_result($result,0,"contacto");
+$tel=mysqli_result($result,0,"tel");
+$fax=mysqli_result($result,0,"fax");
+$cel=mysqli_result($result,0,"cel");
+$nextel=mysqli_result($result,0,"nextel");
+$nextelid=mysqli_result($result,0,"nextelid");
+$nextelid2=mysqli_result($result,0,"nextelid2");
+$telcasa=mysqli_result($result,0,"telcasa");
+$telcasa2=mysqli_result($result,0,"telcasa2");
+$mail=mysqli_result($result,0,"mail");
+$contacto2=mysqli_result($result,0,"contacto2");
+$tel2=mysqli_result($result,0,"tel2");
+$fax2=mysqli_result($result,0,"fax2");
+$cel2=mysqli_result($result,0,"cel2");
+$nextel2=mysqli_result($result,0,"nextel2");
+$mail2=mysqli_result($result,0,"mail2");
+$banco=mysqli_result($result,0,"banco");
+$numcuenta=mysqli_result($result,0,"numcuenta");
+$clabe=mysqli_result($result,0,"clabe");
+$observaciones=mysqli_result($result,0,"observaciones");
+$lastuser=mysqli_result($result,0,"lastuser");
+$lastdate=mysqli_result($result,0,"lastdate");
 ###
 $db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
-$result2 = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db2);
-$municipio=mysql_result($result2,0,"NombreMunicipio");
+$result2 = mysqli_query($db2,"SELECT * from Municipio where idMunicipio = '$municipio'");
+$municipio=mysqli_result($result2,0,"NombreMunicipio");
 ###
 $db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
-$result2 = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db2);
-$estado=mysql_result($result2,0,"NombreEstado");
+$result2 = mysqli_query($db2,"SELECT * from Estado where idEstado = '$estado'");
+$estado=mysqli_result($result2,0,"NombreEstado");
 ###
 $db6 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db6);
-$result6 = mysqli_query("SELECT * from TipoVenta where idVenta = '$tipoVenta'",$db6);
-$tipoVenta=mysql_result($result6,0,"nombre");
+$result6 = mysqli_query($db6,"SELECT * from TipoVenta where idVenta = '$tipoVenta'");
+$tipoVenta=mysqli_result($result6,0,"nombre") ;
 
 ?>
 
@@ -134,8 +151,8 @@ $tipoVenta=mysql_result($result6,0,"nombre");
 	
 $db2 = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db2);
-$result2 = mysqli_query("SELECT * from servicios where id = '$chamba'",$db2);
-$servicio=mysql_result($result2,0,"servicio");
+$result2 = mysqli_query($db2,"SELECT * from servicios where id = '$chamba'");
+$servicio=mysqli_result($result2,0,"servicio");
 echo'<li>'.$servicio.'<br>';	
 	
 	}
@@ -151,10 +168,10 @@ if($mikarea!="" && $mikarea!=" "){
 $apart=explode("-",$mikarea);
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Estado where idEstado = '$apart[0]'",$db);
-$estado=mysql_result($result,0,"NombreEstado");
-$result = mysqli_query("SELECT * from Municipio where idMunicipio = '$apart[1]'",$db);
-$municipio=mysql_result($result,0,"NombreMunicipio");
+$result = mysqli_query($db,"SELECT * from Estado where idEstado = '$apart[0]'");
+$estado=mysqli_result($result,0,"NombreEstado");
+$result = mysqli_query($db,"SELECT * from Municipio where idMunicipio = '$apart[1]'");
+$municipio=mysqli_result($result,0,"NombreMunicipio");
 echo'<li>'.$estado.' - '.$municipio.' <strong>('.$apart[2].')</strong><br>';
 }
 }	?></td>

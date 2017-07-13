@@ -4,6 +4,16 @@ die();} else{}
 if(empty($show)){$show=50;}
 if(empty($sort)){$sort="p.expediente DESC";}
 if(empty($selenium)){$selenium="all";}
+
+
+isset($_POST['accela']) ? $accela  = $_POST['accela'] : $accela = "" ;
+isset($_POST['quest']) ? $quest= $_POST['quest'] : $quest= "" ;
+isset($_POST['sort']) ? $sort= $_POST['sort'] : $sort= "" ;
+isset($_POST['show']) ? $show= $_POST['show'] : $show= "" ;
+isset($_POST['selenium']) ? $selenium= $_POST['selenium'] : $selenium= "" ;
+
+
+
 ?><br />
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr>       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Control de pagos</span></td><td width=150 class="blacklinks">&nbsp;</td></tr></table></td></tr>
@@ -34,7 +44,7 @@ if(empty($selenium)){$selenium="all";}
 	<input type="submit" name="Submit2" value="Mostrar"></td><td align="right" class="questtitle">
 </form>
 <form class="filtro" method="post" action="bridge.php?module=control_pagos">
-B�squeda: 
+B&uacutesqueda: 
 	<input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> 
 	<input type="submit" name="Submit" value="Buscar">
  </td></form>
@@ -51,7 +61,7 @@ if(isset($code) && $code=="3"){echo'<div class="xplik">Pago eliminado</div>';}
 
 
 if(isset($quest) && $quest!=""){
-echo'<div class="xplik">Resultados de la b�squeda:</div>';
+echo'<div class="xplik">Resultados de la b&uacutesqueda:</div>';
 $condicion="WHERE pr.nombre like '%$quest%' OR p.expediente like '%$quest%'";
 }
 else{
@@ -64,10 +74,10 @@ $link = mysqli_connect($host,$username,$pass,$database);
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
-$result = mysqli_query("SELECT p.expediente from pagos p 
+$result = mysqli_query($link,"SELECT p.expediente from pagos p 
 							LEFT JOIN Provedor pr 
 								ON (p.proveedor=pr.id) $condicion 
-							GROUP BY expediente", $link); 
+							GROUP BY expediente"); 
 $total = mysqli_num_rows($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
@@ -83,11 +93,8 @@ $query="SELECT p.expediente, s.servicio, pr.nombre, SUM(p.monto) as monto, p.sta
 							GROUP BY p.expediente
 							ORDER BY $sort 
 							LIMIT $reg1, $tampag";
-$result = mysqli_query($query, $link) or die (mysql_error()."Consulta $query"); 
-$_GET["accela"]=$accela;
-$_GET["quest"]=$quest;
-$_GET["sort"]=$sort;
-$_GET["show"]=$show;
+							$result = mysqli_query($link,$query) or die (mysqli_error($link)."Consulta $query"); 
+
 #
   echo paginacion($pag, $total, $tampag, "mainframe.php?module=control_pagos&quest=$quest&sort=$sort&show=$show&pag=");
 #

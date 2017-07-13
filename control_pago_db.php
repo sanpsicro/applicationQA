@@ -1,5 +1,6 @@
 <?php  
 extract($_REQUEST);
+isset($_GET['accion']) ? $accion= $_GET['accion'] : $accion= "" ;
 include("conf.php");
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
@@ -10,7 +11,7 @@ if($action=="alta"){
 	$query="INSERT INTO pagos (expediente,fecha_corte,fecha_pago,conceptor,monto,proveedor,status)
 			VALUES ('$expediente','$fecha_corte','$fecha_pago','$conceptor','$monto','$proveedor','$status')";
 	#echo $query;
-	mysqli_query($query, $link) or die (mysql_error());
+	mysqli_query($link,$query) or die (mysqli_error($link));
 }
 
 if($action=="editar"){
@@ -25,13 +26,13 @@ if($action=="editar"){
 				WHERE id='$id'
 				LIMIT 1";
 				#echo $query;
-	mysqli_query($query, $link) or die (mysql_error());
+	mysqli_query( $link,$query) or die (mysqli_error($link));
 }
 
 if($action=="cerrar")
 {
 	$query = 'UPDATE pagos SET cerrado=\'1\' WHERE expediente=\''.$expediente.'\'';
-	mysqli_query($query, $link) or die (mysql_error());
+	mysqli_query($link,$query) or die (mysqli_error($link));
 }
 
 header("Location: mainframe.php?module=control_pago&expediente=$expediente");

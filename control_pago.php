@@ -2,6 +2,10 @@
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_GET['expediente']) ? $expediente= $_GET['expediente'] : $expediente= "" ;
+
+
 ?>
 <span class="maintitle">Pagos Expediente <a href="detalle_seguimiento.php?id=<?php  $expediente?>" target="_blank"><?php  $expediente?></a></span><br />
 <?php  
@@ -15,10 +19,10 @@ $link = mysqli_connect($host,$username,$pass,$database);
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
-$result = mysqli_query("SELECT p.expediente from pagos p 
+$result = mysqli_query($link,"SELECT p.expediente from pagos p 
 							LEFT JOIN Provedor pr 
 								ON (p.proveedor=pr.id)
-							WHERE p.expediente='$expediente'", $link); 
+							WHERE p.expediente='$expediente'"); 
 $total = mysqli_num_rows($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
@@ -38,11 +42,8 @@ $query="SELECT 	DATE_FORMAT(p.fecha_corte,'%e/%m/%y') as fecha_corte,
 							LEFT JOIN general g
 								ON (g.id = p.expediente)
 							WHERE p.expediente='$expediente'";
-$result = mysqli_query($query, $link) or die (mysql_error()); 
-$_GET["accela"]=$accela;
-$_GET["quest"]=$quest;
-$_GET["sort"]=$sort;
-$_GET["show"]=$show;
+$result = mysqli_query($link,$query) or die (mysqli_error($link)); 
+
 
 if (mysqli_num_rows($result)){ 
 echo'<table width="100%" border="0" class="mainTable" cellspacing="3" cellpadding="3">

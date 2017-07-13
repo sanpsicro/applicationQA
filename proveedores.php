@@ -1,6 +1,12 @@
 <?php $checa_arrayx=array_search("proveedores",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_GET['show']) ? $show  = $_GET['show'] : $show = null ;
+isset($_GET['sort']) ? $sort  = $_GET['sort'] : $sort = null ;
+isset($_GET['quest']) ? $quest  = $_GET['quest'] : $quest = null ;
+isset($_GET['accela']) ? $accela  = $_GET['accela'] : $accela = null ;
+
 if(empty($show)){$show=10;}
 if(empty($sort)){$sort="nombre";}
 ?>
@@ -117,7 +123,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">B&uacutesqueda: 
 
 
 
@@ -155,19 +161,22 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 <?php
 
-  function mysqli_result($result, $row, $field = 0) {
-    // Adjust the result pointer to that specific row
-    $result->data_seek($row);
-    // Fetch result array
-    $data = $result->fetch_array();
- 
-    return $data[$field];
+function mysqli_result($res,$row=0,$col=0){
+	$numrows = mysqli_num_rows($res);
+	if ($numrows && $row <= ($numrows-1) && $row >=0){
+		mysqli_data_seek($res,$row);
+		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+		if (isset($resrow[$col])){
+			return $resrow[$col];
+		}
+	}
+	return false;
 }
 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbl);
-$resultl = mysqli_query("SELECT * from Empleado where idEmpleado='$valid_userid'",$dbl);
-$extension=mysql_result($resultl,0,"extension");
+$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$valid_userid'");
+$extension=mysqli_result($resultl,0,"extension");
 
 
 if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo Proveedor Registrado</div></b><p>';}
@@ -234,21 +243,14 @@ $reg1 = ($pag-1) * $tampag;
 
 
 
-$result = mysqli_query("SELECT * FROM Provedor $condicion order by $sort  
+$result = mysqli_query($link,"SELECT * FROM Provedor $condicion order by $sort  
 
 
 
-  LIMIT $reg1, $tampag", $link); 
+  LIMIT $reg1, $tampag"); 
 
 
 
-$_GET["accela"]=$accela;
-
-$_GET["quest"]=$quest;
-
-$_GET["sort"]=$sort;
-
-$_GET["show"]=$show;
 
 
 

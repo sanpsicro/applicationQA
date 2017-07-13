@@ -48,6 +48,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 			<?php 
             isset($_GET['accela']) ? $accela  = $_GET['accela'] : $accela = null ;
+            isset($_GET['id']) ? $id  = $_GET['id'] : $id = null ;
 			
 
 			if($accela=="new"){echo'Dar de alta Producto';}

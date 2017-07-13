@@ -90,9 +90,9 @@ if (mysqli_num_rows($result)){
 	echo'<table width="100%" border="0" cellspacing="3" cellpadding="3" class="mainTable">
 	                    <tr> 
 	                      <td align=middle class="titles">Nombre</th>
-	                      <td align=middle class="titles">Tel�fono Casa</th>
-	                      <td align=middle class="titles">Tel�fono Celular</th>					  
-	                      <td align=middle class="titles">Tel�fono Oficina</th>				  
+	                      <td align=middle class="titles">Tel$eacutefono Casa</th>
+	                      <td align=middle class="titles">Tel&eacutefono Celular</th>					  
+	                      <td align=middle class="titles">Tel&eacutefono Oficina</th>				  
 	                      <td align=middle class="titles">Email</th>					  
 	<!--                  <td align=middle class="titles">Status</th>		-->
 	                      <td align=middle class="titles">Operaci�n</th></tr>';

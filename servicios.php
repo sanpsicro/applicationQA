@@ -6,6 +6,11 @@ if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 
 die();} else{}
 
+isset($_GET['sort']) ? $sort= $_GET['sort'] : $sort= null;
+isset($_GET['show']) ? $show= $_GET['show'] : $show= null;
+
+
+
 
 
 if(empty($show)){$show=10;}
@@ -14,7 +19,7 @@ if(empty($sort)){$sort="servicio";}
 
 isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
 isset($_GET['quest']) ? $quest = $_GET['quest'] : $quest = null;
-isset($_POST['thisis']) ? $thisis = $_POST['thisis'] : $thisis = "";
+
 
 ?>
 
@@ -226,11 +231,6 @@ $result = mysqli_query($link,"SELECT * FROM servicios $condicion order by $sort
 
 
 
-$_GET["quest"]=$quest;
-
-$_GET["sort"]=$sort;
-
-$_GET["show"]=$show;
 
 
 
@@ -276,7 +276,7 @@ if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isab
 
 
 
-    $texto .= "<option $thisis value=\"$enlace$isabel\">$isabel</option> ";}
+    $texto .= "<option  value=\"$enlace$isabel\">$isabel</option> ";} //se elimino thisis
 
 
 

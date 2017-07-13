@@ -2,6 +2,14 @@
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
+isset($_POST['accela']) ? $accela = $_POST['accela']: $accela = "" ;
+isset($_POST['selenium']) ? $selenium= $_POST['selenium']: $selenium= "" ;
+isset($_POST['sort']) ? $sort= $_POST['sort']: $sort= "" ;
+isset($_POST['show']) ? $show= $_POST['show']: $show= "" ;
+
+
+
 if(empty($show)){$show=50;}
 if(empty($sort)){$sort="cobranza.id DESC";}
 if(empty($selenium)){$selenium="no pagados";}
@@ -15,12 +23,12 @@ if(empty($selenium)){$selenium="no pagados";}
             <form name="form1" method="post" action="mainframe.php?module=control_cobranza">
             <td> 
               <select name="show" id="mostrar">
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p�gina</option>
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p�gina</option>
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p�gina</option>
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p�gina</option>
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p�gina</option>
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacutegina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacutegina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacutegina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacutegina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacutegina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacutegina</option>
               </select>
               <select name="sort" id="ordenar">
               <option value="cobranza.id DESC" <?php  if($sort=="cobranza.id DESC"){echo"selected";}?>>Ordenar por Expediente</option>
@@ -64,16 +72,13 @@ $link = mysqli_connect($host,$username,$pass,$database);
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
-$result = mysqli_query("SELECT cobranza.id, cobranza.conceptor, cobranza.monto, cobranza.status, general.expediente, general.idCliente, Cliente.nombre FROM cobranza,general,Cliente WHERE cobranza.expediente=general.expediente AND general.idCliente=Cliente.idCliente $condicion", $link); 
+$result = mysqli_query($link,"SELECT cobranza.id, cobranza.conceptor, cobranza.monto, cobranza.status, general.expediente, general.idCliente, Cliente.nombre FROM cobranza,general,Cliente WHERE cobranza.expediente=general.expediente AND general.idCliente=Cliente.idCliente $condicion"); 
 $total = mysqli_num_rows($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $query="SELECT cobranza.id, cobranza.conceptor, cobranza.monto, cobranza.status, general.expediente, general.idCliente, Cliente.nombre, cobranza.fecha FROM cobranza,general,Cliente WHERE cobranza.expediente=general.expediente AND general.idCliente=Cliente.idCliente $condicion order by $sort LIMIT $reg1, $tampag";
-$result = mysqli_query($query, $link) or die (mysql_error()); 
-$_GET["accela"]=$accela;
-$_GET["quest"]=$quest;
-$_GET["sort"]=$sort;
-$_GET["show"]=$show;
+$result = mysqli_query($link,$query) or die (mysqli_error($link)); 
+
 
 #
   echo paginacion($pag, $total, $tampag, "mainframe.php?module=control_cobranza&quest=$quest&sort=$sort&show=$show&pag=");

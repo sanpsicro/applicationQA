@@ -1,5 +1,11 @@
 <?php
 session_start();
+//isset($_GET['id']) ? $id  = $_GET['id'] : $id = null ;
+isset($_GET['accela']) ? $accela  = $_GET['accela'] : $accela = null ;
+isset($_GET['estado']) ? $estado  = $_GET['estado'] : $estado = null ;
+isset($_GET['municipio']) ? $municipio  = $_GET['municipio'] : $municipio = null ;
+isset($_GET['prioridad']) ? $prioridad  = $_GET['prioridad'] : $prioridad = null ;
+
 if(isset($accela) && $accela=="elimina"){
 $areas_exp=explode(",",$_SESSION['coberturas']);
 $remover=array($racoon);

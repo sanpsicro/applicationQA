@@ -1,3 +1,7 @@
+<?php 
+isset($_GET['id']) ? $id  = $_GET['id'] : $id = null ;
+isset($_GET['accela']) ? $accela  = $_GET['accela'] : $accela = null ;
+?>
 <script type="text/javascript" src="subcombo_corto.js"></script>
 <script type="text/javascript">
 		$(document).ready(function() {
@@ -61,6 +65,8 @@ tinymce.init({
             
             
   <?php 
+  
+ 
 			if($accela=="new"){echo'Dar de alta Proveedor';}
 			else{echo'Editar Proveedor';
 
