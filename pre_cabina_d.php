@@ -10,7 +10,7 @@ isset($_POST['hora1']) ? $hora1= $_POST['hora1'] : $hora1= "";
 isset($_POST['num_contrato']) ? $num_contrato= $_POST['num_contrato'] : $num_contrato= "";
 isset($_POST['reporta']) ? $reporta= $_POST['reporta'] : $reporta= "";
 isset($_POST['tel_reporta']) ? $tel_reporta= $_POST['tel_reporta'] : $tel_reporta= "";
-isset($_POST['fecha1']) ? $fecha1= $_POST['fecha1'] : $fecha1= "";
+isset($_POST['fecha1']) ? $fecha1= $_POST['fecha1'] : $fecha1= "0000-00-00";
 isset($_POST['expediente']) ? $expediente= $_POST['expediente'] : $expediente= "";
 isset($_POST['cliente']) ? $cliente= $_POST['cliente'] : $cliente= "";
 isset($_POST['num_contrato']) ? $num_contrato= $_POST['num_contrato'] : $num_contrato= "";
@@ -30,6 +30,13 @@ isset($_POST['placas']) ? $placas= $_POST['placas'] : $placas= "";
 isset($_POST['color']) ? $color= $_POST['color'] : $color= "";
 isset($_POST['costo']) ? $costo= $_POST['costo'] : $costo= "";
 isset($_POST['capturalegal']) ? $capturalegal= $_POST['capturalegal'] : $capturalegal= "";
+
+//where it come from?
+isset($_POST['fecha_compra']) ? $fecha_compra= $_POST['fecha_compra'] : $fecha_compra= "0000-00-00";
+isset($_POST['fecha_vuelo']) ? $fecha_vuelo= $_POST['fecha_vuelo'] : $fecha_vuelo= "0000-00-00";
+isset($_POST['fecha_respuesta']) ? $fecha_respuesta= $_POST['fecha_respuesta'] : $fecha_respuesta= "0000-00-00";
+
+
 
 
 isset($_GET['clave']) ? $clave= $_GET['clave'] : $clave= "";
