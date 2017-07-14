@@ -30,8 +30,10 @@
                 
                 
 <?php
+
 isset($_GET['id']) ?  $id= $_GET['id'] : $id= "" ;
 isset($_GET['accela']) ?  $accela= $_GET['accela'] : $accela= "" ;
+
 
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 

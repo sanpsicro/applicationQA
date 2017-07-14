@@ -374,6 +374,7 @@ header("Location: mainframe.php?module=$module&code=3");
 #----------------
 if($module=="quicktips"){ 
 
+
 isset($_GET['id']) ?  $id= $_GET['id'] : $id= "" ;
 
 isset($_POST['titulo']) ? $titulo= $_POST['titulo'] : $titulo= "" ;
@@ -381,6 +382,7 @@ isset($_POST['mensaje']) ? $mensaje= $_POST['mensaje'] : $mensaje= "" ;
 isset($_POST['activo']) ? $activo= $_POST['activo'] : $activo= "" ;
 isset($_POST['icon']) ? $icon= $_POST['icon'] : $icon= "" ;
 isset($_POST['visto']) ? $visto= $_POST['visto'] : $visto= "" ;
+
 
 if(isset($accela) && $accela=="new"){
 
@@ -1399,6 +1401,7 @@ header("Location: mainframe.php?module=$module&code=1");
 
 ################################################################################
 if($module=="facturacion"){ 
+
 	
 isset($_GET['id']) ?  $id= $_GET['id'] : $id= "" ;
 
@@ -1408,6 +1411,7 @@ isset($_POST['descripcion']) ?  $descripcion= $_POST['descripcion'] : $descripci
 isset($_POST['orden']) ?  $orden= $_POST['orden'] : $orden = "" ;
 isset($_POST['status']) ?  $status= $_POST['status'] : $status = "" ;
 	
+
 
 $iva=$monto*0.15;
 $total=$iva+$monto;

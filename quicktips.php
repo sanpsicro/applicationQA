@@ -2,10 +2,12 @@
 $checa_arrayx=array_search("quicktips",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+
 isset($_GET['accela']) ?  $accela = $_GET['accela'] : $accela = "" ;
 isset($_GET['quest']) ?  $quest= $_GET['quest'] : $quest= "" ;
 isset($_GET['sort']) ?  $sort= $_GET['sort'] : $sort= "" ;
 isset($_GET['show']) ?  $show= $_GET['show'] : $show= "" ;
+
 
 if(empty($show)){$show=1000;}
 if(empty($sort)){$sort="id";}
@@ -26,12 +28,14 @@ $link = mysqli_connect($host,$username,$pass,$database);
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
+
 $result = mysqli_query($link,"SELECT COUNT(*) FROM quicktips $condicion"); 
 list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query($link,"SELECT * FROM quicktips $condicion order by $sort  
   LIMIT $reg1, $tampag"); 
+
 
   function paginar($actual, $total, $por_pagina, $enlace) {
   $pag = ($_GET['pag']);   
@@ -61,7 +65,9 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td class="titles">Mensaje</td>	
 					   <td class="titles">ícono</td>	
 					   <td class="titles">Activo</td>			  		  
+
                       <td class="titles">Operaci&oacute;n</td></tr>';
+
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";} 

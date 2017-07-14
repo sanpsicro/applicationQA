@@ -1,5 +1,7 @@
 <?php  
+
 error_reporting(E_ALL);
+
 $checa_arrayx=array_search("comisiones_vendedores",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
@@ -67,11 +69,13 @@ $pag = ($_GET['pag']);
 
 if (!isset($pag)) $pag = 1;
 	
+
 $result = mysqli_query($link,"SELECT COUNT(DISTINCT Poliza.numPoliza) from Poliza left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) where usuarios_contrato.status='validado' $condicion") or die(mysqli_error($link)); 
 list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query($link,"SELECT DISTINCT Poliza.numPoliza from Poliza left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) where usuarios_contrato.status='validado' $condicion order by $sort LIMIT $reg1, $tampag") or die(mysqli_error($link)); 
+
 
 
 

@@ -1,6 +1,8 @@
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
+
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remisi&oacute;n</span></td><td width=150 class="blacklinks">&nbsp;</td></tr></table></td></tr>
+
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
@@ -8,7 +10,9 @@
 
 </td>
             <td>&nbsp;</td>
+
            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">B&uacute;squeda: 
+
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -29,8 +33,10 @@
                 <td align="center" valign="top">
                 
 <?php
+
 isset($_GET['id']) ?  $id= $_GET['id'] : $id= "" ;
 isset($_GET['accela']) ?  $accela= $_GET['accela'] : $accela= "" ;
+
 
 function mysqli_result($res,$row=0,$col=0){ 
     $numrows = mysqli_num_rows($res); 
@@ -58,7 +64,9 @@ $status=mysqli_result($result,0,"status");
 echo'<form method="post" action="process.php?module=notasremision&accela='.$accela.'&id='.$id.'">'; 
 ?><table width="100%" cellpadding="3" cellspacing="3">
   <tr>
+
     <td bgcolor="#eeeeee"><strong>Nota de Remisi&oacute;n Num: </strong></td>
+
     <td bgcolor="#eeeeee"><input name="factura" type="text" id="factura" value="<?php  echo $numfac;?>" onKeyPress="return numbersonly(this, event)"/></td>
   </tr>
   <tr>

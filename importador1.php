@@ -35,6 +35,7 @@ include 'conf.php';
 $db = mysqli_connect($host,$username,$pass,$database);
 
 
+
 function mysqli_result($res,$row=0,$col=0){
 	$numrows = mysqli_num_rows($res);
 	if ($numrows && $row <= ($numrows-1) && $row >=0){
@@ -53,6 +54,7 @@ $producto=mysqli_result($result,0,"productos");
 $resultX = mysqli_query("SELECT inciso from usuarios_contrato where idPoliza = '$idPoliza' order by inciso desc LIMIT 1",$db);
 if (mysqli_num_rows($resultX)) { 
 $ultimoinciso=mysqli_result($resultX,0,"inciso");
+
 } else { $ultimoinciso="SIN INCISOS";  }
 
 

@@ -3,6 +3,7 @@ $checa_arrayx=array_search("facturacion",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 
+
 isset($_GET['id']) ?  $id= $_GET['id'] : $id= "" ;
 
 function mysqli_result($res,$row=0,$col=0){
@@ -16,6 +17,7 @@ function mysqli_result($res,$row=0,$col=0){
 	}
 	return false;
 }
+
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
@@ -26,7 +28,9 @@ function mysqli_result($res,$row=0,$col=0){
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
+
             <form name="form1" method="post" action="bridge.php?module=facturacion"><td align="right" class="questtitle">B&uacutesqueda: 
+
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -38,6 +42,7 @@ function mysqli_result($res,$row=0,$col=0){
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
+
 $result = mysqli_query($db,"SELECT * from facturas where id = '$id'");
 $idCliente=mysqli_result($result,0,"cliente");
 $numfac=mysqli_result($result,0,"factura");
@@ -50,6 +55,7 @@ $subtotal=mysqli_result($result,0,"subtotal");
 $iva=mysqli_result($result,0,"iva");
 $total=mysqli_result($result,0,"total");
 $status=mysqli_result($result,0,"status");
+
 
 
 if(strlen($numfac)==1){$numfac="000000".$numfac."";} 
@@ -68,6 +74,7 @@ $fexa=explode("-",$fecha);
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
+
 $result = mysqli_query($db,"SELECT * from Cliente where idCliente = '$idCliente'");
 $nombre=mysqli_result($result,0,"nombre");
 $contacto=mysqli_result($result,0,"contacto");
@@ -80,8 +87,10 @@ $municipio=mysqli_result($result,0,"fisMunicipio");
 $estado=mysqli_result($result,0,"fisEstado");
 
 
+
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
+
 $result = mysqli_query($db,"SELECT * from Colonia where idColonia = '$colonia'");
 $colonia=mysqli_result($result,0,"nombreColonia");
 
@@ -94,6 +103,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT * from Municipio where idMunicipio = '$municipio'");
 $municipio=mysqli_result($result,0,"nombreMunicipio");
+
 
 
 
@@ -113,7 +123,11 @@ bordercolor="#000000" width="100%" bgcolor="#FFFFFF">
     <td><table width="100%" border="0" cellspacing="3" cellpadding="3">
         <tr> 
           <td width="15%" valign="top"> <div align="right">Cliente:<br>
+<<<<<<< HEAD
               Raz&oacute;n Social:<br>
+=======
+              Raz�n Social:<br>
+>>>>>>> 7d922a3ec2d0bf6446eb3c3222f332535650d2f6
               Contacto:<br>
               RFC:</div></td>
           <td width="35%" valign="top"><?php  echo "$nombre<br>$nombre<br>$contacto<br>$rfc"; ?></td>

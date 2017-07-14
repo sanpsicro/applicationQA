@@ -27,7 +27,11 @@ function SetAllCheckBoxes(FormName, FieldName, CheckValue)
 </script>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
+<<<<<<< HEAD
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Exportaci&oacute;n</span></td></tr></table></td></tr>
+=======
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Exportaci�n</span></td></tr></table></td></tr>
+>>>>>>> 7d922a3ec2d0bf6446eb3c3222f332535650d2f6
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3" bgcolor="#FFFFFF">
           <tr>
@@ -162,7 +166,9 @@ if($tablax=="validaciones"){
 
 	$link = mysqli_connect($host, $username, $pass,$database); 
 	////mysql_select_db($database, $link); 
+
 	$result = mysqli_query($link,"SELECT uc.id,uc.contrato,uc.inciso,uc.clave,uc.nombre,DATE_FORMAT(uc.fecha_inicio,'%e/%m/%Y') as fecha_inicio, DATE_FORMAT(uc.fecha_vencimiento,'%e/%m/%Y') as fecha_vencimiento,uc.status,v.tipo_pago,v.fecha_pago, DATE_FORMAT(v.fecha_pago_comision,'%e/%m/%Y') as fecha_pago_comision,v.cuenta_ingreso,v.observaciones,v.comision_vendedor FROM usuarios_contrato uc LEFT JOIN validaciones v ON (uc.id=v.clave_usuario)  $condicion $subcondicion1 $subcondicion3 ORder by $sort $ascdesc") or die(mysqli_error($link)); 
+
 	if (mysqli_num_rows($result)){ 
 	$comprime_columnas=implode(",",$campos);
 	echo'<form action="exporta.php" method="post" name="frm" target="_blank">

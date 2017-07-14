@@ -155,9 +155,11 @@ function validar(formulario) {
             <td width="400" 			class="questtitle"> 
 
 			<?php  
+
 			
 			isset($_GET['id']) ?  $id= $_GET['id'] : $id= "" ;
 			isset($_GET['accela']) ?  $accela= $_GET['accela'] : $accela= "" ;
+
 
 			if($accela=="new"){echo'Nuevo Quicktip';}
 

@@ -3,10 +3,12 @@ $checa_arrayx=array_search("facturacion",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 
+
 isset($_GET['accela']) ?  $accela = $_GET['accela'] : $accela = "" ;
 isset($_GET['quest']) ?  $quest= $_GET['quest'] : $quest= "" ;
 isset($_GET['sort']) ?  $sort= $_GET['sort'] : $sort= "" ;
 isset($_GET['show']) ?  $show= $_GET['show'] : $show= "" ;
+
 
 if(empty($show)){$show=10;}
 if(empty($sort)){$sort="factura";}
@@ -21,12 +23,21 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
             <form name="form1" method="post" action="bridge.php?module=notasremision<?php  if($quest!=""){echo"&quest=$quest";}?>">
             <td width="400"> 
               <select name="show" id="mostrar">
+<<<<<<< HEAD
                 <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
                 <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
                 <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
                 <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
                 <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
                 <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
+=======
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p�gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p�gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p�gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p�gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p�gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+>>>>>>> 7d922a3ec2d0bf6446eb3c3222f332535650d2f6
               </select>
               <select name="sort" id="ordenar">
                 <option value="factura"  <?php  if($sort=="factura"){echo"selected";}?>>Ordenar por Nota</option>
@@ -94,6 +105,7 @@ $link = mysqli_connect($host,$username,$pass,$database);
 if (isset($_GET['pag'])){} else{$_GET['pag']=1;}
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
+
 $result = mysqli_query($link,"SELECT COUNT(*) FROM notasremision left join Cliente on (notasremision.cliente = Cliente.idCliente) $condicion"); 
 list($total) = mysqli_fetch_row($result);
 $tampag = $show;
@@ -101,12 +113,15 @@ $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query($link,"SELECT notasremision.id as factid, notasremision.cliente, notasremision.factura, notasremision.fecha, notasremision.total, notasremision.status as statusfactura, Cliente.nombre FROM notasremision left join Cliente on (notasremision.cliente = Cliente.idCliente) $condicion order by $sort  
   LIMIT $reg1, $tampag"); 
 
+
   function paginar($actual, $total, $por_pagina, $enlace) {
   $pag = ($_GET['pag']);   
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
+
   $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {

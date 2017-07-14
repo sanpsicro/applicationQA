@@ -63,8 +63,10 @@ $fechanac = $data[13];
 		
 		$sSQL="INSERT into usuarios_contrato(`id`, `contrato`, `inciso`, `idPoliza`, `tipo_venta`, `fecha_inicio`, `fecha_vencimiento`, `marca`, `modelo`, `tipo`, `color`, `placas`, `serie`, `servicio`, `soloHistorico`, `tmpid`, `nombre`, `parentezco`, `fecha_nacimiento`, `domicilio`, `colonia`, `ciudad`, `municipio`, `estado`, `tel`, `cel`, `nextel`, `mail`, `clave`, `password`, `productos`, `status`, `monto`, `comision`, `ingreso`) values('','$contrato','$data[0]','$idPoliza','$data[1]','$fechaini','$fechafin','$data[4]','$data[5]','$data[6]','$data[7]','$data[8]','$data[9]','$data[10]','','','$data[11]','$data[12]','$fechanac','$data[14]','$data[15]','$data[16]','$data[17]','$data[18]','$data[19]','$data[20]','$data[21]','$data[22]','$contrato$clave$data[0]','$data[23]','$producto','validado','$data[24]','$data[25]','$data[26]')";
 
+
 $link = mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link, $sSQL);
+
 		
 	
 	
