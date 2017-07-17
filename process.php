@@ -631,7 +631,7 @@ $link= mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `modcont` (`capid`, `titulo`, `tipo`, `contenido`, `archivo`, `fecha`, `activo`) 
 
-VALUES ('$capid', '$titulo', '$tipo', '$contenido', '$archivo', now(), '$activo')"); 
+VALUES ('$capid', '$titulo', '$tipo', '$contenido', '$archivo', CONVERT_TZ(now(),'+00:00','+02:00'), '$activo')"); 
 
 
  $link= mysqli_connect($host,$username,$pass,$database);
@@ -1161,7 +1161,7 @@ $ingreso=($monto-$comision);
 if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `Poliza` ( `idCliente`, `idEmpleado`, `fechaCaptura`, `numPoliza`, `tipoCliente`, `tipoVenta`, `factura`, `monto`, `comision`, `ingreso`, `productos`,subpolizas, `status`, `usuario`, `password`) 
-VALUES ('$cliente', '$vendedor', now(), '$numcontrato', '$tipocliente', '$tipoventa', '$factura', '$monto', '$comision', '$ingreso', '$producto',0, 'no validado', '$numcontrato', '$rfc')");
+VALUES ('$cliente', '$vendedor', CONVERT_TZ(now(),'+00:00','+02:00'), '$numcontrato', '$tipocliente', '$tipoventa', '$factura', '$monto', '$comision', '$ingreso', '$producto',0, 'no validado', '$numcontrato', '$rfc')");
 $idPoliza=mysqli_insert_id($link) or die(mysqli_error($link));   // se agrego $link  
 $link= mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE usuarios_contrato SET idPoliza='$idPoliza', productos='$producto' where contrato='$numcontrato'";
@@ -1360,14 +1360,14 @@ session_unregister("coberturas");
 if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `Provedor` ( `nombre`, `usuario`, `contrasena`, `calle`, `colonia`, `cp`, `estado`, `municipio`, `especialidad`, `trabajos`, `cobertura`, `horario`, `precios`, `sucursales`, `contacto`, `tel`, `fax`, `cel`, `nextel`, `nextelid`, `nextelid2`, `telcasa`, `telcasa2`, `mail`, `contacto2`, `tel2`, `fax2`, `cel2`, `nextel2`, `mail2`, `banco`, `numcuenta`, `clabe`, `observaciones`, `status`,`lastuser`, `lastdate`) 
-VALUES ('$nombre', '$usuario', '$contrasena', '$calle', '$colonia', '$cp', '$estado', '$municipio', '$especialidad', '$servicios_enlatados', '$cobertura', '$horario', '$precios', '$sucursales', '$contacto', '$tel', '$fax', '$cel', '$nextel', '$nextelid', '$nextelid2', '$telcasa', '$telcasa2', '$mail', '$contacto2', '$tel2', '$fax2', '$cel2', '$nextel2', '$mail2', '$banco', '$numcuenta', '$clabe', '$observaciones', '$status', '$valid_user', now())");
+VALUES ('$nombre', '$usuario', '$contrasena', '$calle', '$colonia', '$cp', '$estado', '$municipio', '$especialidad', '$servicios_enlatados', '$cobertura', '$horario', '$precios', '$sucursales', '$contacto', '$tel', '$fax', '$cel', '$nextel', '$nextelid', '$nextelid2', '$telcasa', '$telcasa2', '$mail', '$contacto2', '$tel2', '$fax2', '$cel2', '$nextel2', '$mail2', '$banco', '$numcuenta', '$clabe', '$observaciones', '$status', '$valid_user', CONVERT_TZ(now(),'+00:00','+02:00'))");
 header("Location: mainframe.php?module=$module&code=1");
 }
 #=====
 
 if(isset($accela) && $accela=="edit"){
 $link= mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE Provedor SET nombre='$nombre', usuario='$usuario', contrasena='$contrasena', calle='$calle', colonia='$colonia', cp='$cp', estado='$estado', municipio='$municipio', especialidad='$especialidad', trabajos='$servicios_enlatados', cobertura='$cobertura', horario='$horario', precios='$precios', sucursales='$sucursales', contacto='$contacto', tel='$tel', fax='$fax', cel='$cel', nextel='$nextel', nextelid='$nextelid', nextelid2='$nextelid2', telcasa='$telcasa', telcasa2='$telcasa2', mail='$mail', contacto2='$contacto2', tel2='$tel2', fax2='$fax2', cel2='$cel2', nextel2='$nextel2', mail2='$mail2', banco='$banco', numcuenta='$numcuenta', clabe='$clabe', observaciones='$observaciones', status='$status', lastuser='$valid_user', lastdate=now() where id='$id'";
+$sSQL="UPDATE Provedor SET nombre='$nombre', usuario='$usuario', contrasena='$contrasena', calle='$calle', colonia='$colonia', cp='$cp', estado='$estado', municipio='$municipio', especialidad='$especialidad', trabajos='$servicios_enlatados', cobertura='$cobertura', horario='$horario', precios='$precios', sucursales='$sucursales', contacto='$contacto', tel='$tel', fax='$fax', cel='$cel', nextel='$nextel', nextelid='$nextelid', nextelid2='$nextelid2', telcasa='$telcasa', telcasa2='$telcasa2', mail='$mail', contacto2='$contacto2', tel2='$tel2', fax2='$fax2', cel2='$cel2', nextel2='$nextel2', mail2='$mail2', banco='$banco', numcuenta='$numcuenta', clabe='$clabe', observaciones='$observaciones', status='$status', lastuser='$valid_user', lastdate=CONVERT_TZ(now(),'+00:00','+02:00') where id='$id'";
 mysqli_query($link, $sSQL);
 header("Location: mainframe.php?module=$module&code=2");
 }
@@ -1388,7 +1388,7 @@ $promedio=($cortesia+$puntualidad+$presentacion+$atencion+$solucion)/5;
 
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `evaluaciones` ( `general`, `fecha`, `nombre`, `relacion`, `cortesia`, `puntualidad`, `presentacion`, `atencion`, `solucion`, `observaciones`, `encuestador`, `promedio`, `renovaria`) 
-VALUES ('$id', now(), '$nombre', '$relacion', '$cortesia', '$puntualidad', '$presentacion', '$atencion', '$solucion', '$observaciones', '$encuestador', '$promedio', '$renovaria')");
+VALUES ('$id', CONVERT_TZ(now(),'+00:00','+02:00'), '$nombre', '$relacion', '$cortesia', '$puntualidad', '$presentacion', '$atencion', '$solucion', '$observaciones', '$encuestador', '$promedio', '$renovaria')");
 
 $link= mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE general SET evaluado='evaluado' where id='$id'";
@@ -1419,7 +1419,7 @@ $total=$iva+$monto;
 if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `facturas` ( `cliente`, `factura`, `fecha`, `orden`, `cantidad`, `descripcion`, `precio`, `subtotal`, `iva`, `total`, `status`) 
-VALUES ('$idCliente', '$factura', now(), '$orden', '1', '$descripcion', '$monto', '$monto', '$iva', '$total', 'no pagada')");
+VALUES ('$idCliente', '$factura', CONVERT_TZ(now(),'+00:00','+02:00'), '$orden', '1', '$descripcion', '$monto', '$monto', '$iva', '$total', 'no pagada')");
 header("Location: imprime_factura.php?idCliente=$idCliente&factura=$factura&orden=$orden&monto=$monto&descripcion=$descripcion");
 }
 #=====
@@ -1498,7 +1498,7 @@ $total=$iva+$monto;
 if(isset($accela) && $accela=="new"){
 $link= mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `pagos` ( `proveedor`, `concepto`, `monto`,`status`,`expediente`,`fecha_corte`) 
-VALUES ('$proveedor', '$conceptor', '$monto', '0','$expediente',NOW())");
+VALUES ('$proveedor', '$conceptor', '$monto', '0','$expediente',CONVERT_TZ(now(),'+00:00','+02:00'))");
 header("Location: mainframe.php?module=$module&code=1");
 }
 #=====
@@ -1512,7 +1512,7 @@ header("Location: mainframe.php?module=$module&code=2");
 
 if(isset($accela) && $accela=="pagar"){
 $link= mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE pagos SET fecha_pago=NOW(), status='1' where id='$id'";
+$sSQL="UPDATE pagos SET fecha_pago=CONVERT_TZ(now(),'+00:00','+02:00'), status='1' where id='$id'";
 mysqli_query($link, $sSQL);
 header("Location: mainframe.php?module=$module&code=2");
 }

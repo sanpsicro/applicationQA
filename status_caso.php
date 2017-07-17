@@ -437,7 +437,7 @@ $proveedornotas=mysqli_result($result,0,"id");
 ####
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query($db,"SELECT monto from pagos where expediente = '$expp' LIMIT 1");
+$result = mysqli_query($db,"SELECT monto from pagos where expediente = '$expp' LIMIT 1") or die(mysqli_error($link));
 if (mysqli_num_rows($result)){ 
 $costoint=mysqli_result($result,0,"monto");
 }
@@ -492,7 +492,7 @@ $segundos=date('h')*60*60+(date('i')*60)+date('s');
   <tr>
     <td bgcolor="#ffffff"><strong>Status:</strong> <?php  echo $statuscaso;?></td>
     <td bgcolor="#ffffff"><strong>Asignado a proveedor:</strong> <?php  echo $proveedorasignado;?></td>
-    <td bgcolor="#ffffff"><strong>Hora de recepci�n:</strong> <?php  echo''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
+    <td bgcolor="#ffffff"><strong>Hora de recepción:</strong> <?php  echo''.$fexa1d[2].'/'.$fexa1d[1].'/'.$fexa1d[0].' '.$fexa1[1].'';?></td>
   </tr>
   <tr>
     <td bgcolor="#ffffff"><strong>Hora de registro:</strong> <?php  echo''.$fexaxd[2].'/'.$fexaxd[1].'/'.$fexaxd[0].' '.$fexax[1].'';?></td>

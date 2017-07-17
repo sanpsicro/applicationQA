@@ -1,19 +1,17 @@
  <?php 
+ 
+ if(isset($_GET['id']) && $_GET['id'] != ""){
+ 	$id = $_GET['id'];
+ }elseif(isset($_POST['id']) && $_POST['id'] != ""){
+ 	$id = $_POST['id'];
+ 	
+ }else{ $id= "" ;
+ }
+ 
+ 
+include_once ("customFunctions.php");
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-
-function mysqli_result($res,$row=0,$col=0){
-	$numrows = mysqli_num_rows($res);
-	if ($numrows && $row <= ($numrows-1) && $row >=0){
-		mysqli_data_seek($res,$row);
-		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
-		if (isset($resrow[$col])){
-			return $resrow[$col];
-		}
-	}
-	return false;
-} 
-
 
 $result = mysqli_query($db,"SELECT * from general where id = '$id'");
 if (mysqli_num_rows($result)){ 
@@ -39,21 +37,21 @@ $observaciones=mysqli_result($result,0,"observaciones");
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Colonia where idColonia = '$ubicacion_colonia'",$db);
+$result = mysqli_query($db,"SELECT * from Colonia where idColonia = '$ubicacion_colonia'");
 if (mysqli_num_rows($result)){ 
 $ubicacion_colonia=mysqli_result($result,0,"NombreColonia");
 }
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Estado where idEstado = '$ubicacion_estado'",$db);
+$result = mysqli_query($db,"SELECT * from Estado where idEstado = '$ubicacion_estado'");
 if (mysqli_num_rows($result)){ 
 $ubicacion_estado=mysqli_result($result,0,"NombreEstado");
 }
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Municipio where idMunicipio = '$ubicacion_municipio'",$db);
+$result = mysqli_query($db,"SELECT * from Municipio where idMunicipio = '$ubicacion_municipio'");
 if (mysqli_num_rows($result)){ 
 $ubicacion_municipio=mysqli_result($result,0,"NombreMunicipio");
 }
@@ -61,14 +59,14 @@ $ubicacion_municipio=mysqli_result($result,0,"NombreMunicipio");
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Estado where idEstado = '$destino_estado'",$db);
+$result = mysqli_query($db,"SELECT * from Estado where idEstado = '$destino_estado'");
 if (mysqli_num_rows($result)){ 
 $destino_estado=mysqli_result($result,0,"NombreEstado");
 }
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Municipio where idMunicipio = '$destino_municipio'",$db);
+$result = mysqli_query($db,"SELECT * from Municipio where idMunicipio = '$destino_municipio'");
 if (mysqli_num_rows($result)){ 
 $destino_municipio=mysqli_result($result,0,"NombreMunicipio");
 }
@@ -76,7 +74,7 @@ $destino_municipio=mysqli_result($result,0,"NombreMunicipio");
 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Colonia where idColonia = '$destino_colonia'",$db);
+$result = mysqli_query($db,"SELECT * from Colonia where idColonia = '$destino_colonia'");
 if (mysqli_num_rows($result)){ 
 $destino_colonia=mysqli_result($result,0,"NombreColonia");
 }

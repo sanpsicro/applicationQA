@@ -88,6 +88,7 @@ FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-f
 <?php 
 isset($_GET['id']) ? $id = $_GET['id'] : $id="";
 isset($_GET['set_date']) ? $set_date = $_GET['set_date'] : $set_date="";
+isset($_GET['current'])  ?  $current = $_GET['current'] : $current=1;
 
 isset($_POST['dterminoext']) ? $dterminoext= $_POST['dterminoext'] : $dterminoext="";
 isset($_POST['mterminoext']) ? $mterminoext= $_POST['mterminoext'] : $mterminoext="";
@@ -95,6 +96,7 @@ isset($_POST['aterminoext']) ? $aterminoext= $_POST['aterminoext'] : $aterminoex
 isset($_POST['hterminoext']) ? $hterminoext= $_POST['hterminoext'] : $hterminoext="";
 isset($_POST['minterminoext']) ? $minterminoext= $_POST['minterminoext'] : $minterminoext="";
 isset($_POST['segundero2']) ? $segundero2= $_POST['segundero2'] : $segundero2="";
+isset($_GET['set_status']) ? $set_status= $_GET['set_status'] : $set_status="";
 
 isset($_POST['dcontext']) ? $dcontext= $_POST['dcontext'] : $dcontext="";
 isset($_POST['mcontext']) ? $mcontext= $_POST['mcontext'] : $mcontext="";
@@ -112,28 +114,19 @@ $exxxp = $_POST['exxxp'];
 $exxxp = null;
 }
 
-function mysqli_result($res,$row=0,$col=0){ 
-    $numrows = mysqli_num_rows($res); 
-    if ($numrows && $row <= ($numrows-1) && $row >=0){
-        mysqli_data_seek($res,$row);
-        $resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
-        if (isset($resrow[$col])){
-            return $resrow[$col];
-        }
-    }
-    return false;
-} 
+include_once 'customFunctions.php';
+
 $checa_array1=array_search("sg_e",$explota_permisos);
 if($checa_array1===FALSE){$NO_EDITAR=true;} else{}
 
 if($set_date=="arribo"){
 	$db =mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET arribo=now() where id='".$id."'";
+$sSQL="UPDATE general SET arribo=CONVERT_TZ(now(),'+00:00','+02:00') where id='".$id."'";
 mysqli_query($db, $sSQL);
 }
 if($set_date=="contacto"){
 $db = mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET contacto=now() where id='".$id."'";
+$sSQL="UPDATE general SET contacto=CONVERT_TZ(now(),'+00:00','+02:00') where id='".$id."'";
 mysqli_query($db, $sSQL);
 }
 if($set_date=="contactoext"){
@@ -148,7 +141,7 @@ mysqli_query($db, $sSQL);
 }
 if($set_status=="concluido"){
 $db =mysqli_connect($host,$username,$pass,$database);
- $sSQL="UPDATE general SET status='concluido', ultimostatus=now() where id='".$id."'";
+ $sSQL="UPDATE general SET status='concluido', ultimostatus=CONVERT_TZ(now(),'+00:00','+02:00') where id='".$id."'";
 mysqli_query($db, $sSQL);
 }
 if(empty($_SESSION["valid_user"])){die();} 
@@ -250,7 +243,7 @@ $extension=mysqli_result($resultl,0,"extension");
       <td width=50% align="right"><span class="maintitle">Prov: <?php  echo $probestar;?></span></td>
       </tr>
 <tr>
-	<td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=seguimiento_caso&id=".$id."'>Seguimiento</a> | <a href='?module=conclusion_caso&id=".$id."'>Conclusi�n</a>";}?></td>
+	<td width=100 class="blacklinks"><?php  if($tipoServicio=="legal"){echo "<a href='?module=seguimiento_caso&id=".$id."'>Seguimiento</a> | <a href='?module=conclusion_caso&id=".$id."'>Conclusión</a>";}?></td>
 </tr>
 	  </table></td></tr>
 <tr>
@@ -1233,14 +1226,15 @@ echo'   <tr>
 <?php  
 if (!isset($current)) { $current=1; }
 else {}
+
 ?>          
    <link href="css/tabs.css" rel="stylesheet">       
 
 <script>
 $(document).ready(function() {
     $("#content").find("[id^='tab']").hide(); // Hide all content
-    $("#tabs li:nth-child(<?php $current;?>)").attr("id","current"); // Activate the first tab
-    $("#content div:nth-child(<?php $current;?>)").fadeIn(); // Show first tab's content
+    $("#tabs li:nth-child(<?php echo $current;?>)").attr("id","current"); // Activate the first tab
+    $("#content div:nth-child(<?php echo $current;?>)").fadeIn(); // Show first tab's content
     
     $('#tabs a').click(function(e) {
         e.preventDefault();
@@ -1291,7 +1285,7 @@ $(document).ready(function() {
       <?php 
 				$link = mysqli_connect($host,$username,$pass,$database); 
 				////mysql_select_db($database, $link); 
-				$result = mysqli_query($db,"SELECT * FROM bitacora where general='".$id."' order by fecha desc", $link); 
+				$result = mysqli_query($link,"SELECT * FROM bitacora where general='".$id."' order by fecha desc"); 
 				if (mysqli_num_rows($result)){ 
 					  while ($row = @mysqli_fetch_array($result)) { 
 					  
@@ -1303,7 +1297,7 @@ $(document).ready(function() {
 
 				$dbl = mysqli_connect($host,$username,$pass,$database);
 				////mysql_select_db($database,$dbl);
-				$resultl = mysqli_query($db,"SELECT * from Empleado where idEmpleado='$userx'",$dbl);
+				$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$userx'");
 				if (mysqli_num_rows($resultl)){ 
 				$eluserx=mysqli_result($resultl,0,"nombre");
 				}
@@ -1335,7 +1329,7 @@ $(document).ready(function() {
      <?php 
 				$link = mysqli_connect($host,$username,$pass,$database); 
 				////mysql_select_db($database, $link); 
-				$result = mysqli_query($db,"SELECT * FROM clientacora where general='".$id."' order by fecha desc", $link); 
+				$result = mysqli_query($link,"SELECT * FROM clientacora where general='".$id."' order by fecha desc"); 
 				
 				
 				
@@ -1355,7 +1349,7 @@ $(document).ready(function() {
 				if ( $tipo == 1 ) {
 				$dbl = mysqli_connect($host,$username,$pass,$database);
 				////mysql_select_db($database,$dbl);
-				$resultl = mysqli_query($db,"SELECT * from Empleado where idEmpleado='$userx'",$dbl);
+				$resultl = mysqli_query($dbl,"SELECT * from Empleado where idEmpleado='$userx'");
 				if (mysqli_num_rows($resultl)){ 
 				$eluserx=mysqli_result($resultl,0,"nombre");
 				$eliframe="";
@@ -1365,7 +1359,7 @@ $(document).ready(function() {
 					
 				$dbl = mysqli_connect($host,$username,$pass,$database);
 				////mysql_select_db($database,$dbl);
-				$resultl = mysqli_query($db,"SELECT nombre from Cliente where idCliente='$userx'",$dbl);
+				$resultl = mysqli_query($dbl,"SELECT nombre from Cliente where idCliente='$userx'");
 				if (mysqli_num_rows($resultl)){ 
 				$eluserx=mysqli_result($resultl,0,"nombre");				
 				}	
@@ -1381,7 +1375,7 @@ if (($tipo == 2) && ($modular=="acceso"))  {
 					
 								$dbl = mysqli_connect($host,$username,$pass,$database);
 				////mysql_select_db($database,$dbl);
-				$resultl = mysqli_query($db,"SELECT nombre from accesocl where idusuario='$userx'",$dbl);
+				$resultl = mysqli_query($dbl,"SELECT nombre from accesocl where idusuario='$userx'");
 				if (mysqli_num_rows($resultl)){ 
 				$eluserx=mysqli_result($resultl,0,"nombre");				
 				}	
@@ -1398,9 +1392,9 @@ if (($tipo == 2) && ($modular=="acceso"))  {
 					
 								$dbl = mysqli_connect($host,$username,$pass,$database);
 				////mysql_select_db($database,$dbl);
-				$resultl = mysqli_query($db,"SELECT nombre from webservice where idusuario='$userx'",$dbl);
+				$resultl = mysqli_query($dbl,"SELECT nombre from webservice where idusuario='$userx'");
 				if (mysqli_num_rows($resultl)){ 
-				$eluserx=mysqli_result($resultl,0,"nombre");				
+				$eluserx=mysqli_result($relsultl,0,"nombre");				
 				}	
 				if ( $visto == 0 ) {
 						$eliframe="
@@ -1436,7 +1430,7 @@ if (($tipo == 2) && ($modular=="acceso"))  {
 <?php 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbl);
-$resultl = mysqli_query($db,"SELECT status from chatstat where gr='".$id."'",$dbl);
+$resultl = mysqli_query($dbl,"SELECT status from chatstat where gr='".$id."'");
 	if (mysqli_num_rows($resultl)){ 
 		$stat=mysqli_result($resultl,0,"status");		
 	}
@@ -1510,7 +1504,7 @@ $link = mysqli_connect($host,$username,$pass,$database);
 $cuentacel=strlen($celsms);
 if ($cuentacel == 10) { ?>
 
-<strong>SE ENVIAR� UN SMS A: +52<?php $celsms?></strong>
+<strong>SE ENVIAR&Aacute; UN SMS A: +52<?php $celsms?></strong>
 <br />
 <form id="form1" name="form1" method="post" action="process.php?module=enviasms1">
 <input type="hidden" name="to" value="+52<?php $celsms?>">
@@ -1534,7 +1528,7 @@ if ($cuentacel == 10) { ?>
    <?php 
 $dbl = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$dbl);
-$resultl = mysqli_query($db,"SELECT lat,longi from chatstat where gr='".$id."'",$dbl);
+$resultl = mysqli_query($dbl,"SELECT lat,longi from chatstat where gr='".$id."'");
 	if (mysqli_num_rows($resultl)){ 
 		$lat=mysqli_result($resultl,0,"lat");		
 		$longi=mysqli_result($resultl,0,"longi");		
@@ -1551,7 +1545,7 @@ $resultl = mysqli_query($db,"SELECT lat,longi from chatstat where gr='".$id."'",
 		
 		 }
 	
-	else { echo "<strong>Usuario no ha ingresado su ubicaci�n</strong>";}
+	else { echo "<strong>Usuario no ha ingresado su ubicaci&oacute;n</strong>";}
 	
 	?>
     </div>

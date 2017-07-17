@@ -81,9 +81,9 @@ if(isset($quest) && $quest != '')
 if(isset($tipoCont) && $tipoCont != '')
 {
 	if($tipoCont == 1)
-		$condicion.=" AND fecha_vencimiento <= NOW()";
+		$condicion.=" AND fecha_vencimiento <= CONVERT_TZ(now(),'+00:00','+02:00')";
 	else if($tipoCont == 2)	
-		$condicion.=" AND fecha_vencimiento > NOW()";
+		$condicion.=" AND fecha_vencimiento > CONVERT_TZ(now(),'+00:00','+02:00')";
 }	
 $link = mysqli_connect($host, $username, $pass,$database);
 //mysql_select_db($database, $link); 

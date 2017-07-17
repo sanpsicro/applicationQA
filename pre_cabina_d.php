@@ -98,7 +98,7 @@ else
 		   tipo_expediente='$tipo_expediente',
 		   fecha_recepcion='$fecha_recepcion[2]-$fecha_recepcion[1]-$fecha_recepcion[0] $hora1',
 		   fecha_suceso='$fecha_suceso[2]-$fecha_suceso[1]-$fecha_suceso[0]',
-		   apertura_expediente=now(),
+		   apertura_expediente=CONVERT_TZ(now(),'+00:00','+02:00'),
 		   reporta='$reporta',
 		   tel_reporta='$tel_reporta',
 		   num_contrato='$num_contrato',
@@ -149,7 +149,7 @@ else
 		   telefono_v='$telefono_v',
 		   fax_v='$fax_v',
 		   email_v='$email_v',
-		   ultimoseguimiento=now()
+		   ultimoseguimiento=CONVERT_TZ(now(),'+00:00','+02:00')
 		   where id='$expediente' AND contrato='$clave'";
 	mysqli_query($link, $sSQL)  or die("Error en:<br><i>$sSQL</i><br><br>Descripci&oacute;n:<br><b>".mysqli_error($link) . var_dump(extract($_POST)));
 	//echo "Query:<br><br>$sSQL<br>";

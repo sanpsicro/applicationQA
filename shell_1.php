@@ -6,7 +6,7 @@
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link rel="stylesheet" src="https://normalize-css.googlecode.com/svn/trunk/normalize.css" >
 <link href="style_1.css" rel="stylesheet" type="text/css" >
@@ -429,6 +429,7 @@ doit2();
 
 
 <?php 
+date_default_timezone_set('America/Mexico_City');
                   $explota_permisos=explode(",",$_SESSION["valid_permisos"]);
 		error_reporting(0);
 
@@ -469,7 +470,7 @@ if($checa_array1===FALSE){} else{ ?>
       <span class="fonter lineh hideextra"> 
             <script type="text/javascript"> function startTime(){ today=new Date(); h=today.getHours(); m=today.getMinutes(); s=today.getSeconds(); m=checkTime(m); s=checkTime(s); document.getElementById('reloj').innerHTML=h+":"+m+":"+s; t=setTimeout('startTime()',500);} function checkTime(i) {if (i<10) {i="0" + i;}return i;} window.onload=function(){startTime();} </script>
             				  <?php 
-$dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+$dias = array("Domingo","Lunes","Martes","MiÃ©rcoles","Jueves","Viernes","SÃ¡bado");
 echo $dias[date('w')];
 echo" ";
 print date("j"); 

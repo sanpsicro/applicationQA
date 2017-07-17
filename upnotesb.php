@@ -12,7 +12,7 @@ $valid_userid = $_SESSION['valid_userid'];
 include('conf.php'); 
 
 $link = mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET ultimoseguimiento=now() where id='$id'";
+$sSQL="UPDATE general SET ultimoseguimiento=CONVERT_TZ(now(),'+00:00','+02:00') where id='$id'";
 mysqli_query($link, $sSQL);
 
 if($caso == "editar"){
@@ -29,7 +29,7 @@ else{
 if($caso == "nuevo"){
 $link= mysqli_connect($host,$username,$pass,$database);
 $comentario=strtoupper($comentario);
-mysqli_query($link,"INSERT INTO `bitacora` (`general`, `usuario`, `fecha`, `comentario`) VALUES ('$id', '$valid_userid', now(), '$comentario')"); 
+mysqli_query($link,"INSERT INTO `bitacora` (`general`, `usuario`, `fecha`, `comentario`) VALUES ('$id', '$valid_userid', CONVERT_TZ(now(),'+00:00','+02:00'), '$comentario')"); 
 if($popup=="0"){
 	if(!empty($from_seguimiento)){
 		header("Location: mainframe.php?module=detail_seguimiento&id=$id&current=1"); exit();}

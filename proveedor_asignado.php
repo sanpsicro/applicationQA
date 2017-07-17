@@ -20,7 +20,7 @@ isset($_GET['idcaso']) ? $idcaso = $_GET['idcaso'] : $idcaso = "" ;
 
 if(isset($_GET['clave']) && isset ($_GET['id_proveedor']) && isset ($_GET['idcaso'])){
 $link = mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET asignacion_proveedor=now(), contacto='0000-00-00 00:00:00', arribo='0000-00-00 00:00:00', proveedor='$id_proveedor' where contrato='$clave' AND id='$idcaso'";
+$sSQL="UPDATE general SET asignacion_proveedor= CONVERT_TZ(now(),'+00:00','+02:00'), contacto='0000-00-00 00:00:00', arribo='0000-00-00 00:00:00', proveedor='$id_proveedor' where contrato='$clave' AND id='$idcaso'";
 mysqli_query($link, $sSQL);
 
 $link = mysqli_connect($host,$username,$pass,$database);
@@ -94,7 +94,7 @@ $observaciones=mysqli_result($result,0,"observaciones");
           <td><?php  echo $contacto;?></td>
         </tr>
         <tr>
-          <td bgcolor="#dddddd"><strong>Tel�fono:</strong></td>
+          <td bgcolor="#dddddd"><strong>Tel&eacute;fono:</strong></td>
           <td bgcolor="#dddddd"><?php  echo $tel;?></td>
         </tr>
 		        <tr>
@@ -114,7 +114,7 @@ $observaciones=mysqli_result($result,0,"observaciones");
           <td><?php  echo $contacto2;?></td>
         </tr>
 		        <tr>
-          <td bgcolor="#dddddd"><strong>Tel�fono:</strong></td>
+          <td bgcolor="#dddddd"><strong>Tel&eacute;fono:</strong></td>
           <td bgcolor="#dddddd"><?php  echo $tel2;?></td>
         </tr>
 		        <tr>

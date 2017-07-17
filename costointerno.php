@@ -2,10 +2,11 @@
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
 header('Content-Type: text/xml; charset=ISO-8859-1');
 
+include('conf.php'); 
 isset($_POST['id']) ? $id = $_POST['id'] : $id = "" ;
 isset($_POST['caso']) ? $caso = $_POST['caso'] : $caso = "" ;
 isset($_POST['expediente']) ? $expediente = $_POST['expediente'] : $expediente = "" ;
-isset($_POST['proveedor']) ? $proveedor = $_POST['proveedor'] : $proveedor = "" ;
+isset($_POST['proveedor']) && $_POST['proveedor'] != "" ? $proveedor = $_POST['proveedor'] : $proveedor = 0 ;
 isset($_POST['banderazo']) ? $banderazo= $_POST['banderazo'] : $banderazo= "" ;
 isset($_POST['blindaje']) ? $blindaje= $_POST['blindaje'] : $blindaje= "" ;
 isset($_POST['maniobras']) ? $maniobras= $_POST['maniobras'] : $maniobras= "" ;
@@ -16,7 +17,7 @@ isset($_POST['monto']) ? $monto= $_POST['monto'] : $monto= "" ;
 
 
 
-include('conf.php'); 
+
 if(isset($_POST['id']) && $_POST['id']!=""){
 
 #-------------------->------------------------>
@@ -24,11 +25,13 @@ $link = mysqli_connect($host,$username,$pass,$database);
 $result=mysqli_query($link,"select * from pagos where expediente = '$expediente'");
 $cuantosson=mysqli_num_rows($result);
 mysqli_free_result($result);
+var_dump($expediente);
 if ($cuantosson>0) {
 #actualizar registro
+	var_dump($expediente);
 $link = mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE pagos SET  proveedor='$proveedor', monto='$monto' where expediente='$expediente' LIMIT 1";
-mysqli_query($link, $sSQL);
+mysqli_query($link, $sSQL) or die(mysqli_error($link));
 }
 else{
 #crear registro
@@ -58,7 +61,7 @@ switch($dia_semana)
 
 $link = mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `pagos` (`proveedor`, `conceptor`, `monto`, `status`, `expediente`,`fecha_corte`,`fecha_pago`) 
-		VALUES ('$proveedor', 'Pago por servicio', '$monto', '0', '$expediente',NOW(),'$sig_viernes')"); 
+		VALUES ('$proveedor', 'Pago por servicio', '$monto', '0', '$expediente',CONVERT_TZ(now(),'+00:00','+02:00'),'$sig_viernes')"); 
 }
 #####################################################
 ##  Control de Cobranza

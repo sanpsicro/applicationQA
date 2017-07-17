@@ -36,7 +36,7 @@ if(copy($file1,"adjuntosexp/$nuevonombre")){$archivo1=$nuevonombre; $unixid=$uni
 
 
 mysqli_connect($host,$username,$pass,$database);
-mysqli_query($database,"INSERT INTO `adjuntos` (`id`, `general`, `fecha`, `adjunto`) VALUES ('', '$general', now(), '$archivo1')"); 
+mysqli_query($database,"INSERT INTO `adjuntos` (`id`, `general`, `fecha`, `adjunto`) VALUES ('', '$general', CONVERT_TZ(now(),'+00:00','+02:00'), '$archivo1')"); 
 header("Location: mainframe.php?module=detail_seguimiento&id=$general");
 }
 

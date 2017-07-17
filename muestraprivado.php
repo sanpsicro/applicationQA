@@ -36,7 +36,7 @@ include('conf.php');
 
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query("SELECT * FROM recordatorios where visto=0 and empleado=$valid_userid and privacidad=1 and hora<now() order by hora ASC LIMIT 1", $link); 
+$result = mysqli_query("SELECT * FROM recordatorios where visto=0 and empleado=$valid_userid and privacidad=1 and hora<CONVERT_TZ(now(),'+00:00','+02:00') order by hora ASC LIMIT 1", $link); 
  if (mysqli_num_rows($result))
     {
 $id=mysql_result($result,0,"id");		
