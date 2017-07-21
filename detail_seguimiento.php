@@ -1445,7 +1445,7 @@ $resultl = mysqli_query($dbl,"SELECT status from chatstat where gr='".$id."'");
 	</div>
     </div>
     <div class="rightchat">
-    <form id="form1" name="form1" method="post" action="process.php?module=chat&id=<?php $id;?>&accela=active">
+    <form id="form1" name="form1" method="post" action="process.php?module=chat&id=<?php echo $id;?>&accela=active">
 	<input type="submit" value="ACTIVAR CHAT" />
     </form>
     </div>
@@ -1461,7 +1461,7 @@ $resultl = mysqli_query($dbl,"SELECT status from chatstat where gr='".$id."'");
 	</div>
     </div>
     <div class="rightchat">
-    <form id="form1" name="form1" method="post" action="process.php?module=chat&id=<?php $id;?>&accela=reactive">
+    <form id="form1" name="form1" method="post" action="process.php?module=chat&id=<?php echo $id;?>&accela=reactive">
 	<input type="submit" value="ACTIVAR CHAT" />
     </form>
     </div>
@@ -1474,7 +1474,7 @@ $resultl = mysqli_query($dbl,"SELECT status from chatstat where gr='".$id."'");
      <div style="clear:both; height:auto; width:90%; vertical-align:top; position: relative;">     
 	<div class="limpiar">
      <div class="leftchat">            
-    <iframe width="690" height="500" src="chat/begin.php?gr=<?php $id?>" scrolling="no" frameborder="0"></iframe>
+    <iframe width="690" height="500" src="chat/begin.php?gr=<?php echo $id?>" scrolling="no" frameborder="0"></iframe>
 	</div>
     </div>
     <div class="rightchat">
@@ -1498,23 +1498,23 @@ $link = mysqli_connect($host,$username,$pass,$database);
 
 ?>
 
-<strong>URL PARA EL USUARIO: http://aateayuda.com/<?php $id?>/</strong><br />
+<strong>URL PARA EL USUARIO: http://aateayuda.com/<?php echo $id?>/</strong><br />
 
 <?php 
 $cuentacel=strlen($celsms);
 if ($cuentacel == 10) { ?>
 
-<strong>SE ENVIAR&Aacute; UN SMS A: +52<?php $celsms?></strong>
+<strong>SE ENVIAR&Aacute; UN SMS A: +52<?php echo $celsms?></strong>
 <br />
 <form id="form1" name="form1" method="post" action="process.php?module=enviasms1">
-<input type="hidden" name="to" value="+52<?php $celsms?>">
-<input type="hidden" name="gr" value="<?php $id?>">
-<input type="hidden" name="body" value="Durante su asistencia puede contactarnos por chat: http://aateayuda.com/<?php $id?>">
+<input type="hidden" name="to" value="+52<?php echo $celsms?>">
+<input type="hidden" name="gr" value="<?php echo $id?>">
+<input type="hidden" name="body" value="Durante su asistencia puede contactarnos por chat: http://aateayuda.com/<?php echo $id?>">
 <input type="submit" value="ENVIAR LIGA">	
 </form>
 <?php  } else { echo ("<strong>ERROR: No se puede enviar SMS, \"Tel. de contacto\" debe ser de 10 digitos</strong>"); } ?>
 <br /><br /><br />
-    <form id="form1" name="form1" method="post" action="process.php?module=chat&id=<?php $id;?>&accela=deactive">
+    <form id="form1" name="form1" method="post" action="process.php?module=chat&id=<?php echo $id;?>&accela=deactive">
 	<input type="submit" value="DESACTIVAR CHAT" />
     </form>
     </div>
