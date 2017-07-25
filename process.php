@@ -452,7 +452,7 @@ $link= mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `chatstat` (`gr`, `status`, `atendido`) 
 
-VALUES ('$id', 2, 1)"); 
+VALUES ('$id', 2, 1)") or die(mysqli_error($link)); 
 
 header("Location: mainframe.php?module=detail_seguimiento&id=$id&current=3");
 
@@ -1549,6 +1549,26 @@ header("Location: mainframe.php?module=$module&code=2");
 }
 #_________________________________________________________________
 if($module=="detail_seguimiento"){
+	
+	isset($_POST['motivo_servicio']) ? $motivo_servicio= $_POST['motivo_servicio'] : $motivo_servicio= "" ;	
+	isset($_POST['tipo_asistencia_medica']) ? $tipo_asistencia_medica= $_POST['tipo_asistencia_medica'] : $tipo_asistencia_medica= "" ;	
+	isset($_POST['tipo_asistencia_vial']) ? $tipo_asistencia_vial= $_POST['tipo_asistencia_vial'] : $tipo_asistencia_vial= "" ;	
+	isset($_POST['domicilio_cliente']) ? $domicilio_cliente= $_POST['domicilio_cliente'] : $domicilio_cliente= "" ;	
+	isset($_POST['domicilio_sustituto']) ? $domicilio_sustituto= $_POST['domicilio_sustituto'] : $domicilio_sustituto= "" ;	
+	isset($_POST['ubicacion_requiere']) ? $ubicacion_requiere= $_POST['ubicacion_requiere'] : $ubicacion_requiere= "" ;
+	isset($_POST['ubicacion_estado']) ? $ubicacion_estado= $_POST['ubicacion_estado'] : $ubicacion_estado= "" ;
+	isset($_POST['ubicacion_municipio']) ? $ubicacion_municipio= $_POST['ubicacion_municipio'] : $ubicacion_municipio= "" ;
+	isset($_POST['ubicacion_colonia']) ? $ubicacion_colonia= $_POST['ubicacion_colonia'] : $ubicacion_colonia= "" ;
+	isset($_POST['ubicacion_ciudad']) ? $ubicacion_ciudad= $_POST['ubicacion_ciudad'] : $ubicacion_ciudad= "" ;
+	isset($_POST['destino_servicio']) ? $destino_servicio= $_POST['destino_servicio'] : $destino_servicio= "" ;
+	isset($_POST['destino_estado']) ? $destino_estado= $_POST['destino_estado'] : $destino_estado= "" ;
+	
+	isset($_POST['destino_municipio']) ? $destino_municipio= $_POST['destino_municipio'] : $destino_municipio= "" ;
+	isset($_POST['destino_colonia']) ? $destino_colonia= $_POST['destino_colonia'] : $destino_colonia= "" ;
+	isset($_POST['destino_ciudad']) ? $destino_ciudad= $_POST['destino_ciudad'] : $destino_ciudad= "" ;
+	isset($_POST['observaciones']) ? $observaciones= $_POST['observaciones'] : $observaciones= "" ;
+	
+	
 $link= mysqli_connect($host,$username,$pass,$database);
 $motivo_servicio=strtoupper($motivo_servicio);
 $ubicacion_requiere=strtoupper($ubicacion_requiere);

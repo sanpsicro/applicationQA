@@ -25,10 +25,10 @@ $link = mysqli_connect($host,$username,$pass,$database);
 $result=mysqli_query($link,"select * from pagos where expediente = '$expediente'");
 $cuantosson=mysqli_num_rows($result);
 mysqli_free_result($result);
-var_dump($expediente);
+
 if ($cuantosson>0) {
 #actualizar registro
-	var_dump($expediente);
+
 $link = mysqli_connect($host,$username,$pass,$database);
 $sSQL="UPDATE pagos SET  proveedor='$proveedor', monto='$monto' where expediente='$expediente' LIMIT 1";
 mysqli_query($link, $sSQL) or die(mysqli_error($link));
@@ -39,19 +39,19 @@ $fecha = time();
 $dia_semana=date("w");
 switch($dia_semana)
 {
-	case 0:	$sig_viernes=$fecha + (3600*24*5);
+	case 0:	$sig_viernes= date('Y-m-d', $fecha + (3600*24*5)) ; //$fecha + (3600*24*5);
 	break;
-	case 1: $sig_viernes=$fecha + (3600*24*4);
+	case 1: $sig_viernes= date('Y-m-d', $fecha + (3600*24*4)) ;// $fecha + (3600*24*4);
 	break;
-	case 2: $sig_viernes=$fecha + (3600*24*3);
+	case 2: $sig_viernes= date('Y-m-d', $fecha + (3600*24*3));//$fecha + (3600*24*3);
 	break;
-	case 3: $sig_viernes=$fecha + (3600*24*2);
+	case 3: $sig_viernes= date('Y-m-d', $fecha + (3600*24*2)); // $fecha + (3600*24*2);
 	break;
-	case 4: $sig_viernes=$fecha + (3600*24*1);
+	case 4: $sig_viernes=date('Y-m-d', $fecha + (3600*24*1)) ;//$fecha + (3600*24*1);
 	break;
-	case 5: $sig_viernes=$fecha + (3600*24*14);
+	case 5: $sig_viernes= date('Y-m-d', $fecha + (3600*24*14))  ; //$fecha + (3600*24*14);
 	break;
-	case 6: $sig_viernes=$fecha + (3600*24*13);
+	case 6: $sig_viernes=date('Y-m-d', $fecha + (3600*24*13));//$fecha + (3600*24*13);
 	break;
 }
 
@@ -61,7 +61,7 @@ switch($dia_semana)
 
 $link = mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `pagos` (`proveedor`, `conceptor`, `monto`, `status`, `expediente`,`fecha_corte`,`fecha_pago`) 
-		VALUES ('$proveedor', 'Pago por servicio', '$monto', '0', '$expediente',CONVERT_TZ(now(),'+00:00','+02:00'),'$sig_viernes')"); 
+		VALUES ('$proveedor', 'Pago por servicio', '$monto', '0', '$expediente',CONVERT_TZ(now(),'+00:00','+02:00'),'$sig_viernes')") or die(mysqli_error($link) ); 
 }
 #####################################################
 ##  Control de Cobranza
