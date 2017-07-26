@@ -1,9 +1,7 @@
 <?php $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
-if(empty($show)){$show=50;}
-if(empty($sort)){$sort="p.expediente DESC";}
-if(empty($selenium)){$selenium="all";}
+
 
 
 isset($_POST['accela']) ? $accela  = $_POST['accela'] : $accela = "" ;
@@ -11,6 +9,10 @@ isset($_POST['quest']) ? $quest= $_POST['quest'] : $quest= "" ;
 isset($_POST['sort']) ? $sort= $_POST['sort'] : $sort= "" ;
 isset($_POST['show']) ? $show= $_POST['show'] : $show= "" ;
 isset($_POST['selenium']) ? $selenium= $_POST['selenium'] : $selenium= "" ;
+
+if(empty($show)){$show=50;}
+if(empty($sort)){$sort="p.expediente DESC";}
+if(empty($selenium)){$selenium="all";}
 
 
 

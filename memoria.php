@@ -1,21 +1,22 @@
 <?php  
+error_reporting(E_ALL);
 session_start();
 if(empty($_SESSION["valid_user"])){die();} 
 $unixid = time(); 
 include('conf.php'); 
 
 isset($_POST['recordatorio']) ? $recordatorio= $_POST['recordatorio'] : $recordatorio= "" ;
-isset($_POST['general']) ? $general= $_POST['general'] : $general= "" ;
-isset($_POST['expediente']) ? $expediente= $_POST['expediente'] : $expediente= "" ;
+isset($_POST['general']) ? $general= $_POST['general'] : $general= 0 ;
+isset($_POST['expediente']) ? $expediente= $_POST['expediente'] : $expediente= 0 ;
 isset($_POST['proximos']) ? $proximos= $_POST['proximos'] : $proximos= "" ;
 isset($_POST['privacidad']) ? $privacidad= $_POST['privacidad'] : $privacidad= 0 ;
 isset($_POST['recordate']) ? $recordate= $_POST['recordate'] : $recordate= "" ;
 isset($_POST['actuar']) ? $actuar= $_POST['actuar'] : $actuar= "" ;
 isset($_POST['userid']) ? $userid= $_POST['userid'] : $userid= "" ;
 
-$visto ="";
+$visto =0;
 
-
+if($privacidad == "on"){$privacidad = 1;}else{$privacidad=0;}
 
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 

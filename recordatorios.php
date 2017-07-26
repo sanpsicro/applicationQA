@@ -38,9 +38,15 @@ background-position: left bottom;
 <?php  
 $referencia=$_SERVER['HTTP_REFERER'];
 $parsed = parse_url( $referencia, PHP_URL_QUERY );
+
 parse_str( $parsed, $query );
+
 $module=$query['module'];
-$general=$query['id'];
+
+if(count($query) > 1){
+$general=$query['id'];	
+}
+
 ?>
 
 
@@ -57,7 +63,7 @@ $general=$query['id'];
 <?php  if ($module=="detail_seguimiento") { ?>
 <div class="form-group">
     <label for="expediente" class="whiter">Relacionado al expediente:</label>
-    <input type="text" class="form-control" id="expediente" name="expediente" value="<?php  $general?>" placeholder="expediente">
+    <input type="text" class="form-control" id="expediente" name="expediente" value="<?php echo $general;?>" placeholder="expediente">
 </div>
 <?php  } else { ?> <input type="hidden" name="general" value="" />  <?php  }?>
 <div class="form-group">
@@ -98,7 +104,7 @@ $nminuto=$minuto+5;
     </label>
   </div>
 <input type="hidden" name="actuar" value="new" />
-<input type="hidden" name="userid" value="<?php  $valid_userid?>" />
+<input type="hidden" name="userid" value="<?php echo $valid_userid?>" />
 <div class="centerb"><button type="submit" class="btn btn-success" role="button">CREAR</button></div>
 </form>
 <script type="text/javascript">

@@ -1,8 +1,11 @@
 <?php
 include 'conf.php';
+isset($_POST['municipio']) ? $municipio = $_POST['municipio']  : $municipio ="";
+isset($_POST['colonia']) ? $colonia = $_POST['colonia']  : $colonia ="" ;
+
 
 if($_GET["select"]=="municipio"){
-isset($_POST['municipio']) ? $municipio = $_POST['municipio']  : $municipio =null ;
+isset($_POST['municipio']) ? $municipio = $_POST['municipio']  : $municipio ="";
 echo' <select name="municipio" id="municipio" onChange="cargaContenido(this.id)"><option value="0">SELECCIONE UNA OPCION</option>';
 
 $link = mysqli_connect($host, $username, $pass,$database); 
@@ -41,7 +44,7 @@ echo'</select>';
 #############################################
 
 if($_GET["select"]=="colonia"){
-isset($_POST['colonia']) ? $colonia = $_POST['colonia']  : $colonia =null ;
+isset($_POST['colonia']) ? $colonia = $_POST['colonia']  : $colonia ="" ;
 echo' <select name="colonia" id="colonia"><option value="0">SELECCIONE UNA OPCION</option>';
 
 $link = mysqli_connect($host, $username, $pass,$database); 

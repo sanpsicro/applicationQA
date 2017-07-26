@@ -48,18 +48,18 @@ class MySQL{
     $this->persistent = $persistent;
     $this->databaseCharset = $databaseCharset;
     $this->connectDbServer(); 
-    $this->selectDb();
+    //$this->selectDb();
     return true;
   }  
   // connect to db server  
   function connectDbServer() {
-    if (!function_exists('mysql_connect')){
+    if (!function_exists('mysqli_connect')){
       die(M_ERROR48);
     }else{
       if ($this->persistent==1){
-        $this->dbo = mysql_pconnect($this->hostName,$this->userName,$this->password) or die(M_ERROR3);
+      	$this->dbo = mysqli_connect('p:'. $this->hostName,$this->userName,$this->password,$this->database) or die(M_ERROR3);
       }else{
-        $this->dbo = mysql_connect($this->hostName,$this->userName,$this->password) or die(M_ERROR3);   
+      	$this->dbo = mysqli_connect($this->hostName,$this->userName,$this->password,$this->database) or die(M_ERROR3);   
       }
     }
   }
@@ -76,28 +76,28 @@ class MySQL{
   // database query      
   function query($query){
     $start_time = $this->currentMicrotime();
-    $result = mysql_query($query, $this->dbo) or die(M_ERROR49.": <br />". nl2br($query));
+    $result = mysqli_query($this->dbo,$query) or die(M_ERROR49.": <br />". nl2br($query));
     $this->queryNumRow = @mysql_num_rows($result);
     $this->queryTime = $this->currentMicrotime() - $start_time;
     return $result;
-    @mysql_free_result($result);
+    @mysqli_free_result($result);
   }
 
   //convert mysqlresult to data array
   function resultToArray($result){
    $return_array = array();
  	 // how many rows in this table
-	 $num=@mysql_num_rows($result);
+	 $num=@mysqli_num_rows($result);
 	 if($num==false) return false;
  	 // number of affected fields			
-	 $num_fiel = @mysql_num_fields($result);
+	 $num_fiel = @mysqli_num_fields($result);
 	 if($num_fiel==false)	return false;
  	 // make return array 
 	 for($i=0;$i<$num;$i++){	//loop through affected rows
  	  for($a=0;$a<$num_fiel;$a++){	// and with in it loop through each field in a row
  		 //$curr_key = mysql_field_name($result,$a);	//get the name of the field
 		 //$return_array[$i][$curr_key] = mysql_result($result,$i,$curr_key); // put the value in the array
-     $return_array[$i][$a] = mysql_result($result,$i,$a);					
+     $return_array[$i][$a] = mysqli_result($result,$i,$a);					
 		}
 	 }
 	 return $return_array;			
@@ -105,7 +105,21 @@ class MySQL{
   
   //close connect to database
   function close(){ 
-    return @mysql_close($this->dbo); 
+  	
+    return @mysqli_close($this->dbo); 
   } 
+  
+  function mysqli_result($res,$row=0,$col=0){
+  	$numrows = mysqli_num_rows($res);
+  	if ($numrows && $row <= ($numrows-1) && $row >=0){
+  		mysqli_data_seek($res,$row);
+  		$resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+  		if (isset($resrow[$col])){
+  			return $resrow[$col];
+  		}
+  	}
+  	return false;
+  }
+  
 }
 ?>
