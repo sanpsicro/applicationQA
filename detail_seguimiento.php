@@ -131,8 +131,8 @@ mysqli_query($db, $sSQL);
 }
 if($set_date=="contactoext"){
 	$db =mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET contactoext='".$acontext."-" .$mcontext."-".$dcontext . $hcontext.":".$mincontext.":".$segundero1."' where id='".$id."'";
-mysqli_query($db, $sSQL);
+$sSQL="UPDATE general SET contactoext='".$acontext."-" .$mcontext."-".$dcontext ." ". $hcontext.":".$mincontext.":".$segundero1."' where id='".$id."'";
+mysqli_query($db, $sSQL) or die(mysqli_error($db));
 }
 if($set_date=="terminoext"){
 	$db =mysqli_connect($host,$username,$pass,$database);
@@ -1539,7 +1539,7 @@ $resultl = mysqli_query($dbl,"SELECT lat,longi from chatstat where gr='".$id."'"
 		?> 
 		
 		
-<a href="http://maps.google.com/maps?q=<?php $lat?>,<?php $longi?>&ll=<?php $lat?>,<?php $longi?>&z=17" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center='<?php $lat?>,<?php $longi?>&zoom=15&size=720x640&markers=color:red%7C<?php $lat?>,<?php $longi?>&maptype=roadmap&sensor=false" width="720" height="640" border="0" /></a>
+<a href="https://maps.google.com/maps?q=<?php echo $lat?>,<?php echo $longi?>&ll=<?php echo $lat?>,<?php echo $longi?>&z=17" target="_blank"><img src="https://maps.googleapis.com/maps/api/staticmap?center='<?php echo $lat?>,<?php echo $longi?>&zoom=15&size=720x640&markers=color:red%7C<?php echo $lat?>,<?php echo $longi?>&maptype=roadmap&sensor=false&key=AIzaSyDpoXEAhSTxAJE8NUcOithSDVCseaRa_hM" width="720" height="640" border="0" /></a>
         
 		<?php 
 		

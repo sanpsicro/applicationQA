@@ -6,6 +6,7 @@ isset($_GET['caso']) ? $caso = $_GET['caso'] : $caso = null;
 isset($_GET['idnota']) ? $idnota = $_GET['idnota'] : $idnota = null;
 isset($_GET['popup']) ? $popup = $_GET['popup'] : $popup = null;
 isset($_POST['comentario']) ? $comentario = $_POST['comentario'] : $comentario = null;
+isset($_POST['from_seguimiento']) ? $from_seguimiento = $_POST['from_seguimiento'] : $from_seguimiento = null;
 
 $valid_userid = $_SESSION['valid_userid'];
 
