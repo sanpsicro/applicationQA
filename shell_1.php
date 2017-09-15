@@ -398,6 +398,17 @@ function faster() {
     });
 }
 
+//remember scroll
+$(window).scroll(function() {
+	  sessionStorage.scrollTop = $(this).scrollTop();
+	});
+
+	$(document).ready(function() {
+	  if (sessionStorage.scrollTop != "undefined") {
+	    $(window).scrollTop(sessionStorage.scrollTop);
+	  }
+	});
+
 </script>
 <script>
 function doit2() {

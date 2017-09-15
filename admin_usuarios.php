@@ -1,8 +1,7 @@
 <?php 
 isset($_GET['accela']) ? $accela = $_GET['accela']: $accela = null; 
-
-isset($_GET['idEmpleado']) ? $idEmpleado = $_GET['idEmpleado']: $idEmpleado = null;
-
+//idEmpleado con post?
+isset($_GET['idEmpleado']) ? $idEmpleado = $_GET['idEmpleado'] : $idEmpleado = "";
 ?>
 
 <script type="text/javascript" src="subcombo.js"></script>
@@ -70,7 +69,7 @@ function validar(formulario) {
 
 
   if (formulario.contrasena.value.length < 4) {
-    alert("Escriba una contraseña");
+    alert("Escriba una contraseï¿½a");
     formulario.contrasena.focus();
     return (false);
   }
@@ -89,7 +88,7 @@ function validar(formulario) {
   }
   
     if (formulario.direccion.value.length < 4) {
-    alert("Escriba una dirección");
+    alert("Escriba una direcciï¿½n");
     formulario.direccion.focus();
     return (false);
   }
@@ -113,14 +112,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un teléfono");
+    alert("Escriba un telï¿½fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   /*
   
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una dirección de correo válida"); 
+    alert("Escriba una direcciï¿½n de correo vï¿½lida"); 
 	    formulario.email.focus();
     return (false); 
   }
@@ -137,8 +136,9 @@ function validar(formulario) {
 
 
 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Usuarios</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("1_a",$explota_permisos);
-
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Usuarios</span></td><td width=150 class="blacklinks"><?php  
+      $checa_array1=array_search("1_a",$explota_permisos);
+      if($checa_array1 == NULL){$checa_array1 = FALSE;}
 if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=new">Nuevo Usuario</a> ]';} ?></td></tr></table></td></tr>
 
 
@@ -162,7 +162,10 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=n
             <td width="400" 			class="questtitle"> 
 
 <?php 
-if($accela=="new"){echo'Dar de alta Usuario';}else{echo'Editar Usuario';}
+if($accela=="new"){echo'Dar de alta Usuario';
+$modules_exploited = array();
+$permisos_exploited=array();
+}else{echo'Editar Usuario';}
 ?>
 
 
@@ -179,7 +182,7 @@ if($accela=="new"){echo'Dar de alta Usuario';}else{echo'Editar Usuario';}
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">Bï¿½squeda: 
 
 
 
@@ -251,7 +254,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 
 ////mysql_select_db($database);
 
-$result = mysqli_query($db,"SELECT * from Empleado where idEmpleado = '$idEmpleado'");
+$result = mysqli_query($db,"SELECT * from Empleado where idEmpleado = '$idEmpleado'") or die(mysqli_error($db));
 
 $usuario=mysqli_result($result,0,"usuario");
 
@@ -541,7 +544,7 @@ echo'</select>';
 
       <tr>
 
-        <td align="right" valign="top" bgcolor="#cccccc"><strong>Radio Teléfono:</strong> </td>
+        <td align="right" valign="top" bgcolor="#cccccc"><strong>Radio Telï¿½fono:</strong> </td>
 
         <td bgcolor="#cccccc"><input name="idnextel" type="text" id="idnextel" size="50" value="<?php  echo"$idnextel";?>" onKeyPress="return numbersonly(this, event)"/></td>
 
@@ -595,7 +598,7 @@ echo'</select>';
 
       </tr>
       <tr>
-      <td align="right" valign="top" bgcolor="#cccccc"><strong>Capacitación:</strong> </td>
+      <td align="right" valign="top" bgcolor="#cccccc"><strong>Capacitaciï¿½n:</strong> </td>
       <td bgcolor="#cccccc">
 
           
@@ -603,7 +606,7 @@ echo'</select>';
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
 
-          Acceso al módulo</span>
+          Acceso al mï¿½dulo</span>
           
           <br /><br />
           
@@ -796,7 +799,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
 
         <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_c" <?php  $checa_array1=array_search("5_c",$permisos_exploited);
 
-if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
+if($checa_array1===FALSE){}else{echo ' checked';} ?>></td>
 
         <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="5_d" <?php  $checa_array1=array_search("5_d",$permisos_exploited);
 if($checa_array1===FALSE){} else{echo ' checked';} ?>></td>
@@ -1338,7 +1341,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
           <input type="checkbox" name="modules_auth[]" value="facturacion" <?php  $checa_array1=array_search("facturacion",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
-          Facturación </span></td>
+          Facturaciï¿½n </span></td>
         <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_a" <?php  $checa_array1=array_search("22_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
@@ -1395,7 +1398,7 @@ Importador Contratos </span></td>
           <input type="checkbox" name="modules_auth[]" value="exportacion" <?php  $checa_array1=array_search("exportacion",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
-Exportaci&oacute;n (menú) </span></td>
+Exportaci&oacute;n (menï¿½) </span></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -1591,7 +1594,7 @@ Exportar Facturas </span></td>
           <input type="checkbox" name="modules_auth[]" value="expnotrem" <?php  $checa_array1=array_search("expnotrem",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
-Exportar Notas de Remisión </span></td>
+Exportar Notas de Remisiï¿½n </span></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
@@ -1661,7 +1664,7 @@ Quicktips </span></td>
 </table>
 
 
-
+<?php var_dump($checa_array1);?>
 
 
 </td></tr></table>

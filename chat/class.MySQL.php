@@ -57,9 +57,9 @@ class MySQL{
       die(M_ERROR48);
     }else{
       if ($this->persistent==1){
-      	$this->dbo = mysqli_connect('p:'. $this->hostName,$this->userName,$this->password,$this->database) or die(M_ERROR3);
+      	$this->dbo = mysqli_connect('p:'. $this->hostName,$this->userName,$this->password,$this->databaseName) or die(M_ERROR3);
       }else{
-      	$this->dbo = mysqli_connect($this->hostName,$this->userName,$this->password,$this->database) or die(M_ERROR3);   
+      	$this->dbo = mysqli_connect($this->hostName,$this->userName,$this->password,$this->databaseName) or die(M_ERROR3);   
       }
     }
   }
@@ -76,7 +76,7 @@ class MySQL{
   // database query      
   function query($query){
     $start_time = $this->currentMicrotime();
-    $result = mysqli_query($this->dbo,$query) or die(M_ERROR49.": <br />". nl2br($query));
+    $result = mysqli_query($this->dbo,$query) or die(M_ERROR49.": <br />". nl2br($query) . mysqli_error($this->dbo));
     $this->queryNumRow = @mysql_num_rows($result);
     $this->queryTime = $this->currentMicrotime() - $start_time;
     return $result;

@@ -606,7 +606,7 @@ if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
 }	
 #//			  		 
 $checa_array=array_search("ubicacion_colonia",$camposex);
-if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaci�n Colonia:</strong></td>
+if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaci&oacute;n Colonia:</strong></td>
          <td bgcolor="#CCCCCC">';
 						  if(isset($municipio) && isset($estado)){
 						 echo'  <select name="colonia" id="colonia"><option value="0">SELECCIONE UNA OPCION</option>';
@@ -634,7 +634,7 @@ if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
 }	
 #//
 $checa_array=array_search("ubicacion_ciudad",$camposex);
-if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaci�n Ciudad o localidad:</strong> </td>
+if($checa_array===FALSE){} else{echo '<td bgcolor="#CCCCCC"><strong>Ubicaci&oacute;n Ciudad o localidad:</strong> </td>
          <td bgcolor="#CCCCCC"><input name="ciudad" type="text" id="ciudad" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$ciudad.'"/></td>';
 		 		 $cuenta_campos=$cuenta_campos+1;
 if($cuenta_campos=="3"){echo'</tr><tr>'; $cuenta_campos=0;}
@@ -790,7 +790,7 @@ echo'</tr>';
 		 <td bgcolor="#CCCCCC"><strong>Domicilio donde recoger&aacute; auto sustituto:</strong> </td>
          <td bgcolor="#CCCCCC"><input name="domicilio_sustituto" type="text" id="domicilio_sustituto" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$domicilio.'"/></td>
 		 
-		 <td bgcolor="#CCCCCC"><strong>Ubicaci�n Estado:</strong></td>
+		 <td bgcolor="#CCCCCC"><strong>Ubicaci&oacute;n Estado:</strong></td>
          <td bgcolor="#CCCCCC"><select name="estado" id="estado" onChange=\'cargaContenido(this.id)\'><option value=\'0\'>Seleccione un Estado</option>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
@@ -802,7 +802,7 @@ if (mysqli_num_rows($result)){
 	 echo'>'.$row["NombreEstado"].'</option>';
   }}
         echo'</select></td>
-		 <td bgcolor="#CCCCCC"><strong>Ubicaci�n Municipio:</strong></td>
+		 <td bgcolor="#CCCCCC"><strong>Ubicaci&oacute;n Municipio:</strong></td>
          <td bgcolor="#CCCCCC">';
 						  if(isset($municipio) && isset($estado)){
 						 echo'  <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'>';
@@ -821,7 +821,7 @@ else{echo'<select disabled="disabled" name="municipio" id="municipio" onChange=\
 						<option value="0">Seleccione un Estado</option>
 					</select>';}
 						  echo'</td></tr><tr>
-						  <td bgcolor="#CCCCCC"><strong>Ubicaci�n Colonia:</strong></td>
+						  <td bgcolor="#CCCCCC"><strong>Ubicaci&oacute;n Colonia:</strong></td>
          <td bgcolor="#CCCCCC">';
 						  if(isset($municipio) && isset($estado)){
 						 echo'  <select name="colonia" id="colonia" onChange=\'cargaContenido(this.id)\'>';
@@ -841,7 +841,7 @@ echo'</select>';
 else{echo'<select disabled="disabled" name="colonia" id="colonia" onChange=\'cargaContenido(this.id)\'>
 						<option value="0">Seleccione un Municipio</option>
 					</select>';}
-						  echo'</td><td bgcolor="#CCCCCC"><strong>Ubicaci�n Ciudad o localidad:</strong> </td>
+						  echo'</td><td bgcolor="#CCCCCC"><strong>Ubicaci&oacute;n Ciudad o localidad:</strong> </td>
          <td bgcolor="#CCCCCC"><input name="ciudad" type="text" id="ciudad" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)" value="'.$ciudad.'"/></td>
 		 <td bgcolor="#CCCCCC"><strong>Destino:</strong></td>
          <td bgcolor="#CCCCCC"><input name="destino" type="text" id="destino" size="20" onattrmodified="g(this)" onpropertychange="g(this)" onKeyDown="f(this)" onKeyUp="f(this)" onBlur="f(this)" onClick="f(this)"/></td></tr><tr>
@@ -883,7 +883,7 @@ echo'</td><td bgcolor="#CCCCCC"><strong>Destino Colonia:</strong></td>
 						 echo'  <select name="colonia2" id="colonia2" onChange=\'cargaContenido(this.id)\'>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($link,"SELECT * FROM Colonia where idMunicipio='$municipio2'order by NombreColonia"); 
+$result = mysqli_query($link,"SELECT * FROM Colonia where idMunicipio='$municipio2'order by NombreColonia") or die(mysqli_error($link)); 
 if (mysqli_num_rows($result)){ 
   while ($row = @mysqli_fetch_array($result)) { 
     		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);

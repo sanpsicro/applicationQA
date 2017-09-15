@@ -5,7 +5,7 @@ isset($_POST['clave']) ? $clave= $_POST['clave'] : $clave= "";
 isset($_POST['tipo_expediente']) ? $tipo_expediente= $_POST['tipo_expediente'] : $tipo_expediente= "";
 isset($_POST['nix']) ? $nix= $_POST['nix'] : $nix= "";
 isset($_POST['fecha_recepcion']) ? $fecha_recepcion= $_POST['fecha_recepcion'] : $fecha_recepcion= "";
-isset($_POST['tipo_expediente']) ? $tipo_expediente= $_POST['tipo_expediente'] : $tipo_expediente= "";
+//isset($_POST['tipo_expediente']) ? $tipo_expediente= $_POST['tipo_expediente'] : $tipo_expediente= "";
 isset($_POST['hora1']) ? $hora1= $_POST['hora1'] : $hora1= "";
 isset($_POST['num_contrato']) ? $num_contrato= $_POST['num_contrato'] : $num_contrato= "";
 isset($_POST['reporta']) ? $reporta= $_POST['reporta'] : $reporta= "";
@@ -29,7 +29,53 @@ isset($_POST['color']) ? $color= $_POST['color'] : $color= "";
 isset($_POST['placas']) ? $placas= $_POST['placas'] : $placas= "";
 isset($_POST['color']) ? $color= $_POST['color'] : $color= "";
 isset($_POST['costo']) ? $costo= $_POST['costo'] : $costo= "";
+isset($_POST['siniestro']) ? $siniestro= $_POST['siniestro'] : $siniestro= "";
+isset($_POST['tipo_vial']) ? $tipo_vial= $_POST['tipo_vial'] : $tipo_vial= "";
+isset($_POST['domicilio_sustituto']) ? $domicilio_sustituto= $_POST['domicilio_sustituto'] : $domicilio_sustituto= "";
+isset($_POST['ubicacion']) ? $ubicacion= $_POST['ubicacion'] : $ubicacion= "";
+isset($_POST['ciudad']) ? $ciudad= $_POST['ciudad'] : $ciudad= "";
+isset($_POST['destino']) ? $destino= $_POST['destino'] : $destino= "";
+isset($_POST['estado2']) ? $estado2= $_POST['estado2'] : $estado2= "";
+isset($_POST['municipio2']) ? $municipio2= $_POST['municipio2'] : $municipio2= "";
+isset($_POST['colonia2']) ? $colonia2= $_POST['colonia2'] : $colonia2= "";
+isset($_POST['ciudad2']) ? $ciudad2= $_POST['ciudad2'] : $ciudad2= "";
+isset($_POST['formato_carta']) ? $formato_carta= $_POST['formato_carta'] : $formato_carta= "";
+
+isset($_POST['ventana']) ? $ventana= $_POST['ventana'] : $ventana= "";
+isset($_POST['ejecutivo']) ? $ejecutivo= $_POST['ejecutivo'] : $ejecutivo= "";
+isset($_POST['fax']) ? $fax= $_POST['fax'] : $fax= "";
+isset($_POST['email']) ? $email= $_POST['email'] : $email= "";
+isset($_POST['cobertura']) ? $cobertura= $_POST['cobertura'] : $cobertura= "";
+
+isset($_POST['pasajero']) ? $pasajero= $_POST['pasajero'] : $pasajero= "";
+
+isset($_POST['codigo_reserva']) ? $codigo_reserva= $_POST['codigo_reserva'] : $codigo_reserva= "";
+
+isset($_POST['vuelo']) ? $vuelo= $_POST['vuelo'] : $vuelo= "";
+isset($_POST['destino_ciudad_v']) ? $destino_ciudad_v= $_POST['destino_ciudad_v'] : $destino_ciudad_v= "";
+isset($_POST['origen_ciudad']) ? $origen_ciudad= $_POST['origen_ciudad'] : $origen_ciudad= "";
+
+isset($_POST['motivo_servicio_v']) ? $motivo_servicio_v= $_POST['motivo_servicio_v'] : $motivo_servicio_v= "";
+isset($_POST['email_v']) ? $email_v= $_POST['email_v'] : $email_v= "";
+isset($_POST['telefono_v']) ? $telefono_v= $_POST['telefono_v'] : $telefono_v= "";
+isset($_POST['fax_v']) ? $fax_v= $_POST['fax_v'] : $fax_v= "";
+
+
+
+
+
+
+isset($_POST['tecnico']) ? $tecnico= $_POST['tecnico'] : $tecnico= "";
+
+isset($_POST['reporte_cliente']) ? $reporte_cliente= $_POST['reporte_cliente'] : $reporte_cliente= "";
+
+isset($_POST['inciso']) ? $inciso= $_POST['inciso'] : $inciso= "";
+
+isset($_POST['tipo_medica']) ? $tipo_medica= $_POST['tipo_medica'] : $tipo_medica= "";
+isset($_POST['convenio']) ? $convenio= $_POST['convenio'] : $convenio= "";
+
 isset($_POST['capturalegal']) ? $capturalegal= $_POST['capturalegal'] : $capturalegal= "";
+isset($_POST['zaurus']) ? $zaurus= $_POST['zaurus'] : $zaurus= "";
 
 //where it come from?
 isset($_POST['fecha_compra']) ? $fecha_compra= $_POST['fecha_compra'] : $fecha_compra= "0000-00-00";

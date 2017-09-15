@@ -17,7 +17,7 @@ if(isset($tel) && ($extension)) {
 
 $ch = curl_init();
 $curlConfig = array(
-    CURLOPT_URL            => "http://192.168.1.200/api/actions/call",
+    CURLOPT_URL            => "https://192.168.1.200/api/actions/call",
     CURLOPT_POST           => true,
     CURLOPT_RETURNTRANSFER => false,
     CURLOPT_POSTFIELDS     => array(

@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 /****
 File name : class.Chat.php
 Description : Class for create simple chat.
@@ -10,6 +11,7 @@ Copyright (c) 2010 PR-Software <prezac@pr-software.net>
 class Chat{
  var $userName;    // input data
  var $colores;
+ 
  function createChat($username,$colores){ 	 
  if ($username=="")  { echo 'Error, direccion incorrecta'; die(); }
   print "<script type=\"text/javascript\"> 

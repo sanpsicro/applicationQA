@@ -27,11 +27,9 @@ function SetAllCheckBoxes(FormName, FieldName, CheckValue)
 </script>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-<<<<<<< HEAD
+
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Exportaci&oacute;n</span></td></tr></table></td></tr>
-=======
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Exportaci�n</span></td></tr></table></td></tr>
->>>>>>> 7d922a3ec2d0bf6446eb3c3222f332535650d2f6
+
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3" bgcolor="#FFFFFF">
           <tr>

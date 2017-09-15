@@ -288,7 +288,7 @@ $services=explode(",",$row["trabajos"]);
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto:</b> '.$row["contacto"].'<br>
 <b>Tel�fono:</b>
-<form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
+<form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel"].'';
  $telctc1 = $row["tel"];
  $telcall1 = preg_replace('/[^0-9]/', '', $telctc1);
@@ -300,7 +300,7 @@ echo'
 <br>
 <b>Fax:</b> '.$row["fax"].'<br>
 <b>Celular:</b>
-<form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
+<form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["cel"].'';
  $telctc1 = $row["cel"];
  $telcall1 = preg_replace('/[^0-9]/', '', $telctc1);
@@ -318,7 +318,7 @@ echo'
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto2:</b> '.$row["contacto2"].'<br>
 <b>Tel�fono:</b>
-<form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
+<form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel2"].'';
  $telctc1 = $row["tel2"];
  $telcall1 = preg_replace('/[^0-9]/', '', $telctc1);
@@ -330,7 +330,7 @@ echo'
 <br>
 <b>Fax:</b> '.$row["fax2"].'<br>
 <b>Celular:</b>
-<form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
+<form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["cel2"].'';
  $telctc1 = $row["cel2"];
  $telcall1 = preg_replace('/[^0-9]/', '', $telctc1);

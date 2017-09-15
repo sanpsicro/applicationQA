@@ -7,6 +7,8 @@ isset($_POST['tipo']) ? $tipo = $_POST['tipo'] : $tipo = "" ;
 isset($_POST['modelo']) ? $modelo = $_POST['modelo'] : $modelo = "" ;
 isset($_POST['color']) ? $color = $_POST['color'] : $color = "" ;
 isset($_POST['placas']) ? $placas= $_POST['placas'] : $placas= "" ;
+isset($_POST['id']) ? $id= $_POST['id'] : $id= "" ;
+isset($_POST['caso']) ? $caso= $_POST['caso'] : $caso= "" ;
 
 include('conf.php'); 
 if(isset($_POST['id']) && $_POST['id']!=""){

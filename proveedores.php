@@ -400,7 +400,7 @@ $ubicacionEstado=mysqli_result($resultEstado,0,"NombreEstado");
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$row["status"].'</td>
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$ubicacionEstado.'</td>
 <td bgcolor="'.$bgcolor.'" class="dataclass" align=middle>'.$ubicacionMunicipio.'</td>
-<td bgcolor="'.$bgcolor.'" class="dataclass" align=middle><form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
+<td bgcolor="'.$bgcolor.'" class="dataclass" align=middle><form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel"].'';
  $telctc1 = $row["tel"];
  $telcall1 = preg_replace('/[^0-9]/', '', $telctc1);

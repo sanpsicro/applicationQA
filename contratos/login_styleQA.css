@@ -1,0 +1,50 @@
+@CHARSET "ISO-8859-1";
+
+
+
+h1{
+	color:#F5F8FC;
+	font-family: "Lucida Console";
+	font-weight: 100;
+	font-size: 150%;
+	letter-spacing: 2px;
+	padding-top:20px;
+	 
+}
+
+.button {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+     font-family: "Lucida Console";
+     font-size: 180%;
+     color:#F5F8FC;
+     letter-spacing: 2px;
+    
+}
+
+.content{
+	width:310px;
+	
+	height: 330px; 
+	background-color: rgba(254, 251, 255, 0.5);
+	
+	
+}
+
+.header{
+	width:310px;
+	background-color: #013E81;
+	height:60px;
+}
+
+.input{
+	background-color: #013E81;
+	color: #F5F8FC;
+	line-height: 2em;
+	width:80%;
+	
+	
+}

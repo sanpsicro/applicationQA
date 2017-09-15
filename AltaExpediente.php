@@ -699,7 +699,7 @@ Que t�cnico solicita:
 </td>
 <td><?php if($fila['UbicacionRequiere']) { ?><table>
 <tr>
-<td>Ubicaci�n donde requiere el servicio:
+<td>Ubicaci&oacute;n donde requiere el servicio:
 </td></tr><tr>
 <td>
 <input type="text" name="UbicacionRequiere" id="UbicacionRequiere" size="30"/>
@@ -879,7 +879,7 @@ Que t�cnico solicita:
 <td>
 <?php if($fila['SeguimientoLegal']) { ?><table>
 <tr>
-<td>SEGUIMIENTO LEGAL AUTOMOVIL�STICO:
+<td>SEGUIMIENTO LEGAL AUTOMOVIL&iacute;STICO:
 </td></tr><tr>
 <td>
 <input type="text" name="SeguimientoLegal" id="SeguimientoLegal" size="20"/>

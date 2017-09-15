@@ -2,6 +2,7 @@
 $checa_array1=array_search("cap_a",$explota_permisos);
 isset($_GET['accela']) ? $accela = $_GET['accela'] : $accela = null;
 isset($_GET['capid']) ? $capid = $_GET['capid'] : $capid = null;
+isset($_GET['contid']) ? $contid = $_GET['contid'] : $contid = null;
 if($checa_array1===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{} ?>
 
@@ -172,7 +173,7 @@ $db = mysqli_connect($host,$username,$pass,$database);
 
 ////mysql_select_db($database,$db);
 
-$result = mysqli_query("SELECT * from modcont where id = '$contid'",$db);
+$result = mysqli_query($db,"SELECT * from modcont where id = '$contid'");
 $titulo=mysqli_result($result,0,"titulo");
 $tipo=mysqli_result($result,0,"tipo");
 $contenido=mysqli_result($result,0,"contenido");

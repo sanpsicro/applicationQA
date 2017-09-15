@@ -125,6 +125,7 @@ isset($_GET['idPoliza']) ? $idPoliza = $_GET['idPoliza'] : $idPoliza = "" ;
  
 #----------------
 if($module=="usuarios"){ 
+	isset($_GET['idEmpleado']) ? $idEmpleado= $_GET['idEmpleado'] : $idEmpleado= null ;
 if(count($modules_auth)!="0" && $modules_auth!=" " && $modules_auth!=""){$modulos_enlatados=implode(",",$modules_auth);}
 else{$modulos_enlatados="";}
 if(count($permi)!="0" && $permi!=" " && $permi!=""){$permisos_enlatados=implode(",",$permi);}
@@ -501,6 +502,11 @@ header("Location: mainframe.php?module=detail_seguimiento&id=$id&current=3");
 
 #----------------
 if($module=="enviasms1"){ 
+	
+	isset($_POST['to']) ? $to = $_POST['to'] : $to = "" ;
+	isset($_POST['gr']) ? $gr = $_POST['gr'] : $gr = "" ;
+	isset($_POST['body']) ? $body = $_POST['body'] : $body = "" ;
+	
 
 if(isset($gr)){
 
@@ -528,6 +534,10 @@ header("Location: mainframe.php?module=detail_seguimiento&id=$gr&current=3");
 
 #----------------
 if($module=="enviasms2"){ 
+	
+	isset($_POST['to']) ? $to = $_POST['to'] : $to = "" ;
+	isset($_POST['gr']) ? $gr = $_POST['gr'] : $gr = "" ;
+	isset($_POST['body']) ? $body = $_POST['body'] : $body = "" ;
 
 if(isset($gr)){
 
@@ -623,6 +633,15 @@ header("Location: mainframe.php?module=$module");
 
 #----------------
 if($module=="carpetas"){ 
+	
+isset($_GET['capid']) ? $capid = $_GET['capid'] : $capid = null ;	
+isset($_GET['contid']) ? $contid= $_GET['contid'] : $contid= null ;
+isset($_GET['from']) ? $from = $_GET['from'] : $from = null ;
+isset($_POST['titulo']) ? $titulo = $_POST['titulo'] : $titulo = null ;
+isset($_POST['tipo']) ? $tipo = $_POST['tipo'] : $tipo = 0 ;
+isset($_POST['contenido']) ? $contenido = $_POST['contenido'] : $contenido = null ;
+isset($_POST['activo']) ? $activo = $_POST['activo'] : $activo = 0 ;
+isset($_POST['archivo']) ? $archivo = $_POST['archivo'] : $archivo = null ;
 
 if(isset($accela) && $accela=="new"){
 
@@ -631,7 +650,7 @@ $link= mysqli_connect($host,$username,$pass,$database);
 
 mysqli_query($link,"INSERT INTO `modcont` (`capid`, `titulo`, `tipo`, `contenido`, `archivo`, `fecha`, `activo`) 
 
-VALUES ('$capid', '$titulo', '$tipo', '$contenido', '$archivo', CONVERT_TZ(now(),'+00:00','+02:00'), '$activo')"); 
+VALUES ('$capid', '$titulo', '$tipo', '$contenido', '$archivo', CONVERT_TZ(now(),'+00:00','+02:00'), '$activo')") or die(mysqli_error($link)); 
 
 
  $link= mysqli_connect($host,$username,$pass,$database);
@@ -1567,6 +1586,13 @@ if($module=="detail_seguimiento"){
 	isset($_POST['destino_colonia']) ? $destino_colonia= $_POST['destino_colonia'] : $destino_colonia= "" ;
 	isset($_POST['destino_ciudad']) ? $destino_ciudad= $_POST['destino_ciudad'] : $destino_ciudad= "" ;
 	isset($_POST['observaciones']) ? $observaciones= $_POST['observaciones'] : $observaciones= "" ;
+	isset($_POST['estado']) ? $estado= $_POST['estado'] : $estado= "" ;
+	isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio= "" ;
+	isset($_POST['colonia']) ? $colonia= $_POST['colonia'] : $colonia= "" ;
+	isset($_POST['observaciones']) ? $observaciones= $_POST['observaciones'] : $observaciones= "" ;
+	isset($_POST['tecnico_solicitado']) ? $tecnico_solicitado= $_POST['tecnico_solicitado'] : $tecnico_solicitado= "";
+	
+	
 	
 	
 $link= mysqli_connect($host,$username,$pass,$database);

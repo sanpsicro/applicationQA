@@ -299,7 +299,7 @@ $checa_arrayx=array_search("tel_reporta",$camposex);
 if($checa_arrayx===FALSE){} else{
 ?>          
       <td bgcolor="#ffffff">
-<form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank">      
+<form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank">      
       <strong>Tel. de contacto:</strong> 
 		  <?php  echo $tel_reporta;?>
   <?php 
@@ -1202,7 +1202,7 @@ else{echo'Da&ntilde;o estimado:';}
 <?php 
 $link = mysqli_connect($host,$username,$pass,$database); 
 ////mysql_select_db($database, $link); 
-$result = mysqli_query($db,"SELECT * FROM adjuntos where general='".$id."' order by fecha desc", $link); 
+$result = mysqli_query($link,"SELECT * FROM adjuntos where general='".$id."' order by fecha desc"); 
 if (mysqli_num_rows($result)){ 
 
   while ($row = @mysqli_fetch_array($result)) { 
@@ -1498,7 +1498,7 @@ $link = mysqli_connect($host,$username,$pass,$database);
 
 ?>
 
-<strong>URL PARA EL USUARIO: http://aateayuda.com/<?php echo $id?>/</strong><br />
+<strong>URL PARA EL USUARIO: https://app-quam.net/aateayuda.com/<?php echo $id?>/</strong><br />
 
 <?php 
 $cuentacel=strlen($celsms);
@@ -1509,7 +1509,7 @@ if ($cuentacel == 10) { ?>
 <form id="form1" name="form1" method="post" action="process.php?module=enviasms1">
 <input type="hidden" name="to" value="+52<?php echo $celsms?>">
 <input type="hidden" name="gr" value="<?php echo $id?>">
-<input type="hidden" name="body" value="Durante su asistencia puede contactarnos por chat: http://aateayuda.com/<?php echo $id?>">
+<input type="hidden" name="body" value="Durante su asistencia puede contactarnos por chat: https://app-quam.net/aateayuda.com/<?php echo $id?>">
 <input type="submit" value="ENVIAR LIGA">	
 </form>
 <?php  } else { echo ("<strong>ERROR: No se puede enviar SMS, \"Tel. de contacto\" debe ser de 10 digitos</strong>"); } ?>
@@ -1575,11 +1575,11 @@ $cuentacel=strlen($celsms);
 
 if ($cuentacel == 10) { ?>
 
-<strong>SE ENVIARÁ UN SMS A: +52<?php $celsms?></strong>
+<strong>SE ENVIARÁ UN SMS A: +52<?php echo $celsms?></strong>
 <br />
 <form id="form1" name="form1" method="post" action="process.php?module=enviasms2">
-<input type="hidden" name="to" value="+52<?php $celsms?>">
-<input type="hidden" name="gr" value="<?php $id?>">
+<input type="hidden" name="to" value="+52<?php echo $celsms?>">
+<input type="hidden" name="gr" value="<?php echo $id?>">
 <textarea id="textarea" name="body" cols="80" rows="4" maxlength="160"></textarea>
 <br />
 <input type="submit" value="ENVIAR MENSAJE">	

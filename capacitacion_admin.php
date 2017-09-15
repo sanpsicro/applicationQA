@@ -13,6 +13,7 @@ function mysqli_result($res,$row=0,$col=0){
 }
 
 $accela = $_GET['accela'];
+$capid = $_GET['capid'];
 
 $checa_array1=array_search("cap_a",$explota_permisos);
 

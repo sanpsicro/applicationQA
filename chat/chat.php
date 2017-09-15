@@ -1,14 +1,23 @@
 <link href="chatstyle.css" rel="stylesheet" type="text/css" />
 <?php 
 error_reporting(0);
+
+isset($_POST['color']) ? $color= $_POST['color'] : $color= "" ;
+isset($_POST['name']) ? $name = $_POST['name'] : $name = "" ;
+isset($_POST['text']) ? $text= $_POST['text'] : $text= "" ;
+isset($_POST['op']) ? $op= $_POST['op'] : $op= "" ;
+isset($data) ? $data= $data : $data ="" ;
+
+
 require_once "class.MySQL.php";
-$dbconnect = new mysqli();
+include ("conf.php");
+$dbconnect = new MySQL();
 $dbconnect->connectMySql("com.inc");
 $ip=$_SERVER['REMOTE_ADDR'];
 $d=date("Y-m-d H:i:s",time());
 $d10=date("Y-m-d H:i:s",time()-864000);
 if ($op=="insert"){
- if ($text!="") $dbconnect->query("insert into chat (date,name,text,ip,color,general) values (now(), 'usuario','$text','$ip','$color', '$name')");
+ if ($text!="") $dbconnect->query("insert into chat (date,name,text,ip,color,general) values (CONVERT_TZ(now(),'+00:00','+02:00'), 'usuario','$text','$ip','$color', '$name')");
   $dbconnect->query("UPDATE chatstat SET atendido = 1 where gr='$name'");
 }
 

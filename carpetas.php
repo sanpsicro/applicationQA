@@ -42,8 +42,11 @@ float:left;
 
 
 <?php
-
-$from = $_GET['from'];
+error_reporting(E_ALL);
+isset($_GET['from'])? $from = $_GET['from']: $from = "";
+isset($_GET['par'])? $par= $_GET['par']: $par= "";
+isset($_GET['main'])? $main= $_GET['main']: $main= "";
+isset($_GET['bm'])? $bm= $_GET['bm']: $bm= "";
 $capid= $_GET['capid']; 
 
 function mysqli_result($res,$row=0,$col=0){ 
@@ -154,7 +157,7 @@ $link = mysqli_connect($host, $username, $pass,$database);
 
 ////mysql_select_db($database, $link); 
 
-$result = mysqli_query("SELECT * FROM modcap WHERE parent=$capid $activos order by nombre asc", $link); 
+$result = mysqli_query($link,"SELECT * FROM modcap WHERE parent=$capid $activos order by nombre asc"); 
 
 if (mysqli_num_rows($result)){ 
 

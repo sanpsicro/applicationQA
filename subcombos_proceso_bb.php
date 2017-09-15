@@ -5,6 +5,7 @@ $colonia = "";
 
 	include 'conf.php';
 if($_GET["select"]=="municipio"){
+	$municipio= $_GET["select"];
 echo' <select name="municipio" id="municipio" onChange=\'cargaContenido(this.id)\'><option value="0">SELECCIONE UNA OPCION</option>';
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
@@ -21,6 +22,7 @@ echo'</select>';
 }	
 
 if($_GET["select"]=="colonia"){
+	$colonia= $_GET["select"];
 echo' <select name="colonia" id="colonia"><option value="0">SELECCIONE UNA OPCION</option>';
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
@@ -38,7 +40,7 @@ echo'</select>';
 ###########################################
 
 if($_GET["select"]=="municipio2"){
-
+	$municipio= $_GET["select"];
 echo' <select name="municipio2" id="municipio2"  onChange=\'cargaContenido(this.id)\'><option value="0">SELECCIONE UNA OPCION</option>';
 
 $link = mysqli_connect($host,$username,$pass,$database); 
@@ -67,6 +69,7 @@ echo'</select>';
 }	
 
 if($_GET["select"]=="colonia2"){
+	$colonia2 = $_GET['select'];
 echo' <select name="colonia2" id="colonia2"><option value="0">SELECCIONE UNA OPCION</option>';
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
@@ -76,7 +79,7 @@ if (mysqli_num_rows($result)){
   		$row["NombreColonia"]=htmlentities($row["NombreColonia"]);
   		$row["NombreColonia"]=substr($row[NombreColonia],0,25);									
   echo'<option value="'.$row["idColonia"].'"';
-     if($colobia2==$row["idColonia"]){echo"selected";}
+     if($colonia2==$row["idColonia"]){echo"selected";}
 	 echo'>'.$row["NombreColonia"].'</option>';
   }}
 echo'</select>';
@@ -84,6 +87,7 @@ echo'</select>';
 ###########################################
 
 if($_GET["select"]=="aseg_municipio"){
+	$aseg_municipio = $_GET["select"];
 echo' <select name="aseg_municipio" id="aseg_municipio"  onChange=\'cargaContenido(this.id)\'><option value="0">Seleccione una opcion</option>';
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
@@ -99,6 +103,7 @@ if (mysqli_num_rows($result)){
 echo'</select>';
 }	
 if($_GET["select"]=="aseg_colonia"){
+	$aseg_colonia= $_GET["select"];
 echo' <select name="aseg_colonia" id="aseg_colonia"><option value="0">SELECCIONE UNA OPCION</option>';
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 

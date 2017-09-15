@@ -13,7 +13,7 @@ header("Location: index.php?errorcode=3");
 if(isset($tel) && ($extension)) {
 				
 echo ('
-<form method="post" action="http://192.168.1.200/api/actions/call">
+<form method="post" action="https://192.168.1.200/api/actions/call">
 <input type="hidden" name="number" value="9'.$tel.'">
 <input type="hidden" name="extension" value="'.$extension.'">
 <input type="image" src="call.png" alt="Llamar" style="border:0px;" />

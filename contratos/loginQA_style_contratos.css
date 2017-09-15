@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+
+h1{
+	color:#F1831C;
+	font-family: "Lucida Console";
+	font-weight: 100;
+	font-size: 150%;
+	letter-spacing: 2px;
+}
+
+.button {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+     font-family: "Lucida Console";
+     font-size: 180%;
+     color:#004F91;
+     letter-spacing: 2px;
+}
+
+.content{
+	width:310px;
+	border-color:#E4E4E4 ;
+	border: 2px;
+	height: 330px; 
+	border-style: solid; 
+	border-color: #E4E4E4; 
+	border-width: 1px;
+}
+
+.header{
+	width:310px;
+	
+}
+
+.input{
+	background-color: #F1831C;
+	color: #F6AF77;
+	line-height: 2em;
+	width:80%;
+	
+}

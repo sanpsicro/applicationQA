@@ -1,6 +1,23 @@
 <?php 
 session_start();
 $tablax = $_POST['tablax'];
+isset($_POST['vendedor'])? $vendedor = $_POST['vendedor']: $vendedor = "";
+isset($_POST['numcon'])? $numcon = $_POST['numcon']: $numcon = "";
+isset($_POST['tipo_cliente'])? $tipo_cliente= $_POST['tipo_cliente']: $tipo_cliente= "";
+isset($_POST['sort'])? $sort= $_POST['sort']: $sort= "";
+isset($_POST['ascdesc'])? $ascdesc= $_POST['ascdesc']: $ascdesc= "";
+isset($_POST['status'])? $status= $_POST['status']: $status= "";
+isset($_POST['filtrofecha1'])? $filtrofecha1= $_POST['filtrofecha1']: $filtrofecha1= "";
+isset($_POST['serviciof'])? $serviciof= $_POST['serviciof']: $serviciof= "";
+isset($_POST['empleadof'])? $empleadof= $_POST['empleadof']: $empleadof= "";
+isset($_POST['quest'])? $quest= $_POST['quest']: $quest= "";
+isset($_POST['filtrofecha2'])? $filtrofecha2= $_POST['filtrofecha2']: $filtrofecha2= "";
+isset($_POST['filtrofecha3'])? $filtrofecha3= $_POST['filtrofecha3']: $filtrofecha3= "";
+isset($_POST['filtrofecha4'])? $filtrofecha4= $_POST['filtrofecha4']: $filtrofecha4= "";
+isset($_POST['filtrofecha5'])? $filtrofecha5= $_POST['filtrofecha5']: $filtrofecha5= "";
+isset($_POST['filtrofecha6'])? $filtrofecha6= $_POST['filtrofecha6']: $filtrofecha6= "";
+isset($_POST['filtrofecha7'])? $filtrofecha7= $_POST['filtrofecha7']: $filtrofecha7= "";
+
 $explota_modular=explode(",",$_SESSION["valid_modulos"]);
 
 ?> 
