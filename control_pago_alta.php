@@ -2,11 +2,13 @@
 $checa_arrayx=array_search("pagos",$explota_modulos);
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
+isset($_GET['expediente']) ? $expediente= $_GET['expediente'] : $expediente= "" ;
+isset($_GET['proveedor']) ? $proveedor= $_GET['proveedor'] : $proveedor= "" ;
 ?>
 <span class="maintitle">Alta de pago al Expediente <a href="detalle_seguimiento.php?id=<?php echo $expediente;?>" target="_blank"><?php echo $expediente;?></a></span>
 <form method="post" action="control_pago_db.php?action=alta">
-<input type="hidden" name="expediente" value="<?php  $_GET['expediente']?>">
-<input type="hidden" name="proveedor" value="<?php  $_GET['proveedor']?>">
+<input type="hidden" name="expediente" value="<?php echo  $_GET['expediente']?>">
+<input type="hidden" name="proveedor" value="<?php echo $_GET['proveedor']?>">
 <table width="100%" border="0" class="mainTable" cellspacing="3" cellpadding="3">
 <tr> 
 	<th>Fecha de Corte</th>

@@ -16,7 +16,7 @@ if(empty($sort)){$sort="factura";}
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remision</span></td><td width=150 class="blacklinks"><?php   $checa_array1=array_search("22_a",$explota_permisos);
-if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&accela=new">Nueva Nota de Remisi�n</a> ]';} ?></td></tr></table></td></tr>
+if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&accela=new">Nueva Nota de Remisi&oacute;n</a> ]';} ?></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
@@ -31,12 +31,12 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
                 <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
                 <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
 =======
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p�gina</option>
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p�gina</option>
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p�gina</option>
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p�gina</option>
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p�gina</option>
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
 >>>>>>> 7d922a3ec2d0bf6446eb3c3222f332535650d2f6
               </select>
               <select name="sort" id="ordenar">
@@ -54,7 +54,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -91,12 +91,12 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
 
 
 <?php  
-if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva Nota de Remisi�n Registrada</div></b><p>';}
-if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de la Nota de Remisi�n actualizados</div></b><p>';}
-if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Nota de Remisi�n eliminada</div></b><p>';}
+if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva Nota de Remisi&oacute;n Registrada</div></b><p>';}
+if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de la Nota de Remisi&oacute;n actualizados</div></b><p>';}
+if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Nota de Remisi&oacute;n eliminada</div></b><p>';}
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="where (factura like '%$quest%' OR nombre like '%$quest%')";
 }
 else{$condicion="";}
@@ -143,7 +143,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Fecha</b></td>
                       <td align=middle class="titles"><b>Total</b></td>					  
                       <td align=middle class="titles"><b>Status</b></td>					  
-                      <td align=middle class="titles"><b>Operaci�n</b></td></tr>';
+                      <td align=middle class="titles"><b>Operaci&Oacute;n</b></td></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
   

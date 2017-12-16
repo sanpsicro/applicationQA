@@ -18,8 +18,19 @@ $query="SELECT  p.fecha_corte,
 				p.fecha_pago
 				FROM pagos p 
 				WHERE p.id='$id'";
-$result = mysqli_query($link,$query) or die (mysql_error($link)); 
-extract(mysqli_fetch_array($result));
+$result = mysqli_query($link,$query) or die (mysqli_error($link)); 
+$vars = mysqli_fetch_array($result);
+
+$fecha_corte = $vars['fecha_corte'];
+$expediente = $vars['expediente'];
+$proveedor = $vars['proveedor'];
+$conceptor = $vars['conceptor'];
+$monto = $vars['monto'];
+$status = $vars['status'];
+$cerrado = $vars['cerrado'];
+$fecha_pago = $vars['fecha_pago'];
+
+
 
 list($corte_anio,$corte_mes,$corte_dia)=explode("-",$fecha_corte);
 list($pago_anio,$pago_mes,$pago_dia)=explode("-",$fecha_pago);
@@ -80,7 +91,7 @@ if($cerrado == '1'){
 <tr>	
 	<th>Concepto</th><td style="text-align:left"><?php echo $conceptor;?><input type="hidden" name="conceptor" value="<?php echo $conceptor;?>" size="40"></td>
 </tr>
-<tr>s
+<tr>
 	<th>Monto</th><td style="text-align:left"><?php echo $monto;?><input type="hidden" name="monto" value="<?php echo $monto;?>" size="4"></td>				  
 </tr>
 

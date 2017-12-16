@@ -2,9 +2,10 @@
 session_start();
 //isset($_GET['id']) ? $id  = $_GET['id'] : $id = null ;
 isset($_GET['accela']) ? $accela  = $_GET['accela'] : $accela = null ;
-isset($_GET['estado']) ? $estado  = $_GET['estado'] : $estado = null ;
-isset($_GET['municipio']) ? $municipio  = $_GET['municipio'] : $municipio = null ;
-isset($_GET['prioridad']) ? $prioridad  = $_GET['prioridad'] : $prioridad = null ;
+isset($_GET['racoon']) ? $racoon= $_GET['racoon'] : $racoon= null ;
+isset($_POST['estado']) ? $estado  = $_POST['estado'] : $estado = null ;
+isset($_POST['municipio']) ? $municipio  = $_POST['municipio'] : $municipio = null ;
+isset($_POST['prioridad']) ? $prioridad  = $_POST['prioridad'] : $prioridad = null ;
 
 if(isset($accela) && $accela=="elimina"){
 $areas_exp=explode(",",$_SESSION['coberturas']);
@@ -148,7 +149,7 @@ echo'<select disabled="disabled" name="municipio" id="municipio">
 	
 <?php
 if(isset($_SESSION["coberturas"]) && $_SESSION["coberturas"]!=""){
-$areas_desglosadas=explode(",",$_SESSION[coberturas]);
+$areas_desglosadas=explode(",",$_SESSION["coberturas"]);
 sort($areas_desglosadas);
 array_unique($areas_desglosadas);
 foreach($areas_desglosadas as $mikarea){

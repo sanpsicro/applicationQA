@@ -61,7 +61,7 @@ switch($dia_semana)
 
 $link = mysqli_connect($host,$username,$pass,$database);
 mysqli_query($link,"INSERT INTO `pagos` (`proveedor`, `conceptor`, `monto`, `status`, `expediente`,`fecha_corte`,`fecha_pago`) 
-		VALUES ('$proveedor', 'Pago por servicio', '$monto', '0', '$expediente',CONVERT_TZ(now(),'+00:00','+02:00'),'$sig_viernes')") or die(mysqli_error($link) ); 
+		VALUES ('$proveedor', 'Pago por servicio', '$monto', '0', '$expediente',CONVERT_TZ(now(),'+00:00','+01:00'),'$sig_viernes')") or die(mysqli_error($link) ); 
 }
 #####################################################
 ##  Control de Cobranza

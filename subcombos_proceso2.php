@@ -3,6 +3,8 @@
 	include 'conf.php';
 
 if($_GET["select"]=="municipio"){
+	
+	isset($_POST['municipio']) ? $municipio = $_POST['municipio'] : $municipio = "";
 
 echo' <select name="municipio" id="municipio" onChange="cargaContenido(this.id)"><option value="">Todos los municipios</option>';
 
@@ -17,10 +19,10 @@ if (mysqli_num_rows($result)){
   while ($row = @mysqli_fetch_array($result)) { 
 
   		$row["NombreMunicipio"]=htmlentities($row["NombreMunicipio"]);
-  		$row["NombreMunicipio"]=substr($row[NombreMunicipio],0,25);		
+  		$row["NombreMunicipio"]=substr($row['NombreMunicipio'],0,25);		
 
   echo'<option value="'.$row["idMunicipio"].'"';
-  $municipio = $row["idMunicipio"];
+
 
      if($municipio==$row["idMunicipio"]){echo" selected ";}
 

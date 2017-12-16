@@ -76,27 +76,27 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
 
-                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por p�gina</option>
+                <option value="10" <?php if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
 
 
 
-                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por p�gina</option>
+                <option value="20"  <?php if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
 
 
 
-                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por p�gina</option>
+                <option value="30"  <?php if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
 
 
 
-                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por p�gina</option>
+                <option value="50"  <?php if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
 
 
 
-                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por p�gina</option>
+                <option value="100"  <?php if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
 
 
 
-                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="200"  <?php if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
 
 
 
@@ -201,7 +201,7 @@ if(isset($quest) && $quest!=""){
 
 
 
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 
 
 
@@ -276,7 +276,7 @@ $result = mysqli_query($link,"SELECT * FROM Provedor $condicion order by $sort
 
 
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -370,13 +370,13 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Status</b></td>					  		 
 					  <td align=middle class="titles"><b>Estado</b></td>
 			 		  <td align=middle class="titles"><b>Municipio</b></td>
-                      <td align=middle class="titles"><b>Tel�fono</b></td>					  
+                      <td align=middle class="titles"><b>tel&eacute;fono</b></td>					  
                       <td align=middle class="titles"><b>Celular</b></td>					  
                       <td align=middle class="titles"><b>Fax</b></td>					  
                       <td align=middle class="titles"><b>Nextel</b></td>					  
                       <td align=middle class="titles"><b>Email</b></td>					  
 
-                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaci�n</b></td></tr>';
+                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaci&Oacute;n</b></td></tr>';
 
 $bgcolor="#cccccc";
 

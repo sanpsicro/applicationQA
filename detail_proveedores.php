@@ -133,7 +133,7 @@ $tipoVenta=mysqli_result($result6,0,"nombre") ;
 
     <td width="50%" bgcolor="#CCCCCC"><strong>Usuario:</strong> <?php  echo $usuario?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Direcci�n:</strong> <?php  echo ''.$calle.' COL '.$colonia.' CP '.$cp.', '.$municipio.', '.$estado.'';?></td>
+    <td bgcolor="#CCCCCC"><strong>Direcci&oacute;n:</strong> <?php  echo ''.$calle.' COL '.$colonia.' CP '.$cp.', '.$municipio.', '.$estado.'';?></td>
     </tr>
 
   <tr>

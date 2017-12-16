@@ -253,14 +253,14 @@ function validar(formulario) {
   }
   
      if (formulario.tel.value.length < 4) {
-    alert("Escriba un teléfono");
+    alert("Escriba un tel&eacute;fono");
     formulario.tel.focus();
     return (false);
   }
   
   /*
   if ((formulario.mail.value.indexOf ('@', 0) == -1)||(formulario.mail.value.length < 5)) { 
-    alert("Escriba una dirección de correo válida"); 
+    alert("Escriba una direcci&oacute;n de correo vï¿½lida"); 
 	    formulario.mail.focus();
     return (false); 
   }
@@ -318,7 +318,7 @@ $result = mysql_query("SELECT * FROM TipoVenta", $link);
 
 if (mysql_num_rows($result)){ 
 
-echo'<select name="tipoventa" id="tipoventa" onChange="FAjax(\'fechacombo.php?&flim-flam=new Date().getTime()\',\'vencimiento\',\'opcion=\'+document.getElementById(\'tipoventa\').value+\'&actual=\'+document.getElementById(\'fecha_inicio\').value,\'POST\')" ><option value="">Seleccione una opción</option>';
+echo'<select name="tipoventa" id="tipoventa" onChange="FAjax(\'fechacombo.php?&flim-flam=new Date().getTime()\',\'vencimiento\',\'opcion=\'+document.getElementById(\'tipoventa\').value+\'&actual=\'+document.getElementById(\'fecha_inicio\').value,\'POST\')" ><option value="">Seleccione una opci&oacute;n</option>';
 
   while ($row = @mysql_fetch_array($result)) { 
 

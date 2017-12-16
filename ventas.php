@@ -5,6 +5,13 @@ if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 if(empty($show)){$show=10;}
 if(empty($sort)){$sort="numPoliza";}
+
+//line 77 thisis what is its function
+isset($_GET['accela']) ? $accela= $_GET['accela'] : $accela= "";
+isset($_GET['quest']) ? $quest= $_GET['quest'] : $quest= "";
+isset($_GET['sort']) ? $sort= $_GET['sort'] : $sort= "";
+isset($_GET['show']) ? $show= $_GET['show'] : $show= "";
+
 ?>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
@@ -56,10 +63,7 @@ list($total) = mysqli_fetch_row($result);
 $tampag = $show;
 $reg1 = ($pag-1) * $tampag;
 $result = mysqli_query($link,"SELECT Poliza.idPoliza,Poliza.numPoliza,Cliente.nombre as cliente, Cliente.tipocliente, Empleado.nombre as vendedor, usuarios_contrato.status as elstatus, SUM(usuarios_contrato.monto) as monto, SUM(usuarios_contrato.ingreso) as ingreso FROM Poliza left join  Cliente on (Cliente.idCliente = Poliza.idCliente) left join Empleado on (Cliente.idEmpleado = Empleado.idEmpleado) left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) $previo $condicion GROUP BY usuarios_contrato.contrato order by $sort LIMIT $reg1, $tampag"); 
-$_GET["accela"]=$accela;
-$_GET["quest"]=$quest;
-$_GET["sort"]=$sort;
-$_GET["show"]=$show;
+
   function paginar($actual, $total, $por_pagina, $enlace) {
   $pag = ($_GET['pag']);   
   $total_paginas = ceil($total/$por_pagina);
@@ -69,7 +73,7 @@ $_GET["show"]=$show;
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
-    $texto .= "<option $thisis value=\"$enlace$isabel\">$isabel</option> ";}
+    $texto .= "<option  value=\"$enlace$isabel\">$isabel</option> ";}
 } 	
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;

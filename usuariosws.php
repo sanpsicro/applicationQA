@@ -22,7 +22,7 @@ if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos del Usuario 
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Usuario eliminado</div></b><p>';}
 if(isset($code) && $code=="4"){echo'<br><b><div class="xplik">Error: El Usuario ya existe</div></b><p>';}
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="where (nombre like '%$quest%' OR direccion like '%$quest%' OR estado like '%$quest%' OR municipio like '%$quest%' OR email like '%$quest%' OR usuario like '%$quest%')";
 }
 else{$condicion="";}
@@ -46,7 +46,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
@@ -72,7 +72,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3" class="mainT
                       <td align=middle class="titles">Contrato 3</th>
                       <td align=middle class="titles">Contrato 4</th>					  
                       <td align=middle class="titles">Contrato 5</th>					  
-                      <td align=middle class="titles">Operaci�n</th></tr>';
+                      <td align=middle class="titles">Operaci&Oacute;n</th></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}

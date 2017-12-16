@@ -281,7 +281,7 @@ if(isset($actuar) && $actuar=="qtiper"){
 
 
 $link = mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE Empleado SET qtip=CONVERT_TZ(now(),'+00:00','+02:00') where idEmpleado='$userid'";
+$sSQL="UPDATE Empleado SET qtip=CONVERT_TZ(now(),'+00:00','+01:00') where idEmpleado='$userid'";
 mysqli_query($link, $sSQL);
 
 

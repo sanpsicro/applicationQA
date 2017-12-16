@@ -9,7 +9,7 @@ isset($_POST['sort']) ? $sort= $_POST['sort']: $sort= "" ;
 isset($_POST['show']) ? $show= $_POST['show']: $show= "" ;
 
 
-
+isset($_GET['quest']) ? $quest= $_GET['quest']: $quest= "" ;
 if(empty($show)){$show=50;}
 if(empty($sort)){$sort="cobranza.id DESC";}
 if(empty($selenium)){$selenium="no pagados";}
@@ -43,7 +43,7 @@ if(empty($selenium)){$selenium="no pagados";}
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
-            <form name="form1" method="post" action="bridge.php?module=control_cobranza"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=control_cobranza"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -59,8 +59,8 @@ if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Pago eliminado</di
 
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
-$condicion="AND (Cliente.nombre like '%$quest%' OR cobranza.expediente=$quest)";
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
+$condicion="AND (Cliente.nombre like '%$quest%' OR cobranza.expediente='$quest')";
 }
 else{
 if($selenium=="all"){$condicion="";}

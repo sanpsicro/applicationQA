@@ -8,7 +8,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
             <td width="400" class="questtitle">&nbsp; 
 </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -52,7 +52,7 @@ else{$subcondicion="";}
 $checa_array1=array_search("4_a",$explota_permisos);
 if($checa_array1===FALSE){} else{
 							if(isset($cliente) && $cliente!=""){
-							echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+							echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $link = mysql_connect($host, $username, $pass); 
 mysql_select_db($database, $link); 
 $result = mysql_query("SELECT * FROM Cliente where nombre like '%$cliente%' $subcondicion order by nombre", $link); 

@@ -125,7 +125,7 @@ echo '
 <ul class="alertas">
 	<li>
 		<a href="?module=seguimiento&display=abierto">
-			Existen '.$total.' Servicios en Proceso de Atención
+			Existen '.$total.' Servicios en Proceso de Atenciï¿½n
 		</a>
 	</li>
 	<li>
@@ -135,7 +135,7 @@ echo '
 	</li>
 	<li>
 		<a href="?module=seguimiento&display=abierto_tramite&moko=vehiculo_detenido">
-			Existen '.$total3.'  vehículos detenidos
+			Existen '.$total3.'  veh&iacute;culos detenidos
 		</a>
 	</li>
 	<li>

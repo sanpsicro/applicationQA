@@ -95,7 +95,7 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmDelete(delUrl,name_cat) { 
-if (confirm("¿Está seguro de querer eliminar \n" + name_cat + "?")) { 
+if (confirm("Â¿Est&aacute; seguro de querer eliminar \n" + name_cat + "?")) { 
 document.location = delUrl; 
 }
 }

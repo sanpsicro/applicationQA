@@ -349,7 +349,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Servicio</b></td>
                       <td align=middle class="titles"><b>Tipo</b></td>					  
 
-                      <td align=middle class="titles"><b>Operaci�n</b></td></tr>';
+                      <td align=middle class="titles"><b>Operaci&Oacute;n</b></td></tr>';
 
 $bgcolor="#cccccc";
 

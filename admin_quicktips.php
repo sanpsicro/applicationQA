@@ -63,7 +63,7 @@ function validar(formulario) {
 
 
   if (formulario.contrasena.value.length < 4) {
-    alert("Escriba una contrase�a");
+    alert("Escriba una contrase&ntilde;a");
     formulario.contrasena.focus();
     return (false);
   }
@@ -82,7 +82,7 @@ function validar(formulario) {
   }
   
     if (formulario.direccion.value.length < 4) {
-    alert("Escriba una direcci�n");
+    alert("Escriba una direcci&oacute;n");
     formulario.direccion.focus();
     return (false);
   }
@@ -106,14 +106,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un tel�fono");
+    alert("Escriba un tel&eacute;fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   /*
   
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una direcci�n de correo v�lida"); 
+    alert("Escriba una direcci&oacute;n de correo v�lida"); 
 	    formulario.email.focus();
     return (false); 
   }

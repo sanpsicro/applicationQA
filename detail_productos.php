@@ -13,7 +13,7 @@ $id = $_GET['id'];
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>

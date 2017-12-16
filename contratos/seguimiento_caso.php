@@ -88,7 +88,7 @@ if (metodo.toUpperCase()=='GET'){
 
 function confirmDelete(delUrl,name_cat) { 
 
-if (confirm("¿Está seguro de querer eliminar \n" + name_cat + "?")) { 
+if (confirm("Â¿Est&aacute; seguro de querer eliminar \n" + name_cat + "?")) { 
 
 document.location = delUrl; 
 
@@ -107,7 +107,7 @@ $tipoServicio=mysql_result($result,0,"tipo");
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Seguimiento</span></td>
-      <td width=100 class="blacklinks"><? if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=$id'>Detalle</a> | <a href='?module=conclusion_caso&id=$id'>Conclusión</a>";}?></td>
+      <td width=100 class="blacklinks"><? if($tipoServicio=="legal"){echo "<a href='?module=detail_seguimiento&id=$id'>Detalle</a> | <a href='?module=conclusion_caso&id=$id'>Conclusiï¿½n</a>";}?></td>
 
 
 

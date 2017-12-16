@@ -12,7 +12,7 @@
 			?>
 </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=pagos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=pagos"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>

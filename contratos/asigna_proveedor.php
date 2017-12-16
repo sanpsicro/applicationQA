@@ -169,7 +169,7 @@ $telcall6 = preg_replace('/[^0-9]/', '', $tel6);
 </tr>
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto:</b> '.$row["contacto"].'<br>
-<b>Teléfono:</b> <a href="ctc.php?tel='.$telcall1.'&extension='.$extension.'" target="ctc">'.$row["tel"].'</a><br>
+<b>tel&eacute;fono:</b> <a href="ctc.php?tel='.$telcall1.'&extension='.$extension.'" target="ctc">'.$row["tel"].'</a><br>
 <b>Fax:</b> '.$row["fax"].'<br>
 <b>Celular:</b> <a href="ctc.php?tel='.$telcall2.'&extension='.$extension.'" target="ctc">'.$row["cel"].'</a><br>
 <b>Nextel:</b> '.$row["nextel"].'<br>
@@ -179,7 +179,7 @@ $telcall6 = preg_replace('/[^0-9]/', '', $tel6);
 
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto2:</b> '.$row["contacto2"].'<br>
-<b>Teléfono:</b> <a href="ctc.php?tel='.$telcall4.'&extension='.$extension.'" target="ctc">'.$row["tel2"].'</a><br>
+<b>tel&eacute;fono:</b> <a href="ctc.php?tel='.$telcall4.'&extension='.$extension.'" target="ctc">'.$row["tel2"].'</a><br>
 <b>Fax:</b> '.$row["fax2"].'<br>
 <b>Celular:</b> <a href="ctc.php?tel='.$telcall5.'&extension='.$extension.'" target="ctc">'.$row["cel2"].'</a><br>
 <b>Nextel:</b> '.$row["nextel2"].'<br>

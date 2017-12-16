@@ -52,7 +52,7 @@ die();} else{}
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -280,7 +280,7 @@ $tipocliente=mysql_result($result6,0,"nombre");
 
   <tr>
 
-    <td><strong>Dirección:</strong> <? echo "$calle $numero"; ?></td>
+    <td><strong>Direcci&oacute;n:</strong> <? echo "$calle $numero"; ?></td>
 
     <td><strong>Colonia:</strong> <? echo $colonia?></td>
 

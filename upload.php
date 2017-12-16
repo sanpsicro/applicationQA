@@ -40,7 +40,7 @@ if(copy($file1,"adjuntosexp/$nuevonombre")){$archivo1=$nuevonombre; $unixid=$uni
 
 
 $db = mysqli_connect($host,$username,$pass,$database);
-mysqli_query($db,"INSERT INTO `adjuntos` ( `general`, `fecha`, `adjunto`) VALUES ( $general, CONVERT_TZ(now(),'+00:00','+02:00'), '$archivo1')") or die(mysqli_error($db)); 
+mysqli_query($db,"INSERT INTO `adjuntos` ( `general`, `fecha`, `adjunto`) VALUES ( $general, CONVERT_TZ(now(),'+00:00','+01:00'), '$archivo1')") or die(mysqli_error($db)); 
 header("Location: mainframe.php?module=detail_seguimiento&id=$general");
 }
 

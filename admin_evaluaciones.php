@@ -8,7 +8,7 @@
 			Realizar evaluaci�n
 </td>
             <td>&nbsp;</td>
-           <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">B�squeda: 
+           <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>

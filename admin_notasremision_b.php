@@ -1,6 +1,6 @@
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remisión</span></td><td width=150 class="blacklinks">&nbsp;</td></tr></table></td></tr>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remisi&oacute;n</span></td><td width=150 class="blacklinks">&nbsp;</td></tr></table></td></tr>
  <tr> 
     <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
@@ -8,7 +8,7 @@
 
 </td>
             <td>&nbsp;</td>
-           <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">Búsqueda: 
+           <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -39,7 +39,7 @@
 <?php
 
 if(isset($busca_cliente) && $busca_cliente!=""){
-							echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+							echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
 $result = mysqli_query($link,"SELECT * FROM Cliente where nombre like '%$busca_cliente%' order by nombre"); 
@@ -56,7 +56,7 @@ if($bgcolor=="#cccccc"){$bgcolor="#DCDCDC";} else{$bgcolor="#cccccc";}
 
   echo'                <tr> 
 
-<td bgcolor="'.$bgcolor.'" class="dataclass">'.$row["nombre"].'</td><td bgcolor="'.$bgcolor.'" class="dataclass" align=middle width=200><a href="?module=admin_notasremision_b&idCliente='.$row["idCliente"].'&accela=newfactura">Generar Nota de Remisión para este Cliente</a></td></tr>';
+<td bgcolor="'.$bgcolor.'" class="dataclass">'.$row["nombre"].'</td><td bgcolor="'.$bgcolor.'" class="dataclass" align=middle width=200><a href="?module=admin_notasremision_b&idCliente='.$row["idCliente"].'&accela=newfactura">Generar Nota de Remisi&oacute;n para este Cliente</a></td></tr>';
 
 							}
 
@@ -75,7 +75,7 @@ echo'<form method="post" action="process.php?module=notasremision&accela=new" ta
     <td bgcolor="#eeeeee">'.$nombre.'</td>
   </tr>
   <tr>
-    <td bgcolor="#eeeeee"><strong>Nota de Remisión Num:</strong> </td>
+    <td bgcolor="#eeeeee"><strong>Nota de Remisi&oacute;n Num:</strong> </td>
     <td bgcolor="#eeeeee"><input name="factura" type="text" id="factura" onKeyPress="return numbersonly(this, event)"/></td>
   </tr>
   <tr>

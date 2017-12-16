@@ -48,7 +48,7 @@ else
 if($caso == "nuevo"){
 $link = mysqli_connect($host,$username,$pass,$database);
 $comentario=strtoupper($comentario);
-mysqli_query($link,"INSERT INTO `notasprov` (`general`, `usuario`, `fecha`, `comentario`) VALUES ('$id', '$valid_userid', CONVERT_TZ(now(),'+00:00','+02:00'), '$comentario')"); 
+mysqli_query($link,"INSERT INTO `notasprov` (`general`, `usuario`, `fecha`, `comentario`) VALUES ('$id', '$valid_userid', CONVERT_TZ(now(),'+00:00','+01:00'), '$comentario')"); 
 
 
 $asunto = 'Reporte Proveedores';

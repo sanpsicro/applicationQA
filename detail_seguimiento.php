@@ -121,12 +121,12 @@ if($checa_array1===FALSE){$NO_EDITAR=true;} else{}
 
 if($set_date=="arribo"){
 	$db =mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET arribo=CONVERT_TZ(now(),'+00:00','+02:00') where id='".$id."'";
+$sSQL="UPDATE general SET arribo=CONVERT_TZ(now(),'+00:00','+01:00') where id='".$id."'";
 mysqli_query($db, $sSQL);
 }
 if($set_date=="contacto"){
 $db = mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET contacto=CONVERT_TZ(now(),'+00:00','+02:00') where id='".$id."'";
+$sSQL="UPDATE general SET contacto=CONVERT_TZ(now(),'+00:00','+01:00') where id='".$id."'";
 mysqli_query($db, $sSQL);
 }
 if($set_date=="contactoext"){
@@ -141,7 +141,7 @@ mysqli_query($db, $sSQL);
 }
 if($set_status=="concluido"){
 $db =mysqli_connect($host,$username,$pass,$database);
- $sSQL="UPDATE general SET status='concluido', ultimostatus=CONVERT_TZ(now(),'+00:00','+02:00') where id='".$id."'";
+ $sSQL="UPDATE general SET status='concluido', ultimostatus=CONVERT_TZ(now(),'+00:00','+01:00') where id='".$id."'";
 mysqli_query($db, $sSQL);
 }
 if(empty($_SESSION["valid_user"])){die();} 

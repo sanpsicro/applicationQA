@@ -23,7 +23,7 @@ session_unregister("valid_userid");
 
 session_destroy();
 
-$mensaje = "Finalizando sesión";
+$mensaje = "Finalizando sesiï¿½n";
 
 $luura="index.php?logout=yes";
 
@@ -119,7 +119,7 @@ setcookie("login_data","",time()-86400*30);
 
 } else {
 
-$mensaje = "Error: Contraseña incorrecta";
+$mensaje = "Error: contrase&ntilde;a incorrecta";
 
 $luura="index.php?errorcode=2";
 

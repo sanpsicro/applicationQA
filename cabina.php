@@ -325,20 +325,20 @@ if($campo=="contacto"){echo'<td bgcolor="#dddddd" align=right>Contacto</td><td b
 
 if($campo=="reporta"){echo'<td bgcolor="#dddddd" align=right>Nombre de quien reporta</td><td bgcolor="#dddddd"><input name="reporta" type="text" value="" size="30" /></td>';}
 
-if($campo=="tel_reporta"){echo'<td bgcolor="#dddddd" align=right>Tel�fono de quien reporta</td><td bgcolor="#dddddd"><input name="tel_reporta" type="text" value="" size="30" /></td>';}
+if($campo=="tel_reporta"){echo'<td bgcolor="#dddddd" align=right>tel&eacute;fono de quien reporta</td><td bgcolor="#dddddd"><input name="tel_reporta" type="text" value="" size="30" /></td>';}
 
-if($campo=="num_contrato"){echo'<td bgcolor="#dddddd" align=right>N�mero de contrato</td><td bgcolor="#dddddd"><input name="num_contrato" type="text" value="" size="30" /></td>';}
+if($campo=="num_contrato"){echo'<td bgcolor="#dddddd" align=right>N&uacute;mero de contrato</td><td bgcolor="#dddddd"><input name="num_contrato" type="text" value="" size="30" /></td>';}
 
 if($campo=="convenio"){echo'<td bgcolor="#dddddd" align=right>Convenio</td><td bgcolor="#dddddd"><input name="convenio" type="text" value="" size="30" /></td>';}
 
 if($campo=="expediente"){echo'<td bgcolor="#dddddd" align=right>Expediente</td><td bgcolor="#dddddd"><input name="expediente" type="text" value="" size="30" /></td>';}
 
-if($campo=="num_cliente"){echo'<td bgcolor="#dddddd" align=right>N�mero del cliente</td><td bgcolor="#dddddd"><input name="num_cliente" type="text" value="" size="30" /></td>';}
+if($campo=="num_cliente"){echo'<td bgcolor="#dddddd" align=right>N&uacute;mero del cliente</td><td bgcolor="#dddddd"><input name="num_cliente" type="text" value="" size="30" /></td>';}
 
-if($campo=="num_siniestro"){echo'<td bgcolor="#dddddd" align=right>N�mero de siniestro del cliente</td><td bgcolor="#dddddd"><input name="num_siniestro" type="text" value="" size="30" /></td>';}
+if($campo=="num_siniestro"){echo'<td bgcolor="#dddddd" align=right>N&uacute;mero de siniestro del cliente</td><td bgcolor="#dddddd"><input name="num_siniestro" type="text" value="" size="30" /></td>';}
 
 
-if($campo=="poliza"){echo'<td bgcolor="#dddddd" align=right>N�mero de Contrato</td><td bgcolor="#dddddd"><input name="poliza" type="text" value="" size="30" /></td>';}
+if($campo=="poliza"){echo'<td bgcolor="#dddddd" align=right>N&uacute;mero de Contrato</td><td bgcolor="#dddddd"><input name="poliza" type="text" value="" size="30" /></td>';}
 
 
 if($campo=="inciso"){echo'<td bgcolor="#dddddd" align=right>Inciso</td><td bgcolor="#dddddd"><input name="inciso" type="text" value="" size="30" /></td>';}

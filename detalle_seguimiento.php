@@ -1,7 +1,9 @@
 <?php  
 ob_start("ob_gzhandler");//
 session_start();
-if ( session_is_registered( "valid_user" ) && session_is_registered( "valid_modulos" ) && session_is_registered( "valid_permisos" ))
+include_once("customFunctions.php");
+isset($_GET['id']) ? $id= $_GET['id'] : $id= "" ;
+if ( isset( $_SESSION["valid_user"] ) && isset( $_SESSION["valid_modulos"] )&& isset( $_SESSION["valid_permisos"] ))
 {}
 else {
 header("Location: index.php?errorcode=3");
@@ -103,7 +105,7 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmborra(idex,tercero) { 
-if (confirm("�Est� seguro de querer eliminar al tercero?\n")) { 
+if (confirm("¿Est&aacute; seguro de querer eliminar al tercero?\n")) { 
 FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-flam='+new Date().getTime(),'terceros','','get');
 }
 }
@@ -114,69 +116,69 @@ FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-f
 <?php  
 if($set_date=="arribo"){
 mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET arribo=CONVERT_TZ(now(),'+00:00','+02:00') where id='$id'";
+$sSQL="UPDATE general SET arribo=CONVERT_TZ(now(),'+00:00','+01:00') where id='$id'";
 mysqli_query($database, "$sSQL");
 }
 if($set_date=="contacto"){
 mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET contacto=CONVERT_TZ(now(),'+00:00','+02:00') where id='$id'";
+$sSQL="UPDATE general SET contacto=CONVERT_TZ(now(),'+00:00','+01:00') where id='$id'";
 mysqli_query($database, "$sSQL");
 }
 if($set_status=="concluido"){
 mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET status='concluido', ultimostatus=CONVERT_TZ(now(),'+00:00','+02:00') where id='$id'";
+$sSQL="UPDATE general SET status='concluido', ultimostatus=CONVERT_TZ(now(),'+00:00','+01:00') where id='$id'";
 mysqli_query($database, "$sSQL");
 }
 if(empty($_SESSION["valid_user"])){die();} 
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from general where id = '$id'",$db);
-$servicio=mysql_result($result,0,"servicio");
-$contrato=mysql_result($result,0,"contrato");
-$cliente=mysql_result($result,0,"idCliente");
-$fecha_recepcion=mysql_result($result,0,"fecha_recepcion");
+$result = mysqli_query($db,"SELECT * from general where id = '$id'");
+$servicio=mysqli_result($result,0,"servicio");
+$contrato=mysqli_result($result,0,"contrato");
+$cliente=mysqli_result($result,0,"idCliente");
+$fecha_recepcion=mysqli_result($result,0,"fecha_recepcion");
 $fexa1=explode(" ",$fecha_recepcion);
 $fexa1d=explode("-",$fexa1[0]);
-$fecha_suceso=mysql_result($result,0,"fecha_suceso");
+$fecha_suceso=mysqli_result($result,0,"fecha_suceso");
 $fexa2=explode(" ",$fecha_suceso);
 $fexa2d=explode("-",$fexa2[0]);
-$reporta=mysql_result($result,0,"reporta");
-$tel_reporta=mysql_result($result,0,"tel_reporta");
-$num_contrato=mysql_result($result,0,"num_contrato");
-$expediente=mysql_result($result,0,"expediente");
-$num_cliente=mysql_result($result,0,"num_cliente");
-$num_siniestro=mysql_result($result,0,"num_siniestro");
-$ajustador=mysql_result($result,0,"ajustador");
-$usuario=mysql_result($result,0,"usuario");
-$motivo_servicio=mysql_result($result,0,"motivo_servicio");
-$auto_marca=mysql_result($result,0,"auto_marca");
-$auto_tipo=mysql_result($result,0,"auto_tipo");
-$auto_modelo=mysql_result($result,0,"auto_modelo");
-$auto_color=mysql_result($result,0,"auto_color");
-$auto_placas=mysql_result($result,0,"auto_placas");
-$ubicacion_requiere=mysql_result($result,0,"ubicacion_requiere");
-$ubicacion_referencias=mysql_result($result,0,"ubicacion_referencias");
-$ubicacion_estado=mysql_result($result,0,"ubicacion_estado");
-$ubicacion_municipio=mysql_result($result,0,"ubicacion_municipio");
-$ubicacion_ciudad=mysql_result($result,0,"ubicacion_ciudad");
-$observaciones=mysql_result($result,0,"observaciones");
-$reporte_cliente=mysql_result($result,0,"reporte_cliente");
-$probestar=mysql_result($result,0,"Proveedor");
-$convenio=mysql_result($result,0,"convenio");
-$inciso=mysql_result($result,0,"inciso");
-$result = mysqli_query("SELECT * from servicios where id = '$servicio'",$db);
-$servicio=mysql_result($result,0,"servicio");
-$tipoServicio=mysql_result($result,0,"tipo");
-$campos=mysql_result($result,0,"campos");
+$reporta=mysqli_result($result,0,"reporta");
+$tel_reporta=mysqli_result($result,0,"tel_reporta");
+$num_contrato=mysqli_result($result,0,"num_contrato");
+$expediente=mysqli_result($result,0,"expediente");
+$num_cliente=mysqli_result($result,0,"num_cliente");
+$num_siniestro=mysqli_result($result,0,"num_siniestro");
+$ajustador=mysqli_result($result,0,"ajustador");
+$usuario=mysqli_result($result,0,"usuario");
+$motivo_servicio=mysqli_result($result,0,"motivo_servicio");
+$auto_marca=mysqli_result($result,0,"auto_marca");
+$auto_tipo=mysqli_result($result,0,"auto_tipo");
+$auto_modelo=mysqli_result($result,0,"auto_modelo");
+$auto_color=mysqli_result($result,0,"auto_color");
+$auto_placas=mysqli_result($result,0,"auto_placas");
+$ubicacion_requiere=mysqli_result($result,0,"ubicacion_requiere");
+$ubicacion_referencias=mysqli_result($result,0,"ubicacion_referencias");
+$ubicacion_estado=mysqli_result($result,0,"ubicacion_estado");
+$ubicacion_municipio=mysqli_result($result,0,"ubicacion_municipio");
+$ubicacion_ciudad=mysqli_result($result,0,"ubicacion_ciudad");
+$observaciones=mysqli_result($result,0,"observaciones");
+$reporte_cliente=mysqli_result($result,0,"reporte_cliente");
+$probestar=mysqli_result($result,0,"proveedor");
+$convenio=mysqli_result($result,0,"convenio");
+$inciso=mysqli_result($result,0,"inciso");
+$result = mysqli_query($db,"SELECT * from servicios where id = '$servicio'");
+$servicio=mysqli_result($result,0,"servicio");
+$tipoServicio=mysqli_result($result,0,"tipo");
+$campos=mysqli_result($result,0,"campos");
 $camposex=explode(",",$campos);
-$result = mysqli_query("SELECT * from Cliente where idCliente = '$cliente'",$db);
-$cliente=mysql_result($result,0,"nombre");
-$result = mysqli_query("SELECT * from Estado where idEstado = '$ubicacion_estado'",$db);
-$ubicacion_estado=mysql_result($result,0,"NombreEstado");
-$result = mysqli_query("SELECT * from Municipio where idMunicipio = '$ubicacion_municipio'",$db);
-$ubicacion_municipio=mysql_result($result,0,"NombreMunicipio");
-$result = mysqli_query("SELECT * from Provedor where id = ".(int)$probestar,$db);
-$probestar=mysql_result($result,0,"nombre");
+$result = mysqli_query($db,"SELECT * from Cliente where idCliente = '$cliente'");
+$cliente=mysqli_result($result,0,"nombre");
+$result = mysqli_query($db,"SELECT * from Estado where idEstado = '$ubicacion_estado'");
+$ubicacion_estado=mysqli_result($result,0,"NombreEstado");
+$result = mysqli_query($db,"SELECT * from Municipio where idMunicipio = '$ubicacion_municipio'");
+$ubicacion_municipio=mysqli_result($result,0,"NombreMunicipio");
+$result = mysqli_query($db,"SELECT * from Provedor where id = ".(int)$probestar);
+$probestar=mysqli_result($result,0,"nombre");
 ?> 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
@@ -378,32 +380,32 @@ if($checa_array===FALSE){} else{
 	  <?php  
 	  $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from seguimiento_juridico where general = '$id'");
 if (mysqli_num_rows($result)){ 
-$situacion_conductor=mysql_result($result,0,"situacion_juridica");
-$detencion=mysql_result($result,0,"detencion");
+$situacion_conductor=mysqli_result($result,0,"situacion_juridica");
+$detencion=mysqli_result($result,0,"detencion");
 $detencion=explode("-",$detencion);
-$liberacion=mysql_result($result,0,"liberacion");
+$liberacion=mysqli_result($result,0,"liberacion");
 $liberacion=explode("-",$liberacion);
-$fianzas_conductor=mysql_result($result,0,"fianzas_conductor");
-$monto_fianzas_conductor=mysql_result($result,0,"monto_fianzas_conductor");
-$folios_fianzas_conductor=mysql_result($result,0,"folios_fianzas_conductor");
-$concepto_fianzas_conductor=mysql_result($result,0,"concepto_fianzas_conductor");
-$caucion_conductor=mysql_result($result,0,"caucion_conductor");
-$monto_caucion_conductor=mysql_result($result,0,"monto_caucion_conductor");
-$concepto_caucion_conductor=mysql_result($result,0,"concepto_caucion_conductor");
-$situacion_vehiculo=mysql_result($result,0,"situacion_vehiculo");
-$detencion_vehiculo=mysql_result($result,0,"detencion_vehiculo");
+$fianzas_conductor=mysqli_result($result,0,"fianzas_conductor");
+$monto_fianzas_conductor=mysqli_result($result,0,"monto_fianzas_conductor");
+$folios_fianzas_conductor=mysqli_result($result,0,"folios_fianzas_conductor");
+$concepto_fianzas_conductor=mysqli_result($result,0,"concepto_fianzas_conductor");
+$caucion_conductor=mysqli_result($result,0,"caucion_conductor");
+$monto_caucion_conductor=mysqli_result($result,0,"monto_caucion_conductor");
+$concepto_caucion_conductor=mysqli_result($result,0,"concepto_caucion_conductor");
+$situacion_vehiculo=mysqli_result($result,0,"situacion_vehiculo");
+$detencion_vehiculo=mysqli_result($result,0,"detencion_vehiculo");
 $detencion_vehiculo=explode("-",$detencion_vehiculo);
-$liberacion_vehiculo=mysql_result($result,0,"liberacion_vehiculo");
+$liberacion_vehiculo=mysqli_result($result,0,"liberacion_vehiculo");
 $liberacion_vehiculo=explode("-",$liberacion_vehiculo);
-$fianzas_vehiculo=mysql_result($result,0,"fianzas_vehiculo");
-$monto_fianzas_vehiculo=mysql_result($result,0,"monto_fianzas_vehiculo");
-$folios_fianzas_vehiculo=mysql_result($result,0,"folios_fianzas_vehiculo");
-$concepto_fianzas_vehiculo=mysql_result($result,0,"concepto_fianzas_vehiculo");
-$caucion_vehiculo=mysql_result($result,0,"caucion_vehiculo");
-$monto_caucion_vehiculo=mysql_result($result,0,"monto_caucion_vehiculo");
-$concepto_caucion_vehiculo=mysql_result($result,0,"concepto_caucion_vehiculo");
+$fianzas_vehiculo=mysqli_result($result,0,"fianzas_vehiculo");
+$monto_fianzas_vehiculo=mysqli_result($result,0,"monto_fianzas_vehiculo");
+$folios_fianzas_vehiculo=mysqli_result($result,0,"folios_fianzas_vehiculo");
+$concepto_fianzas_vehiculo=mysqli_result($result,0,"concepto_fianzas_vehiculo");
+$caucion_vehiculo=mysqli_result($result,0,"caucion_vehiculo");
+$monto_caucion_vehiculo=mysqli_result($result,0,"monto_caucion_vehiculo");
+$concepto_caucion_vehiculo=mysqli_result($result,0,"concepto_caucion_vehiculo");
 }
 	  ?>
 	  <table width="100%" border="0" cellspacing="3" cellpadding="3">
@@ -462,54 +464,54 @@ $concepto_caucion_vehiculo=mysql_result($result,0,"concepto_caucion_vehiculo");
 <?php  
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from seguimiento_juridico where general = '$id'",$db);
+$result = mysqli_query($db,"SELECT * from seguimiento_juridico where general = '$id'");
 if (mysqli_num_rows($result)){ 
-$conductor=mysql_result($result,0,"conductor");
-$tel1=mysql_result($result,0,"telconductor");
-$tel2=mysql_result($result,0,"telconductor2");
-$siniestro=mysql_result($result,0,"siniestro");
-$averiguacion=mysql_result($result,0,"averiguacion");
-$autoridad=mysql_result($result,0,"autoridad");
-$fecha_accidente=mysql_result($result,0,"fecha_accidente");
+$conductor=mysqli_result($result,0,"conductor");
+$tel1=mysqli_result($result,0,"telconductor");
+$tel2=mysqli_result($result,0,"telconductor2");
+$siniestro=mysqli_result($result,0,"siniestro");
+$averiguacion=mysqli_result($result,0,"averiguacion");
+$autoridad=mysqli_result($result,0,"autoridad");
+$fecha_accidente=mysqli_result($result,0,"fecha_accidente");
 $fecha_accidente=explode("-",$fecha_accidente);
-$numlesionados=mysql_result($result,0,"numlesionados");
-$numhomicidios=mysql_result($result,0,"numhomicidios");
-$delitos=mysql_result($result,0,"delitos");
-$danos=mysql_result($result,0,"danos");
-$lesiones=mysql_result($result,0,"lesiones");
-$homicidios=mysql_result($result,0,"homicidios");
-$ataques=mysql_result($result,0,"ataques");
-$robo=mysql_result($result,0,"robo");
-$descripcion=mysql_result($result,0,"descripcion");
-$lugar_hechos=mysql_result($result,0,"lugar_hechos");
-$referencias=mysql_result($result,0,"referencias");
-$colonia=mysql_result($result,0,"colonia");
-$ciudad=mysql_result($result,0,"ciudad");
-$municipio=mysql_result($result,0,"municipio");
-$estado=mysql_result($result,0,"estado");
-$ajustador=mysql_result($result,0,"ajustador");
-$telajustador1=mysql_result($result,0,"telajustador");
-$telajustador2=mysql_result($result,0,"telajustador2");
-$monto_danos=mysql_result($result,0,"monto_danos");
-$monto_deducible=mysql_result($result,0,"monto_deducible");
+$numlesionados=mysqli_result($result,0,"numlesionados");
+$numhomicidios=mysqli_result($result,0,"numhomicidios");
+$delitos=mysqli_result($result,0,"delitos");
+$danos=mysqli_result($result,0,"danos");
+$lesiones=mysqli_result($result,0,"lesiones");
+$homicidios=mysqli_result($result,0,"homicidios");
+$ataques=mysqli_result($result,0,"ataques");
+$robo=mysqli_result($result,0,"robo");
+$descripcion=mysqli_result($result,0,"descripcion");
+$lugar_hechos=mysqli_result($result,0,"lugar_hechos");
+$referencias=mysqli_result($result,0,"referencias");
+$colonia=mysqli_result($result,0,"colonia");
+$ciudad=mysqli_result($result,0,"ciudad");
+$municipio=mysqli_result($result,0,"municipio");
+$estado=mysqli_result($result,0,"estado");
+$ajustador=mysqli_result($result,0,"ajustador");
+$telajustador1=mysqli_result($result,0,"telajustador");
+$telajustador2=mysqli_result($result,0,"telajustador2");
+$monto_danos=mysqli_result($result,0,"monto_danos");
+$monto_deducible=mysqli_result($result,0,"monto_deducible");
 }
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$db);
+$result = mysqli_query($db,"SELECT * from Colonia where idColonia = '$colonia'");
 if (mysqli_num_rows($result)){ 
-$colonia=mysql_result($result,0,"NombreColonia");
+$colonia=mysqli_result($result,0,"NombreColonia");
 }
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$db);
+$result = mysqli_query($db,"SELECT * from Estado where idEstado = '$estado'");
 if (mysqli_num_rows($result)){ 
-$estado=mysql_result($result,0,"NombreEstado");
+$estado=mysqli_result($result,0,"NombreEstado");
 }
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
-$result = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$db);
+$result = mysqli_query($db,"SELECT * from Municipio where idMunicipio = '$municipio'");
 if (mysqli_num_rows($result)){ 
-$municipio=mysql_result($result,0,"NombreMunicipio");
+$municipio=mysqli_result($result,0,"NombreMunicipio");
 }
 ?>
 <table width="100%" border="0" cellspacing="3" cellpadding="3">
@@ -535,7 +537,7 @@ $municipio=mysql_result($result,0,"NombreMunicipio");
 				   <?php  /* if($delitos=="si"){echo'S�';} else{echo'No';} */ ?>
 				  </td>
                   <td><strong>Da&ntilde;os:</strong>
-				  <?php  if($danos=="si"){echo'S�';} else{echo'No';} ?>				  
+				  <?php  if($danos=="si"){echo'Si';} else{echo'No';} ?>				  
 				  </td>
                   <td><strong>Lesiones:</strong>
 				  				 <?php  if($lesiones=="si"){echo'S�';} else{echo'No';} ?>
@@ -598,19 +600,19 @@ $dbw = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbw);
 $resultw = mysqli_query("SELECT * from Colonia where idColonia = '$colonia'",$dbw);
 if (mysqli_num_rows($resultw)){ 
-$colonia=mysql_result($resultw,0,"NombreColonia");
+$colonia=mysqli_result($resultw,0,"NombreColonia");
 }
 $dbw = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbw);
 $resultw = mysqli_query("SELECT * from Estado where idEstado = '$estado'",$dbw);
 if (mysqli_num_rows($resultw)){ 
-$estado=mysql_result($resultw,0,"NombreEstado");
+$estado=mysqli_result($resultw,0,"NombreEstado");
 }
 $dbw = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dbw);
 $resultw = mysqli_query("SELECT * from Municipio where idMunicipio = '$municipio'",$dbw);
 if (mysqli_num_rows($resultw)){ 
-$municipio=mysql_result($resultw,0,"NombreMunicipio");
+$municipio=mysqli_result($resultw,0,"NombreMunicipio");
 }
 echo' <table width="100%" border="0" cellspacing="3" cellpadding="3">
 		  <tr>
@@ -725,5 +727,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 </body>
 </html>
 <?php  
+
+
 ob_flush();
 ?>

@@ -42,7 +42,7 @@ $result = mysqli_query($link,"SELECT * FROM quicktips $condicion order by $sort
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {

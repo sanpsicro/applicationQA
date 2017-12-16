@@ -56,7 +56,7 @@ die();} else{}
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -214,13 +214,13 @@ $colonia=mysql_result($result5,0,"nombreColonia");
 
     <td><strong>Departamento:</strong> <? echo $departamento?></td>
 
-    <td><strong>Activo:</strong> <? if($activo=="1"){echo'Sí';} else{echo'No';}?></td>
+    <td><strong>Activo:</strong> <? if($activo=="1"){echo'S&iacute;';} else{echo'No';}?></td>
 
     </tr>
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Dirección:</strong> <? echo $direccion?></td>
+    <td bgcolor="#CCCCCC"><strong>Direcci&oacute;n:</strong> <? echo $direccion?></td>
 
     <td bgcolor="#CCCCCC"><strong>Estado:</strong> <? echo $estado?></td>
 
@@ -236,9 +236,9 @@ $colonia=mysql_result($result5,0,"nombreColonia");
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Teléfono Casa:</strong> <? echo $telefonocasa?></td>
+    <td bgcolor="#CCCCCC"><strong>tel&eacute;fono Casa:</strong> <? echo $telefonocasa?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Teléfono Celular:</strong> <? echo $telefonocelular?></td>
+    <td bgcolor="#CCCCCC"><strong>tel&eacute;fono Celular:</strong> <? echo $telefonocelular?></td>
 
     </tr>
 
@@ -254,7 +254,7 @@ $colonia=mysql_result($result5,0,"nombreColonia");
 
     <td bgcolor="#CCCCCC"><strong>Email:</strong> <? echo '<a href="mailto:'.$email.'">'.$email.'</a>';?></td>
 
-   <td><strong>Extensión:</strong> <? echo $extension?></td>
+   <td><strong>Extensiï¿½n:</strong> <? echo $extension?></td>
 
   </tr>
 

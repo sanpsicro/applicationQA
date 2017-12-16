@@ -1,6 +1,22 @@
 <?php  
-extract($_REQUEST);
-isset($_GET['accion']) ? $accion= $_GET['accion'] : $accion= "" ;
+
+isset($_POST['expediente']) ? $expediente= $_POST['expediente'] : $expediente= $_GET['expediente'] ;
+isset($_POST['proveedor']) ? $proveedor= $_POST['proveedor'] : $proveedor= $_GET['proveedor'];
+isset($_POST['fecha_corte_dia']) ? $fecha_corte_dia= $_POST['fecha_corte_dia'] : $fecha_corte_dia= "" ;
+isset($_POST['fecha_corte_mes']) ? $fecha_corte_mes= $_POST['fecha_corte_mes'] : $fecha_corte_mes= "" ;
+isset($_POST['fecha_corte_anio']) ? $fecha_corte_anio= $_POST['fecha_corte_anio'] : $fecha_corte_anio= "" ;
+
+isset($_POST['fecha_pago_dia']) ? $fecha_pago_dia= $_POST['fecha_pago_dia'] : $fecha_pago_dia= "" ;
+isset($_POST['fecha_pago_mes']) ? $fecha_pago_mes= $_POST['fecha_pago_mes'] : $fecha_pago_mes= "" ;
+isset($_POST['fecha_pago_anio']) ? $fecha_pago_anio= $_POST['fecha_pago_anio'] : $fecha_pago_anio= "" ;
+
+isset($_POST['conceptor']) ? $conceptor= $_POST['conceptor'] : $conceptor= "" ;
+isset($_POST['monto']) && $_POST['monto']!= ""? $monto= $_POST['monto'] : $monto= "0.0" ;
+isset($_POST['status']) ? $status= $_POST['status'] : $status= "0" ;
+
+isset($_POST['id']) ? $id= $_POST['id'] : $id= "" ;
+
+isset($_GET['action']) ? $action= $_GET['action'] : $action= "" ;
 include("conf.php");
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
@@ -25,7 +41,7 @@ if($action=="editar"){
 					status='$status'
 				WHERE id='$id'
 				LIMIT 1";
-				#echo $query;
+				//echo $query;
 	mysqli_query( $link,$query) or die (mysqli_error($link));
 }
 

@@ -91,8 +91,8 @@ if($tipo_asistencia_vial=="Paso de Corriente"){echo' selected ';}		?>
              <option value="Cambio de llanta" <?php 
 if($tipo_asistencia_vial=="Cambio de llanta"){echo' selected ';} ?>			 			 			 
 			 >Cambio de llanta</option>
-             <option value="Llaves en el interior del veh�culo" <?php 
-if($tipo_asistencia_vial=="Llaves en el interior del veh�culo"){echo' selected ';}?>			 			 			 			 
+             <option value="Llaves en el interior del veh&iacute;culo" <?php 
+if($tipo_asistencia_vial=="Llaves en el interior del veh&iacute;culo"){echo' selected ';}?>			 			 			 			 
 			 >Llaves en el interior del veh&iacute;culo</option>
              <option value="Env�o de gasolina" <?php 
 if($tipo_asistencia_vial=="Env�o de gasolina"){echo' selected ';} ?>			 			 			 			 			 

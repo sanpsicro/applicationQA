@@ -11,7 +11,7 @@ $link = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database); 
 
 $query="INSERT INTO notas_pagos (id,expediente,usuario,fecha,comentario) 
-					VALUES ('','$expediente','".$_SESSION['valid_userid']."',CONVERT_TZ(now(),'+00:00','+02:00'),'$comentario')";
+					VALUES ('','$expediente','".$_SESSION['valid_userid']."',CONVERT_TZ(now(),'+00:00','+01:00'),'$comentario')";
 mysqli_query($link,$query) or die(mysqli_error($link));
 
 header("Location: mainframe.php?module=control_pago&pago=$pago");

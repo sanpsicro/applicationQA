@@ -15,12 +15,12 @@ if(empty($selenium)){$selenium="no pagados";}
             <form name="form1" method="post" action="mainframe.php?module=control_cobranza">
             <td> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
               </select>
               <select name="sort" id="ordenar">
               <option value="cobranza.id DESC" <? if($sort=="cobranza.id DESC"){echo"selected";}?>>Ordenar por Expediente</option>
@@ -35,7 +35,7 @@ if(empty($selenium)){$selenium="no pagados";}
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
-            <form name="form1" method="post" action="bridge.php?module=control_cobranza"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=control_cobranza"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -51,7 +51,7 @@ if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Pago eliminado</di
 
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="AND (Cliente.nombre like '%$quest%' OR cobranza.expediente=$quest)";
 }
 else{

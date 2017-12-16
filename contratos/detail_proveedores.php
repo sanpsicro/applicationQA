@@ -12,7 +12,7 @@ die();} else{}
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -88,7 +88,7 @@ $tipoVenta=mysql_result($result6,0,"nombre");
 
     <td width="50%" bgcolor="#CCCCCC"><strong>Usuario:</strong> <? echo $usuario?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Dirección:</strong> <? echo ''.$calle.' COL '.$colonia.' CP '.$cp.', '.$municipio.', '.$estado.'';?></td>
+    <td bgcolor="#CCCCCC"><strong>Direcci&oacute;n:</strong> <? echo ''.$calle.' COL '.$colonia.' CP '.$cp.', '.$municipio.', '.$estado.'';?></td>
     </tr>
 
   <tr>

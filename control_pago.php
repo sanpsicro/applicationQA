@@ -7,7 +7,7 @@ isset($_GET['expediente']) ? $expediente= $_GET['expediente'] : $expediente= "" 
 
 
 ?>
-<span class="maintitle">Pagos Expediente <a href="detalle_seguimiento.php?id=<?php  $expediente?>" target="_blank"><?php  $expediente?></a></span><br />
+<span class="maintitle">Pagos Expediente <a href="detalle_seguimiento.php?id=<?php echo  $expediente;?>" target="_blank"><?php echo $expediente;?></a></span><br />
 <?php  
 if(isset($code) && $code=="1"){echo'<br><div class="xplik">Nuevo pago Registrado</div>';}
 if(isset($code) && $code=="2"){echo'<br><div class="xplik">Datos del Pago actualizados</div>';}
@@ -85,8 +85,8 @@ else{
 ?>
 <?php if($pago_cerrado === false): ?> 
 <div class="control_pagos">
-	<a href="mainframe.php?module=control_pago_alta&expediente=<?php  $expediente?>&proveedor=<?php  $proveedor?>">Agregar Pago</a>
-	<small><a href="control_pago_db.php?action=cerrar&expediente=<?php  $expediente?>&proveedor=<?php  $proveedor?>">Cerrar Pagos</a></small>
+	<a href="mainframe.php?module=control_pago_alta&expediente=<?php echo $expediente;?>&proveedor=<?php echo $proveedor;?>">Agregar Pago</a>
+	<small><a href="control_pago_db.php?action=cerrar&expediente=<?php  echo $expediente;?>&proveedor=<?php  echo $proveedor;?>">Cerrar Pagos</a></small>
 </div>
 <?php endif; ?>
 <!-- <?php  echo print_r($_SESSION);?> -->

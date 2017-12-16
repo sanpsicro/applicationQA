@@ -12,7 +12,7 @@ die();} else{}
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -61,7 +61,7 @@ $absolute=$absolute+1;
 		</td>
     </tr>
 	
-	<tr><td bgcolor="#CCCCCC"><b>Términos:</b>
+	<tr><td bgcolor="#CCCCCC"><b>Tï¿½rminos:</b>
 	  <p>
 	<?
 	echo nl2br($terminos);

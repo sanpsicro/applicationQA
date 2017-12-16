@@ -233,7 +233,7 @@ $colonia=mysqli_result($result5,0,"nombreColonia");
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Direcci�n:</strong> <?php  echo $direccion?></td>
+    <td bgcolor="#CCCCCC"><strong>Direcci&oacute;n:</strong> <?php  echo $direccion?></td>
 
     <td bgcolor="#CCCCCC"><strong>Estado:</strong> <?php  echo $estado?></td>
 
@@ -249,9 +249,9 @@ $colonia=mysqli_result($result5,0,"nombreColonia");
 
   <tr>
 
-    <td bgcolor="#CCCCCC"><strong>Tel�fono Casa:</strong> <?php  echo $telefonocasa?></td>
+    <td bgcolor="#CCCCCC"><strong>tel&eacute;fono Casa:</strong> <?php  echo $telefonocasa?></td>
 
-    <td bgcolor="#CCCCCC"><strong>Tel�fono Celular:</strong> <?php  echo $telefonocelular?></td>
+    <td bgcolor="#CCCCCC"><strong>tel&eacute;fono Celular:</strong> <?php  echo $telefonocelular?></td>
 
     </tr>
 

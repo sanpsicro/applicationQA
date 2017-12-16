@@ -13,13 +13,13 @@ session_start();
         <td><strong>Veh&iacute;culos</strong></td>
         <td width="100" align="center" class="blacklinks">
 		<?  $checa_array1=array_search("5_a",$explota_permisos);
-if($checa_array1===FALSE){} else{echo'[ <a href="admin_vehiculos.php?accela=new&tmpid='.$tmpid.'&idPoliza='.$idPoliza.'&tipocliente='.$tipocliente.'">Nuevo vehículo</a> ]'; } ?>
+if($checa_array1===FALSE){} else{echo'[ <a href="admin_vehiculos.php?accela=new&tmpid='.$tmpid.'&idPoliza='.$idPoliza.'&tipocliente='.$tipocliente.'">Nuevo veh&iacute;culo</a> ]'; } ?>
 </td>
       </tr>
     </table>      </td>
   </tr>
   <?
-if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. No puede agregar más vehículos.</b></td></tr>';}
+if($code=="5"){echo'<tr><td colspan=8><b>Error: el tipo de cliente es unitario. No puede agregar mï¿½s veh&iacute;culos.</b></td></tr>';}
    include 'conf.php';
    if(isset($idPoliza) && $idPoliza!="" && $idPoliza!="0"){
    $condicion="where idPoliza = '$idPoliza'";

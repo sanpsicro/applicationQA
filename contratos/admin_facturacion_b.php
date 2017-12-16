@@ -8,7 +8,7 @@
 
 </td>
             <td>&nbsp;</td>
-           <form name="form1" method="post" action="bridge.php?module=facturacion"><td align="right" class="questtitle">Búsqueda: 
+           <form name="form1" method="post" action="bridge.php?module=facturacion"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -39,7 +39,7 @@
 				
 				<?
 if(isset($busca_cliente) && $busca_cliente!=""){
-							echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+							echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $link = mysql_connect($host, $username, $pass); 
 mysql_select_db($database, $link); 
 $result = mysql_query("SELECT * FROM Cliente where nombre like '%$busca_cliente%' order by nombre", $link); 

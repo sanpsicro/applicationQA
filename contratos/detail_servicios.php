@@ -52,7 +52,7 @@ die();} else{}
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 

@@ -176,7 +176,7 @@ $services=explode(",",$row["trabajos"]);
 </tr>
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto:</b> '.$row["contacto"].'<br>
-<b>Tel�fono:</b> 
+<b>tel&eacute;fono:</b> 
 <form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel"].'';
  $telctc1 = $row["tel"];
@@ -206,7 +206,7 @@ echo'
 
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto2:</b> '.$row["contacto2"].'<br>
-<b>Tel�fono:</b>
+<b>tel&eacute;fono:</b>
 <form method="POST" action="http://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel2"].'';
  $telctc1 = $row["tel2"];

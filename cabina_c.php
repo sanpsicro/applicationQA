@@ -8,7 +8,7 @@ $valid_user = $_SESSION['valid_user'];
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{
 $link = mysqli_connect($host,$username,$pass,$database);
-$sql="INSERT INTO `general` (`servicio`, `contrato`, `idCliente`, `fecha_recepcion`, `status`) VALUES ('$servicio', '$clave', '$idcliente', CONVERT_TZ(now(),'+00:00','+02:00'),  'abierto')";
+$sql="INSERT INTO `general` (`servicio`, `contrato`, `idCliente`, `fecha_recepcion`, `status`) VALUES ('$servicio', '$clave', '$idcliente', CONVERT_TZ(now(),'+00:00','+01:00'),  'abierto')";
 mysqli_query($link, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<b>". mysqli_error($link));
 $expediente=mysqli_insert_id($link);
 echo "Expediente: [$expediente]<br>";

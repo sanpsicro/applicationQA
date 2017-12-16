@@ -9,7 +9,7 @@
  }
  
  
-include_once ("customFunctions.php");
+include_once("customFunctions.php");
 $db = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$db);
 

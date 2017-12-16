@@ -19,11 +19,11 @@ $explota_modulos=explode(",",$_SESSION["valid_modulos"]);
 					<?php } ?>
                     
                     <li class="dropdown">
-          <a href="#" class="dropdown-toggle menunw fonter" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENÚ <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle menunw fonter" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENï¿½ <span class="caret"></span></a>
           <ul class="dropdown-menu">
 <?php	
 					if(array_search("capacitacion",$explota_modulos)!==FALSE) { ?>
-						<li><a href="?module=capacitacion" class="menunw2">ORGANIZACIÓN</a></li>
+						<li><a href="?module=capacitacion" class="menunw2">ORGANIZACIï¿½N</a></li>
                         
 					<?php	}
 					if(array_search("usuarios",$explota_modulos)!==FALSE) { ?>
@@ -65,8 +65,8 @@ $explota_modulos=explode(",",$_SESSION["valid_modulos"]);
 						<li><a href="?module=comisiones_vendedores" class="menunw2">COMISIONES</a></li>
 					<?php }
 					if(array_search("facturacion",$explota_modulos)!==FALSE) { ?>
-						<li><a href="?module=facturacion" class="menunw2">FACTURACIÓN</a></li>
-						<li><a href="?module=notasremision" class="menunw2">REMISIÓN</a></li>
+						<li><a href="?module=facturacion" class="menunw2">Facturaci&oacute;n</a></li>
+						<li><a href="?module=notasremision" class="menunw2">Remisi&oacute;n</a></li>
 					<?php }
 					if(array_search("exportacion",$explota_modulos)!==FALSE) { ?>
 						<li><a href="?module=exportacion" class="menunw2">REPORTES</a></li>

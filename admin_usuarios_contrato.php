@@ -323,14 +323,14 @@ function validar(formulario) {
   
   
      if (formulario.tel.value.length < 4) {
-    alert("Escriba un tel�fono");
+    alert("Escriba un tel&eacute;fono");
     formulario.tel.focus();
     return (false);
   }
   
   /*
   if ((formulario.mail.value.indexOf ('@', 0) == -1)||(formulario.mail.value.length < 5)) { 
-    alert("Escriba una direcci�n de correo v�lida"); 
+    alert("Escriba una direcci&oacute;n de correo v�lida"); 
 	    formulario.mail.focus();
     return (false); 
   }
@@ -388,7 +388,7 @@ $result = mysqli_query($link,"SELECT * FROM TipoVenta");
 
 if (mysqli_num_rows($result)){ 
 /*
-echo'<select name="tipoventa" id="tipoventa" onChange="FAjax(\'fechacombo.php?&flim-flam=new Date().getTime()\',\'vencimiento\',\'opcion=\'+document.getElementById(\'tipoventa\').value+\'&actual=\'+document.getElementById(\'fecha_inicio\').value,\'POST\')" ><option value="">Seleccione una opci�n</option>';
+echo'<select name="tipoventa" id="tipoventa" onChange="FAjax(\'fechacombo.php?&flim-flam=new Date().getTime()\',\'vencimiento\',\'opcion=\'+document.getElementById(\'tipoventa\').value+\'&actual=\'+document.getElementById(\'fecha_inicio\').value,\'POST\')" ><option value="">Seleccione una opci&oacute;n</option>';
 
 */
 

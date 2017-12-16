@@ -16,7 +16,7 @@ session_unregister("valid_clienteid");
 
 session_destroy();
 
-$mensaje = "Finalizando sesión";
+$mensaje = "Finalizando sesiï¿½n";
 
 $luura="index.php?logout=yes";
 
@@ -113,7 +113,7 @@ setcookie("login_data","",time()-86400*30);
 
 } else {
 
-$mensaje = "Error: Contraseña incorrecta";
+$mensaje = "Error: contrase&ntilde;a incorrecta";
 
 $luura="index.php?errorcode=2";
 
@@ -605,7 +605,7 @@ window.onload=progressBarInit;
 
 
 
-</script><p><a href="'.$luura.'">Si su navegador no lo redirige automáticamente, haga click aquí.</a><br><br></center></td>
+</script><p><a href="'.$luura.'">Si su navegador no lo redirige automï¿½ticamente, haga click aquï¿½.</a><br><br></center></td>
 
 
 

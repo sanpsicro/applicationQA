@@ -44,14 +44,14 @@ else{echo'[ <a href="?module=evaluaciones&filter=evaluar">Realizar evaluaciones<
              </select>
               <select name="sort" id="ordenar">
                 <option value="fecha_recepcion"  <?php  if($sort=="fecha_recepcion"){echo"selected";}?>>Ordenar por fecha de recepci&oacuten</option>
-                <option value="contrato" <?php  if($sort=="contrato"){echo"selected";}?>>Ordenar por n�mero de contrato</option>
+                <option value="contrato" <?php  if($sort=="contrato"){echo"selected";}?>>Ordenar por N&uacute;mero de contrato</option>
                 <option value="promedio" <?php  if($sort=="promedio"){echo"selected";}?>>Ordenar por promedio</option>								
                 <option value="idEmpleado" <?php  if($sort=="idEmpleado"){echo"selected";}?>>Ordenar por empleado</option>				
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=evaluaciones<?php  if(!empty($filter)){echo'&filter='.$filter.'';} ?>"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=evaluaciones<?php  if(!empty($filter)){echo'&filter='.$filter.'';} ?>"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -66,7 +66,7 @@ if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">evaluaci&oacuten e
 if(isset($code) && $code=="4"){echo'<br><b><div class="xplik">Error: la evaluaci&oacuten ya existe</div></b><p>';}
 
 
-if(isset($quest) && $quest!=""){echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+if(isset($quest) && $quest!=""){echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 if(empty($filter)){$condicion="AND evaluado ='evaluado' AND (contrato like '%$quest%' OR contacto like '%$quest%')";}
 else{$condicion="AND evaluado !='evaluado' AND (contrato like '%$quest%' OR contacto like '%$quest%')";}
 }
@@ -116,7 +116,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 					  <td align=middle class="titles"><b>Usuario</b></td>
                       <td align=middle class="titles"><b>Promedio</b></td>					  					  
                       <td align=middle class="titles"><b>Status</b></td>				  
-                      <td align=middle class="titles"><b>Operaci�n</b></td></tr>';
+                      <td align=middle class="titles"><b>Operaci&Oacute;n</b></td></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}

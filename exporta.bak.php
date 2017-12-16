@@ -61,11 +61,11 @@ $checa_array1=array_search("usuario",$campos); if($checa_array1===FALSE){} else{
 $checa_array1=array_search("cargo",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Cargo", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 40); $cuenta_columnas++; }
 $checa_array1=array_search("departamento",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Departamento", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 25); $cuenta_columnas++; }
 $checa_array1=array_search("activo",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Activo", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 10); $cuenta_columnas++; }
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Direcci�n", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 60); $cuenta_columnas++; }
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Direcci&oacute;n", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 60); $cuenta_columnas++; }
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Colonia", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 50); $cuenta_columnas++; }
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Municipio", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 40); $cuenta_columnas++; }
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Estado", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 30); $cuenta_columnas++; }
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Tel�fono", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "tel&eacute;fono", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Celular", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Nextel", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "ID Nextel", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
@@ -305,14 +305,14 @@ $checa_array1=array_search("usuario",$campos); if($checa_array1===FALSE){} else{
 $checa_array1=array_search("status",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Status</strong></td>';}
 $checa_array1=array_search("rfc",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>RFC</strong></td>';}
 $checa_array1=array_search("contacto",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Contacto</strong></td>';}
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Direcci�n</strong></td>';}
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Direcci&oacute;n</strong></td>';}
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Colonia</strong></td>';}
 $checa_array1=array_search("ciudad",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Ciudad</strong></td>';}
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Municipio</strong></td>';}
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Estado</strong></td>';}
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Tel�fono</strong></td>';}
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>tel&eacute;fono</strong></td>';}
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Celular</strong></td>';}
-$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Tel�fono de oficina</strong></td>';}
+$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>tel&eacute;fono de oficina</strong></td>';}
 $checa_array1=array_search("fax",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Fax</strong></td>';}
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Nextel</strong></td>';}
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>ID Nextel</strong></td>';}

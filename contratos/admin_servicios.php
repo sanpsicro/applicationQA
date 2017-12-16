@@ -118,7 +118,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_servicios&accela=
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=servicios"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 

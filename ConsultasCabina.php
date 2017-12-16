@@ -24,26 +24,26 @@ $SQLCABINA = ["Buscar" => "select Poliza.idPoliza,numPoliza,Cliente.nombre,idUsu
                               (
                                 not pagada
                                 AND
-                                DATE_ADD(fechaInicio, INTERVAL 1 MONTH) > CONVERT_TZ(now(),'+00:00','+02:00')
+                                DATE_ADD(fechaInicio, INTERVAL 1 MONTH) > CONVERT_TZ(now(),'+00:00','+01:00')
                               )
-                              AND fechaVence > CONVERT_TZ(now(),'+00:00','+02:00')
+                              AND fechaVence > CONVERT_TZ(now(),'+00:00','+01:00')
                               AND validada AS VALUE
                              from Poliza  where idPoliza = '".$SEL["idPoliza"]."'"
 		    , "SinDerecho" => "select idPoliza,
 
-                                (pagada AND fechaVence <= CONVERT_TZ(now(),'+00:00','+02:00'))
-                                OR (NOT pagada AND DATE_ADD(fechaInicio, INTERVAL 1 MONTH) < CONVERT_TZ(now(),'+00:00','+02:00'))
-                                OR CONVERT_TZ(now(),'+00:00','+02:00') < fechaInicio
+                                (pagada AND fechaVence <= CONVERT_TZ(now(),'+00:00','+01:00'))
+                                OR (NOT pagada AND DATE_ADD(fechaInicio, INTERVAL 1 MONTH) < CONVERT_TZ(now(),'+00:00','+01:00'))
+                                OR CONVERT_TZ(now(),'+00:00','+01:00') < fechaInicio
                                 OR cancelada
                                 OR NOT validada AS VALUE
                              from Poliza  where idPoliza = '".$SEL[idPoliza]."'"
 		  , "Libre" => "select idPoliza,
-                             (pagada AND fechaVence > CONVERT_TZ(now(),'+00:00','+02:00'))
-                             AND fechaInicio <= CONVERT_TZ(now(),'+00:00','+02:00')
+                             (pagada AND fechaVence > CONVERT_TZ(now(),'+00:00','+01:00'))
+                             AND fechaInicio <= CONVERT_TZ(now(),'+00:00','+01:00')
                              AND validada
                              AND NOT cancelada AS VALUE
                              from Poliza  where idPoliza = '".$SEL[idPoliza]."'"
-		  , "AltaExpediente" =>   "select numPoliza,Cliente.nombre AS NombreCliente,CONVERT_TZ(now(),'+00:00','+02:00') as Ahora,
+		  , "AltaExpediente" =>   "select numPoliza,Cliente.nombre AS NombreCliente,CONVERT_TZ(now(),'+00:00','+01:00') as Ahora,
                            Cliente.idCliente,PlantillasBool.*
                            from Poliza join Cliente on (Cliente.idCliente = Poliza.idCliente)
                            join ProductosPoliza on (ProductosPoliza.idPoliza = Poliza.idPoliza)

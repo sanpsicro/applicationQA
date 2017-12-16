@@ -69,7 +69,7 @@ function validar(formulario) {
 
 
   if (formulario.contrasena.value.length < 4) {
-    alert("Escriba una contrase�a");
+    alert("Escriba una contrase&ntilde;a");
     formulario.contrasena.focus();
     return (false);
   }
@@ -88,7 +88,7 @@ function validar(formulario) {
   }
   
     if (formulario.direccion.value.length < 4) {
-    alert("Escriba una direcci�n");
+    alert("Escriba una direcci&oacute;n");
     formulario.direccion.focus();
     return (false);
   }
@@ -112,14 +112,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un tel�fono");
+    alert("Escriba un tel&eacute;fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   /*
   
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una direcci�n de correo v�lida"); 
+    alert("Escriba una direcci&oacute;n de correo v�lida"); 
 	    formulario.email.focus();
     return (false); 
   }
@@ -182,7 +182,7 @@ $permisos_exploited=array();
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -544,7 +544,7 @@ echo'</select>';
 
       <tr>
 
-        <td align="right" valign="top" bgcolor="#cccccc"><strong>Radio Tel�fono:</strong> </td>
+        <td align="right" valign="top" bgcolor="#cccccc"><strong>Radio tel&eacute;fono:</strong> </td>
 
         <td bgcolor="#cccccc"><input name="idnextel" type="text" id="idnextel" size="50" value="<?php  echo"$idnextel";?>" onKeyPress="return numbersonly(this, event)"/></td>
 
@@ -1341,7 +1341,7 @@ if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
           <input type="checkbox" name="modules_auth[]" value="facturacion" <?php  $checa_array1=array_search("facturacion",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
-          Facturaci�n </span></td>
+          Facturaci&oacute;n </span></td>
         <td align="center" valign="middle" bgcolor="#cccccc"><input name="permi[]" type="checkbox" id="permi[]" value="22_a" <?php  $checa_array1=array_search("22_a",$permisos_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> /></td>
@@ -1594,7 +1594,7 @@ Exportar Facturas </span></td>
           <input type="checkbox" name="modules_auth[]" value="expnotrem" <?php  $checa_array1=array_search("expnotrem",$modules_exploited);
 
 if($checa_array1===FALSE){} else{echo ' checked';} ?> />
-Exportar Notas de Remisi�n </span></td>
+Exportar Notas de Remisi&oacute;n </span></td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>
         <td align="center" valign="middle" bgcolor="#cccccc">&nbsp;</td>

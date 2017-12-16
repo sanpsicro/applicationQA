@@ -50,7 +50,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_facturacion_b&acc
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=facturacion"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=facturacion"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -92,7 +92,7 @@ if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de la Factur
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Factura eliminada</div></b><p>';}
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="where (factura like '%$quest%' OR nombre like '%$quest%')";
 }
 else{$condicion="";}
@@ -139,7 +139,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td align=middle class="titles"><b>Fecha</b></td>
                       <td align=middle class="titles"><b>Total</b></td>					  
                       <td align=middle class="titles"><b>Status</b></td>					  
-                      <td align=middle class="titles"><b>Operaci�n</b></td></tr>';
+                      <td align=middle class="titles"><b>Operaci&Oacute;n</b></td></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
   

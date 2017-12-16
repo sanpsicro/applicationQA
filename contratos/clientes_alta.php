@@ -43,7 +43,7 @@ count = document.frm.elements.length;
 
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="mainframe.php?module=clientes"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="mainframe.php?module=clientes"><td align="right" class="questtitle">b&uacute;squeda: 
 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
 

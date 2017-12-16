@@ -5,7 +5,7 @@ die();} else{
 
 
 mysql_connect($host,$username,$pass);
-$sql="INSERT INTO `general` (`servicio`, `contrato`, `idCliente`, `fecha_recepcion`, `status`) VALUES ('$servicio', '$clave', '$idcliente', now(),  'abierto')";
+$sql="INSERT INTO `general` (`servicio`, `contrato`, `idCliente`, `fecha_recepcion`, `status`) VALUES ('$servicio', '$clave', '$idcliente', CONVERT_TZ(now(),'+00:00','+01:00'),  'abierto')";
 mysql_db_query($database, $sql) or die("Error en:<br><i>$sql</i><br><br>Descripci&oacute;n:<b>".mysql_error());
 $expediente=mysql_insert_id();
 

@@ -76,7 +76,7 @@ $observaciones=mysql_result($result,0,"observaciones");
           <td><? echo $contacto;?></td>
         </tr>
         <tr>
-          <td bgcolor="#dddddd"><strong>Teléfono:</strong></td>
+          <td bgcolor="#dddddd"><strong>tel&eacute;fono:</strong></td>
           <td bgcolor="#dddddd"><? echo $tel;?></td>
         </tr>
 		        <tr>
@@ -96,7 +96,7 @@ $observaciones=mysql_result($result,0,"observaciones");
           <td><? echo $contacto2;?></td>
         </tr>
 		        <tr>
-          <td bgcolor="#dddddd"><strong>Teléfono:</strong></td>
+          <td bgcolor="#dddddd"><strong>tel&eacute;fono:</strong></td>
           <td bgcolor="#dddddd"><? echo $tel2;?></td>
         </tr>
 		        <tr>

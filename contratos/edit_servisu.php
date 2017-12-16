@@ -63,8 +63,8 @@ if($checa_array===FALSE){} else{
 	  <select name="tipo_asistencia_vial" id="tipo_asistencia_vial">
              <option>Seleccione...</option>
              <option value="Traslado para evitar alcohol&iacute;metro"  <?
-if($tipo_asistencia_vial=="Traslado para evitar alcoholímetro"){echo' selected ';}?>			 
-			 >Traslado para evitar alcoholímetro</option>
+if($tipo_asistencia_vial=="Traslado para evitar alcoholï¿½metro"){echo' selected ';}?>			 
+			 >Traslado para evitar alcoholï¿½metro</option>
              <option value="Siniestro" <? if($tipo_asistencia_vial=="Siniestro"){echo' selected ';}	?>		 			 
 			 >Siniestro</option>
              <option value="Asistencia" <?
@@ -76,11 +76,11 @@ if($tipo_asistencia_vial=="Paso de Corriente"){echo' selected ';}		?>
              <option value="Cambio de llanta" <?
 if($tipo_asistencia_vial=="Cambio de llanta"){echo' selected ';} ?>			 			 			 
 			 >Cambio de llanta</option>
-             <option value="Llaves en el interior del vehículo" <? 
-if($tipo_asistencia_vial=="Llaves en el interior del vehículo"){echo' selected ';}?>			 			 			 			 
+             <option value="Llaves en el interior del veh&iacute;culo" <? 
+if($tipo_asistencia_vial=="Llaves en el interior del veh&iacute;culo"){echo' selected ';}?>			 			 			 			 
 			 >Llaves en el interior del veh&iacute;culo</option>
-             <option value="Envío de gasolina" <?
-if($tipo_asistencia_vial=="Envío de gasolina"){echo' selected ';} ?>			 			 			 			 			 
+             <option value="Envï¿½o de gasolina" <?
+if($tipo_asistencia_vial=="Envï¿½o de gasolina"){echo' selected ';} ?>			 			 			 			 			 
 			 >Env&iacute;o de gasolina</option>
              <option value="Problemas administrativos" <? 
 if($tipo_asistencia_vial=="Problemas administrativos"){echo' selected ';} ?>			 			 			 			 			 			 
@@ -102,8 +102,8 @@ if($checa_array===FALSE){} else{
 	  
 	  <select name="tipo_asistencia_medica" id="tipo_asistencia_medica">
            <option>Seleccione...</option>
-             <option value="Consulta telefónica" <? 
-if($tipo_asistencia_medica=="Consulta telefónica"){echo' selected ';}	?>		 			 
+             <option value="Consulta telefï¿½nica" <? 
+if($tipo_asistencia_medica=="Consulta telefï¿½nica"){echo' selected ';}	?>		 			 
 			 >Consulta telef&oacute;nica</option>
              <option value="Consulta a domicilio" <? 
 if($tipo_asistencia_medica=="Consulta a domicilio"){echo' selected ';}	?>		 			 

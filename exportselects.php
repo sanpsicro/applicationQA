@@ -125,7 +125,7 @@ echo '>Facturas</option>';} ?>
 if($checa_arrayo14===FALSE){} else{echo'    
 <option value="notas_remision" ';
 if($tablax=="notas_remision"){echo"selected";}
-echo '>Notas de remisi�n</option>';} ?>
+echo '>Notas de Remisi&oacute;n</option>';} ?>
       
 </select>
 
@@ -317,7 +317,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>B�squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -346,7 +346,7 @@ echo'<td>
 	 
 	   echo'<option value="Empleado.direccion"';
      if($sort=="Empleado.direccion"){echo"selected";}
-	 echo'>Direcci�n</option>';
+	 echo'>Direcci&oacute;n</option>';
 	 
 	   echo'<option value="Colonia.NombreColonia"';
      if($sort=="Colonia.NombreColonia"){echo"selected";}
@@ -446,7 +446,7 @@ $quest=null;
 				<option value="no"'.($activo=="no"?' selected ':'').'>No Validado</option>
 			</select><br>
 
-	<b>B�squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+	<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 	</td>';
 
 	echo'<td>
@@ -1654,7 +1654,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>B�squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -1884,7 +1884,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>B�squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -1917,7 +1917,7 @@ echo'<td>
 	 
 	   echo'<option value="Cliente.calle"';
      if($sort=="Cliente.calle"){echo"selected";}
-	 echo'>Direcci�n</option>';
+	 echo'>Direcci&oacute;n</option>';
 	 
 	   echo'<option value="Colonia.NombreColonia"';
      if($sort=="Colonia.NombreColonia"){echo"selected";}
@@ -1945,7 +1945,7 @@ echo'<td>
 	 
 	 	   echo'<option value="Cliente.telefonoOficina"';
      if($sort=="Cliente.telefonoOficina"){echo"selected";}
-	 echo'>Tel�fono oficina</option>';
+	 echo'>tel&eacute;fono oficina</option>';
 	 
 	 	 	   echo'<option value="Cliente.fax"';
      if($sort=="Cliente.fax"){echo"selected";}
@@ -2581,7 +2581,7 @@ if (mysqli_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>B�squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>';

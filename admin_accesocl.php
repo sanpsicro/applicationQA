@@ -156,7 +156,7 @@ function validar(formulario) {
 
 
   if (formulario.contrasena.value.length < 4) {
-    alert("Escriba una contraseña");
+    alert("Escriba una contrase&ntilde;a");
     formulario.contrasena.focus();
     return (false);
   }
@@ -175,7 +175,7 @@ function validar(formulario) {
   }
   
     if (formulario.direccion.value.length < 4) {
-    alert("Escriba una dirección");
+    alert("Escriba una direcci&oacute;n");
     formulario.direccion.focus();
     return (false);
   }
@@ -199,14 +199,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un teléfono");
+    alert("Escriba un tel&eacute;fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   /*
   
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una dirección de correo válida"); 
+    alert("Escriba una direcci&oacute;n de correo vï¿½lida"); 
 	    formulario.email.focus();
     return (false); 
   }
@@ -556,7 +556,7 @@ if($checa_arrayxa2===FALSE){} else{echo ' checked';}
 			    <input name="permicl[]" type="checkbox" id="permicl[]" value="horarecepcion" <?php $checa_arrayxa2=array_search("horarecepcion",$explota_permicl);
 if($checa_arrayxa2===FALSE){} else{echo ' checked';}
  ?>/> 
-			    Hora de Recepción
+			    Hora de Recepciï¿½n
 </strong> 
 			    </td>
 			</tr>
@@ -914,7 +914,7 @@ E-Mail</strong> </td>
           </tr>
           <tr>
             <td bgcolor="#eeeeee"><input name="permicl[]" type="checkbox" id="permicl[]" value="exportacion" <?php $checa_arrayxa2=array_search("exportacion",$explota_permicl);if($checa_arrayxa2===FALSE){} else{echo ' checked';} ?>/>
-              <strong>Exportación</strong></td>
+              <strong>Exportaciï¿½n</strong></td>
           </tr>
         </table>
                <br />

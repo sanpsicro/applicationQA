@@ -20,7 +20,7 @@ isset($_GET['idcaso']) ? $idcaso = $_GET['idcaso'] : $idcaso = "" ;
 
 if(isset($_GET['clave']) && isset ($_GET['id_proveedor']) && isset ($_GET['idcaso'])){
 $link = mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET asignacion_proveedor= CONVERT_TZ(now(),'+00:00','+02:00'), contacto='0000-00-00 00:00:00', arribo='0000-00-00 00:00:00', proveedor='$id_proveedor' where contrato='$clave' AND id='$idcaso'";
+$sSQL="UPDATE general SET asignacion_proveedor= CONVERT_TZ(now(),'+00:00','+01:00'), contacto='0000-00-00 00:00:00', arribo='0000-00-00 00:00:00', proveedor='$id_proveedor' where contrato='$clave' AND id='$idcaso'";
 mysqli_query($link, $sSQL);
 
 $link = mysqli_connect($host,$username,$pass,$database);

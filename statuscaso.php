@@ -11,7 +11,7 @@ isset($_POST['id']) ? $id = $_POST['id'] : $id = "" ;
 
 #actualizar registro
 $link =  mysqli_connect($host,$username,$pass,$database);
-$sSQL="UPDATE general SET status='".$status."', ultimostatus=CONVERT_TZ(now(),'+00:00','+02:00') where id='".$id."'";
+$sSQL="UPDATE general SET status='".$status."', ultimostatus=CONVERT_TZ(now(),'+00:00','+01:00') where id='".$id."'";
 mysqli_query($link, $sSQL);
 }
 include('status_caso.php'); 

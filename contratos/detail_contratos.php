@@ -12,7 +12,7 @@ die();} else{}
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -91,7 +91,7 @@ $terminos=mysql_result($result7,0,"terminos");
 	if($factura=="1"){
 echo'<tr><td align=right><b>Factura</b></td><td>&nbsp;</td></tr>
 <tr><td bgcolor="#CCCCCC" align=right><strong>Monto:</strong></td><td bgcolor="#CCCCCC">$'.number_format($monto,2).'</td></tr>
-<tr><td align=right><strong>Comisión:</strong></td><td>$'.number_format($comision,2).'</td></tr>
+<tr><td align=right><strong>Comisi&oacute;n:</strong></td><td>$'.number_format($comision,2).'</td></tr>
 <tr><td bgcolor="#CCCCCC" align=right><strong>Ingreso:</strong></td><td bgcolor="#CCCCCC">$'.number_format($ingreso,2).'</td></tr>';
 }
 

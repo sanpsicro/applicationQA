@@ -86,7 +86,7 @@ if (metodo.toUpperCase()=='GET'){
 
 <script type="text/javascript">
 function confirmborra(idex,tercero) { 
-if (confirm("�Est� seguro de querer eliminar al tercero?\n")) { 
+if (confirm("¿Est&aacute; seguro de querer eliminar al tercero?\n")) { 
 FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-flam='+new Date().getTime(),'terceros','','get');
 }
 }

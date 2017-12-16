@@ -37,17 +37,17 @@ if(empty($moko)){$moko="all";}
 
               <select name="show" id="mostrar">
 
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
+                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
 
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
+                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
 
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
+                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
 
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
+                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
 
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
+                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
 
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
 
               </select>
 
@@ -79,7 +79,7 @@ if(empty($moko)){$moko="all";}
 
 <!--                <option value="finalizado" <? if($display=="finalizado"){echo' selected ';} ?>>Finalizado</option> -->
 
-                <option value="concluido" <? if($display=="concluido"){echo' selected ';} ?>>Concluído</option>                
+                <option value="concluido" <? if($display=="concluido"){echo' selected ';} ?>>Concluï¿½do</option>                
 
                 <option value="cancelado" <? if($display=="cancelado"){echo' selected ';} ?>>Cancelados</option>
 
@@ -113,7 +113,7 @@ if(empty($moko)){$moko="all";}
 
 ?>
 
-            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">b&uacute;squeda: 
 
               <input name="quest" type="text" id="quest" size="15"  onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
 
@@ -131,11 +131,11 @@ if(empty($moko)){$moko="all";}
 
 <?
 
-if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo suceso registrado en bitácora</div></b><p>';}
+if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nuevo suceso registrado en bitï¿½cora</div></b><p>';}
 
-if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de bitácora actualizados</div></b><p>';}
+if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de bitï¿½cora actualizados</div></b><p>';}
 
-if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Bitácora eliminada</div></b><p>';}
+if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Bitï¿½cora eliminada</div></b><p>';}
 
 
 
@@ -159,7 +159,7 @@ if($_POST['quest']!=''){
 
 $precondicion="";
 
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 
 $condicion="Where general.contrato like '%$quest%' 
 
@@ -307,7 +307,7 @@ $_GET["show"]=$show;
 
   $posterior = $actual + 1;
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 
@@ -349,7 +349,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 
 										  
 
-                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fecha recepción</b></td>					  
+                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fecha recepciï¿½n</b></td>					  
 
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Tiempo de Contacto</b></td>
 
@@ -363,7 +363,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Destino Municipio</b></td>					  					  
 
-                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operación</b></td></tr>';
+                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaci&Oacute;n</b></td></tr>';
 
 $bgcolor="#cccccc";
 
@@ -427,7 +427,7 @@ echo'<td bgcolor="'.$bgcolor.'" class="dataclass"><center>';
 
 echo' <a href="?module=detail_seguimiento&id='.$row["id"].'">Detalle</a> |';
 
-echo' <a href="?module=bitacora&id='.$row["id"].'">Bitácora</a>';
+echo' <a href="?module=bitacora&id='.$row["id"].'">Bitï¿½cora</a>';
 
 
 
@@ -447,7 +447,7 @@ if($row['tipoServicio']=="legal")
 
 	 if($checa_array1===FALSE){}else{
 
-		echo ' | <a href="?module=seguimiento_caso&id='.$row["id"].'">Seguimiento</a> | <a href="?module=conclusion_caso&id='.$row["id"].'">Conclusión</a>';
+		echo ' | <a href="?module=seguimiento_caso&id='.$row["id"].'">Seguimiento</a> | <a href="?module=conclusion_caso&id='.$row["id"].'">Conclusiï¿½n</a>';
 
 	}
 

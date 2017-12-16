@@ -98,7 +98,7 @@ function validar(formulario) {
   }
   
    if (formulario.numero.value.length < 1) {
-    alert("Escriba un número");
+    alert("Escriba un N&uacute;mero");
     formulario.numero.focus();
     return (false);
   }
@@ -128,14 +128,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un teléfono");
+    alert("Escriba un tel&eacute;fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   
 /*  
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una dirección de correo válida"); 
+    alert("Escriba una direcci&oacute;n de correo vï¿½lida"); 
 	    formulario.email.focus();
     return (false); 
 	
@@ -201,7 +201,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_clientes&accela=n
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=clientes"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 

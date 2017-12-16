@@ -84,7 +84,7 @@ function mysqli_result($res,$row=0,$col=0){
     }
     return false;
 }
-
+isset($_GET['contrato']) ? $contrato= $_GET['contrato'] : $contrato= "";
 $db = mysqli_connect($host,$username,$pass,$database);
 ////mysql_select_db($database,$db);
 $result = mysqli_query($db,"SELECT * from comisiones_contratos where contrato = '$contrato'");

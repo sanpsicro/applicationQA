@@ -4,6 +4,8 @@ include('conf.php');
 isset($_GET['id']) ? $id = $_GET['id'] : $id ="" ;
 isset($_GET['caso']) ? $caso = $_GET['caso'] : $caso ="" ;
 isset($_GET['idnota']) ? $idnota = $_GET['idnota'] : $idnota ="" ;
+isset($_GET['nombrep']) ? $nombrep= $_GET['nombrep'] : $nombrep="" ;
+isset($_GET['popup']) ? $popup= $_GET['popup'] : $popup="" ;
 
 if(empty($fecha[2])){$fecha[2]=date("d");}
 if(empty($fecha[1])){$fecha[1]=date("m");}

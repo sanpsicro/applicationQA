@@ -9,11 +9,11 @@
            <?
 		   if (empty($quest)) {echo '<br />
 <br />
-<strong><div align="center">Campo de búsqueda vacío</div></strong>'; die; } else {} 
+<strong><div align="center">Campo de b&uacute;squeda vacï¿½o</div></strong>'; die; } else {} 
 		   ?>
 
 <br /><br />
-<div align="center"><h1>RESULTADOS DE LA BÚSQUEDA: <? echo $quest; ?></h1></div>
+<div align="center"><h1>RESULTADOS DE LA b&uacute;squeda: <? echo $quest; ?></h1></div>
 <?
 
 $arreglobajos="_";
@@ -67,7 +67,7 @@ echo'<table width="100%" border="0" cellspacing="1" cellpadding="4">
 <tr>
 					 <td bgcolor="#BBBBBB" align=middle class="dataclassA"><b>Reporte AMA</b></td>	 
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Ejecutivo AMA</b></td>
-                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fecha recepción</b></td>					  
+                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fecha recepciï¿½n</b></td>					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Paciente</b></td>					  					  					  <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Ubicacion Estado</b></td>
 					  <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Ubicacion Municipio</b></td>
 				  					  

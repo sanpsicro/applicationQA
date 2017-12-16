@@ -643,7 +643,7 @@ Que t&eacute;cnico solicita:
                <option VALUE='Siniestro'>Siniestro</option>
                            <option VALUE='Asistencia'>Asistencia</option>
                            <option VALUE='Cambio de llanta'>Cambio de llanta</option>
-                           <option VALUE='Llaves en el interior del veh&iacute;culo'>Llaves en el interior del veh�culo</option>
+                           <option VALUE='Llaves en el interior del veh&iacute;culo'>Llaves en el interior del veh&iacute;culo</option>
                            <option VALUE='Env&iacute;o de gasolina'>Env&iacute;o de gasolina</option>
                            <option VALUE='Problemas administrativos'>Problemas administrativos</option>
                   </select>

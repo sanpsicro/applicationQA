@@ -4,6 +4,10 @@ session_start();
 include 'conf.php';
 
 isset($_POST['buscas']) ? $buscas = $_POST['buscas'] : $buscas = null;
+isset($_POST['servicio']) ? $servicio= $_POST['servicio'] : $servicio= null;
+isset($_POST['estado']) ? $estado= $_POST['estado'] : $estado = null;
+isset($_POST['municipio']) ? $municipio= $_POST['municipio'] : $municipio= null;
+
 isset($_POST['accela']) ? $accela= $_POST['accela'] : $accela= null;
 isset($_SESSION['valid_userid']) ? $valid_userid= $_POST['valid_userid'] : $valid_userid= null;
 
@@ -137,9 +141,9 @@ if (mysqli_num_rows($result)){
  <tr>
  <td>
  <?php 
-						  if($accela=="edit"){
-						 echo'  <select name="municipio" id="municipio">';
-
+if(true){   // 'true' was $accela == edit
+						 echo'  <select name="municipio" id="municipio">'. 
+						 '<option value="">Todos los municipios</option>'; 
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
@@ -154,7 +158,7 @@ if (mysqli_num_rows($result)){
 					  
 echo'</select>';
 						  }
-						  else{echo'<select disabled="disabled" name="municipio" id="municipio">
+						  else{echo'<select disabled="disabled" name="municipio" id="municipio" >
 						<option value="">Todos los municipios</option>
 					</select>';}
 						  ?>                        
@@ -178,7 +182,8 @@ echo'</select>';
     </td>
     </tr>
    <?php 
-if(!empty($estado) and !empty($servicio) and !empty($municipio) and $buscas=="si"){$condicion="where (cobertura like '".$estado-$municipio-_."' or cobertura like '$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_') and (trabajos like '%,$servicio,%' or trabajos='$servicio' or trabajos like '$servicio,%' or trabajos like '%,$servicio') AND";
+if(!empty($estado) and !empty($servicio) and !empty($municipio) and $buscas=="si"){
+	$condicion="where (cobertura like '".$estado-$municipio-_."' or cobertura like '$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_') and (trabajos like '%,$servicio,%' or trabajos='$servicio' or trabajos like '$servicio,%' or trabajos like '%,$servicio') AND";
 $arreglo="
 CASE 
 WHEN cobertura LIKE '%$estado-$municipio-A%' THEN 1
@@ -213,7 +218,8 @@ END
 ";
 }
 
-elseif(!empty($estado) and !empty($municipio) and empty($servicio) and $buscas=="si"){$condicion="where (cobertura like '$estado-$municipio-_' or cobertura like '$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_') AND";
+elseif(!empty($estado) and !empty($municipio) and empty($servicio) and $buscas=="si"){
+	$condicion="where (cobertura like '$estado-$municipio-_' or cobertura like '$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_,%' or cobertura like '%,$estado-$municipio-_') AND";
 $arreglo="nombre";
 }
 
@@ -229,7 +235,8 @@ elseif(empty($estado) and !empty($servicio) and $buscas=="si"){$condicion="where
 $arreglo="nombre";
 }
 
-elseif(empty($estado) and empty($servicio) and $buscas=="si"){$condicion="where";
+elseif(empty($estado) and empty($servicio) and $buscas=="si"){
+	$condicion="where";
 $arreglo="nombre";
 }
    
@@ -287,7 +294,7 @@ $services=explode(",",$row["trabajos"]);
 </tr>
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto:</b> '.$row["contacto"].'<br>
-<b>Tel�fono:</b>
+<b>tel&eacute;fono:</b>
 <form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel"].'';
  $telctc1 = $row["tel"];
@@ -317,7 +324,7 @@ echo'
 
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto2:</b> '.$row["contacto2"].'<br>
-<b>Tel�fono:</b>
+<b>tel&eacute;fono:</b>
 <form method="POST" action="https://192.168.1.200/api/actions/call" target="_blank"> 
 '.$row["tel2"].'';
  $telctc1 = $row["tel2"];

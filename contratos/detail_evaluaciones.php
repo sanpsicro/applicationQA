@@ -12,7 +12,7 @@ die();} else{}
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
 
 
@@ -63,7 +63,7 @@ $promedio=mysql_result($result,0,"promedio");
 ?>
 <table width="100%%" border="0" cellspacing="3" cellpadding="3">
   <tr>
-    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles de evaluación</b></td>
+    <td colspan="2" align="center" bgcolor="#bbbbbb"><b>Detalles de evaluaciï¿½n</b></td>
     </tr>
 
   <tr>

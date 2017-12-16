@@ -74,7 +74,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_productos&accela=
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=productos"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -182,7 +182,7 @@ echo'<td bgcolor="#eeeeee" width=50%><table width=100% cellpadding=0 cellspacing
 $checa_array=array_search($row["id"],$serviciosx);
 if($checa_array===FALSE){} else{echo ' checked'; 
 $llenaxv="si";}
-echo' onClick="Enab('.$cuentainputs.')"><b>'.$row["servicio"].'</b></td><td width=50%>Núm. de eventos <input name="numeventos[]" id="numeventos" type="text" size="10"';
+echo' onClick="Enab('.$cuentainputs.')"><b>'.$row["servicio"].'</b></td><td width=50%>N&uacute;m. de eventos <input name="numeventos[]" id="numeventos" type="text" size="10"';
 if($llenaxv=="si"){echo 'value="'.$numeventosx["$cuentallenos"].'"';  $ponesto=""; $cuentallenos=$cuentallenos+1;}else{echo'value="Ingrese numero"'; $ponesto="disabled";}
 
 echo''.$ponesto.' onKeyPress="return numbersonly(this, event)"></></td></tr></table>

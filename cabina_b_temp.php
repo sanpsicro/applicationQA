@@ -152,7 +152,7 @@ if($errorvigencia=="si"){
 $alertas=''.$alertas.' <script language="Javascript">alert ("USUARIO SIN VIGENCIA")</script>';
 
 $despliega='<tr>
-    <td align=middle bgcolor="#ff0000"><b><font color="#ffffff">P�liza Vencida</font></b></td>
+    <td align=middle bgcolor="#ff0000"><b><font color="#ffffff">P&oacute;liza Vencida</font></b></td>
     <td align=middle bgcolor="#FFCC00"> NO UTILIZAR SERVICIOS <script language="Javascript">history.go(-1);</script></td>
   </tr>';}
   
@@ -257,7 +257,7 @@ $in=$in+1;
 echo'</table></td><td width=50% valign=top>
 
 <table width="100%" border="0" cellpadding=3 cellspacing=3>
-<tr><td bgcolor="#bbbbbb" align=middle><b>N�mero de expediente</b></td><td bgcolor="#bbbbbb"  align=middle><b>Servicio utilizado</b></td><td bgcolor="#bbbbbb"  align=middle><b>Detalle</b></td></tr>';
+<tr><td bgcolor="#bbbbbb" align=middle><b>N&uacute;mero de expediente</b></td><td bgcolor="#bbbbbb"  align=middle><b>Servicio utilizado</b></td><td bgcolor="#bbbbbb"  align=middle><b>Detalle</b></td></tr>';
 
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 

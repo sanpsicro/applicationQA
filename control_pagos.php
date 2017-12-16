@@ -5,7 +5,7 @@ die();} else{}
 
 
 isset($_POST['accela']) ? $accela  = $_POST['accela'] : $accela = "" ;
-isset($_POST['quest']) ? $quest= $_POST['quest'] : $quest= "" ;
+isset($_GET['quest']) ? $quest= $_GET['quest'] : $quest= "" ;
 isset($_POST['sort']) ? $sort= $_POST['sort'] : $sort= "" ;
 isset($_POST['show']) ? $show= $_POST['show'] : $show= "" ;
 isset($_POST['selenium']) ? $selenium= $_POST['selenium'] : $selenium= "" ;

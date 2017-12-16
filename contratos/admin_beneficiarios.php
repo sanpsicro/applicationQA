@@ -68,7 +68,7 @@ echo'<form name="frm" method="post" action="process.php?module=beneficiarios&acc
 
      <td align="center" bgcolor="#bbbbbb" colspan=6>
 <input type="submit" name="Submit" value="Agregar Beneficiario" onClick="return confirm(
-  'Se dará de alta el vehículo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n ¿Desea continuar?');"> 
+  'Se dar&aacute;de alta el veh&iacute;culo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n Â¿Desea continuar?');"> 
 &nbsp; <input type="reset" name="Submit2" value="Reestablecer"></td>
    </tr></form>
  </table></body></html>

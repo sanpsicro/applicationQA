@@ -1,8 +1,17 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: Mon,26 Jul 1997 05:00:00 GMT");
 header('Content-Type: text/html; charset=iso-8859-1');
+
+isset($_POST['modulo']) ? $modulo = $_POST['modulo'] : $modulo = "";
+isset($_POST['columnas']) ? $columnas= $_POST['columnas'] : $columnas= "";
+isset($_POST['ordena']) ? $ordena= $_POST['ordena'] : $ordena= "";
+isset($_POST['updown']) ? $updown= $_POST['updown'] : $updown= "";
+isset($_POST['seleccionados']) ? $seleccionados= $_POST['seleccionados'] : $seleccionados= "";
+isset($_POST['export_as']) ? $export_as= $_POST['export_as'] : $export_as= "";
+
 
 if(!function_exists("existe"))
 {
@@ -43,8 +52,8 @@ require_once "clases/class.writeexcel_workbook.inc.php";
 require_once "clases/class.writeexcel_worksheet.inc.php";
 
 $fname = tempnam("/tmp", "reporte.xls");
-$workbook = &new writeexcel_workbook($fname);
-$worksheet = &$workbook->addworksheet();
+$workbook = new writeexcel_workbook($fname);
+$worksheet =& $workbook->addworksheet();
 
 $header =& $workbook->addformat();
 $header->set_bold();
@@ -59,7 +68,7 @@ $elegidos=implode(" or ",$serebro);
 
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query("SELECT Empleado.idEmpleado, Empleado.usuario, Empleado.nombre, Empleado.cargo, Empleado.direccion, Empleado.telefonoCasa, Empleado.telefonoCelular, Empleado.nextel, Empleado.idnextel, Empleado.email, Empleado.activo, Departamento.nombre as depa, Colonia.NombreColonia, Municipio.NombreMunicipio, Estado.NombreEstado from Empleado left join Departamento on (Empleado.idDepartamento = Departamento.idDepartamento) left join Colonia on (Empleado.colonia = Colonia.idColonia) left join Municipio on (Empleado.municipio = Municipio.idMunicipio) left join Estado on (Empleado.estado = Estado.idEstado) Where $elegidos order by $ordena $updown", $link); 
+$result = mysqli_query($link,"SELECT Empleado.idEmpleado, Empleado.usuario, Empleado.nombre, Empleado.cargo, Empleado.direccion, Empleado.telefonoCasa, Empleado.telefonoCelular, Empleado.nextel, Empleado.idnextel, Empleado.email, Empleado.activo, Departamento.nombre as depa, Colonia.NombreColonia, Municipio.NombreMunicipio, Estado.NombreEstado from Empleado left join Departamento on (Empleado.idDepartamento = Departamento.idDepartamento) left join Colonia on (Empleado.colonia = Colonia.idColonia) left join Municipio on (Empleado.municipio = Municipio.idMunicipio) left join Estado on (Empleado.estado = Estado.idEstado) Where $elegidos order by $ordena $updown"); 
 if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
@@ -69,11 +78,11 @@ $checa_array1=array_search("usuario",$campos); if($checa_array1===FALSE){} else{
 $checa_array1=array_search("cargo",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Cargo", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 40); $cuenta_columnas++; }
 $checa_array1=array_search("departamento",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Departamento", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 25); $cuenta_columnas++; }
 $checa_array1=array_search("activo",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Activo", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 10); $cuenta_columnas++; }
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Direcci�n", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 60); $cuenta_columnas++; }
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Direcci&oacute;n", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 60); $cuenta_columnas++; }
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Colonia", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 50); $cuenta_columnas++; }
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Municipio", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 40); $cuenta_columnas++; }
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Estado", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 30); $cuenta_columnas++; }
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Tel�fono", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "tel&eacute;fono", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Celular", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "Nextel", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{$worksheet->write(0, $cuenta_columnas, "ID Nextel", $header); $worksheet->set_column($cuenta_columnas, $cuenta_columnas, 20); $cuenta_columnas++; }
@@ -127,7 +136,7 @@ $elegidos=implode(" or ",$serebro);
 
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query("SELECT Empleado.idEmpleado, Empleado.usuario, Empleado.nombre, Empleado.cargo, Empleado.direccion, Empleado.telefonoCasa, Empleado.telefonoCelular, Empleado.nextel, Empleado.idnextel, Empleado.email, Empleado.activo, Departamento.nombre as depa, Colonia.NombreColonia, Municipio.NombreMunicipio, Estado.NombreEstado from Empleado left join Departamento on (Empleado.idDepartamento = Departamento.idDepartamento) left join Colonia on (Empleado.colonia = Colonia.idColonia) left join Municipio on (Empleado.municipio = Municipio.idMunicipio) left join Estado on (Empleado.estado = Estado.idEstado) Where $elegidos order by $ordena $updown", $link); 
+$result = mysqli_query( $link,"SELECT Empleado.idEmpleado, Empleado.usuario, Empleado.nombre, Empleado.cargo, Empleado.direccion, Empleado.telefonoCasa, Empleado.telefonoCelular, Empleado.nextel, Empleado.idnextel, Empleado.email, Empleado.activo, Departamento.nombre as depa, Colonia.NombreColonia, Municipio.NombreMunicipio, Estado.NombreEstado from Empleado left join Departamento on (Empleado.idDepartamento = Departamento.idDepartamento) left join Colonia on (Empleado.colonia = Colonia.idColonia) left join Municipio on (Empleado.municipio = Municipio.idMunicipio) left join Estado on (Empleado.estado = Estado.idEstado) Where $elegidos order by $ordena $updown"); 
 if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
@@ -194,7 +203,7 @@ if($modulo=="validaciones"){
 
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query("SELECT uc.id,uc.contrato,uc.inciso,uc.clave,uc.nombre,DATE_FORMAT(uc.fecha_inicio,'%e/%m/%Y') as fecha_inicio, DATE_FORMAT(uc.fecha_vencimiento,'%e/%m/%Y') as fecha_vencimiento,uc.status,v.tipo_pago,v.fecha_pago, DATE_FORMAT(v.fecha_pago_comision,'%e/%m/%Y') as fecha_pago_comision,v.cuenta_ingreso,v.observaciones,v.comision_vendedor FROM usuarios_contrato uc LEFT JOIN validaciones v ON (uc.id=v.clave_usuario) WHERE $elegidos ORDER BY $ordena $updown", $link); 
+	$result = mysqli_query( $link,"SELECT uc.id,uc.contrato,uc.inciso,uc.clave,uc.nombre,DATE_FORMAT(uc.fecha_inicio,'%e/%m/%Y') as fecha_inicio, DATE_FORMAT(uc.fecha_vencimiento,'%e/%m/%Y') as fecha_vencimiento,uc.status,v.tipo_pago,v.fecha_pago, DATE_FORMAT(v.fecha_pago_comision,'%e/%m/%Y') as fecha_pago_comision,v.cuenta_ingreso,v.observaciones,v.comision_vendedor FROM usuarios_contrato uc LEFT JOIN validaciones v ON (uc.id=v.clave_usuario) WHERE $elegidos ORDER BY $ordena $updown"); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -207,8 +216,8 @@ if($modulo=="validaciones"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -325,7 +334,7 @@ if($modulo=="ventas"){
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
 	$query="SELECT Poliza.idPoliza,Poliza.numPoliza,Cliente.nombre as cliente, Cliente.nombre,Cliente.tipocliente, Empleado.nombre as vendedor, usuarios_contrato.status as elstatus,SUM(usuarios_contrato.monto) as monto, SUM(usuarios_contrato.ingreso) as ingreso FROM Poliza left join  Cliente on (Cliente.idCliente = Poliza.idCliente) left join Empleado on (Cliente.idEmpleado = Empleado.idEmpleado) left join usuarios_contrato on (Poliza.numPoliza = usuarios_contrato.contrato) where ((usuarios_contrato.status='validado' and Cliente.tipocliente!='4') or Cliente.tipocliente='4') AND ($elegidos) GROUP BY usuarios_contrato.contrato ORDER BY $ordena $updown";
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -338,8 +347,8 @@ if($modulo=="ventas"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -431,7 +440,7 @@ if($modulo=="pagos"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -444,8 +453,8 @@ if($modulo=="pagos"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -540,7 +549,7 @@ if($modulo=="cobranza"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -553,8 +562,8 @@ if($modulo=="cobranza"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -641,7 +650,7 @@ if($modulo=="combinado"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -654,8 +663,8 @@ if($modulo=="combinado"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -758,7 +767,7 @@ if($modulo=="proveedores"){
 	$arrayCampos=array(
 		"nombre"	=>	"Nombre",
 		"usuario"	=>	"Usuario",
-		"contrasena"	=>	"Contrase�a",
+		"contrasena"	=>	"contrase&ntilde;a",
 		"calle"		=>	"Calle",
 		"colonia"		=>	"Colonia",
 		"estado"		=>	"Estado",
@@ -790,7 +799,7 @@ if($modulo=="proveedores"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -803,8 +812,8 @@ if($modulo=="proveedores"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -894,7 +903,7 @@ if($modulo=="evaluaciones"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -907,8 +916,8 @@ if($modulo=="evaluaciones"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -990,7 +999,7 @@ if($modulo=="comisiones"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -1003,8 +1012,8 @@ if($modulo=="comisiones"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -1088,7 +1097,7 @@ if($modulo=="facturas"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query( $link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -1101,8 +1110,8 @@ if($modulo=="facturas"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -1186,7 +1195,7 @@ if($modulo=="notas_remision"){
 	
 	$link = mysqli_connect($host,$username,$pass,$database); 
 	//mysql_select_db($database, $link); 
-	$result = mysqli_query($query, $link)or die(mysql_error()); 
+	$result = mysqli_query($link,$query)or die(mysql_error()); 
 	if (mysqli_num_rows($result))
 	{ 
 
@@ -1199,8 +1208,8 @@ if($modulo=="notas_remision"){
 			require_once "clases/class.writeexcel_worksheet.inc.php";
 
 			$fname = tempnam("/tmp", "reporte.xls");
-			$workbook = &new writeexcel_workbook($fname);
-			$worksheet = &$workbook->addworksheet();
+			$workbook = new writeexcel_workbook($fname);
+			$worksheet =& $workbook->addworksheet();
 
 			$header =& $workbook->addformat();
 			$header->set_bold();
@@ -1262,8 +1271,8 @@ require_once "clases/class.writeexcel_workbook.inc.php";
 require_once "clases/class.writeexcel_worksheet.inc.php";
 
 $fname = tempnam("/tmp", "reporte.xls");
-$workbook = &new writeexcel_workbook($fname);
-$worksheet = &$workbook->addworksheet();
+$workbook = new writeexcel_workbook($fname);
+$worksheet =& $workbook->addworksheet();
 
 $header =& $workbook->addformat();
 $header->set_bold();
@@ -1276,6 +1285,8 @@ foreach($seleccionados as $idis){
 $serebro[] = "$campoId='$idis'";
 }
 $elegidos=implode(" or ",$serebro);
+
+
 
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
@@ -1316,10 +1327,11 @@ $query="SELECT
 			left join Municipio as munifiscal on (Cliente.fisMunicipio = munifiscal.idMunicipio) 
 			left join Estado as estadfiscal on (Cliente.fisEstado = estadfiscal.idEstado)
 			Where $elegidos order by $ordena $updown";
-$result = mysqli_query($query, $link) or die(mysql_error()); 
+$result = mysqli_query($link,$query) or die(mysql_error()); 
 if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
+echo $columnas;
 $cuenta_columnas=0;
 #------------------------------------------------------------------------xxxxxxxxxxxxxxxxxxxxxxx
 
@@ -1446,7 +1458,7 @@ $query="SELECT
 			Where $elegidos 
 			order by $ordena $updown";
 #echo $query;
-$result = mysqli_query($query, $link)or die (mysql_error());
+$result = mysqli_query($link,$query)or die (mysql_error());
 if (mysqli_num_rows($result)!=0){ 
 
 $campos=explode(",",$columnas);
@@ -1460,14 +1472,14 @@ $checa_array1=array_search("nombre",$campos); if($checa_array1===FALSE){} else{e
 $checa_array1=array_search("vendedor",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Vendedor</strong></td>';}
 $checa_array1=array_search("rfc",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>RFC</strong></td>';}
 $checa_array1=array_search("contacto",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Contacto</strong></td>';}
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Direcci�n</strong></td>';}
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Direcci&oacute;n</strong></td>';}
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Colonia</strong></td>';}
 $checa_array1=array_search("ciudad",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Ciudad</strong></td>';}
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Municipio</strong></td>';}
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Estado</strong></td>';}
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Tel�fono</strong></td>';}
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>tel&eacute;fono</strong></td>';}
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Celular</strong></td>';}
-$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Tel�fono de oficina</strong></td>';}
+$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>tel&eacute;fono de oficina</strong></td>';}
 $checa_array1=array_search("fax",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Fax</strong></td>';}
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Nextel</strong></td>';}
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>ID Nextel</strong></td>';}
@@ -1529,14 +1541,14 @@ require_once "clases/class.writeexcel_workbook.inc.php";
 require_once "clases/class.writeexcel_worksheet.inc.php";
 
 $fname = tempnam("/tmp", "reporte.xls");
-$workbook = &new writeexcel_workbook($fname);
-$worksheet = &$workbook->addworksheet();
+$workbook = new writeexcel_workbook($fname);
+$worksheet =& $workbook->addworksheet();
 
 $header =& $workbook->addformat();
 $header->set_bold();
 $header->set_size(10);
 # Create a format for the stock price
-$f_price =& $workbook->addformat();
+$f_price =$workbook->addformat();
 $f_price->set_align('right');
 $f_price->set_num_format('$0.00');
 
@@ -1549,11 +1561,14 @@ $elegidos=implode(" or ",$serebro);
 
 $link = mysqli_connect($host,$username,$pass,$database); 
 //mysql_select_db($database, $link); 
-$result = mysqli_query("SELECT general.id,  TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.contrato, general.fecha_recepcion, general.fecha_suceso, general.apertura_expediente, general.contactoext, general.terminoext, general.cobertura, general.ejecutivo, general.asignacion_proveedor, general.contacto, general.arribo, general.reporta, general.tel_reporta, general.num_contrato, general.convenio, general.expediente, general.num_cliente, general.num_siniestro, general.ajustador, general.aseguradora, general.aseg_poliza, general.aseg_inciso, general.aseg_vigencia_inicio, general.aseg_vigencia_termino, general.aseg_cobertura, general.aseg_monto, general.asegurado, general.asegurado_y_o, general.aseg_tel1, general.aseg_tel2, general.aseg_domicilio, general.aseg_cp, general.aseg_ciudad, general.aseg_conductor, general.aseg_conductor_tel1, general.aseg_conductor_tel2, general.usuario, general.reporte_cliente, general.tecnico_solicitado, general.motivo_servicio, general.auto_marca, general.auto_tipo, general.auto_modelo, general.auto_color, general.auto_placas, general.tipo_asistencia_vial, general.tipo_asistencia_medica, general.domicilio_cliente, general.domicilio_sustituto, general.ubicacion_requiere, general.ubicacion_ciudad, general.destino_servicio, general.destino_ciudad, general.formato_carta, general.instructivo, general.costo, general.observaciones, general.status, general.banderazo, general.blindaje, general.maniobras, general.espera, general.otro, Empleado.nombre as empleado, servicios.servicio, Cliente.nombre as cliente, Estado.NombreEstado as ubica_estado, Municipio.NombreMunicipio as ubica_municipio, Colonia.NombreColonia as ubica_colonia, estaddestino.NombreEstado as dest_estado, munidestino.NombreMunicipio as dest_municipio, coldestino.NombreColonia as dest_colonia, Provedor.nombre as proveedor, colaseg.NombreColonia as asegur_colonia, muniaseg.NombreMunicipio as asegur_municipio, estadaseg.NombreEstado as asegur_estado, seguimiento_juridico.situacion_juridica, seguimiento_juridico.detencion, seguimiento_juridico.liberacion, seguimiento_juridico.fianzas_conductor, seguimiento_juridico.situacion_vehiculo, seguimiento_juridico.detencion_vehiculo, seguimiento_juridico.liberacion_vehiculo, seguimiento_juridico.fianzas_vehiculo, seguimiento_juridico.conductor as conductor_juridico, seguimiento_juridico.telconductor, seguimiento_juridico.telconductor2, seguimiento_juridico.siniestro as siniestro_juridico, seguimiento_juridico.averiguacion, seguimiento_juridico.autoridad, seguimiento_juridico.fecha_accidente, seguimiento_juridico.numlesionados, seguimiento_juridico.numhomicidios, seguimiento_juridico.delitos, seguimiento_juridico.danos, seguimiento_juridico.lesiones, seguimiento_juridico.homicidios, seguimiento_juridico.ataques, seguimiento_juridico.robo, seguimiento_juridico.descripcion, seguimiento_juridico.lugar_hechos, seguimiento_juridico.referencias, seguimiento_juridico.ciudad, seguimiento_juridico.ajustador as ajustador_juridico, seguimiento_juridico.telajustador, seguimiento_juridico.telajustador2, seguimiento_juridico.monto_danos, seguimiento_juridico.monto_deducible, seguimiento_juridico.resp_ajustador, seguimiento_juridico.resp_abogado, seguimiento_juridico.resp_perito, seguimiento_juridico.resp_consignado, seguimiento_juridico.juzgado, seguimiento_juridico.causa_penal, seguimiento_juridico.procesado, seguimiento_juridico.final_forma_pago, seguimiento_juridico.final_comentario, seguimiento_juridico.final_monto, seguimiento_juridico.final_estado, coljur.NombreColonia as jurid_colonia, munijur.NombreMunicipio as jurid_municipio, estadjur.NombreEstado as jurid_estado, pagos.monto
- from general left join Empleado on (general.idEmpleado = Empleado.idEmpleado) left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join Estado on (general.ubicacion_estado = Estado.idEstado) left join Municipio on (general.ubicacion_municipio = Municipio.idMunicipio) left join Colonia on (general.ubicacion_colonia = Colonia.idColonia) left join Estado as estaddestino on (general.destino_estado = estaddestino.idEstado) left join Municipio as munidestino on (general.destino_municipio = munidestino.idMunicipio) left join Colonia as coldestino on (general.destino_colonia = coldestino.idColonia) left join Provedor on (general.proveedor = Provedor.id) left join Colonia as colaseg on (general.aseg_colonia = colaseg.idColonia)  left join Municipio as muniaseg on (general.aseg_municipio = muniaseg.idMunicipio) left join Estado as estadaseg on (general.aseg_estado = estadaseg.idEstado) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join Colonia as coljur on (seguimiento_juridico.colonia = coljur.idColonia)  left join Municipio as munijur on (seguimiento_juridico.municipio = munijur.idMunicipio) left join Estado as estadjur on (seguimiento_juridico.estado = estadjur.idEstado) left join pagos on (general.expediente = pagos.expediente) Where $elegidos order by $ordena $updown", $link); 
+$query="SELECT general.id,  TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.contrato, general.fecha_recepcion, general.fecha_suceso, general.apertura_expediente, general.contactoext, general.terminoext, general.cobertura, general.ejecutivo, general.asignacion_proveedor, general.contacto, general.arribo, general.reporta, general.tel_reporta, general.num_contrato, general.convenio, general.expediente, general.num_cliente, general.num_siniestro, general.ajustador, general.aseguradora, general.aseg_poliza, general.aseg_inciso, general.aseg_vigencia_inicio, general.aseg_vigencia_termino, general.aseg_cobertura, general.aseg_monto, general.asegurado, general.asegurado_y_o, general.aseg_tel1, general.aseg_tel2, general.aseg_domicilio, general.aseg_cp, general.aseg_ciudad, general.aseg_conductor, general.aseg_conductor_tel1, general.aseg_conductor_tel2, general.usuario, general.reporte_cliente, general.tecnico_solicitado, general.motivo_servicio, general.auto_marca, general.auto_tipo, general.auto_modelo, general.auto_color, general.auto_placas, general.tipo_asistencia_vial, general.tipo_asistencia_medica, general.domicilio_cliente, general.domicilio_sustituto, general.ubicacion_requiere, general.ubicacion_ciudad, general.destino_servicio, general.destino_ciudad, general.formato_carta, general.instructivo, general.costo, general.observaciones, general.status, general.banderazo, general.blindaje, general.maniobras, general.espera, general.otro, Empleado.nombre as empleado, servicios.servicio, Cliente.nombre as cliente, Estado.NombreEstado as ubica_estado, Municipio.NombreMunicipio as ubica_municipio, Colonia.NombreColonia as ubica_colonia, estaddestino.NombreEstado as dest_estado, munidestino.NombreMunicipio as dest_municipio, coldestino.NombreColonia as dest_colonia, Provedor.nombre as proveedor, colaseg.NombreColonia as asegur_colonia, muniaseg.NombreMunicipio as asegur_municipio, estadaseg.NombreEstado as asegur_estado, seguimiento_juridico.situacion_juridica, seguimiento_juridico.detencion, seguimiento_juridico.liberacion, seguimiento_juridico.fianzas_conductor, seguimiento_juridico.situacion_vehiculo, seguimiento_juridico.detencion_vehiculo, seguimiento_juridico.liberacion_vehiculo, seguimiento_juridico.fianzas_vehiculo, seguimiento_juridico.conductor as conductor_juridico, seguimiento_juridico.telconductor, seguimiento_juridico.telconductor2, seguimiento_juridico.siniestro as siniestro_juridico, seguimiento_juridico.averiguacion, seguimiento_juridico.autoridad, seguimiento_juridico.fecha_accidente, seguimiento_juridico.numlesionados, seguimiento_juridico.numhomicidios, seguimiento_juridico.delitos, seguimiento_juridico.danos, seguimiento_juridico.lesiones, seguimiento_juridico.homicidios, seguimiento_juridico.ataques, seguimiento_juridico.robo, seguimiento_juridico.descripcion, seguimiento_juridico.lugar_hechos, seguimiento_juridico.referencias, seguimiento_juridico.ciudad, seguimiento_juridico.ajustador as ajustador_juridico, seguimiento_juridico.telajustador, seguimiento_juridico.telajustador2, seguimiento_juridico.monto_danos, seguimiento_juridico.monto_deducible, seguimiento_juridico.resp_ajustador, seguimiento_juridico.resp_abogado, seguimiento_juridico.resp_perito, seguimiento_juridico.resp_consignado, seguimiento_juridico.juzgado, seguimiento_juridico.causa_penal, seguimiento_juridico.procesado, seguimiento_juridico.final_forma_pago, seguimiento_juridico.final_comentario, seguimiento_juridico.final_monto, seguimiento_juridico.final_estado, coljur.NombreColonia as jurid_colonia, munijur.NombreMunicipio as jurid_municipio, estadjur.NombreEstado as jurid_estado, pagos.monto"
+."from general left join Empleado on (general.idEmpleado = Empleado.idEmpleado) left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join Estado on (general.ubicacion_estado = Estado.idEstado) left join Municipio on (general.ubicacion_municipio = Municipio.idMunicipio) left join Colonia on (general.ubicacion_colonia = Colonia.idColonia) left join Estado as estaddestino on (general.destino_estado = estaddestino.idEstado) left join Municipio as munidestino on (general.destino_municipio = munidestino.idMunicipio) left join Colonia as coldestino on (general.destino_colonia = coldestino.idColonia) left join Provedor on (general.proveedor = Provedor.id) left join Colonia as colaseg on (general.aseg_colonia = colaseg.idColonia)  left join Municipio as muniaseg on (general.aseg_municipio = muniaseg.idMunicipio) left join Estado as estadaseg on (general.aseg_estado = estadaseg.idEstado) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join Colonia as coljur on (seguimiento_juridico.colonia = coljur.idColonia)  left join Municipio as munijur on (seguimiento_juridico.municipio = munijur.idMunicipio) left join Estado as estadjur on (seguimiento_juridico.estado = estadjur.idEstado) left join pagos on (general.expediente = pagos.expediente) Where $elegidos order by $ordena $updown";
+$result = mysqli_query($link,"SELECT general.id,  TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.contrato, general.fecha_recepcion, general.fecha_suceso, general.apertura_expediente, general.contactoext, general.terminoext, general.cobertura, general.ejecutivo, general.asignacion_proveedor, general.contacto, general.arribo, general.reporta, general.tel_reporta, general.num_contrato, general.convenio, general.expediente, general.num_cliente, general.num_siniestro, general.ajustador, general.aseguradora, general.aseg_poliza, general.aseg_inciso, general.aseg_vigencia_inicio, general.aseg_vigencia_termino, general.aseg_cobertura, general.aseg_monto, general.asegurado, general.asegurado_y_o, general.aseg_tel1, general.aseg_tel2, general.aseg_domicilio, general.aseg_cp, general.aseg_ciudad, general.aseg_conductor, general.aseg_conductor_tel1, general.aseg_conductor_tel2, general.usuario, general.reporte_cliente, general.tecnico_solicitado, general.motivo_servicio, general.auto_marca, general.auto_tipo, general.auto_modelo, general.auto_color, general.auto_placas, general.tipo_asistencia_vial, general.tipo_asistencia_medica, general.domicilio_cliente, general.domicilio_sustituto, general.ubicacion_requiere, general.ubicacion_ciudad, general.destino_servicio, general.destino_ciudad, general.formato_carta, general.instructivo, general.costo, general.observaciones, general.status, general.banderazo, general.blindaje, general.maniobras, general.espera, general.otro, Empleado.nombre as empleado, servicios.servicio, Cliente.nombre as cliente, Estado.NombreEstado as ubica_estado, Municipio.NombreMunicipio as ubica_municipio, Colonia.NombreColonia as ubica_colonia, estaddestino.NombreEstado as dest_estado, munidestino.NombreMunicipio as dest_municipio, coldestino.NombreColonia as dest_colonia, Provedor.nombre as proveedor, colaseg.NombreColonia as asegur_colonia, muniaseg.NombreMunicipio as asegur_municipio, estadaseg.NombreEstado as asegur_estado, seguimiento_juridico.situacion_juridica, seguimiento_juridico.detencion, seguimiento_juridico.liberacion, seguimiento_juridico.fianzas_conductor, seguimiento_juridico.situacion_vehiculo, seguimiento_juridico.detencion_vehiculo, seguimiento_juridico.liberacion_vehiculo, seguimiento_juridico.fianzas_vehiculo, seguimiento_juridico.conductor as conductor_juridico, seguimiento_juridico.telconductor, seguimiento_juridico.telconductor2, seguimiento_juridico.siniestro as siniestro_juridico, seguimiento_juridico.averiguacion, seguimiento_juridico.autoridad, seguimiento_juridico.fecha_accidente, seguimiento_juridico.numlesionados, seguimiento_juridico.numhomicidios, seguimiento_juridico.delitos, seguimiento_juridico.danos, seguimiento_juridico.lesiones, seguimiento_juridico.homicidios, seguimiento_juridico.ataques, seguimiento_juridico.robo, seguimiento_juridico.descripcion, seguimiento_juridico.lugar_hechos, seguimiento_juridico.referencias, seguimiento_juridico.ciudad, seguimiento_juridico.ajustador as ajustador_juridico, seguimiento_juridico.telajustador, seguimiento_juridico.telajustador2, seguimiento_juridico.monto_danos, seguimiento_juridico.monto_deducible, seguimiento_juridico.resp_ajustador, seguimiento_juridico.resp_abogado, seguimiento_juridico.resp_perito, seguimiento_juridico.resp_consignado, seguimiento_juridico.juzgado, seguimiento_juridico.causa_penal, seguimiento_juridico.procesado, seguimiento_juridico.final_forma_pago, seguimiento_juridico.final_comentario, seguimiento_juridico.final_monto, seguimiento_juridico.final_estado, coljur.NombreColonia as jurid_colonia, munijur.NombreMunicipio as jurid_municipio, estadjur.NombreEstado as jurid_estado, pagos.monto
+ from general left join Empleado on (general.idEmpleado = Empleado.idEmpleado) left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join Estado on (general.ubicacion_estado = Estado.idEstado) left join Municipio on (general.ubicacion_municipio = Municipio.idMunicipio) left join Colonia on (general.ubicacion_colonia = Colonia.idColonia) left join Estado as estaddestino on (general.destino_estado = estaddestino.idEstado) left join Municipio as munidestino on (general.destino_municipio = munidestino.idMunicipio) left join Colonia as coldestino on (general.destino_colonia = coldestino.idColonia) left join Provedor on (general.proveedor = Provedor.id) left join Colonia as colaseg on (general.aseg_colonia = colaseg.idColonia)  left join Municipio as muniaseg on (general.aseg_municipio = muniaseg.idMunicipio) left join Estado as estadaseg on (general.aseg_estado = estadaseg.idEstado) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join Colonia as coljur on (seguimiento_juridico.colonia = coljur.idColonia)  left join Municipio as munijur on (seguimiento_juridico.municipio = munijur.idMunicipio) left join Estado as estadjur on (seguimiento_juridico.estado = estadjur.idEstado) left join pagos on (general.expediente = pagos.expediente) Where $elegidos order by $ordena $updown") or die(mysqli_error($link) . $query); 
 if (mysqli_num_rows($result)){ 
 
 $campos=explode(",",$columnas);
+
 $cuenta_columnas=0;
 
 /*

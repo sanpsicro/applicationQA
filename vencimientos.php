@@ -38,12 +38,12 @@ if(!isset($tipoCont) || $tipoCont == '')
             <form name="form1" method="POST" action="bridge.php?module=vencimientos<?php  if($quest!=""){echo"&quest=$quest";}?>">
             <td width="600"> 
               <select name="show" id="mostrar">
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p�gina</option>
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p�gina</option>
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p�gina</option>
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p�gina</option>
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p�gina</option>
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
               </select>              
 			  <select name="tipoCont" id="tipoCont">
 			  	<option value="1" <?php  if($tipoCont==1){echo"selected";}?>>Vencidos</option>
@@ -61,7 +61,7 @@ if(!isset($tipoCont) || $tipoCont == '')
 			  </td>			  
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=vencimientos"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=vencimientos"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" > <input type="submit" name="Submit" value="Buscar">
             </td>
 			</form>
@@ -72,7 +72,7 @@ if(!isset($tipoCont) || $tipoCont == '')
 <tr><td>
 <?php  
 
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion=" WHERE 1";
 
 if(isset($quest) && $quest != '')
@@ -81,9 +81,9 @@ if(isset($quest) && $quest != '')
 if(isset($tipoCont) && $tipoCont != '')
 {
 	if($tipoCont == 1)
-		$condicion.=" AND fecha_vencimiento <= CONVERT_TZ(now(),'+00:00','+02:00')";
+		$condicion.=" AND fecha_vencimiento <= CONVERT_TZ(now(),'+00:00','+01:00')";
 	else if($tipoCont == 2)	
-		$condicion.=" AND fecha_vencimiento > CONVERT_TZ(now(),'+00:00','+02:00')";
+		$condicion.=" AND fecha_vencimiento > CONVERT_TZ(now(),'+00:00','+01:00')";
 }	
 $link = mysqli_connect($host, $username, $pass,$database);
 //mysql_select_db($database, $link); 
@@ -123,7 +123,7 @@ $_GET["tipoCont"]=$tipoCont;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {

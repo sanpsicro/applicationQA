@@ -36,12 +36,12 @@ function mysqli_result($res,$row=0,$col=0){
             <form name="form1" method="post" action="mainframe.php?module=seguimiento">
             <td width="700"> 
               <select name="show" id="mostrar">
-                <option value="10" <?php   if($show =="10"){echo"selected";}?>>10 por p�gina</option>
-                <option value="20"  <?php   if($show =="20"){echo"selected";}?>>20 por p�gina</option>
-                <option value="30"  <?php   if($show =="30"){echo"selected";}?>>30 por p�gina</option>
-                <option value="50"  <?php   if($show =="50"){echo"selected";}?>>50 por p�gina</option>
-                <option value="100"  <?php   if($show =="100"){echo"selected";}?>>100 por p�gina</option>
-                <option value="200"  <?php   if($show =="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="10" <?php   if($show =="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <?php   if($show =="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <?php   if($show =="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <?php   if($show =="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <?php   if($show =="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <?php   if($show =="200"){echo"selected";}?>>200 por p&aacute;gina</option>
               </select>
               <select name="sort" id="ordenar">
                 <option value="general.fecha_recepcion"  <?php   if($sort=="general.fecha_recepcion"){echo"selected";}?>>Ordenar por fecha</option>
@@ -72,7 +72,7 @@ function mysqli_result($res,$row=0,$col=0){
               
           <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
-            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest" size="15"  onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -95,7 +95,7 @@ if($display=="cancelado"){$precondicion="Where general.status like'%cancelado%'"
 
 if(isset($quest) && $quest!=""){
 $precondicion="";
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="Where general.contrato like '%".$quest."%' 
 			OR general.expediente like '%".$quest."%' 
 			OR Provedor.nombre like '%".$quest."%' 
@@ -182,7 +182,7 @@ $result = mysqli_query($link,$prego2) or die (mysql_error());
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\" ". $enlace . $isabel . " \">".$isabel."</option> ";} else {
@@ -209,7 +209,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td class="titles">Proveedor</td>					  					  
                       <td class="titles">Ubicacion Municipio</td>
                       <td class="titles">Destino Municipio</td>					  					  
-                      <td width="150" class="titles">Operaci�n</td></tr>';
+                      <td width="150" class="titles">Operaci&Oacute;n</td></tr>';
 $bgcolor="#0b7eb7";
   while ($row = @mysqli_fetch_array($result)) { 
 if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}

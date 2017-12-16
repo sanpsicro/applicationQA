@@ -5,10 +5,10 @@
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
             <td width="400" class="questtitle"> 
-			Realizar evaluación
+			Realizar evaluaci&oacute;n
 </td>
             <td>&nbsp;</td>
-           <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">Búsqueda: 
+           <form name="form1" method="post" action="bridge.php?module=evaluaciones"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>

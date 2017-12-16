@@ -15,15 +15,15 @@ if(empty($sort)){$sort="Poliza.numPoliza";}
             <form name="form1" method="post" action="mainframe.php?module=comisiones_vendedores">
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="numPoliza" <? if($sort=="numPoliza"){echo"selected";}?>>Ordenar por número de contrato</option>
+                <option value="numPoliza" <? if($sort=="numPoliza"){echo"selected";}?>>Ordenar por N&uacute;mero de contrato</option>
                 <option value="Cliente.nombre" <? if($sort=="Cliente.nombre"){echo"selected";}?>>Ordenar por cliente</option>                
                  <option value="Empleado.nombre" <? if($sort=="Empleado.nombre"){echo"selected";}?>>Ordenar por vendedor</option>				
               </select>
@@ -31,7 +31,7 @@ if(empty($sort)){$sort="Poliza.numPoliza";}
           </form>
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="bridge.php?module=comisiones_vendedores"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=comisiones_vendedores"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -45,7 +45,7 @@ if(empty($sort)){$sort="Poliza.numPoliza";}
 
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="AND(Cliente.nombre like '%$quest%' OR Poliza.numPoliza like '%$quest%' or Empleado.nombre like '%$quest%')";
 }
 else{$condicion="";}
@@ -76,7 +76,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
@@ -120,7 +120,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Vendedor</b></td>
 
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Num. Contrato</b></td>
-                     <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Comisión</b></td>				  					 
+                     <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Comisi&oacute;n</b></td>				  					 
                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Status</b></td>
                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaciones</b></td></tr>					 
 					 ';

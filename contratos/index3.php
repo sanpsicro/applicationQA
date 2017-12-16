@@ -82,13 +82,13 @@ $(document).ready(function() {
 
 if(isset($errorcode) && $errorcode=="1"){echo'<p><b><font size=2>Usuario incorrecto</font></b>';} 
 
-if(isset($errorcode) && $errorcode=="2"){echo'<p><b><font size=2>Contraseña incorrecta</font></b>';} 
+if(isset($errorcode) && $errorcode=="2"){echo'<p><b><font size=2>contrase&ntilde;a incorrecta</font></b>';} 
 
 if(isset($errorcode) && $errorcode=="3"){echo'<p><b><font size=2>Acceso Denegado</font></b>';} 
 
 if(isset($errorcode) && $errorcode=="4"){echo'<p><b><font size=2>Usuario no activo</font></b>';} 
 
-if(isset($logout) && $logout=="yes"){echo'<p><b><font size=2>Sesión Finalizada</font></b>';} 
+if(isset($logout) && $logout=="yes"){echo'<p><b><font size=2>Sesiï¿½n Finalizada</font></b>';} 
 
 
 ?>		  

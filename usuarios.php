@@ -23,12 +23,12 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=n
             <form name="form1" method="post" action="bridge.php?module=usuarios<?php  if($quest!=""){echo"&quest=".$quest;}?>">
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
               </select>
               <select name="sort" id="ordenar">
                 <option value="nombre"  <?php  if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>
@@ -38,7 +38,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_usuarios&accela=n
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=usuarios"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" > <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -52,7 +52,7 @@ if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos del Usuario 
 if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Usuario eliminado</div></b><p>';}
 if(isset($code) && $code=="4"){echo'<br><b><div class="xplik">Error: El Usuario ya existe</div></b><p>';}
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="where (nombre like '%$quest%' OR direccion like '%$quest%' OR estado like '%$quest%' OR municipio like '%$quest%' OR email like '%$quest%' OR usuario like '%$quest%')";
 }
 else{$condicion="";}
@@ -76,7 +76,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
@@ -98,10 +98,10 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3" class="mainT
                       <td align=middle class="titles">Nombre</th>
                       <td align=middle class="titles">Usuario</th>					  
                       <td align=middle class="titles">Tipo</th>					  				  
-                      <td align=middle class="titles">Teléfono casa</th>
-                      <td align=middle class="titles">Teléfono celular</th>					  
+                      <td align=middle class="titles">tel&eacute;fono casa</th>
+                      <td align=middle class="titles">tel&eacute;fono celular</th>					  
                      <td align=middle class="titles">Email</th>					  
-                      <td align=middle class="titles">Operación</th></tr>';
+                      <td align=middle class="titles">Operaci&Oacute;n</th></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysqli_fetch_array($result)) { 
 	if($bgcolor=="#FFFFFF"){$bgcolor="#DCDCDC";} else{$bgcolor="#FFFFFF";}

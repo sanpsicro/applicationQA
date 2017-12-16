@@ -20,17 +20,17 @@ if(empty($sort)){$sort="nombre";}
 
               <select name="show" id="mostrar">
 
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p�gina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
 
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p�gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
 
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p�gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
 
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p�gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
 
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p�gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
 
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
 
               </select>
 
@@ -48,7 +48,7 @@ if(empty($sort)){$sort="nombre";}
 
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="mainframe.php?module=polizas"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="mainframe.php?module=polizas"><td align="right" class="questtitle">b&uacute;squeda: 
 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
 
@@ -78,7 +78,7 @@ if(isset($code) && $code=="4"){echo'<br><b><div class="xplik">Error: El Cliente 
 
 if(isset($quest) && $quest!=""){
 
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 
 $condicion="where (nombre like '%$quest%' OR rfc like '%$quest%' OR contacto like '%$quest%' OR telefonoCelular like '%$quest%' OR telefonoCasa like '%$quest%' OR telefonoOficina like '%$quest%' OR nextel like '%$quest%' OR email like '%$quest%')";
 
@@ -119,7 +119,7 @@ $_GET["show"]=$show;
 
   $posterior = $actual + 1;
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15 bgcolor=#eeeeee background=\"img/barpaginador.gif\">&nbsp;</td><td width=80 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><font color=#FFFFFF>Ir a la p�gina</font></td><td width=5 background=img/barpaginador.gif>&nbsp;</td><td width=30 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15 bgcolor=#eeeeee background=\"img/barpaginador.gif\">&nbsp;</td><td width=80 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><font color=#FFFFFF>Ir a la p&aacute;gina</font></td><td width=5 background=img/barpaginador.gif>&nbsp;</td><td width=30 bgcolor=#eeeeee background=\"img/barpaginador.gif\"><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -181,7 +181,7 @@ echo'<table width="100%" border="0" cellspacing="0" cellpadding="0" background="
                       <td width="1" background="img/spacer1.gif"><img src="img/spacer1.gif" width="1" height="1"></td>
 
                     			
-                      <td background="img/bar4.gif" width=150  align=middle class="dataclass"><b>Operaci�n</b></td></tr>';
+                      <td background="img/bar4.gif" width=150  align=middle class="dataclass"><b>Operaci&Oacute;n</b></td></tr>';
 
 
 

@@ -1,5 +1,5 @@
 function confirmUpdate(delUrl,name_cat) { 
-if (confirm("¿Está seguro de querer actualizar los datos  \n" + name_cat + "?")) { 
+if (confirm("Â¿Est&aacute; seguro de querer actualizar los datos  \n" + name_cat + "?")) { 
 document.location = delUrl; 
 }
 }

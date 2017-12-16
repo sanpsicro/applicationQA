@@ -12,7 +12,7 @@ die();} else{}
             <td width="400">&nbsp; 
  </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=facturacion"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=facturacion"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>
@@ -99,7 +99,7 @@ bordercolor="#000000" width="100%" bgcolor="#FFFFFF">
     <td><table width="100%" border="0" cellspacing="3" cellpadding="3">
         <tr> 
           <td width="15%" valign="top"> <div align="right">Cliente:<br>
-              Razón Social:<br>
+              Razï¿½n Social:<br>
               Contacto:<br>
               RFC:</div></td>
           <td width="35%" valign="top"><? echo "$nombre<br>$nombre<br>$contacto<br>$rfc"; ?></td>
@@ -266,15 +266,15 @@ $letras = "";
 
 while ($Numero != 0){ 
 
-// '*---> Validación si se pasa de 100 millones 
+// '*---> Validaciï¿½n si se pasa de 100 millones 
 
 If ($Numero >= 1000000000) { 
-$letras = "Error en Conversión a Letras"; 
+$letras = "Error en Conversiï¿½n a Letras"; 
 $Numero = 0; 
 $Decimales = 0; 
 } 
 
-// '*---> Centenas de Millón 
+// '*---> Centenas de Millï¿½n 
 If (($Numero < 1000000000) And ($Numero >= 100000000)){ 
 If ((Intval($Numero / 100000000) == 1) And (($Numero - (Intval($Numero / 100000000) * 100000000)) < 1000000)){ 
 $letras .= (string) "cien millones "; 
@@ -291,7 +291,7 @@ $letras .= (string) " ";
 $Numero = $Numero - (Intval($Numero / 100000000) * 100000000); 
 } 
 
-// '*---> Decenas de Millón 
+// '*---> Decenas de Millï¿½n 
 If (($Numero < 100000000) And ($Numero >= 10000000)) { 
 If (Intval($Numero / 1000000) < 16) { 
 $tempo = Decenas(Intval($Numero / 1000000)); 
@@ -308,11 +308,11 @@ $letras .= $letras & " y ";
 } 
 } 
 
-// '*---> Unidades de Millón 
+// '*---> Unidades de Millï¿½n 
 If (($Numero < 10000000) And ($Numero >= 1000000)) { 
 $tempo=(Intval($Numero / 1000000)); 
 If ($tempo == 1) { 
-$letras .= (string) " un millón "; 
+$letras .= (string) " un millï¿½n "; 
 } 
 Else { 
 $tempo= Unidades(Intval($Numero / 1000000)); 
@@ -443,7 +443,7 @@ If ($Decimales > 0) {
 // $letras .= (string) "centavos"; 
 } 
 Else { 
-If (($letras <> "Error en Conversión a Letras") And (strlen(Trim($letras)) > 0)) { 
+If (($letras <> "Error en Conversiï¿½n a Letras") And (strlen(Trim($letras)) > 0)) { 
 $letras .= (string) " "; 
 
 } 

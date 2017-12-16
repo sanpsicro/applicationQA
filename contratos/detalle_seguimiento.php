@@ -103,7 +103,7 @@ if (metodo.toUpperCase()=='GET'){
 </script>
 <script type="text/javascript">
 function confirmborra(idex,tercero) { 
-if (confirm("¿Está seguro de querer eliminar al tercero?\n")) { 
+if (confirm("Â¿Est&aacute; seguro de querer eliminar al tercero?\n")) { 
 FAjax('terceros_editado.php?id='+idex+'&idtercero='+tercero+'&caso=borrar&flim-flam='+new Date().getTime(),'terceros','','get');
 }
 }
@@ -532,22 +532,22 @@ $municipio=mysql_result($result,0,"NombreMunicipio");
             <td colspan="3" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="3" cellpadding="3">
                 <tr>
                   <td><strong>Delitos:</strong> 
-				   <? /* if($delitos=="si"){echo'Sí';} else{echo'No';} */ ?>
+				   <? /* if($delitos=="si"){echo'Sï¿½';} else{echo'No';} */ ?>
 				  </td>
                   <td><strong>Da&ntilde;os:</strong>
-				  <? if($danos=="si"){echo'Sí';} else{echo'No';} ?>				  
+				  <? if($danos=="si"){echo'Sï¿½';} else{echo'No';} ?>				  
 				  </td>
                   <td><strong>Lesiones:</strong>
-				  				 <? if($lesiones=="si"){echo'Sí';} else{echo'No';} ?>
+				  				 <? if($lesiones=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Homicidios:</strong>
-				  				  <? if($homicidios=="si"){echo'Sí';} else{echo'No';} ?>
+				  				  <? if($homicidios=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Ataques:</strong>
-				<?  if($ataques=="si"){echo'Sí';} else{echo'No';} ?>
+				<?  if($ataques=="si"){echo'Sï¿½';} else{echo'No';} ?>
 				  </td>
                   <td><strong>Robo:</strong>
-				<?   if($robo=="si"){echo'Sí';} else{echo'No';}	?>
+				<?   if($robo=="si"){echo'Sï¿½';} else{echo'No';}	?>
 				  </td>
                 </tr>
             </table></td>

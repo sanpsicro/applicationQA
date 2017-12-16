@@ -47,27 +47,27 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
 
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
+                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
 
 
 
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
+                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
 
 
 
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
+                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
 
 
 
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
+                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
 
 
 
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
+                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
 
 
 
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
 
 
 
@@ -94,7 +94,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_proveedores&accel
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -156,7 +156,7 @@ if(isset($quest) && $quest!=""){
 
 
 
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 
 
 
@@ -238,7 +238,7 @@ $_GET["show"]=$show;
 
 
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 
 
@@ -332,13 +332,13 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Status</b></td>					  		 <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Estado</b></td>
 			  <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Municipio</b></td>
 
-                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Teléfono</b></td>					  
+                      <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>tel&eacute;fono</b></td>					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Celular</b></td>					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fax</b></td>					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Nextel</b></td>					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Email</b></td>					  
 
-                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operación</b></td></tr>';
+                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaci&Oacute;n</b></td></tr>';
 
 $bgcolor="#cccccc";
 

@@ -2,6 +2,10 @@
 $tablax = $_POST['tablax'];
 $campos = $_POST['campos'];
 
+extract($_POST);
+
+
+
 if($checa_arrayx===FALSE){echo'Acceso no autorizado a este modulo';
 die();} else{}
 ?>
@@ -62,7 +66,7 @@ if($departamento=="all"){$subcondicion2="";}
 else{$subcondicion2="and Empleado.idDepartamento='$departamento'";}
 
 if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion3=" and (Empleado.usuario LIKE '%$quest%' or Empleado.nombre LIKE '%$quest%' or Empleado.cargo LIKE '%$quest%' or Empleado.direccion LIKE '%$quest%' or Empleado.telefonoCasa LIKE '%$quest%' or Empleado.telefonoCelular LIKE '%$quest%' or Empleado.nextel LIKE '%$quest%' or Empleado.idnextel LIKE '%$quest%' or Empleado.email LIKE '%$quest%' or Empleado.activo LIKE '%$quest%' or Departamento.nombre LIKE '%$quest%' or Colonia.NombreColonia LIKE '%$quest%' or Municipio.NombreMunicipio like '%$quest%' or Estado.NombreEstado like '%$quest%')";
 }
 else{$subcondicion3="";}
@@ -86,11 +90,11 @@ $checa_array1=array_search("nombre",$campos); if($checa_array1===FALSE){} else{e
 $checa_array1=array_search("usuario",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Usuario</strong></td>';} 				$checa_array1=array_search("cargo",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Cargo</strong></td>';}
 $checa_array1=array_search("departamento",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Departamento</strong></td>';}
 $checa_array1=array_search("activo",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Activo</strong></td>';}
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Direcci�n</strong></td>';}
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Direcci&oacute;n</strong></td>';}
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Colonia</strong></td>';}
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Municipio</strong></td>';}
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Estado</strong></td>';}
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Tel�fono</strong></td>';}
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>tel&eacute;fono</strong></td>';}
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Celular</strong></td>';}
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Nextel</strong></td>';}
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>ID Nextel</strong></td>';}
@@ -156,7 +160,7 @@ if($tablax=="validaciones"){
 
 
 	if(isset($quest) && $quest!="" && $quest!=" "){
-	echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+	echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 	$subcondicion3=" AND (uc.contrato LIKE '%$quest%' OR uc.inciso LIKE '%$quest%' OR uc.clave LIKE '%$quest%' OR uc.nombre like '%$quest%' OR v.tipo_pago like '%$quest%' OR v.observaciones like '%$quest%')";
 	}
 	else{$subcondicion3="";}
@@ -695,7 +699,7 @@ if($tablax=="evaluaciones"){
 	);
 	
 	if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion1=" and (g.contrato like '%$quest%' OR e.general like '%$quest%')";
 }
 else{$subcondicion1="";}
@@ -964,7 +968,7 @@ else{$subcondicion3="and Cliente.tipocliente='$tipo_cliente'";}
 
 
 if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion4=" and (Cliente.usuario like '%$quest%' or Cliente.nombre like '%$quest%' or Cliente.rfc like '%$quest%' or Cliente.contacto like '%$quest%' or Cliente.fisCalle like '%$quest%' or Cliente.fisNumero like '%$quest%' or Cliente.fisCiudad like '%$quest%' or Cliente.calle like '%$quest%' or Cliente.numero like '%$quest%' or Cliente.ciudad like '%$quest%' or Cliente.telefonoCasa like '%$quest%' or Cliente.telefonoOficina like '%$quest%' or Cliente.fax like '%$quest%' or Cliente.extension like '%$quest%' or Cliente.telefonoCelular like '%$quest%' or Cliente.nextel like '%$quest%' or Cliente.TelNextel like '%$quest%' or Cliente.email like '%$quest%' or Cliente.status like '%$quest%' or TipoCliente.nombre like '%$quest%' or Colonia.NombreColonia like '%$quest%' or Municipio.NombreMunicipio like '%$quest%' or Estado.NombreEstado like '%$quest%' or Empleado.nombre like '%$quest%')";
 }
 else{$subcondicion4="";}
@@ -1014,7 +1018,7 @@ $query="SELECT
 			$subcondicion3 
 			$subcondicion4 
 			order by $sort $ascdesc";
-$result = mysqli_query($link,$query, $link) or die(mysql_error()); 
+$result = mysqli_query($link,$query) or die(mysql_error()); 
 if (mysqli_num_rows($result)){ 
 $comprime_columnas=implode(",",$campos);
 echo'<form action="exporta.php" method="post" name="frm" target="_blank">
@@ -1029,14 +1033,14 @@ $checa_array1=array_search("nombre",$campos); if($checa_array1===FALSE){} else{e
 $checa_array1=array_search("vendedor",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Vendedor</strong></td>';}
 $checa_array1=array_search("rfc",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>RFC</strong></td>';}
 $checa_array1=array_search("contacto",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Contacto</strong></td>';}
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Direcci�n</strong></td>';}
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Direcci&oacute;n</strong></td>';}
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Colonia</strong></td>';}
 $checa_array1=array_search("ciudad",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Ciudad</strong></td>';}
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Municipio</strong></td>';}
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Estado</strong></td>';}
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Tel�fono</strong></td>';}
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>tel&eacute;fono</strong></td>';}
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Celular</strong></td>';}
-$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Tel�fono de oficina</strong></td>';}
+$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>tel&eacute;fono de oficina</strong></td>';}
 $checa_array1=array_search("fax",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Fax</strong></td>';}
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Nextel</strong></td>';}
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>ID Nextel</strong></td>';}
@@ -1119,7 +1123,7 @@ else{$subcondicion3="and Cliente.tipocliente='$tipo_cliente'";}
 
 
 if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion4=" and (Cliente.usuario like '%$quest%' or Cliente.nombre like '%$quest%' or Cliente.rfc like '%$quest%' or Cliente.contacto like '%$quest%' or Cliente.fisCalle like '%$quest%' or Cliente.fisNumero like '%$quest%' or Cliente.fisCiudad like '%$quest%' or Cliente.calle like '%$quest%' or Cliente.numero like '%$quest%' or Cliente.ciudad like '%$quest%' or Cliente.telefonoCasa like '%$quest%' or Cliente.telefonoOficina like '%$quest%' or Cliente.fax like '%$quest%' or Cliente.extension like '%$quest%' or Cliente.telefonoCelular like '%$quest%' or Cliente.nextel like '%$quest%' or Cliente.TelNextel like '%$quest%' or Cliente.email like '%$quest%' or Cliente.status like '%$quest%' or TipoCliente.nombre like '%$quest%' or Colonia.NombreColonia like '%$quest%' or Municipio.NombreMunicipio like '%$quest%' or Estado.NombreEstado like '%$quest%' or Empleado.nombre like '%$quest%')";
 }
 else{$subcondicion4="";}
@@ -1208,14 +1212,14 @@ $checa_array1=array_search("ucmail",$campos); if($checa_array1===FALSE){} else{e
 $checa_array1=array_search("status",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Status</strong></td>';}
 $checa_array1=array_search("rfc",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>RFC</strong></td>';}
 $checa_array1=array_search("contacto",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Contacto</strong></td>';}
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Direcci�n</strong></td>';}
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Direcci&oacute;n</strong></td>';}
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Colonia</strong></td>';}
 $checa_array1=array_search("ciudad",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Ciudad</strong></td>';}
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Municipio</strong></td>';}
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Estado</strong></td>';}
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Tel�fono</strong></td>';}
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>tel&eacute;fono</strong></td>';}
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Celular</strong></td>';}
-$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Tel�fono de oficina</strong></td>';}
+$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>tel&eacute;fono de oficina</strong></td>';}
 $checa_array1=array_search("fax",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Fax</strong></td>';}
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>Nextel</strong></td>';}
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{echo'<td align=middle class="titles"><strong>ID Nextel</strong></td>';}
@@ -1328,7 +1332,7 @@ else{$subcondicion3="and general.idEmpleado='$empleadof'";}
 
 
 if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion4=" and (general.contrato like '%$quest%' or general.reporta like '%$quest%' or general.num_contrato like '%$quest%' or general.convenio like '%$quest%' or general.expediente like '%$quest%' or general.aseguradora like '%$quest%' or general.aseg_poliza like '%$quest%' or general.asegurado like '%$quest%' or general.asegurado_y_o like '%$quest%' or general.aseg_conductor like '%$quest%' or general.usuario like '%$quest%' or general.reporte_cliente like '%$quest%' or general.motivo_servicio like '%$quest%' or general.auto_marca like '%$quest%' or general.auto_tipo like '%$quest%' or general.auto_modelo like '%$quest%' or general.auto_color like '%$quest%' or general.auto_placas like '%$quest%' or general.domicilio_cliente like '%$quest%' or general.ubicacion_requiere like '%$quest%' or general.destino_servicio like '%$quest%' or general.observaciones like '%$quest%' or Cliente.nombre like '%$quest%' or Provedor.nombre like '%$quest%')";
 }
 else{$subcondicion4="";}
@@ -1357,13 +1361,15 @@ else{$subcondicion11="";}
 
 $link = mysqli_connect($host, $username, $pass,$database); 
 ////mysql_select_db($database, $link); 
+$query = "SELECT general.id,  TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.contrato, general.fecha_recepcion, general.fecha_suceso, general.apertura_expediente, general.contactoext, general.terminoext, general.cobertura, general.ejecutivo, general.asignacion_proveedor, general.contacto, general.arribo, general.reporta, general.tel_reporta, general.num_contrato, general.convenio, general.expediente, general.num_cliente, general.num_siniestro, general.ajustador, general.aseguradora, general.aseg_poliza, general.aseg_inciso, general.aseg_vigencia_inicio, general.aseg_vigencia_termino, general.aseg_cobertura, general.aseg_monto, general.asegurado, general.asegurado_y_o, general.aseg_tel1, general.aseg_tel2, general.aseg_domicilio, general.aseg_cp, general.aseg_ciudad, general.aseg_conductor, general.aseg_conductor_tel1, general.aseg_conductor_tel2, general.usuario, general.reporte_cliente, general.tecnico_solicitado, general.motivo_servicio, general.auto_marca, general.auto_tipo, general.auto_modelo, general.auto_color, general.auto_placas, general.tipo_asistencia_vial, general.tipo_asistencia_medica, general.domicilio_cliente, general.domicilio_sustituto, general.ubicacion_requiere, general.ubicacion_ciudad, general.destino_servicio, general.destino_ciudad, general.formato_carta, general.instructivo, general.costo, general.observaciones, general.status, general.banderazo, general.blindaje, general.maniobras, general.espera, general.otro, Empleado.nombre as empleado, servicios.servicio, Cliente.nombre as cliente, Estado.NombreEstado as ubica_estado, Municipio.NombreMunicipio as ubica_municipio, Colonia.NombreColonia as ubica_colonia, estaddestino.NombreEstado as dest_estado, munidestino.NombreMunicipio as dest_municipio, coldestino.NombreColonia as dest_colonia, Provedor.nombre as proveedor, colaseg.NombreColonia as asegur_colonia, muniaseg.NombreMunicipio as asegur_municipio, estadaseg.NombreEstado as asegur_estado, seguimiento_juridico.situacion_juridica, seguimiento_juridico.detencion, seguimiento_juridico.liberacion, seguimiento_juridico.fianzas_conductor, seguimiento_juridico.situacion_vehiculo, seguimiento_juridico.detencion_vehiculo, seguimiento_juridico.liberacion_vehiculo, seguimiento_juridico.fianzas_vehiculo, seguimiento_juridico.conductor as conductor_juridico, seguimiento_juridico.telconductor, seguimiento_juridico.telconductor2, seguimiento_juridico.siniestro as siniestro_juridico, seguimiento_juridico.averiguacion, seguimiento_juridico.autoridad, seguimiento_juridico.fecha_accidente, seguimiento_juridico.numlesionados, seguimiento_juridico.numhomicidios, seguimiento_juridico.delitos, seguimiento_juridico.danos, seguimiento_juridico.lesiones, seguimiento_juridico.homicidios, seguimiento_juridico.ataques, seguimiento_juridico.robo, seguimiento_juridico.descripcion, seguimiento_juridico.lugar_hechos, seguimiento_juridico.referencias, seguimiento_juridico.ciudad, seguimiento_juridico.ajustador as ajustador_juridico, seguimiento_juridico.telajustador, seguimiento_juridico.telajustador2, seguimiento_juridico.monto_danos, seguimiento_juridico.monto_deducible, seguimiento_juridico.resp_ajustador, seguimiento_juridico.resp_abogado, seguimiento_juridico.resp_perito, seguimiento_juridico.resp_consignado, seguimiento_juridico.juzgado, seguimiento_juridico.causa_penal, seguimiento_juridico.procesado, seguimiento_juridico.final_forma_pago, seguimiento_juridico.final_comentario, seguimiento_juridico.final_monto, seguimiento_juridico.final_estado, coljur.NombreColonia as jurid_colonia, munijur.NombreMunicipio as jurid_municipio, estadjur.NombreEstado as jurid_estado, pagos.monto
+from general left join Empleado on (general.idEmpleado = Empleado.idEmpleado) left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join Estado on (general.ubicacion_estado = Estado.idEstado) left join Municipio on (general.ubicacion_municipio = Municipio.idMunicipio) left join Colonia on (general.ubicacion_colonia = Colonia.idColonia) left join Estado as estaddestino on (general.destino_estado = estaddestino.idEstado) left join Municipio as munidestino on (general.destino_municipio = munidestino.idMunicipio) left join Colonia as coldestino on (general.destino_colonia = coldestino.idColonia) left join Provedor on (general.proveedor = Provedor.id) left join Colonia as colaseg on (general.aseg_colonia = colaseg.idColonia)  left join Municipio as muniaseg on (general.aseg_municipio = muniaseg.idMunicipio) left join Estado as estadaseg on (general.aseg_estado = estadaseg.idEstado) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join Colonia as coljur on (seguimiento_juridico.colonia = coljur.idColonia)  left join Municipio as munijur on (seguimiento_juridico.municipio = munijur.idMunicipio) left join Estado as estadjur on (seguimiento_juridico.estado = estadjur.idEstado) left join pagos on (general.expediente = pagos.expediente) $condicion $subcondicion1  $subcondicion2 $subcondicion3 $subcondicion4 $subcondicion5 $subcondicion6 $subcondicion7 $subcondicion8 $subcondicion9 $subcondicion10 $subcondicion11 order by $sort $ascdesc";
 $result = mysqli_query($link,"SELECT general.id,  TIMEDIFF(general.contacto,general.apertura_expediente) AS tiempoContacto , general.contrato, general.fecha_recepcion, general.fecha_suceso, general.apertura_expediente, general.contactoext, general.terminoext, general.cobertura, general.ejecutivo, general.asignacion_proveedor, general.contacto, general.arribo, general.reporta, general.tel_reporta, general.num_contrato, general.convenio, general.expediente, general.num_cliente, general.num_siniestro, general.ajustador, general.aseguradora, general.aseg_poliza, general.aseg_inciso, general.aseg_vigencia_inicio, general.aseg_vigencia_termino, general.aseg_cobertura, general.aseg_monto, general.asegurado, general.asegurado_y_o, general.aseg_tel1, general.aseg_tel2, general.aseg_domicilio, general.aseg_cp, general.aseg_ciudad, general.aseg_conductor, general.aseg_conductor_tel1, general.aseg_conductor_tel2, general.usuario, general.reporte_cliente, general.tecnico_solicitado, general.motivo_servicio, general.auto_marca, general.auto_tipo, general.auto_modelo, general.auto_color, general.auto_placas, general.tipo_asistencia_vial, general.tipo_asistencia_medica, general.domicilio_cliente, general.domicilio_sustituto, general.ubicacion_requiere, general.ubicacion_ciudad, general.destino_servicio, general.destino_ciudad, general.formato_carta, general.instructivo, general.costo, general.observaciones, general.status, general.banderazo, general.blindaje, general.maniobras, general.espera, general.otro, Empleado.nombre as empleado, servicios.servicio, Cliente.nombre as cliente, Estado.NombreEstado as ubica_estado, Municipio.NombreMunicipio as ubica_municipio, Colonia.NombreColonia as ubica_colonia, estaddestino.NombreEstado as dest_estado, munidestino.NombreMunicipio as dest_municipio, coldestino.NombreColonia as dest_colonia, Provedor.nombre as proveedor, colaseg.NombreColonia as asegur_colonia, muniaseg.NombreMunicipio as asegur_municipio, estadaseg.NombreEstado as asegur_estado, seguimiento_juridico.situacion_juridica, seguimiento_juridico.detencion, seguimiento_juridico.liberacion, seguimiento_juridico.fianzas_conductor, seguimiento_juridico.situacion_vehiculo, seguimiento_juridico.detencion_vehiculo, seguimiento_juridico.liberacion_vehiculo, seguimiento_juridico.fianzas_vehiculo, seguimiento_juridico.conductor as conductor_juridico, seguimiento_juridico.telconductor, seguimiento_juridico.telconductor2, seguimiento_juridico.siniestro as siniestro_juridico, seguimiento_juridico.averiguacion, seguimiento_juridico.autoridad, seguimiento_juridico.fecha_accidente, seguimiento_juridico.numlesionados, seguimiento_juridico.numhomicidios, seguimiento_juridico.delitos, seguimiento_juridico.danos, seguimiento_juridico.lesiones, seguimiento_juridico.homicidios, seguimiento_juridico.ataques, seguimiento_juridico.robo, seguimiento_juridico.descripcion, seguimiento_juridico.lugar_hechos, seguimiento_juridico.referencias, seguimiento_juridico.ciudad, seguimiento_juridico.ajustador as ajustador_juridico, seguimiento_juridico.telajustador, seguimiento_juridico.telajustador2, seguimiento_juridico.monto_danos, seguimiento_juridico.monto_deducible, seguimiento_juridico.resp_ajustador, seguimiento_juridico.resp_abogado, seguimiento_juridico.resp_perito, seguimiento_juridico.resp_consignado, seguimiento_juridico.juzgado, seguimiento_juridico.causa_penal, seguimiento_juridico.procesado, seguimiento_juridico.final_forma_pago, seguimiento_juridico.final_comentario, seguimiento_juridico.final_monto, seguimiento_juridico.final_estado, coljur.NombreColonia as jurid_colonia, munijur.NombreMunicipio as jurid_municipio, estadjur.NombreEstado as jurid_estado, pagos.monto
- from general left join Empleado on (general.idEmpleado = Empleado.idEmpleado) left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join Estado on (general.ubicacion_estado = Estado.idEstado) left join Municipio on (general.ubicacion_municipio = Municipio.idMunicipio) left join Colonia on (general.ubicacion_colonia = Colonia.idColonia) left join Estado as estaddestino on (general.destino_estado = estaddestino.idEstado) left join Municipio as munidestino on (general.destino_municipio = munidestino.idMunicipio) left join Colonia as coldestino on (general.destino_colonia = coldestino.idColonia) left join Provedor on (general.proveedor = Provedor.id) left join Colonia as colaseg on (general.aseg_colonia = colaseg.idColonia)  left join Municipio as muniaseg on (general.aseg_municipio = muniaseg.idMunicipio) left join Estado as estadaseg on (general.aseg_estado = estadaseg.idEstado) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join Colonia as coljur on (seguimiento_juridico.colonia = coljur.idColonia)  left join Municipio as munijur on (seguimiento_juridico.municipio = munijur.idMunicipio) left join Estado as estadjur on (seguimiento_juridico.estado = estadjur.idEstado) left join pagos on (general.expediente = pagos.expediente) $condicion $subcondicion1  $subcondicion2 $subcondicion3 $subcondicion4 $subcondicion5 $subcondicion6 $subcondicion7 $subcondicion8 $subcondicion9 $subcondicion10 $subcondicion11 order by $sort $ascdesc"); 
+ from general left join Empleado on (general.idEmpleado = Empleado.idEmpleado) left join servicios on (general.servicio = servicios.id) left join Cliente on (general.idCliente = Cliente.idCliente) left join Estado on (general.ubicacion_estado = Estado.idEstado) left join Municipio on (general.ubicacion_municipio = Municipio.idMunicipio) left join Colonia on (general.ubicacion_colonia = Colonia.idColonia) left join Estado as estaddestino on (general.destino_estado = estaddestino.idEstado) left join Municipio as munidestino on (general.destino_municipio = munidestino.idMunicipio) left join Colonia as coldestino on (general.destino_colonia = coldestino.idColonia) left join Provedor on (general.proveedor = Provedor.id) left join Colonia as colaseg on (general.aseg_colonia = colaseg.idColonia)  left join Municipio as muniaseg on (general.aseg_municipio = muniaseg.idMunicipio) left join Estado as estadaseg on (general.aseg_estado = estadaseg.idEstado) left join seguimiento_juridico on (general.id = seguimiento_juridico.general) left join Colonia as coljur on (seguimiento_juridico.colonia = coljur.idColonia)  left join Municipio as munijur on (seguimiento_juridico.municipio = munijur.idMunicipio) left join Estado as estadjur on (seguimiento_juridico.estado = estadjur.idEstado) left join pagos on (general.expediente = pagos.expediente) $condicion $subcondicion1  $subcondicion2 $subcondicion3 $subcondicion4 $subcondicion5 $subcondicion6 $subcondicion7 $subcondicion8 $subcondicion9 $subcondicion10 $subcondicion11 order by $sort $ascdesc ") or die(mysqli_error($link) . $query); 
 
 
 
 
-if (mysqli_num_rows($result)){ 
+if(mysqli_num_rows($result)){ 
 $comprime_columnas=implode(",",$campos);
 echo'<form action="exporta.php" method="post" name="frm" target="_blank">
 <input name="modulo" type="hidden" value="'.$tablax.'" />
@@ -1670,7 +1676,7 @@ $checa_array1=array_search("adjuntar_bitacora",$campos); if($checa_array1===FALS
 
 $linkh = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $linkh); 
-$resulth = mysqli_query($link,"SELECT * FROM bitacora where general='$row[id]' order by fecha desc", $linkh); 
+$resulth = mysqli_query($linkh,"SELECT * FROM bitacora where general='$row[id]' order by fecha desc"); 
 if (mysqli_num_rows($resulth)){ 
   while ($rowh = @mysqli_fetch_array($resulth)) { 
 $fexar=$rowh["fecha"];
@@ -1679,7 +1685,7 @@ $fexa=explode("-",$fexaz[0]);
 $userh=$rowh["usuario"];
 $dblx = mysqli_connect($host,$username,$pass,$database);
 //mysql_select_db($database,$dblx);
-$resultlx = mysqli_query($link,"SELECT * from Empleado where idEmpleado='$userx'",$dblx);
+$resultlx = mysqli_query($dblx,"SELECT * from Empleado where idEmpleado='$userx'");
 if (mysqli_num_rows($resultlx)){ 
 $eluserx=mysql_result($resultlx,0,"nombre");
 }
@@ -1705,7 +1711,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 
 $linkh = mysqli_connect($host, $username, $pass,$database); 
 //mysql_select_db($database, $linkh); 
-$resulth = mysqli_query($link,"SELECT * FROM notas_legal where general='$row[id]' order by fecha desc", $linkh); 
+$resulth = mysqli_query($linkh,"SELECT * FROM notas_legal where general='$row[id]' order by fecha desc"); 
 if (mysqli_num_rows($resulth)){ 
   while ($rowh = @mysqli_fetch_array($resulth)) { 
 $fexar=$rowh["fecha"];

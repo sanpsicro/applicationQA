@@ -16,7 +16,7 @@
           <option value="evaluaciones" <? if($tablax=="evaluaciones"){echo"selected";}?>>Evaluaciones</option>
           <option value="comisiones" <? if($tablax=="comisiones"){echo"selected";}?>>Comisiones de vendedores</option>                
           <option value="facturas" <? if($tablax=="facturas"){echo"selected";}?>>Facturas</option>
-          <option value="notas_remision" <? if($tablax=="notas_remision"){echo"selected";}?>>Notas de remisión</option>                                    
+          <option value="notas_remision" <? if($tablax=="notas_remision"){echo"selected";}?>>Notas de Remisi&oacute;n</option>                                    
       </select>
               
 <?
@@ -141,7 +141,7 @@ if($activo=="all"){echo' selected ';}
 echo'>Indistinto</option>
 <option value="si"'; 
 if($activo=="si"){echo' selected ';}
-echo'>Sí</option>
+echo'>Sï¿½</option>
 <option value="no"'; 
 if($activo=="no"){echo' selected ';}
 echo'>No</option>
@@ -160,7 +160,7 @@ if (mysql_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -189,7 +189,7 @@ echo'<td>
 	 
 	   echo'<option value="Empleado.direccion"';
      if($sort=="Empleado.direccion"){echo"selected";}
-	 echo'>Dirección</option>';
+	 echo'>Direcci&oacute;n</option>';
 	 
 	   echo'<option value="Colonia.NombreColonia"';
      if($sort=="Colonia.NombreColonia"){echo"selected";}
@@ -280,7 +280,7 @@ if($tablax=="validaciones"){
 				<option value="no"'.($activo=="no"?' selected ':'').'>No Validado</option>
 			</select><br>
 
-	<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+	<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 	</td>';
 
 	echo'<td>
@@ -1313,7 +1313,7 @@ if (mysql_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -1346,7 +1346,7 @@ echo'<td>
 	 
 	   echo'<option value="Cliente.calle"';
      if($sort=="Cliente.calle"){echo"selected";}
-	 echo'>Dirección</option>';
+	 echo'>Direcci&oacute;n</option>';
 	 
 	   echo'<option value="Colonia.NombreColonia"';
      if($sort=="Colonia.NombreColonia"){echo"selected";}
@@ -1374,7 +1374,7 @@ echo'<td>
 	 
 	 	   echo'<option value="Cliente.telefonoOficina"';
      if($sort=="Cliente.telefonoOficina"){echo"selected";}
-	 echo'>Teléfono oficina</option>';
+	 echo'>tel&eacute;fono oficina</option>';
 	 
 	 	 	   echo'<option value="Cliente.fax"';
      if($sort=="Cliente.fax"){echo"selected";}
@@ -1588,7 +1588,7 @@ if (mysql_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>
@@ -1621,7 +1621,7 @@ echo'<td>
 	 
 	   echo'<option value="Cliente.calle"';
      if($sort=="Cliente.calle"){echo"selected";}
-	 echo'>Dirección</option>';
+	 echo'>Direcci&oacute;n</option>';
 	 
 	   echo'<option value="Colonia.NombreColonia"';
      if($sort=="Colonia.NombreColonia"){echo"selected";}
@@ -1649,7 +1649,7 @@ echo'<td>
 	 
 	 	   echo'<option value="Cliente.telefonoOficina"';
      if($sort=="Cliente.telefonoOficina"){echo"selected";}
-	 echo'>Teléfono oficina</option>';
+	 echo'>tel&eacute;fono oficina</option>';
 	 
 	 	 	   echo'<option value="Cliente.fax"';
      if($sort=="Cliente.fax"){echo"selected";}
@@ -2073,7 +2073,7 @@ echo'/> Delitos<br>
 <input name="campos[]" type="checkbox" value="danos"'; 
 $checa_array1=array_search("danos",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
-echo'/> Daños<br>
+echo'/> Daï¿½os<br>
 <input name="campos[]" type="checkbox" value="lesiones"'; 
 $checa_array1=array_search("lesiones",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
@@ -2135,7 +2135,7 @@ echo'/> Ajustador tel 2<br>
 <input name="campos[]" type="checkbox" value="monto_danos"'; 
 $checa_array1=array_search("monto_danos",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
-echo'/> Monto daños<br>
+echo'/> Monto daï¿½os<br>
 <input name="campos[]" type="checkbox" value="monto_deducible"'; 
 $checa_array1=array_search("monto_deducible",$campos);
 if($checa_array1===FALSE){} else{echo' checked ';} 
@@ -2269,7 +2269,7 @@ if (mysql_num_rows($result)){
   }}
 echo'    </select><p>
 
-<b>Búsqueda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
+<b>b&uacute;squeda(opcional):</b><br><input name="quest" type="text" size="20" id="quest" value="'.$quest.'"/>
 </td>';
 
 echo'<td>';
@@ -2281,7 +2281,7 @@ echo'<table border="0" cellspacing="3" cellpadding="3">
     <td width="10" bgcolor="#eeeeee"><input name="filtrofecha1" type="checkbox" id="filtrofecha1" value="enabled" ';
 	if($filtrofecha1=="enabled"){echo'checked';}
 	echo'/></td>
-    <td width="150" bgcolor="#eeeeee"><strong>Fecha de recepción</strong></td>
+    <td width="150" bgcolor="#eeeeee"><strong>Fecha de recepciï¿½n</strong></td>
     <td width="180" bgcolor="#eeeeee"><strong>Inicial:</strong> '; 
 	
 if(empty($recepcion_d)){$recepcion_d=date("j");}	  

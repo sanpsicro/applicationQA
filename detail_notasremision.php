@@ -31,7 +31,7 @@ function mysqli_result($res,$row=0,$col=0){
 <<<<<<< HEAD
             <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">B&uacute;squeda: 
 =======
-            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">b&uacute;squeda: 
 >>>>>>> 7d922a3ec2d0bf6446eb3c3222f332535650d2f6
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
@@ -117,7 +117,7 @@ bordercolor="#000000" width="100%" bgcolor="#FFFFFF">
 <<<<<<< HEAD
     <td><div align="right">Nota de Remisi&oacute;n: <?php  echo "$numfac";?></div></td>
 =======
-    <td><div align="right">Nota de Remisi�n: <?php  echo "$numfac";?></div></td>
+    <td><div align="right">Nota de Remisi&oacute;n: <?php  echo "$numfac";?></div></td>
 >>>>>>> 7d922a3ec2d0bf6446eb3c3222f332535650d2f6
   </tr>
   <tr> 

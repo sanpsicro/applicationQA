@@ -152,7 +152,7 @@ if($errorvigencia=="si"){
 $alertas=''.$alertas.' <script language="Javascript">alert ("USUARIO SIN VIGENCIA")</script>';
 
 $despliega='<tr>
-    <td align=middle bgcolor="#ff0000"><b><font color="#ffffff">Póliza Vencida</font></b></td>
+    <td align=middle bgcolor="#ff0000"><b><font color="#ffffff">P&oacute;liza Vencida</font></b></td>
     <td align=middle bgcolor="#FFCC00"> NO UTILIZAR SERVICIOS <script language="Javascript">history.go(-1);</script></td>
   </tr>';}
 
@@ -214,7 +214,7 @@ echo"<form action='process.php?module=cabina&clave=".$clave."&accela=new' method
 if($restform=="si"){echo'<div id=capaexpansion style="display:block">';}
 else{echo'<div id=capaexpansion style="display:none">';}
 echo'<table width="100%" border="0" cellpadding=0 cellspacing=0>
-<tr><td width=50% align="middle" bgcolor="#cccccc"><b>Alta de servicio</b></td><td width=50% align="middle" bgcolor="#cccccc"><b>Histórico de servicios</b></td></tr>
+<tr><td width=50% align="middle" bgcolor="#cccccc"><b>Alta de servicio</b></td><td width=50% align="middle" bgcolor="#cccccc"><b>Histï¿½rico de servicios</b></td></tr>
 <tr><td width=50% valign=top><table width="100%" border="0" cellpadding=3 cellspacing=3>';
 foreach($productos_poliza as $losprod){
 $dbp = mysql_connect($host,$username,$pass);
@@ -257,7 +257,7 @@ $in=$in+1;
 echo'</table></td><td width=50% valign=top>
 
 <table width="100%" border="0" cellpadding=3 cellspacing=3>
-<tr><td bgcolor="#bbbbbb" align=middle><b>Número de expediente</b></td><td bgcolor="#bbbbbb"  align=middle><b>Servicio utilizado</b></td><td bgcolor="#bbbbbb"  align=middle><b>Detalle</b></td></tr>';
+<tr><td bgcolor="#bbbbbb" align=middle><b>N&uacute;mero de expediente</b></td><td bgcolor="#bbbbbb"  align=middle><b>Servicio utilizado</b></td><td bgcolor="#bbbbbb"  align=middle><b>Detalle</b></td></tr>';
 
 $link = mysql_connect($host, $username, $pass); 
 mysql_select_db($database, $link); 

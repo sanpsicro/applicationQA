@@ -240,7 +240,7 @@ $services=explode(",",$row["trabajos"]);
 </tr>
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto:</b> '.$row["contacto"].'<br>
-<b>Teléfono:</b> '.$row["tel"].'<br>
+<b>tel&eacute;fono:</b> '.$row["tel"].'<br>
 <b>Fax:</b> '.$row["fax"].'<br>
 <b>Celular:</b> '.$row["cel"].'<br>
 <b>Nextel:</b> '.$row["nextel"].'<br>
@@ -250,7 +250,7 @@ $services=explode(",",$row["trabajos"]);
 
 <tr>
 <td bgcolor="#cccccc" style="font-size:11px;" colspan=2><b>Contacto2:</b> '.$row["contacto2"].'<br>
-<b>Teléfono:</b> '.$row["tel2"].'<br>
+<b>tel&eacute;fono:</b> '.$row["tel2"].'<br>
 <b>Fax:</b> '.$row["fax2"].'<br>
 <b>Celular:</b> '.$row["cel2"].'<br>
 <b>Nextel:</b> '.$row["nextel2"].'<br>

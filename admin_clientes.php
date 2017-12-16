@@ -100,7 +100,7 @@ function validar(formulario) {
   }
   
    if (formulario.numero.value.length < 1) {
-    alert("Escriba un n�mero");
+    alert("Escriba un N&uacute;mero");
     formulario.numero.focus();
     return (false);
   }
@@ -130,14 +130,14 @@ function validar(formulario) {
   }
   
      if (formulario.telefonocasa.value.length < 4) {
-    alert("Escriba un tel�fono");
+    alert("Escriba un tel&eacute;fono");
     formulario.telefonocasa.focus();
     return (false);
   }
   
 /*  
   if ((formulario.email.value.indexOf ('@', 0) == -1)||(formulario.email.value.length < 5)) { 
-    alert("Escriba una direcci�n de correo v�lida"); 
+    alert("Escriba una direcci&oacute;n de correo v�lida"); 
 	    formulario.email.focus();
     return (false); 
 	

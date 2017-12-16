@@ -37,17 +37,17 @@ if(empty($moko)){$moko="all";}
 
               <select name="show" id="mostrar">
 
-                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p�gina</option>
+                <option value="10" <?php  if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
 
-                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p�gina</option>
+                <option value="20"  <?php  if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
 
-                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p�gina</option>
+                <option value="30"  <?php  if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
 
-                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p�gina</option>
+                <option value="50"  <?php  if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
 
-                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p�gina</option>
+                <option value="100"  <?php  if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
 
-                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p�gina</option>
+                <option value="200"  <?php  if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
 
               </select>
 
@@ -113,7 +113,7 @@ if(empty($moko)){$moko="all";}
 
 ?>
 
-            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=seguimiento"><td align="right" class="questtitle">b&uacute;squeda: 
 
               <input name="quest" type="text" id="quest" size="15"  onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
 
@@ -159,7 +159,7 @@ if($_POST['quest']!=''){
 
 $precondicion="";
 
-echo'<br><b><div class="xplik">Resultados de la b�squeda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 
 $condicion="Where general.contrato like '%$quest%' 
 
@@ -307,7 +307,7 @@ $_GET["show"]=$show;
 
   $posterior = $actual + 1;
 
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p�gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 
@@ -363,7 +363,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
 
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Destino Municipio</b></td>					  					  
 
-                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaci�n</b></td></tr>';
+                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaci&Oacute;n</b></td></tr>';
 
 $bgcolor="#cccccc";
 

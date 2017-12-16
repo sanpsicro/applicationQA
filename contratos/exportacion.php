@@ -25,7 +25,7 @@ function SetAllCheckBoxes(FormName, FieldName, CheckValue)
 </script>
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
-      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Exportación</span></td></tr></table></td></tr>
+      <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Exportaciï¿½n</span></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3" bgcolor="#FFFFFF">
           <tr>
@@ -58,7 +58,7 @@ if($departamento=="all"){$subcondicion2="";}
 else{$subcondicion2="and Empleado.idDepartamento='$departamento'";}
 
 if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion3=" and (Empleado.usuario LIKE '%$quest%' or Empleado.nombre LIKE '%$quest%' or Empleado.cargo LIKE '%$quest%' or Empleado.direccion LIKE '%$quest%' or Empleado.telefonoCasa LIKE '%$quest%' or Empleado.telefonoCelular LIKE '%$quest%' or Empleado.nextel LIKE '%$quest%' or Empleado.idnextel LIKE '%$quest%' or Empleado.email LIKE '%$quest%' or Empleado.activo LIKE '%$quest%' or Departamento.nombre LIKE '%$quest%' or Colonia.NombreColonia LIKE '%$quest%' or Municipio.NombreMunicipio like '%$quest%' or Estado.NombreEstado like '%$quest%')";
 }
 else{$subcondicion3="";}
@@ -82,11 +82,11 @@ $checa_array1=array_search("nombre",$campos); if($checa_array1===FALSE){} else{e
 $checa_array1=array_search("usuario",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Usuario</strong></td>';} 				$checa_array1=array_search("cargo",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Cargo</strong></td>';}
 $checa_array1=array_search("departamento",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Departamento</strong></td>';}
 $checa_array1=array_search("activo",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Activo</strong></td>';}
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Dirección</strong></td>';}
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Direcci&oacute;n</strong></td>';}
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Colonia</strong></td>';}
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Municipio</strong></td>';}
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Estado</strong></td>';}
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Teléfono</strong></td>';}
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>tel&eacute;fono</strong></td>';}
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Celular</strong></td>';}
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Nextel</strong></td>';}
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>ID Nextel</strong></td>';}
@@ -152,7 +152,7 @@ if($tablax=="validaciones"){
 
 
 	if(isset($quest) && $quest!="" && $quest!=" "){
-	echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+	echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 	$subcondicion3=" AND (uc.contrato LIKE '%$quest%' OR uc.inciso LIKE '%$quest%' OR uc.clave LIKE '%$quest%' OR uc.nombre like '%$quest%' OR v.tipo_pago like '%$quest%' OR v.observaciones like '%$quest%')";
 	}
 	else{$subcondicion3="";}
@@ -911,7 +911,7 @@ else{$subcondicion3="and Cliente.tipocliente='$tipo_cliente'";}
 
 
 if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion4=" and (Cliente.usuario like '%$quest%' or Cliente.nombre like '%$quest%' or Cliente.rfc like '%$quest%' or Cliente.contacto like '%$quest%' or Cliente.fisCalle like '%$quest%' or Cliente.fisNumero like '%$quest%' or Cliente.fisCiudad like '%$quest%' or Cliente.calle like '%$quest%' or Cliente.numero like '%$quest%' or Cliente.ciudad like '%$quest%' or Cliente.telefonoCasa like '%$quest%' or Cliente.telefonoOficina like '%$quest%' or Cliente.fax like '%$quest%' or Cliente.extension like '%$quest%' or Cliente.telefonoCelular like '%$quest%' or Cliente.nextel like '%$quest%' or Cliente.TelNextel like '%$quest%' or Cliente.email like '%$quest%' or Cliente.status like '%$quest%' or TipoCliente.nombre like '%$quest%' or Colonia.NombreColonia like '%$quest%' or Municipio.NombreMunicipio like '%$quest%' or Estado.NombreEstado like '%$quest%' or Empleado.nombre like '%$quest%')";
 }
 else{$subcondicion4="";}
@@ -1000,14 +1000,14 @@ $checa_array1=array_search("ucmail",$campos); if($checa_array1===FALSE){} else{e
 $checa_array1=array_search("status",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Status</strong></td>';}
 $checa_array1=array_search("rfc",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>RFC</strong></td>';}
 $checa_array1=array_search("contacto",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Contacto</strong></td>';}
-$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Dirección</strong></td>';}
+$checa_array1=array_search("direccion",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Direcci&oacute;n</strong></td>';}
 $checa_array1=array_search("colonia",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Colonia</strong></td>';}
 $checa_array1=array_search("ciudad",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Ciudad</strong></td>';}
 $checa_array1=array_search("municipio",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Municipio</strong></td>';}
 $checa_array1=array_search("estado",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Estado</strong></td>';}
-$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Teléfono</strong></td>';}
+$checa_array1=array_search("tel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>tel&eacute;fono</strong></td>';}
 $checa_array1=array_search("cel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Celular</strong></td>';}
-$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Teléfono de oficina</strong></td>';}
+$checa_array1=array_search("oficina",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>tel&eacute;fono de oficina</strong></td>';}
 $checa_array1=array_search("fax",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Fax</strong></td>';}
 $checa_array1=array_search("nextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Nextel</strong></td>';}
 $checa_array1=array_search("idnextel",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>ID Nextel</strong></td>';}
@@ -1120,7 +1120,7 @@ else{$subcondicion3="and general.idEmpleado='$empleadof'";}
 
 
 if(isset($quest) && $quest!="" && $quest!=" "){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $subcondicion4=" and (general.contrato like '%$quest%' or general.reporta like '%$quest%' or general.num_contrato like '%$quest%' or general.convenio like '%$quest%' or general.expediente like '%$quest%' or general.aseguradora like '%$quest%' or general.aseg_poliza like '%$quest%' or general.asegurado like '%$quest%' or general.asegurado_y_o like '%$quest%' or general.aseg_conductor like '%$quest%' or general.usuario like '%$quest%' or general.reporte_cliente like '%$quest%' or general.motivo_servicio like '%$quest%' or general.auto_marca like '%$quest%' or general.auto_tipo like '%$quest%' or general.auto_modelo like '%$quest%' or general.auto_color like '%$quest%' or general.auto_placas like '%$quest%' or general.domicilio_cliente like '%$quest%' or general.ubicacion_requiere like '%$quest%' or general.destino_servicio like '%$quest%' or general.observaciones like '%$quest%' or Cliente.nombre like '%$quest%' or Provedor.nombre like '%$quest%')";
 }
 else{$subcondicion4="";}
@@ -1184,7 +1184,7 @@ $checa_array1=array_search("num_cliente",$campos); if($checa_array1===FALSE){} e
 $checa_array1=array_search("num_siniestro",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Num. siniestro</strong></td>';}
 $checa_array1=array_search("usuario",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Usuario</strong></td>';}
 $checa_array1=array_search("reporte_cliente",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Reporte cliente</strong></td>';}
-$checa_array1=array_search("tecnico_solicitado",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Técnico solicitado</strong></td>';}
+$checa_array1=array_search("tecnico_solicitado",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Tï¿½cnico solicitado</strong></td>';}
 $checa_array1=array_search("motivo_servicio",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Motivo del servicio</strong></td>';}
 $checa_array1=array_search("tipo_vial",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Tipo asist. vial</strong></td>';}
 $checa_array1=array_search("tipo_medica",$campos); if($checa_array1===FALSE){} else{echo'<td align="center" bgcolor="#bbbbbb"><strong>Tipo asist. medica</strong></td>';}

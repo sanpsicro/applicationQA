@@ -11,6 +11,8 @@ isset($_POST['sort']) ? $sort = $_POST['sort']: $sort = "" ;
 isset($_GET['quest']) ? $quest = $_GET['quest']: $quest = "" ;
 isset($_GET['accela']) ? $accela = $_GET['accela']: $accela = "" ;
 
+//thisis line 92 inside option
+
 if(empty($show)){$show=50;}
 if(empty($sort)){$sort="Poliza.numPoliza";}
 ?>
@@ -89,7 +91,7 @@ $result = mysqli_query($link,"SELECT DISTINCT Poliza.numPoliza from Poliza left 
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
-    $texto .= "<option $thisis value=\"$enlace$isabel\">$isabel</option> ";}
+    $texto .= "<option  value=\"$enlace$isabel\">$isabel</option> ";}
 } 	
 $pag = ($_GET['pag']); 
 if (!isset($pag)) $pag = 1;
@@ -128,7 +130,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Vendedor</b></td>
 
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Num. Contrato</b></td>
-                     <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Comisi�n</b></td>				  					 
+                     <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Comisi&oacute;n</b></td>				  					 
                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Status</b></td>
                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaciones</b></td></tr>					 
 					 ';

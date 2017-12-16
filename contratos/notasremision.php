@@ -8,19 +8,19 @@ if(empty($sort)){$sort="factura";}
 <table border=0 width=100% cellpadding=0 cellspacing=0>
  <tr> 
       <td height="44" align="left"><table width=100% cellpadding=0 cellspacing=0><tr><td><span class="maintitle">Notas de Remision</span></td><td width=150 class="blacklinks"><?  $checa_array1=array_search("22_a",$explota_permisos);
-if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&accela=new">Nueva Nota de Remisión</a> ]';} ?></td></tr></table></td></tr>
+if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&accela=new">Nueva Nota de Remisi&oacute;n</a> ]';} ?></td></tr></table></td></tr>
  <tr> 
       <td height="47" align="left"><table width="100%" border="0" cellspacing="3" cellpadding="3">
           <tr>
             <form name="form1" method="post" action="bridge.php?module=notasremision<? if($quest!=""){echo"&quest=$quest";}?>">
             <td width="400"> 
               <select name="show" id="mostrar">
-                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por página</option>
-                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por página</option>
-                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por página</option>
-                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por página</option>
-                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por página</option>
-                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por página</option>
+                <option value="10" <? if($show=="10"){echo"selected";}?>>10 por p&aacute;gina</option>
+                <option value="20"  <? if($show=="20"){echo"selected";}?>>20 por p&aacute;gina</option>
+                <option value="30"  <? if($show=="30"){echo"selected";}?>>30 por p&aacute;gina</option>
+                <option value="50"  <? if($show=="50"){echo"selected";}?>>50 por p&aacute;gina</option>
+                <option value="100"  <? if($show=="100"){echo"selected";}?>>100 por p&aacute;gina</option>
+                <option value="200"  <? if($show=="200"){echo"selected";}?>>200 por p&aacute;gina</option>
               </select>
               <select name="sort" id="ordenar">
                 <option value="factura"  <? if($sort=="factura"){echo"selected";}?>>Ordenar por Nota</option>
@@ -37,7 +37,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
 
 
 
-            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=notasremision"><td align="right" class="questtitle">b&uacute;squeda: 
 
 
 
@@ -74,12 +74,12 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_notasremision_b&a
 
 
 <?
-if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva Nota de Remisión Registrada</div></b><p>';}
-if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de la Nota de Remisión actualizados</div></b><p>';}
-if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Nota de Remisión eliminada</div></b><p>';}
+if(isset($code) && $code=="1"){echo'<br><b><div class="xplik">Nueva Nota de Remisi&oacute;n Registrada</div></b><p>';}
+if(isset($code) && $code=="2"){echo'<br><b><div class="xplik">Datos de la Nota de Remisi&oacute;n actualizados</div></b><p>';}
+if(isset($code) && $code=="3"){echo'<br><b><div class="xplik">Nota de Remisi&oacute;n eliminada</div></b><p>';}
 
 if(isset($quest) && $quest!=""){
-echo'<br><b><div class="xplik">Resultados de la búsqueda:</div></b><p>';
+echo'<br><b><div class="xplik">Resultados de la b&uacute;squeda:</div></b><p>';
 $condicion="where (factura like '%$quest%' OR nombre like '%$quest%')";
 }
 else{$condicion="";}
@@ -103,7 +103,7 @@ $_GET["show"]=$show;
   $total_paginas = ceil($total/$por_pagina);
   $anterior = $actual - 1;
   $posterior = $actual + 1;
-  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la página</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
+  $texto = "<table border=0 cellpadding=0 cellspacing=0 width=100% height=28><form name=jumpto method=get><tr><td width=15>&nbsp;</td><td width=80><font color=#000000>Ir a la p&aacute;gina</font></td><td width=5>&nbsp;</td><td width=30><select name=\"url\" onchange=\"return jump(this);\">";
 for($isabel=1; $isabel<=$total_paginas; $isabel++)
 { 
 if($pag==$isabel){    $texto .= "<option selected value=\"$enlace$isabel\">$isabel</option> ";} else {
@@ -125,7 +125,7 @@ echo'<table width="100%" border="0" cellspacing="3" cellpadding="3">
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Fecha</b></td>
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Total</b></td>					  
                       <td bgcolor="#BBBBBB" align=middle class="dataclass"><b>Status</b></td>					  
-                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operación</b></td></tr>';
+                      <td bgcolor="#BBBBBB" width=150  align=middle class="dataclass"><b>Operaci&Oacute;n</b></td></tr>';
 $bgcolor="#cccccc";
   while ($row = @mysql_fetch_array($result)) { 
   

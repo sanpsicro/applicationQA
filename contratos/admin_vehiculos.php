@@ -73,7 +73,7 @@ echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela=
 
         <td><strong>Veh&iacute;culos</strong></td>
 
-        <td width="150" align="center" class="blacklinks">[ <a href="vehiculos.php?tmpid=<? echo $tmpid; ?>&idPoliza=<? echo $idPoliza; ?>&tipocliente=<? echo $tipocliente; ?>">Lista de vehículos</a> ]</td>
+        <td width="150" align="center" class="blacklinks">[ <a href="vehiculos.php?tmpid=<? echo $tmpid; ?>&idPoliza=<? echo $idPoliza; ?>&tipocliente=<? echo $tipocliente; ?>">Lista de veh&iacute;culos</a> ]</td>
 
       </tr>
 
@@ -134,7 +134,7 @@ echo'<form name="frm" method="post" action="process.php?module=vehiculos&accela=
      </td>
 
      <td align="right" bgcolor="#bbbbbb"><input type="submit" name="Submit" value="Agregar Veh&iacute;culo" onClick="return confirm(
-  'Se dará de alta el vehículo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n ¿Desea continuar?');"></td>
+  'Se dar&aacute;de alta el veh&iacute;culo con los siguientes datos:\n \n Marca: ' + document.frm.marca.value + ' \n Modelo: ' + document.frm.modelo.value + '\n Tipo: ' + document.frm.tipo.value + '\n Color: ' + document.frm.color.value + '\n Placas: ' + document.frm.placas.value + '\n Serie: ' + document.frm.serie.value + '\n  \n \n ï¿½Desea continuar?');"></td>
 
      <td align="left" bgcolor="#bbbbbb"><input type="reset" name="Submit2" value="Reestablecer"></td>
 

@@ -26,13 +26,13 @@ if(empty($sort)){$sort="contrato, inciso";}
                 <option value="no validados"  <?php  if($display=="no validados"){echo"selected";}?>>No validados</option>
               </select>
               <select name="sort" id="ordenar">
-                <option value="contrato, inciso" <?php  if($sort=="contrato, inciso"){echo"selected";}?>>Ordenar por n�mero de contrato</option>
+                <option value="contrato, inciso" <?php  if($sort=="contrato, inciso"){echo"selected";}?>>Ordenar por N&uacute;mero de contrato</option>
                 <option value="nombre" <?php  if($sort=="nombre"){echo"selected";}?>>Ordenar por nombre</option>				
               </select>
               <input type="submit" name="Submit2" value="Mostrar"> </td>
           </form>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=validaciones"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=validaciones"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>

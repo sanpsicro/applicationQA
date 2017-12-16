@@ -82,7 +82,7 @@ function validar(formulario) {
  
  <script type="text/javascript" language="JavaScript">
 function confirmGeneral(generalurl) { 
-if (confirm("¿Está seguro?")) { 
+if (confirm("Â¿Est&aacute; seguro?")) { 
 document.location = generalurl; 
 }
 }
@@ -102,7 +102,7 @@ if($checa_array1===FALSE){} else{echo'[ <a href="?module=admin_contratos&accela=
 			?>
 </td>
             <td>&nbsp;</td>
-            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">Búsqueda: 
+            <form name="form1" method="post" action="bridge.php?module=contratos"><td align="right" class="questtitle">b&uacute;squeda: 
               <input name="quest" type="text" id="quest2" size="15"> <input type="submit" name="Submit" value="Buscar">
             </td></form>
           </tr>

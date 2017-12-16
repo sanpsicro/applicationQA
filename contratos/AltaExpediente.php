@@ -353,7 +353,7 @@ while ($fila = mysql_fetch_assoc($resultado)){
 <table width=250>
 <tr>
 <td>
-Fecha en que se suscit� el hecho:
+Fecha en que se suscit&oacute; el hecho:
 </td>
 </tr>
 <tr>
@@ -387,7 +387,7 @@ Fecha en que se suscit� el hecho:
 <table>
 <tr>
 <td>
-Hora de asignaci�n del proveedor:
+Hora de asignaci&oacute;n del proveedor:
 </td>
 </tr>
 <tr>
@@ -487,7 +487,7 @@ No. de convenio:
 <table>
 <tr>
 <td>
-N�mero de siniestro:
+N&uacute;mero de siniestro:
 </td>
 </tr>
 <tr>
@@ -643,7 +643,7 @@ Que t�cnico solicita:
                <option VALUE='Siniestro'>Siniestro</option>
                            <option VALUE='Asistencia'>Asistencia</option>
                            <option VALUE='Cambio de llanta'>Cambio de llanta</option>
-                           <option VALUE='Llaves en el interior del veh�culo'>Llaves en el interior del veh�culo</option>
+                           <option VALUE='Llaves en el interior del veh&iacute;culo'>Llaves en el interior del veh&iacute;culo</option>
                            <option VALUE='Env�o de gasolina'>Env�o de gasolina</option>
                            <option VALUE='Problemas administrativos'>Problemas administrativos</option>
                   </select>

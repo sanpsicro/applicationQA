@@ -82,7 +82,7 @@ $_SESSION['coberturas']="";
 
             <td>&nbsp;</td>
 
-            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">B�squeda: 
+            <form name="form1" method="post" action="bridge.php?module=proveedores"><td align="right" class="questtitle">b&uacute;squeda: 
 
               <input name="quest" type="text" id="quest2" size="15" onattrmodified="g(this)" onpropertychange="g(this)" onkeydown="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)"> <input type="submit" name="Submit" value="Buscar">
 
@@ -164,6 +164,9 @@ $observaciones=mysqli_result($result,0,"observaciones");
 $status=mysqli_result($result,0,"status");
 $lastuser=mysqli_result($result,0,"lastuser");
 $lastdate=mysqli_result($result,0,"lastdate");
+}else{
+$serviciosx=array();
+	
 }
 echo'<form name="form1" method="post" action="process.php?module=proveedores&accela='.$accela.'&id='.$id.'">';     
 
